@@ -1,4 +1,6 @@
+import addons.curse.AddOnFile;
 import com.curse.addonservice.GetAllFilesForAddOn;
+import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.thiakil.curseapi.AddOnService;
 import com.thiakil.curseapi.AddOnServiceStub;
 import org.apache.axis2.AxisFault;
@@ -14,7 +16,10 @@ public class test {
 			AddOnServiceStub svc = new AddOnServiceStub();
 			GetAllFilesForAddOn addon = new GetAllFilesForAddOn();
 			addon.setAddOnID(268560);
-			svc.getAllFilesForAddOn(addon);
+			GetAllFilesForAddOnResponse res = svc.getAllFilesForAddOn(addon);
+			for (AddOnFile f : res.getGetAllFilesForAddOnResult().getAddOnFile()){
+				System.out.println(f.getFileName());
+			}
 		} catch (AxisFault e) {
 			System.err.println(e.getReason());
 			System.err.println(e);
