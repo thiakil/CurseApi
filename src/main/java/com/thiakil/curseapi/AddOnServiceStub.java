@@ -71,10 +71,15 @@ import com.curse.addonservice.V2GetFingerprintMatches;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMFactory;
+import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.impl.common.OMNamespaceImpl;
 import org.apache.axiom.soap.SOAP12Constants;
 import org.apache.axiom.soap.SOAPEnvelope;
 import org.apache.axiom.soap.SOAPFactory;
+import org.apache.axiom.soap.SOAPHeaderBlock;
+import org.apache.axiom.soap.impl.dom.soap11.SOAP11HeaderBlockImpl;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.FaultMapKey;
@@ -162,6 +167,15 @@ public class AddOnServiceStub extends Stub
         auth.setPassword("????");
         auth.setPreemptiveAuthentication(true);
         _serviceClient.getOptions().setProperty(org.apache.axis2.transport.http.HTTPConstants.AUTHENTICATE, auth);*/
+		OMFactory factory = OMAbstractFactory.getOMFactory();
+		OMNamespace ns = factory.createOMNamespace("urn:Curse.FriendsService:v1", "");
+		OMElement header = factory.createOMElement("AuthenticationToken", ns);
+		OMElement id = factory.createOMElement("UserID", ns, header);
+		id.setText("28798139");
+		OMElement token = factory.createOMElement("Token", ns, header);
+		factory.createOMElement("ApiKey", null, header);
+		token.setText("ZRld3TscBuDPgYRVHrZztL2jW8x4VcyBLlVfjyE2dU0ilDM0hH4xzVGXjxDNqvL0YDz/EX6NMuAMYkZG1TIE6YdyljGCAPTRvt/YmwF4g1w5eivSFYBkzPDDLWVsJ4gKekOvQoaJU6VDqAd3rLjmPEj82LUw4jbmF3WfemzVLZ35pt28/cB4/6IDL06TwPP8");
+		_serviceClient.addHeader(header);
 	}
 
 	/**
