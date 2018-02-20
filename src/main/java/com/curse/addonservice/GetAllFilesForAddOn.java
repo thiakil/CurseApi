@@ -32,7 +32,7 @@ import java.util.Vector;
 })
 public class GetAllFilesForAddOn implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/",
-			"GetAllFilesForAddOn", "ns9");
+			"GetAllFilesForAddOn", "");
 
 	/**
 	 * field for AddOnID
