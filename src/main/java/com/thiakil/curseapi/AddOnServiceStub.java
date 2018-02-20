@@ -169,12 +169,14 @@ public class AddOnServiceStub extends Stub
         _serviceClient.getOptions().setProperty(org.apache.axis2.transport.http.HTTPConstants.AUTHENTICATE, auth);*/
 		OMFactory factory = OMAbstractFactory.getOMFactory();
 		OMNamespace ns = factory.createOMNamespace("urn:Curse.FriendsService:v1", "");
+		OMNamespace ns2 = factory.createOMNamespace("http://www.w3.org/2001/XMLSchema-instance", "i");
 		OMElement header = factory.createOMElement("AuthenticationToken", ns);
+		factory.createOMElement("ApiKey", ns, header).addAttribute(factory.createOMAttribute("nil", ns2, "true"));
+		header.declareNamespace(ns2);
+		OMElement token = factory.createOMElement("Token", ns, header);
+		token.setText("ZRld3TscBuDPgYRVHrZztL2jW8x4VcyBLlVfjyE2dU0ilDM0hH4xzVGXjxDNqvL0YDz/EX6NMuAMYkZG1TIE6YdyljGCAPTRvt/YmwF4g1w5eivSFYBkzPDDLWVsJ4gKekOvQoaJU6VDqAd3rLjmPEj82LUw4jbmF3WfemzVLZ35pt28/cB4/6IDL06TwPP8");
 		OMElement id = factory.createOMElement("UserID", ns, header);
 		id.setText("28798139");
-		OMElement token = factory.createOMElement("Token", ns, header);
-		factory.createOMElement("ApiKey", null, header);
-		token.setText("ZRld3TscBuDPgYRVHrZztL2jW8x4VcyBLlVfjyE2dU0ilDM0hH4xzVGXjxDNqvL0YDz/EX6NMuAMYkZG1TIE6YdyljGCAPTRvt/YmwF4g1w5eivSFYBkzPDDLWVsJ4gKekOvQoaJU6VDqAd3rLjmPEj82LUw4jbmF3WfemzVLZ35pt28/cB4/6IDL06TwPP8");
 		_serviceClient.addHeader(header);
 	}
 
