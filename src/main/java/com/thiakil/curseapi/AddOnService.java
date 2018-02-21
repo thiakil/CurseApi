@@ -81,7 +81,7 @@ public interface AddOnService {
 	 *
 	 * @param createSyncGroup0
 	 */
-	public CreateSyncGroupResponse createSyncGroup(
+	CreateSyncGroupResponse createSyncGroup(
 			CreateSyncGroup createSyncGroup0)
 			throws RemoteException;
 
@@ -90,7 +90,7 @@ public interface AddOnService {
 	 *
 	 * @param createSyncGroup0
 	 */
-	public void startcreateSyncGroup(
+	void startcreateSyncGroup(
 			CreateSyncGroup createSyncGroup0,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -100,7 +100,7 @@ public interface AddOnService {
 	 *
 	 * @param getSecureDownloadToken2
 	 */
-	public GetSecureDownloadTokenResponse getSecureDownloadToken(
+	GetSecureDownloadTokenResponse getSecureDownloadToken(
 			GetSecureDownloadToken getSecureDownloadToken2)
 			throws RemoteException;
 
@@ -109,7 +109,7 @@ public interface AddOnService {
 	 *
 	 * @param getSecureDownloadToken2
 	 */
-	public void startgetSecureDownloadToken(
+	void startgetSecureDownloadToken(
 			GetSecureDownloadToken getSecureDownloadToken2,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -119,7 +119,7 @@ public interface AddOnService {
 	 *
 	 * @param healthCheck4
 	 */
-	public HealthCheckResponse healthCheck(
+	HealthCheckResponse healthCheck(
 			HealthCheck healthCheck4)
 			throws RemoteException;
 
@@ -128,7 +128,7 @@ public interface AddOnService {
 	 *
 	 * @param healthCheck4
 	 */
-	public void starthealthCheck(
+	void starthealthCheck(
 			HealthCheck healthCheck4,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -138,7 +138,7 @@ public interface AddOnService {
 	 *
 	 * @param getFingerprintMatches6
 	 */
-	public GetFingerprintMatchesResponse getFingerprintMatches(
+	GetFingerprintMatchesResponse getFingerprintMatches(
 			GetFingerprintMatches getFingerprintMatches6)
 			throws RemoteException;
 
@@ -147,7 +147,7 @@ public interface AddOnService {
 	 *
 	 * @param getFingerprintMatches6
 	 */
-	public void startgetFingerprintMatches(
+	void startgetFingerprintMatches(
 			GetFingerprintMatches getFingerprintMatches6,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -157,7 +157,7 @@ public interface AddOnService {
 	 *
 	 * @param saveSyncTransactions8
 	 */
-	public SaveSyncTransactionsResponse saveSyncTransactions(
+	SaveSyncTransactionsResponse saveSyncTransactions(
 			SaveSyncTransactions saveSyncTransactions8)
 			throws RemoteException;
 
@@ -166,7 +166,7 @@ public interface AddOnService {
 	 *
 	 * @param saveSyncTransactions8
 	 */
-	public void startsaveSyncTransactions(
+	void startsaveSyncTransactions(
 			SaveSyncTransactions saveSyncTransactions8,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -176,7 +176,7 @@ public interface AddOnService {
 	 *
 	 * @param getRepositoryMatchFromSlug10
 	 */
-	public GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(
+	GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(
 			GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10)
 			throws RemoteException;
 
@@ -185,7 +185,7 @@ public interface AddOnService {
 	 *
 	 * @param getRepositoryMatchFromSlug10
 	 */
-	public void startgetRepositoryMatchFromSlug(
+	void startgetRepositoryMatchFromSlug(
 			GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -195,7 +195,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetFingerprintMatches12
 	 */
-	public V2GetFingerprintMatchesResponse v2GetFingerprintMatches(
+	V2GetFingerprintMatchesResponse v2GetFingerprintMatches(
 			V2GetFingerprintMatches v2GetFingerprintMatches12)
 			throws RemoteException;
 
@@ -204,7 +204,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetFingerprintMatches12
 	 */
-	public void startv2GetFingerprintMatches(
+	void startv2GetFingerprintMatches(
 			V2GetFingerprintMatches v2GetFingerprintMatches12,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -214,7 +214,7 @@ public interface AddOnService {
 	 *
 	 * @param cacheHealthCheck14
 	 */
-	public CacheHealthCheckResponse cacheHealthCheck(
+	CacheHealthCheckResponse cacheHealthCheck(
 			CacheHealthCheck cacheHealthCheck14)
 			throws RemoteException;
 
@@ -223,7 +223,7 @@ public interface AddOnService {
 	 *
 	 * @param cacheHealthCheck14
 	 */
-	public void startcacheHealthCheck(
+	void startcacheHealthCheck(
 			CacheHealthCheck cacheHealthCheck14,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -233,7 +233,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnDescription16
 	 */
-	public GetAddOnDescriptionResponse getAddOnDescription(
+	GetAddOnDescriptionResponse getAddOnDescription(
 			GetAddOnDescription getAddOnDescription16)
 			throws RemoteException;
 
@@ -242,7 +242,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnDescription16
 	 */
-	public void startgetAddOnDescription(
+	void startgetAddOnDescription(
 			GetAddOnDescription getAddOnDescription16,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -252,7 +252,7 @@ public interface AddOnService {
 	 *
 	 * @param resetFeeds18
 	 */
-	public ResetFeedsResponse resetFeeds(
+	ResetFeedsResponse resetFeeds(
 			ResetFeeds resetFeeds18)
 			throws RemoteException;
 
@@ -261,7 +261,7 @@ public interface AddOnService {
 	 *
 	 * @param resetFeeds18
 	 */
-	public void startresetFeeds(
+	void startresetFeeds(
 			ResetFeeds resetFeeds18,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -271,7 +271,7 @@ public interface AddOnService {
 	 *
 	 * @param leaveSyncGroup20
 	 */
-	public LeaveSyncGroupResponse leaveSyncGroup(
+	LeaveSyncGroupResponse leaveSyncGroup(
 			LeaveSyncGroup leaveSyncGroup20)
 			throws RemoteException;
 
@@ -280,7 +280,7 @@ public interface AddOnService {
 	 *
 	 * @param leaveSyncGroup20
 	 */
-	public void startleaveSyncGroup(
+	void startleaveSyncGroup(
 			LeaveSyncGroup leaveSyncGroup20,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -290,7 +290,7 @@ public interface AddOnService {
 	 *
 	 * @param saveSyncSnapshot22
 	 */
-	public SaveSyncSnapshotResponse saveSyncSnapshot(
+	SaveSyncSnapshotResponse saveSyncSnapshot(
 			SaveSyncSnapshot saveSyncSnapshot22)
 			throws RemoteException;
 
@@ -299,7 +299,7 @@ public interface AddOnService {
 	 *
 	 * @param saveSyncSnapshot22
 	 */
-	public void startsaveSyncSnapshot(
+	void startsaveSyncSnapshot(
 			SaveSyncSnapshot saveSyncSnapshot22,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -309,7 +309,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnDump24
 	 */
-	public GetAddOnDumpResponse getAddOnDump(
+	GetAddOnDumpResponse getAddOnDump(
 			GetAddOnDump getAddOnDump24)
 			throws RemoteException;
 
@@ -318,7 +318,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnDump24
 	 */
-	public void startgetAddOnDump(
+	void startgetAddOnDump(
 			GetAddOnDump getAddOnDump24,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -328,7 +328,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOns26
 	 */
-	public GetAddOnsResponse getAddOns(
+	GetAddOnsResponse getAddOns(
 			GetAddOns getAddOns26)
 			throws RemoteException;
 
@@ -337,8 +337,8 @@ public interface AddOnService {
 	 *
 	 * @param getAddOns26
 	 */
-	public void startgetAddOns(GetAddOns getAddOns26,
-							   final AddOnServiceCallbackHandler callback)
+	void startgetAddOns(GetAddOns getAddOns26,
+						final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
 
 	/**
@@ -346,7 +346,7 @@ public interface AddOnService {
 	 *
 	 * @param getDownloadToken28
 	 */
-	public GetDownloadTokenResponse getDownloadToken(
+	GetDownloadTokenResponse getDownloadToken(
 			GetDownloadToken getDownloadToken28)
 			throws RemoteException;
 
@@ -355,7 +355,7 @@ public interface AddOnService {
 	 *
 	 * @param getDownloadToken28
 	 */
-	public void startgetDownloadToken(
+	void startgetDownloadToken(
 			GetDownloadToken getDownloadToken28,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -365,7 +365,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetChangeLog30
 	 */
-	public V2GetChangeLogResponse v2GetChangeLog(
+	V2GetChangeLogResponse v2GetChangeLog(
 			V2GetChangeLog v2GetChangeLog30)
 			throws RemoteException;
 
@@ -374,7 +374,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetChangeLog30
 	 */
-	public void startv2GetChangeLog(
+	void startv2GetChangeLog(
 			V2GetChangeLog v2GetChangeLog30,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -384,7 +384,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetAddOns32
 	 */
-	public V2GetAddOnsResponse v2GetAddOns(
+	V2GetAddOnsResponse v2GetAddOns(
 			V2GetAddOns v2GetAddOns32)
 			throws RemoteException;
 
@@ -393,7 +393,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetAddOns32
 	 */
-	public void startv2GetAddOns(
+	void startv2GetAddOns(
 			V2GetAddOns v2GetAddOns32,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -403,7 +403,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnFile34
 	 */
-	public GetAddOnFileResponse getAddOnFile(
+	GetAddOnFileResponse getAddOnFile(
 			GetAddOnFile getAddOnFile34)
 			throws RemoteException;
 
@@ -412,7 +412,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnFile34
 	 */
-	public void startgetAddOnFile(
+	void startgetAddOnFile(
 			GetAddOnFile getAddOnFile34,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -422,7 +422,7 @@ public interface AddOnService {
 	 *
 	 * @param getChangeLog36
 	 */
-	public GetChangeLogResponse getChangeLog(
+	GetChangeLogResponse getChangeLog(
 			GetChangeLog getChangeLog36)
 			throws RemoteException;
 
@@ -431,7 +431,7 @@ public interface AddOnService {
 	 *
 	 * @param getChangeLog36
 	 */
-	public void startgetChangeLog(
+	void startgetChangeLog(
 			GetChangeLog getChangeLog36,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -441,7 +441,7 @@ public interface AddOnService {
 	 *
 	 * @param getSyncProfile38
 	 */
-	public GetSyncProfileResponse getSyncProfile(
+	GetSyncProfileResponse getSyncProfile(
 			GetSyncProfile getSyncProfile38)
 			throws RemoteException;
 
@@ -450,7 +450,7 @@ public interface AddOnService {
 	 *
 	 * @param getSyncProfile38
 	 */
-	public void startgetSyncProfile(
+	void startgetSyncProfile(
 			GetSyncProfile getSyncProfile38,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -460,7 +460,7 @@ public interface AddOnService {
 	 *
 	 * @param getAllFilesForAddOn40
 	 */
-	public GetAllFilesForAddOnResponse getAllFilesForAddOn(
+	GetAllFilesForAddOnResponse getAllFilesForAddOn(
 			GetAllFilesForAddOn getAllFilesForAddOn40)
 			throws RemoteException;
 
@@ -469,7 +469,7 @@ public interface AddOnService {
 	 *
 	 * @param getAllFilesForAddOn40
 	 */
-	public void startgetAllFilesForAddOn(
+	void startgetAllFilesForAddOn(
 			GetAllFilesForAddOn getAllFilesForAddOn40,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -479,7 +479,7 @@ public interface AddOnService {
 	 *
 	 * @param getFuzzyMatches42
 	 */
-	public GetFuzzyMatchesResponse getFuzzyMatches(
+	GetFuzzyMatchesResponse getFuzzyMatches(
 			GetFuzzyMatches getFuzzyMatches42)
 			throws RemoteException;
 
@@ -488,7 +488,7 @@ public interface AddOnService {
 	 *
 	 * @param getFuzzyMatches42
 	 */
-	public void startgetFuzzyMatches(
+	void startgetFuzzyMatches(
 			GetFuzzyMatches getFuzzyMatches42,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -498,7 +498,7 @@ public interface AddOnService {
 	 *
 	 * @param joinSyncGroup44
 	 */
-	public JoinSyncGroupResponse joinSyncGroup(
+	JoinSyncGroupResponse joinSyncGroup(
 			JoinSyncGroup joinSyncGroup44)
 			throws RemoteException;
 
@@ -507,7 +507,7 @@ public interface AddOnService {
 	 *
 	 * @param joinSyncGroup44
 	 */
-	public void startjoinSyncGroup(
+	void startjoinSyncGroup(
 			JoinSyncGroup joinSyncGroup44,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -517,7 +517,7 @@ public interface AddOnService {
 	 *
 	 * @param listFeeds46
 	 */
-	public ListFeedsResponse listFeeds(
+	ListFeedsResponse listFeeds(
 			ListFeeds listFeeds46)
 			throws RemoteException;
 
@@ -526,8 +526,8 @@ public interface AddOnService {
 	 *
 	 * @param listFeeds46
 	 */
-	public void startlistFeeds(ListFeeds listFeeds46,
-							   final AddOnServiceCallbackHandler callback)
+	void startlistFeeds(ListFeeds listFeeds46,
+						final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
 
 	/**
@@ -535,7 +535,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnFiles48
 	 */
-	public GetAddOnFilesResponse getAddOnFiles(
+	GetAddOnFilesResponse getAddOnFiles(
 			GetAddOnFiles getAddOnFiles48)
 			throws RemoteException;
 
@@ -544,7 +544,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOnFiles48
 	 */
-	public void startgetAddOnFiles(
+	void startgetAddOnFiles(
 			GetAddOnFiles getAddOnFiles48,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -554,7 +554,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetAddOnDescription50
 	 */
-	public V2GetAddOnDescriptionResponse v2GetAddOnDescription(
+	V2GetAddOnDescriptionResponse v2GetAddOnDescription(
 			V2GetAddOnDescription v2GetAddOnDescription50)
 			throws RemoteException;
 
@@ -563,7 +563,7 @@ public interface AddOnService {
 	 *
 	 * @param v2GetAddOnDescription50
 	 */
-	public void startv2GetAddOnDescription(
+	void startv2GetAddOnDescription(
 			V2GetAddOnDescription v2GetAddOnDescription50,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -573,7 +573,7 @@ public interface AddOnService {
 	 *
 	 * @param resetSingleAddonCache52
 	 */
-	public ResetSingleAddonCacheResponse resetSingleAddonCache(
+	ResetSingleAddonCacheResponse resetSingleAddonCache(
 			ResetSingleAddonCache resetSingleAddonCache52)
 			throws RemoteException;
 
@@ -582,7 +582,7 @@ public interface AddOnService {
 	 *
 	 * @param resetSingleAddonCache52
 	 */
-	public void startresetSingleAddonCache(
+	void startresetSingleAddonCache(
 			ResetSingleAddonCache resetSingleAddonCache52,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -592,7 +592,7 @@ public interface AddOnService {
 	 *
 	 * @param getAddOn54
 	 */
-	public GetAddOnResponse getAddOn(
+	GetAddOnResponse getAddOn(
 			GetAddOn getAddOn54)
 			throws RemoteException;
 
@@ -601,8 +601,8 @@ public interface AddOnService {
 	 *
 	 * @param getAddOn54
 	 */
-	public void startgetAddOn(GetAddOn getAddOn54,
-							  final AddOnServiceCallbackHandler callback)
+	void startgetAddOn(GetAddOn getAddOn54,
+					   final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
 
 	/**
@@ -610,7 +610,7 @@ public interface AddOnService {
 	 *
 	 * @param logDump56
 	 */
-	public LogDumpResponse logDump(
+	LogDumpResponse logDump(
 			LogDump logDump56)
 			throws RemoteException;
 
@@ -619,8 +619,8 @@ public interface AddOnService {
 	 *
 	 * @param logDump56
 	 */
-	public void startlogDump(LogDump logDump56,
-							 final AddOnServiceCallbackHandler callback)
+	void startlogDump(LogDump logDump56,
+					  final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
 
 	/**
@@ -628,7 +628,7 @@ public interface AddOnService {
 	 *
 	 * @param serviceHealthCheck58
 	 */
-	public ServiceHealthCheckResponse serviceHealthCheck(
+	ServiceHealthCheckResponse serviceHealthCheck(
 			ServiceHealthCheck serviceHealthCheck58)
 			throws RemoteException;
 
@@ -637,7 +637,7 @@ public interface AddOnService {
 	 *
 	 * @param serviceHealthCheck58
 	 */
-	public void startserviceHealthCheck(
+	void startserviceHealthCheck(
 			ServiceHealthCheck serviceHealthCheck58,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
@@ -647,7 +647,7 @@ public interface AddOnService {
 	 *
 	 * @param resetAllAddonCache60
 	 */
-	public ResetAllAddonCacheResponse resetAllAddonCache(
+	ResetAllAddonCacheResponse resetAllAddonCache(
 			ResetAllAddonCache resetAllAddonCache60)
 			throws RemoteException;
 
@@ -656,7 +656,7 @@ public interface AddOnService {
 	 *
 	 * @param resetAllAddonCache60
 	 */
-	public void startresetAllAddonCache(
+	void startresetAllAddonCache(
 			ResetAllAddonCache resetAllAddonCache60,
 			final AddOnServiceCallbackHandler callback)
 			throws RemoteException;
