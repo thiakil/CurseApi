@@ -1,5 +1,7 @@
 import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
+import com.curse.addonservice.GetAddOnDump;
+import com.curse.addonservice.GetAddOnDumpResponse;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.thiakil.curseapi.AddOnServiceStub;
@@ -29,7 +31,7 @@ public class test {
 				System.out.println(f.getPackageFingerprint());
 			}
 			FingerprintMatchResult fingerprintMatchResult = svc.getFingerprintMatches(3752024154L);
-			System.out.println(fingerprintMatchResult.isExactMatchesSpecified() && fingerprintMatchResult.getExactMatches().isFingerprintMatchSpecified());
+			System.out.println(fingerprintMatchResult.getExactMatches().getFingerprintMatch()[0].getId());
 		} catch (AxisFault e) {
 			System.err.println(e.getReason());
 			System.err.println(e);
