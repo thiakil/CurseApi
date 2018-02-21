@@ -26,11 +26,9 @@ import javax.xml.stream.XMLStreamWriter;
 import java.util.Vector;
 
 /**
- *  SyncedComputer bean class
+ * SyncedComputer bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class SyncedComputer implements ADBBean {
     /* This type was generated from the piece of schema that had
        name = SyncedComputer
@@ -88,6 +86,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getComputerID() {
@@ -96,6 +95,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param ComputerID
 	 */
 	public void setComputerID(int param) {
@@ -111,6 +111,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getComputerName() {
@@ -119,6 +120,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param ComputerName
 	 */
 	public void setComputerName(String param) {
@@ -133,6 +135,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceGuid() {
@@ -141,6 +144,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceGuid
 	 */
 	public void setInstanceGuid(String param) {
@@ -155,6 +159,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceLabel() {
@@ -163,6 +168,7 @@ public class SyncedComputer implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceLabel
 	 */
 	public void setInstanceLabel(String param) {
@@ -172,51 +178,33 @@ public class SyncedComputer implements ADBBean {
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, parentQName));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, parentQName));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(),
-				xmlWriter);
+		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
+			String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":SyncedComputer", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":SyncedComputer", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"SyncedComputer", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "SyncedComputer", xmlWriter);
 			}
 		}
 
@@ -225,11 +213,9 @@ public class SyncedComputer implements ADBBean {
 			writeStartElement(null, namespace, "ComputerID", xmlWriter);
 
 			if (localComputerID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"ComputerID cannot be null!!");
+				throw new ADBException("ComputerID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localComputerID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localComputerID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -241,9 +227,7 @@ public class SyncedComputer implements ADBBean {
 
 			if (localComputerName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localComputerName);
 			}
@@ -257,9 +241,7 @@ public class SyncedComputer implements ADBBean {
 
 			if (localInstanceGuid == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceGuid);
 			}
@@ -273,9 +255,7 @@ public class SyncedComputer implements ADBBean {
 
 			if (localInstanceLabel == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceLabel);
 			}
@@ -287,8 +267,7 @@ public class SyncedComputer implements ADBBean {
 	}
 
 	private static String generatePrefix(String namespace) {
-		if (namespace.equals(
-				"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models")) {
+		if (namespace.equals("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models")) {
 			return "ns5";
 		}
 
@@ -298,10 +277,7 @@ public class SyncedComputer implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -322,10 +298,7 @@ public class SyncedComputer implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -340,25 +313,18 @@ public class SyncedComputer implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -378,17 +344,14 @@ public class SyncedComputer implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -401,27 +364,21 @@ public class SyncedComputer implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -442,16 +399,12 @@ public class SyncedComputer implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -462,9 +415,7 @@ public class SyncedComputer implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -490,7 +441,7 @@ public class SyncedComputer implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
@@ -498,12 +449,11 @@ public class SyncedComputer implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static SyncedComputer parse(
-				XMLStreamReader reader) throws Exception {
+		public static SyncedComputer parse(XMLStreamReader reader) throws Exception {
 			SyncedComputer object = new SyncedComputer();
 
 			int event;
@@ -513,36 +463,29 @@ public class SyncedComputer implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
-				if (reader.getAttributeValue(
-						"http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
-					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"type");
+				if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type");
 
 					if (fullTypeName != null) {
 						String nsPrefix = null;
 
-						if (fullTypeName.indexOf(":") > -1) {
-							nsPrefix = fullTypeName.substring(0,
-									fullTypeName.indexOf(":"));
+						if (fullTypeName.contains(":")) {
+							nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
 						}
 
 						nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-						String type = fullTypeName.substring(fullTypeName.indexOf(
-								":") + 1);
+						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
 						if (!"SyncedComputer".equals(type)) {
 							//find namespace for the prefix
-							String nsUri = reader.getNamespaceContext()
-									.getNamespaceURI(nsPrefix);
+							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (SyncedComputer) ExtensionMapper.getTypeObject(nsUri,
-									type, reader);
+							return (SyncedComputer) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -553,27 +496,18 @@ public class SyncedComputer implements ADBBean {
 
 				reader.next();
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"ComputerID").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "ComputerID" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "ComputerID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setComputerID(ConverterUtil.convertToInt(
-							content));
+					object.setComputerID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -582,22 +516,15 @@ public class SyncedComputer implements ADBBean {
 					object.setComputerID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"ComputerName").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setComputerName(ConverterUtil.convertToString(
-								content));
+						object.setComputerName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -608,22 +535,15 @@ public class SyncedComputer implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"InstanceGuid").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceGuid").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceGuid(ConverterUtil.convertToString(
-								content));
+						object.setInstanceGuid(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -634,22 +554,15 @@ public class SyncedComputer implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"InstanceLabel").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceLabel").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceLabel(ConverterUtil.convertToString(
-								content));
+						object.setInstanceLabel(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -660,13 +573,11 @@ public class SyncedComputer implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				if (reader.isStartElement()) {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
-					throw new ADBException(
-							"Unexpected subelement " + reader.getName());
+					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
 			} catch (XMLStreamException e) {
 				throw new Exception(e);

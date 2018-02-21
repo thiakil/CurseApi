@@ -40,8 +40,8 @@ import com.curse.addonservice.V2GetChangeLogResponse;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
 
 /**
- *  AddOnServiceCallbackHandler Callback class, Users can extend this class and implement
- *  their own receiveResult and receiveError methods.
+ * AddOnServiceCallbackHandler Callback class, Users can extend this class and implement
+ * their own receiveResult and receiveError methods.
  */
 public abstract class AddOnServiceCallbackHandler {
 	protected Object clientData;
@@ -49,8 +49,9 @@ public abstract class AddOnServiceCallbackHandler {
 	/**
 	 * User can pass in any object that needs to be accessed once the NonBlocking
 	 * Web service call is finished and appropriate method of this CallBack is called.
+	 *
 	 * @param clientData Object mechanism by which the user can pass in user data
-	 * that will be avilable at the time this callback is called.
+	 *                   that will be avilable at the time this callback is called.
 	 */
 	public AddOnServiceCallbackHandler(Object clientData) {
 		this.clientData = clientData;
@@ -74,8 +75,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for createSyncGroup method
 	 * override this method for handling normal response from createSyncGroup operation
 	 */
-	public void receiveResultcreateSyncGroup(
-			CreateSyncGroupResponse result) {
+	public void receiveResultcreateSyncGroup(CreateSyncGroupResponse result) {
 	}
 
 	/**
@@ -89,8 +89,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getSecureDownloadToken method
 	 * override this method for handling normal response from getSecureDownloadToken operation
 	 */
-	public void receiveResultgetSecureDownloadToken(
-			GetSecureDownloadTokenResponse result) {
+	public void receiveResultgetSecureDownloadToken(GetSecureDownloadTokenResponse result) {
 	}
 
 	/**
@@ -104,8 +103,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for healthCheck method
 	 * override this method for handling normal response from healthCheck operation
 	 */
-	public void receiveResulthealthCheck(
-			HealthCheckResponse result) {
+	public void receiveResulthealthCheck(HealthCheckResponse result) {
 	}
 
 	/**
@@ -119,8 +117,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getFingerprintMatches method
 	 * override this method for handling normal response from getFingerprintMatches operation
 	 */
-	public void receiveResultgetFingerprintMatches(
-			GetFingerprintMatchesResponse result) {
+	public void receiveResultgetFingerprintMatches(GetFingerprintMatchesResponse result) {
 	}
 
 	/**
@@ -134,8 +131,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for saveSyncTransactions method
 	 * override this method for handling normal response from saveSyncTransactions operation
 	 */
-	public void receiveResultsaveSyncTransactions(
-			SaveSyncTransactionsResponse result) {
+	public void receiveResultsaveSyncTransactions(SaveSyncTransactionsResponse result) {
 	}
 
 	/**
@@ -149,8 +145,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getRepositoryMatchFromSlug method
 	 * override this method for handling normal response from getRepositoryMatchFromSlug operation
 	 */
-	public void receiveResultgetRepositoryMatchFromSlug(
-			GetRepositoryMatchFromSlugResponse result) {
+	public void receiveResultgetRepositoryMatchFromSlug(GetRepositoryMatchFromSlugResponse result) {
 	}
 
 	/**
@@ -164,8 +159,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for v2GetFingerprintMatches method
 	 * override this method for handling normal response from v2GetFingerprintMatches operation
 	 */
-	public void receiveResultv2GetFingerprintMatches(
-			V2GetFingerprintMatchesResponse result) {
+	public void receiveResultv2GetFingerprintMatches(V2GetFingerprintMatchesResponse result) {
 	}
 
 	/**
@@ -179,8 +173,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for cacheHealthCheck method
 	 * override this method for handling normal response from cacheHealthCheck operation
 	 */
-	public void receiveResultcacheHealthCheck(
-			CacheHealthCheckResponse result) {
+	public void receiveResultcacheHealthCheck(CacheHealthCheckResponse result) {
 	}
 
 	/**
@@ -194,8 +187,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOnDescription method
 	 * override this method for handling normal response from getAddOnDescription operation
 	 */
-	public void receiveResultgetAddOnDescription(
-			GetAddOnDescriptionResponse result) {
+	public void receiveResultgetAddOnDescription(GetAddOnDescriptionResponse result) {
 	}
 
 	/**
@@ -209,8 +201,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for resetFeeds method
 	 * override this method for handling normal response from resetFeeds operation
 	 */
-	public void receiveResultresetFeeds(
-			ResetFeedsResponse result) {
+	public void receiveResultresetFeeds(ResetFeedsResponse result) {
 	}
 
 	/**
@@ -224,8 +215,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for leaveSyncGroup method
 	 * override this method for handling normal response from leaveSyncGroup operation
 	 */
-	public void receiveResultleaveSyncGroup(
-			LeaveSyncGroupResponse result) {
+	public void receiveResultleaveSyncGroup(LeaveSyncGroupResponse result) {
 	}
 
 	/**
@@ -239,8 +229,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for saveSyncSnapshot method
 	 * override this method for handling normal response from saveSyncSnapshot operation
 	 */
-	public void receiveResultsaveSyncSnapshot(
-			SaveSyncSnapshotResponse result) {
+	public void receiveResultsaveSyncSnapshot(SaveSyncSnapshotResponse result) {
 	}
 
 	/**
@@ -254,8 +243,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOnDump method
 	 * override this method for handling normal response from getAddOnDump operation
 	 */
-	public void receiveResultgetAddOnDump(
-			GetAddOnDumpResponse result) {
+	public void receiveResultgetAddOnDump(GetAddOnDumpResponse result) {
 	}
 
 	/**
@@ -269,8 +257,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOns method
 	 * override this method for handling normal response from getAddOns operation
 	 */
-	public void receiveResultgetAddOns(
-			GetAddOnsResponse result) {
+	public void receiveResultgetAddOns(GetAddOnsResponse result) {
 	}
 
 	/**
@@ -284,8 +271,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getDownloadToken method
 	 * override this method for handling normal response from getDownloadToken operation
 	 */
-	public void receiveResultgetDownloadToken(
-			GetDownloadTokenResponse result) {
+	public void receiveResultgetDownloadToken(GetDownloadTokenResponse result) {
 	}
 
 	/**
@@ -299,8 +285,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for v2GetChangeLog method
 	 * override this method for handling normal response from v2GetChangeLog operation
 	 */
-	public void receiveResultv2GetChangeLog(
-			V2GetChangeLogResponse result) {
+	public void receiveResultv2GetChangeLog(V2GetChangeLogResponse result) {
 	}
 
 	/**
@@ -314,8 +299,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for v2GetAddOns method
 	 * override this method for handling normal response from v2GetAddOns operation
 	 */
-	public void receiveResultv2GetAddOns(
-			V2GetAddOnsResponse result) {
+	public void receiveResultv2GetAddOns(V2GetAddOnsResponse result) {
 	}
 
 	/**
@@ -329,8 +313,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOnFile method
 	 * override this method for handling normal response from getAddOnFile operation
 	 */
-	public void receiveResultgetAddOnFile(
-			GetAddOnFileResponse result) {
+	public void receiveResultgetAddOnFile(GetAddOnFileResponse result) {
 	}
 
 	/**
@@ -344,8 +327,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getChangeLog method
 	 * override this method for handling normal response from getChangeLog operation
 	 */
-	public void receiveResultgetChangeLog(
-			GetChangeLogResponse result) {
+	public void receiveResultgetChangeLog(GetChangeLogResponse result) {
 	}
 
 	/**
@@ -359,8 +341,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getSyncProfile method
 	 * override this method for handling normal response from getSyncProfile operation
 	 */
-	public void receiveResultgetSyncProfile(
-			GetSyncProfileResponse result) {
+	public void receiveResultgetSyncProfile(GetSyncProfileResponse result) {
 	}
 
 	/**
@@ -374,8 +355,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAllFilesForAddOn method
 	 * override this method for handling normal response from getAllFilesForAddOn operation
 	 */
-	public void receiveResultgetAllFilesForAddOn(
-			GetAllFilesForAddOnResponse result) {
+	public void receiveResultgetAllFilesForAddOn(GetAllFilesForAddOnResponse result) {
 	}
 
 	/**
@@ -389,8 +369,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getFuzzyMatches method
 	 * override this method for handling normal response from getFuzzyMatches operation
 	 */
-	public void receiveResultgetFuzzyMatches(
-			GetFuzzyMatchesResponse result) {
+	public void receiveResultgetFuzzyMatches(GetFuzzyMatchesResponse result) {
 	}
 
 	/**
@@ -404,8 +383,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for joinSyncGroup method
 	 * override this method for handling normal response from joinSyncGroup operation
 	 */
-	public void receiveResultjoinSyncGroup(
-			JoinSyncGroupResponse result) {
+	public void receiveResultjoinSyncGroup(JoinSyncGroupResponse result) {
 	}
 
 	/**
@@ -419,8 +397,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for listFeeds method
 	 * override this method for handling normal response from listFeeds operation
 	 */
-	public void receiveResultlistFeeds(
-			ListFeedsResponse result) {
+	public void receiveResultlistFeeds(ListFeedsResponse result) {
 	}
 
 	/**
@@ -434,8 +411,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOnFiles method
 	 * override this method for handling normal response from getAddOnFiles operation
 	 */
-	public void receiveResultgetAddOnFiles(
-			GetAddOnFilesResponse result) {
+	public void receiveResultgetAddOnFiles(GetAddOnFilesResponse result) {
 	}
 
 	/**
@@ -449,8 +425,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for v2GetAddOnDescription method
 	 * override this method for handling normal response from v2GetAddOnDescription operation
 	 */
-	public void receiveResultv2GetAddOnDescription(
-			V2GetAddOnDescriptionResponse result) {
+	public void receiveResultv2GetAddOnDescription(V2GetAddOnDescriptionResponse result) {
 	}
 
 	/**
@@ -464,8 +439,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for resetSingleAddonCache method
 	 * override this method for handling normal response from resetSingleAddonCache operation
 	 */
-	public void receiveResultresetSingleAddonCache(
-			ResetSingleAddonCacheResponse result) {
+	public void receiveResultresetSingleAddonCache(ResetSingleAddonCacheResponse result) {
 	}
 
 	/**
@@ -479,8 +453,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for getAddOn method
 	 * override this method for handling normal response from getAddOn operation
 	 */
-	public void receiveResultgetAddOn(
-			GetAddOnResponse result) {
+	public void receiveResultgetAddOn(GetAddOnResponse result) {
 	}
 
 	/**
@@ -494,8 +467,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for logDump method
 	 * override this method for handling normal response from logDump operation
 	 */
-	public void receiveResultlogDump(
-			LogDumpResponse result) {
+	public void receiveResultlogDump(LogDumpResponse result) {
 	}
 
 	/**
@@ -509,8 +481,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for serviceHealthCheck method
 	 * override this method for handling normal response from serviceHealthCheck operation
 	 */
-	public void receiveResultserviceHealthCheck(
-			ServiceHealthCheckResponse result) {
+	public void receiveResultserviceHealthCheck(ServiceHealthCheckResponse result) {
 	}
 
 	/**
@@ -524,8 +495,7 @@ public abstract class AddOnServiceCallbackHandler {
 	 * auto generated Axis2 call back method for resetAllAddonCache method
 	 * override this method for handling normal response from resetAllAddonCache operation
 	 */
-	public void receiveResultresetAllAddonCache(
-			ResetAllAddonCacheResponse result) {
+	public void receiveResultresetAllAddonCache(ResetAllAddonCacheResponse result) {
 	}
 
 	/**

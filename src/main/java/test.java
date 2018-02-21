@@ -1,4 +1,5 @@
 import addons.curse.AddOnFile;
+import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.thiakil.curseapi.AddOnService;
@@ -17,9 +18,13 @@ public class test {
 			GetAllFilesForAddOn addon = new GetAllFilesForAddOn();
 			addon.setAddOnID(268560);
 			GetAllFilesForAddOnResponse res = svc.getAllFilesForAddOn(addon);
-			for (AddOnFile f : res.getGetAllFilesForAddOnResult().getAddOnFile()){
-				System.out.println(f.getFileName());
+			for (AddOnFile f : res.getGetAllFilesForAddOnResult().getAddOnFile()) {
+				System.out.print(f.getFileName());
+				System.out.print(" : ");
+				System.out.println(f.getPackageFingerprint());
 			}
+			FingerprintMatchResult fingerprintMatchResult = svc.getFingerprintMatches(3752024154L);
+			System.out.println(fingerprintMatchResult.isExactMatchesSpecified());
 		} catch (AxisFault e) {
 			System.err.println(e.getReason());
 			System.err.println(e);

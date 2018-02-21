@@ -27,11 +27,9 @@ import java.util.Calendar;
 import java.util.Vector;
 
 /**
- *  SyncedGameInstance bean class
+ * SyncedGameInstance bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class SyncedGameInstance implements ADBBean {
     /* This type was generated from the piece of schema that had
        name = SyncedGameInstance
@@ -144,6 +142,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_clientservice_models.ArrayOfSyncedAddon
 	 */
 	public ArrayOfSyncedAddon getAddons() {
@@ -152,10 +151,10 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Addons
 	 */
-	public void setAddons(
-			ArrayOfSyncedAddon param) {
+	public void setAddons(ArrayOfSyncedAddon param) {
 		localAddonsTracker = true;
 
 		this.localAddons = param;
@@ -167,6 +166,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_clientservice_models.ArrayOfSyncedComputer
 	 */
 	public ArrayOfSyncedComputer getComputers() {
@@ -175,10 +175,10 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Computers
 	 */
-	public void setComputers(
-			ArrayOfSyncedComputer param) {
+	public void setComputers(ArrayOfSyncedComputer param) {
 		localComputersTracker = true;
 
 		this.localComputers = param;
@@ -190,6 +190,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getGameID() {
@@ -198,6 +199,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param GameID
 	 */
 	public void setGameID(int param) {
@@ -213,6 +215,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getInstanceID() {
@@ -221,6 +224,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceID
 	 */
 	public void setInstanceID(int param) {
@@ -236,6 +240,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceName() {
@@ -244,6 +249,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceName
 	 */
 	public void setInstanceName(String param) {
@@ -258,6 +264,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.util.Calendar
 	 */
 	public Calendar getLastBackupDate() {
@@ -266,6 +273,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param LastBackupDate
 	 */
 	public void setLastBackupDate(Calendar param) {
@@ -280,6 +288,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return long
 	 */
 	public long getLastBackupFingerprint() {
@@ -288,6 +297,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param LastBackupFingerprint
 	 */
 	public void setLastBackupFingerprint(long param) {
@@ -303,6 +313,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return long
 	 */
 	public long getLastBackupScreenHeight() {
@@ -311,6 +322,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param LastBackupScreenHeight
 	 */
 	public void setLastBackupScreenHeight(long param) {
@@ -326,6 +338,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return long
 	 */
 	public long getLastBackupScreenWidth() {
@@ -334,6 +347,7 @@ public class SyncedGameInstance implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param LastBackupScreenWidth
 	 */
 	public void setLastBackupScreenWidth(long param) {
@@ -344,87 +358,57 @@ public class SyncedGameInstance implements ADBBean {
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, parentQName));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, parentQName));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(),
-				xmlWriter);
+		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
+			String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":SyncedGameInstance", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":SyncedGameInstance", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"SyncedGameInstance", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "SyncedGameInstance", xmlWriter);
 			}
 		}
 
 		if (localAddonsTracker) {
 			if (localAddons == null) {
-				writeStartElement(null,
-						"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-						"Addons", xmlWriter);
+				writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAddons.serialize(new QName(
-						"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-						"Addons"), xmlWriter);
+				localAddons.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons"), xmlWriter);
 			}
 		}
 
 		if (localComputersTracker) {
 			if (localComputers == null) {
-				writeStartElement(null,
-						"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-						"Computers", xmlWriter);
+				writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localComputers.serialize(new QName(
-						"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-						"Computers"), xmlWriter);
+				localComputers.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers"), xmlWriter);
 			}
 		}
 
@@ -433,11 +417,9 @@ public class SyncedGameInstance implements ADBBean {
 			writeStartElement(null, namespace, "GameID", xmlWriter);
 
 			if (localGameID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"GameID cannot be null!!");
+				throw new ADBException("GameID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localGameID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localGameID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -448,11 +430,9 @@ public class SyncedGameInstance implements ADBBean {
 			writeStartElement(null, namespace, "InstanceID", xmlWriter);
 
 			if (localInstanceID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"InstanceID cannot be null!!");
+				throw new ADBException("InstanceID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localInstanceID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localInstanceID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -464,9 +444,7 @@ public class SyncedGameInstance implements ADBBean {
 
 			if (localInstanceName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceName);
 			}
@@ -480,11 +458,9 @@ public class SyncedGameInstance implements ADBBean {
 
 			if (localLastBackupDate == null) {
 				// write the nil attribute
-				throw new ADBException(
-						"LastBackupDate cannot be null!!");
+				throw new ADBException("LastBackupDate cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localLastBackupDate));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localLastBackupDate));
 			}
 
 			xmlWriter.writeEndElement();
@@ -492,15 +468,12 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupFingerprintTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupFingerprint",
-					xmlWriter);
+			writeStartElement(null, namespace, "LastBackupFingerprint", xmlWriter);
 
 			if (localLastBackupFingerprint == Long.MIN_VALUE) {
-				throw new ADBException(
-						"LastBackupFingerprint cannot be null!!");
+				throw new ADBException("LastBackupFingerprint cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localLastBackupFingerprint));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localLastBackupFingerprint));
 			}
 
 			xmlWriter.writeEndElement();
@@ -508,15 +481,12 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupScreenHeightTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupScreenHeight",
-					xmlWriter);
+			writeStartElement(null, namespace, "LastBackupScreenHeight", xmlWriter);
 
 			if (localLastBackupScreenHeight == Long.MIN_VALUE) {
-				throw new ADBException(
-						"LastBackupScreenHeight cannot be null!!");
+				throw new ADBException("LastBackupScreenHeight cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localLastBackupScreenHeight));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localLastBackupScreenHeight));
 			}
 
 			xmlWriter.writeEndElement();
@@ -524,15 +494,12 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupScreenWidthTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupScreenWidth",
-					xmlWriter);
+			writeStartElement(null, namespace, "LastBackupScreenWidth", xmlWriter);
 
 			if (localLastBackupScreenWidth == Long.MIN_VALUE) {
-				throw new ADBException(
-						"LastBackupScreenWidth cannot be null!!");
+				throw new ADBException("LastBackupScreenWidth cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localLastBackupScreenWidth));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localLastBackupScreenWidth));
 			}
 
 			xmlWriter.writeEndElement();
@@ -542,8 +509,7 @@ public class SyncedGameInstance implements ADBBean {
 	}
 
 	private static String generatePrefix(String namespace) {
-		if (namespace.equals(
-				"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models")) {
+		if (namespace.equals("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models")) {
 			return "ns5";
 		}
 
@@ -553,10 +519,7 @@ public class SyncedGameInstance implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -577,10 +540,7 @@ public class SyncedGameInstance implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -595,25 +555,18 @@ public class SyncedGameInstance implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -633,17 +586,14 @@ public class SyncedGameInstance implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -656,27 +606,21 @@ public class SyncedGameInstance implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -697,16 +641,12 @@ public class SyncedGameInstance implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -717,9 +657,7 @@ public class SyncedGameInstance implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -745,7 +683,7 @@ public class SyncedGameInstance implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
@@ -753,12 +691,11 @@ public class SyncedGameInstance implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static SyncedGameInstance parse(
-				XMLStreamReader reader) throws Exception {
+		public static SyncedGameInstance parse(XMLStreamReader reader) throws Exception {
 			SyncedGameInstance object = new SyncedGameInstance();
 
 			int event;
@@ -768,36 +705,29 @@ public class SyncedGameInstance implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
-				if (reader.getAttributeValue(
-						"http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
-					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"type");
+				if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type");
 
 					if (fullTypeName != null) {
 						String nsPrefix = null;
 
-						if (fullTypeName.indexOf(":") > -1) {
-							nsPrefix = fullTypeName.substring(0,
-									fullTypeName.indexOf(":"));
+						if (fullTypeName.contains(":")) {
+							nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
 						}
 
 						nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-						String type = fullTypeName.substring(fullTypeName.indexOf(
-								":") + 1);
+						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
 						if (!"SyncedGameInstance".equals(type)) {
 							//find namespace for the prefix
-							String nsUri = reader.getNamespaceContext()
-									.getNamespaceURI(nsPrefix);
+							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (SyncedGameInstance) ExtensionMapper.getTypeObject(nsUri,
-									type, reader);
+							return (SyncedGameInstance) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -808,25 +738,18 @@ public class SyncedGameInstance implements ADBBean {
 
 				reader.next();
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"Addons").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setAddons(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setAddons(ArrayOfSyncedAddon.Factory.parse(
-								reader));
+						object.setAddons(ArrayOfSyncedAddon.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -835,25 +758,18 @@ public class SyncedGameInstance implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"Computers").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setComputers(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setComputers(ArrayOfSyncedComputer.Factory.parse(
-								reader));
+						object.setComputers(ArrayOfSyncedComputer.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -862,26 +778,18 @@ public class SyncedGameInstance implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"GameID").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "GameID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "GameID" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "GameID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setGameID(ConverterUtil.convertToInt(
-							content));
+					object.setGameID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -890,27 +798,18 @@ public class SyncedGameInstance implements ADBBean {
 					object.setGameID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"InstanceID").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "InstanceID" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "InstanceID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setInstanceID(ConverterUtil.convertToInt(
-							content));
+					object.setInstanceID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -919,22 +818,15 @@ public class SyncedGameInstance implements ADBBean {
 					object.setInstanceID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"InstanceName").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceName(ConverterUtil.convertToString(
-								content));
+						object.setInstanceName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -945,27 +837,18 @@ public class SyncedGameInstance implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"LastBackupDate").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupDate").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "LastBackupDate" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "LastBackupDate" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setLastBackupDate(ConverterUtil.convertToDateTime(
-							content));
+					object.setLastBackupDate(ConverterUtil.convertToDateTime(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -973,27 +856,18 @@ public class SyncedGameInstance implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"LastBackupFingerprint").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupFingerprint").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "LastBackupFingerprint" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "LastBackupFingerprint" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setLastBackupFingerprint(ConverterUtil.convertToLong(
-							content));
+					object.setLastBackupFingerprint(ConverterUtil.convertToLong(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -1002,27 +876,18 @@ public class SyncedGameInstance implements ADBBean {
 					object.setLastBackupFingerprint(Long.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"LastBackupScreenHeight").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenHeight").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "LastBackupScreenHeight" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "LastBackupScreenHeight" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setLastBackupScreenHeight(ConverterUtil.convertToLong(
-							content));
+					object.setLastBackupScreenHeight(ConverterUtil.convertToLong(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -1031,27 +896,18 @@ public class SyncedGameInstance implements ADBBean {
 					object.setLastBackupScreenHeight(Long.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://schemas.datacontract.org/2004/07/Curse.ClientService.Models",
-								"LastBackupScreenWidth").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenWidth").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "LastBackupScreenWidth" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "LastBackupScreenWidth" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setLastBackupScreenWidth(ConverterUtil.convertToLong(
-							content));
+					object.setLastBackupScreenWidth(ConverterUtil.convertToLong(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -1060,13 +916,11 @@ public class SyncedGameInstance implements ADBBean {
 					object.setLastBackupScreenWidth(Long.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				if (reader.isStartElement()) {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
-					throw new ADBException(
-							"Unexpected subelement " + reader.getName());
+					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
 			} catch (XMLStreamException e) {
 				throw new Exception(e);

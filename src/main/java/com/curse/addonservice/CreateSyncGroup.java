@@ -25,14 +25,11 @@ import javax.xml.stream.XMLStreamWriter;
 import java.util.Vector;
 
 /**
- *  CreateSyncGroup bean class
+ * CreateSyncGroup bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class CreateSyncGroup implements ADBBean {
-	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/",
-			"CreateSyncGroup", "ns9");
+	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "CreateSyncGroup", "ns9");
 
 	/**
 	 * field for InstanceName
@@ -95,6 +92,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceName() {
@@ -103,6 +101,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceName
 	 */
 	public void setInstanceName(String param) {
@@ -117,6 +116,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getGameID() {
@@ -125,6 +125,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param GameID
 	 */
 	public void setGameID(int param) {
@@ -140,6 +141,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getComputerName() {
@@ -148,6 +150,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param ComputerName
 	 */
 	public void setComputerName(String param) {
@@ -162,6 +165,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceGUID() {
@@ -170,6 +174,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceGUID
 	 */
 	public void setInstanceGUID(String param) {
@@ -184,6 +189,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getInstanceLabel() {
@@ -192,6 +198,7 @@ public class CreateSyncGroup implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstanceLabel
 	 */
 	public void setInstanceLabel(String param) {
@@ -201,51 +208,33 @@ public class CreateSyncGroup implements ADBBean {
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, MY_QNAME));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, MY_QNAME));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(),
-				xmlWriter);
+		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"http://addonservice.curse.com/");
+			String namespacePrefix = registerPrefix(xmlWriter, "http://addonservice.curse.com/");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":CreateSyncGroup", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":CreateSyncGroup", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"CreateSyncGroup", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "CreateSyncGroup", xmlWriter);
 			}
 		}
 
@@ -255,9 +244,7 @@ public class CreateSyncGroup implements ADBBean {
 
 			if (localInstanceName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceName);
 			}
@@ -270,11 +257,9 @@ public class CreateSyncGroup implements ADBBean {
 			writeStartElement(null, namespace, "gameID", xmlWriter);
 
 			if (localGameID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"gameID cannot be null!!");
+				throw new ADBException("gameID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localGameID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localGameID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -286,9 +271,7 @@ public class CreateSyncGroup implements ADBBean {
 
 			if (localComputerName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localComputerName);
 			}
@@ -302,9 +285,7 @@ public class CreateSyncGroup implements ADBBean {
 
 			if (localInstanceGUID == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceGUID);
 			}
@@ -318,9 +299,7 @@ public class CreateSyncGroup implements ADBBean {
 
 			if (localInstanceLabel == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceLabel);
 			}
@@ -342,10 +321,7 @@ public class CreateSyncGroup implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -366,10 +342,7 @@ public class CreateSyncGroup implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -384,25 +357,18 @@ public class CreateSyncGroup implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -422,17 +388,14 @@ public class CreateSyncGroup implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -445,27 +408,21 @@ public class CreateSyncGroup implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -486,16 +443,12 @@ public class CreateSyncGroup implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -506,9 +459,7 @@ public class CreateSyncGroup implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -534,7 +485,7 @@ public class CreateSyncGroup implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
@@ -542,12 +493,11 @@ public class CreateSyncGroup implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static CreateSyncGroup parse(
-				XMLStreamReader reader) throws Exception {
+		public static CreateSyncGroup parse(XMLStreamReader reader) throws Exception {
 			CreateSyncGroup object = new CreateSyncGroup();
 
 			int event;
@@ -557,36 +507,29 @@ public class CreateSyncGroup implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
-				if (reader.getAttributeValue(
-						"http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
-					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"type");
+				if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type");
 
 					if (fullTypeName != null) {
 						String nsPrefix = null;
 
-						if (fullTypeName.indexOf(":") > -1) {
-							nsPrefix = fullTypeName.substring(0,
-									fullTypeName.indexOf(":"));
+						if (fullTypeName.contains(":")) {
+							nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
 						}
 
 						nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-						String type = fullTypeName.substring(fullTypeName.indexOf(
-								":") + 1);
+						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
 						if (!"CreateSyncGroup".equals(type)) {
 							//find namespace for the prefix
-							String nsUri = reader.getNamespaceContext()
-									.getNamespaceURI(nsPrefix);
+							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (CreateSyncGroup) ExtensionMapper.getTypeObject(nsUri,
-									type, reader);
+							return (CreateSyncGroup) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -597,22 +540,15 @@ public class CreateSyncGroup implements ADBBean {
 
 				reader.next();
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "instanceName").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceName(ConverterUtil.convertToString(
-								content));
+						object.setInstanceName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -623,26 +559,18 @@ public class CreateSyncGroup implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "gameID").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "gameID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "gameID" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "gameID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setGameID(ConverterUtil.convertToInt(
-							content));
+					object.setGameID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -651,22 +579,15 @@ public class CreateSyncGroup implements ADBBean {
 					object.setGameID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "computerName").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "computerName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setComputerName(ConverterUtil.convertToString(
-								content));
+						object.setComputerName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -677,22 +598,15 @@ public class CreateSyncGroup implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "instanceGUID").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceGUID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceGUID(ConverterUtil.convertToString(
-								content));
+						object.setInstanceGUID(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -703,22 +617,15 @@ public class CreateSyncGroup implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "instanceLabel").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceLabel").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setInstanceLabel(ConverterUtil.convertToString(
-								content));
+						object.setInstanceLabel(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -729,13 +636,11 @@ public class CreateSyncGroup implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				if (reader.isStartElement()) {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
-					throw new ADBException(
-							"Unexpected subelement " + reader.getName());
+					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
 			} catch (XMLStreamException e) {
 				throw new Exception(e);

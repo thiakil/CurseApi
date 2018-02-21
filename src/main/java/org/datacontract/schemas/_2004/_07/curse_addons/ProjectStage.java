@@ -30,31 +30,20 @@ import java.util.Map;
 import java.util.Vector;
 
 /**
- *  ProjectStage bean class
+ * ProjectStage bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class ProjectStage implements ADBBean {
-	public static final QName MY_QNAME = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns",
-			"ProjectStage", "ns1");
+	public static final QName MY_QNAME = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "ProjectStage", "ns1");
 	private static HashMap _table_ = new HashMap();
-	public static final String _Alpha = ConverterUtil.convertToString(
-			"Alpha");
-	public static final String _Beta = ConverterUtil.convertToString(
-			"Beta");
-	public static final String _Deleted = ConverterUtil.convertToString(
-			"Deleted");
-	public static final String _Inactive = ConverterUtil.convertToString(
-			"Inactive");
-	public static final String _Mature = ConverterUtil.convertToString(
-			"Mature");
-	public static final String _Planning = ConverterUtil.convertToString(
-			"Planning");
-	public static final String _Release = ConverterUtil.convertToString(
-			"Release");
-	public static final String _Abandoned = ConverterUtil.convertToString(
-			"Abandoned");
+	public static final String _Alpha = ConverterUtil.convertToString("Alpha");
+	public static final String _Beta = ConverterUtil.convertToString("Beta");
+	public static final String _Deleted = ConverterUtil.convertToString("Deleted");
+	public static final String _Inactive = ConverterUtil.convertToString("Inactive");
+	public static final String _Mature = ConverterUtil.convertToString("Mature");
+	public static final String _Planning = ConverterUtil.convertToString("Planning");
+	public static final String _Release = ConverterUtil.convertToString("Release");
+	public static final String _Abandoned = ConverterUtil.convertToString("Abandoned");
 	public static final ProjectStage Alpha = new ProjectStage(_Alpha, true);
 	public static final ProjectStage Beta = new ProjectStage(_Beta, true);
 	public static final ProjectStage Deleted = new ProjectStage(_Deleted, true);
@@ -62,8 +51,7 @@ public class ProjectStage implements ADBBean {
 	public static final ProjectStage Mature = new ProjectStage(_Mature, true);
 	public static final ProjectStage Planning = new ProjectStage(_Planning, true);
 	public static final ProjectStage Release = new ProjectStage(_Release, true);
-	public static final ProjectStage Abandoned = new ProjectStage(_Abandoned,
-			true);
+	public static final ProjectStage Abandoned = new ProjectStage(_Abandoned, true);
 
 	/**
 	 * field for ProjectStage
@@ -92,34 +80,23 @@ public class ProjectStage implements ADBBean {
 	}
 
 	public String toString() {
-		return localProjectStage.toString();
+		return localProjectStage;
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, MY_QNAME));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, MY_QNAME));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		//We can safely assume an element has only one type associated with it
 		String namespace = parentQName.getNamespaceURI();
 		String _localName = parentQName.getLocalPart();
@@ -128,24 +105,17 @@ public class ProjectStage implements ADBBean {
 
 		// add the type details if this is used in a simple type
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"http://schemas.datacontract.org/2004/07/Curse.AddOns");
+			String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.AddOns");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":ProjectStage", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":ProjectStage", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"ProjectStage", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "ProjectStage", xmlWriter);
 			}
 		}
 
 		if (localProjectStage == null) {
-			throw new ADBException(
-					"ProjectStage cannot be null !!");
+			throw new ADBException("ProjectStage cannot be null !!");
 		} else {
 			xmlWriter.writeCharacters(localProjectStage);
 		}
@@ -154,8 +124,7 @@ public class ProjectStage implements ADBBean {
 	}
 
 	private static String generatePrefix(String namespace) {
-		if (namespace.equals(
-				"http://schemas.datacontract.org/2004/07/Curse.AddOns")) {
+		if (namespace.equals("http://schemas.datacontract.org/2004/07/Curse.AddOns")) {
 			return "ns1";
 		}
 
@@ -165,10 +134,7 @@ public class ProjectStage implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -189,10 +155,7 @@ public class ProjectStage implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -207,25 +170,18 @@ public class ProjectStage implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -245,17 +201,14 @@ public class ProjectStage implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -268,27 +221,21 @@ public class ProjectStage implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -309,16 +256,12 @@ public class ProjectStage implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -329,9 +272,7 @@ public class ProjectStage implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -357,13 +298,12 @@ public class ProjectStage implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
 
-		public static ProjectStage fromValue(String value)
-				throws IllegalArgumentException {
+		public static ProjectStage fromValue(String value) throws IllegalArgumentException {
 			ProjectStage enumeration = (ProjectStage) _table_.get(value);
 
 			// handle unexpected enumeration values properly
@@ -374,25 +314,18 @@ public class ProjectStage implements ADBBean {
 			return enumeration;
 		}
 
-		public static ProjectStage fromString(String value,
-											  String namespaceURI)
-				throws IllegalArgumentException {
+		public static ProjectStage fromString(String value, String namespaceURI) throws IllegalArgumentException {
 			try {
-				return fromValue(ConverterUtil.convertToString(
-						value));
+				return fromValue(ConverterUtil.convertToString(value));
 			} catch (Exception e) {
 				throw new IllegalArgumentException();
 			}
 		}
 
-		public static ProjectStage fromString(
-				XMLStreamReader xmlStreamReader,
-				String content) {
-			if (content.indexOf(":") > -1) {
-				String prefix = content.substring(0,
-						content.indexOf(":"));
-				String namespaceUri = xmlStreamReader.getNamespaceContext()
-						.getNamespaceURI(prefix);
+		public static ProjectStage fromString(XMLStreamReader xmlStreamReader, String content) {
+			if (content.contains(":")) {
+				String prefix = content.substring(0, content.indexOf(":"));
+				String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
 
 				return ProjectStage.Factory.fromString(content, namespaceUri);
 			} else {
@@ -403,12 +336,11 @@ public class ProjectStage implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static ProjectStage parse(
-				XMLStreamReader reader) throws Exception {
+		public static ProjectStage parse(XMLStreamReader reader) throws Exception {
 			ProjectStage object = null;
 
 			// initialize a hash map to keep values
@@ -422,8 +354,7 @@ public class ProjectStage implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
@@ -433,14 +364,10 @@ public class ProjectStage implements ADBBean {
 
 				while (!reader.isEndElement()) {
 					if (reader.isStartElement() || reader.hasText()) {
-						nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-								"nil");
+						nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-						if ("true".equals(nillableValue) ||
-								"1".equals(nillableValue)) {
-							throw new ADBException(
-									"The element: " + "ProjectStage" +
-											"  cannot be null");
+						if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+							throw new ADBException("The element: " + "ProjectStage" + "  cannot be null");
 						}
 
 						String content = reader.getElementText();
@@ -449,8 +376,7 @@ public class ProjectStage implements ADBBean {
 							// this seems to be a Qname so find the namespace and send
 							prefix = content.substring(0, content.indexOf(":"));
 							namespaceuri = reader.getNamespaceURI(prefix);
-							object = ProjectStage.Factory.fromString(content,
-									namespaceuri);
+							object = ProjectStage.Factory.fromString(content, namespaceuri);
 						} else {
 							// this seems to be not a qname send and empty namespace incase of it is
 							// check is done in fromString method

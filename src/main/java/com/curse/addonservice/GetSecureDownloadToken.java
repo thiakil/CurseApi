@@ -25,14 +25,11 @@ import javax.xml.stream.XMLStreamWriter;
 import java.util.Vector;
 
 /**
- *  GetSecureDownloadToken bean class
+ * GetSecureDownloadToken bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class GetSecureDownloadToken implements ADBBean {
-	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/",
-			"GetSecureDownloadToken", "ns9");
+	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetSecureDownloadToken", "ns9");
 
 	/**
 	 * field for FileID
@@ -84,6 +81,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getFileID() {
@@ -92,6 +90,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param FileID
 	 */
 	public void setFileID(int param) {
@@ -107,6 +106,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getUserID() {
@@ -115,6 +115,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param UserID
 	 */
 	public void setUserID(int param) {
@@ -130,6 +131,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return boolean
 	 */
 	public boolean getHasPremium() {
@@ -138,6 +140,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param HasPremium
 	 */
 	public void setHasPremium(boolean param) {
@@ -153,6 +156,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getSubscriptionToken() {
@@ -161,6 +165,7 @@ public class GetSecureDownloadToken implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param SubscriptionToken
 	 */
 	public void setSubscriptionToken(int param) {
@@ -171,51 +176,33 @@ public class GetSecureDownloadToken implements ADBBean {
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, MY_QNAME));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, MY_QNAME));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(),
-				xmlWriter);
+		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"http://addonservice.curse.com/");
+			String namespacePrefix = registerPrefix(xmlWriter, "http://addonservice.curse.com/");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":GetSecureDownloadToken", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":GetSecureDownloadToken", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"GetSecureDownloadToken", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "GetSecureDownloadToken", xmlWriter);
 			}
 		}
 
@@ -224,11 +211,9 @@ public class GetSecureDownloadToken implements ADBBean {
 			writeStartElement(null, namespace, "fileID", xmlWriter);
 
 			if (localFileID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"fileID cannot be null!!");
+				throw new ADBException("fileID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localFileID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localFileID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -239,11 +224,9 @@ public class GetSecureDownloadToken implements ADBBean {
 			writeStartElement(null, namespace, "userID", xmlWriter);
 
 			if (localUserID == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"userID cannot be null!!");
+				throw new ADBException("userID cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localUserID));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localUserID));
 			}
 
 			xmlWriter.writeEndElement();
@@ -253,13 +236,7 @@ public class GetSecureDownloadToken implements ADBBean {
 			namespace = "http://addonservice.curse.com/";
 			writeStartElement(null, namespace, "hasPremium", xmlWriter);
 
-			if (false) {
-				throw new ADBException(
-						"hasPremium cannot be null!!");
-			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localHasPremium));
-			}
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(localHasPremium));
 
 			xmlWriter.writeEndElement();
 		}
@@ -269,11 +246,9 @@ public class GetSecureDownloadToken implements ADBBean {
 			writeStartElement(null, namespace, "subscriptionToken", xmlWriter);
 
 			if (localSubscriptionToken == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"subscriptionToken cannot be null!!");
+				throw new ADBException("subscriptionToken cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localSubscriptionToken));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localSubscriptionToken));
 			}
 
 			xmlWriter.writeEndElement();
@@ -293,10 +268,7 @@ public class GetSecureDownloadToken implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -317,10 +289,7 @@ public class GetSecureDownloadToken implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -335,25 +304,18 @@ public class GetSecureDownloadToken implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -373,17 +335,14 @@ public class GetSecureDownloadToken implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -396,27 +355,21 @@ public class GetSecureDownloadToken implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -437,16 +390,12 @@ public class GetSecureDownloadToken implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -457,9 +406,7 @@ public class GetSecureDownloadToken implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -485,7 +432,7 @@ public class GetSecureDownloadToken implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
@@ -493,12 +440,11 @@ public class GetSecureDownloadToken implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static GetSecureDownloadToken parse(
-				XMLStreamReader reader) throws Exception {
+		public static GetSecureDownloadToken parse(XMLStreamReader reader) throws Exception {
 			GetSecureDownloadToken object = new GetSecureDownloadToken();
 
 			int event;
@@ -508,36 +454,29 @@ public class GetSecureDownloadToken implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
-				if (reader.getAttributeValue(
-						"http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
-					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"type");
+				if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type");
 
 					if (fullTypeName != null) {
 						String nsPrefix = null;
 
-						if (fullTypeName.indexOf(":") > -1) {
-							nsPrefix = fullTypeName.substring(0,
-									fullTypeName.indexOf(":"));
+						if (fullTypeName.contains(":")) {
+							nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
 						}
 
 						nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-						String type = fullTypeName.substring(fullTypeName.indexOf(
-								":") + 1);
+						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
 						if (!"GetSecureDownloadToken".equals(type)) {
 							//find namespace for the prefix
-							String nsUri = reader.getNamespaceContext()
-									.getNamespaceURI(nsPrefix);
+							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (GetSecureDownloadToken) ExtensionMapper.getTypeObject(nsUri,
-									type, reader);
+							return (GetSecureDownloadToken) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -548,26 +487,18 @@ public class GetSecureDownloadToken implements ADBBean {
 
 				reader.next();
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "fileID").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "fileID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "fileID" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "fileID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setFileID(ConverterUtil.convertToInt(
-							content));
+					object.setFileID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -576,26 +507,18 @@ public class GetSecureDownloadToken implements ADBBean {
 					object.setFileID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "userID").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "userID").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "userID" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "userID" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setUserID(ConverterUtil.convertToInt(
-							content));
+					object.setUserID(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -604,27 +527,18 @@ public class GetSecureDownloadToken implements ADBBean {
 					object.setUserID(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/", "hasPremium").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "hasPremium").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "hasPremium" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "hasPremium" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setHasPremium(ConverterUtil.convertToBoolean(
-							content));
+					object.setHasPremium(ConverterUtil.convertToBoolean(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -632,27 +546,18 @@ public class GetSecureDownloadToken implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName(
-								"http://addonservice.curse.com/",
-								"subscriptionToken").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "subscriptionToken").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "subscriptionToken" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "subscriptionToken" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setSubscriptionToken(ConverterUtil.convertToInt(
-							content));
+					object.setSubscriptionToken(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -661,13 +566,11 @@ public class GetSecureDownloadToken implements ADBBean {
 					object.setSubscriptionToken(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				if (reader.isStartElement()) {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
-					throw new ADBException(
-							"Unexpected subelement " + reader.getName());
+					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
 			} catch (XMLStreamException e) {
 				throw new Exception(e);

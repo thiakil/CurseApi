@@ -30,11 +30,9 @@ import javax.xml.stream.XMLStreamWriter;
 import java.util.Vector;
 
 /**
- *  AddOn bean class
+ * AddOn bean class
  */
-@SuppressWarnings({"unchecked",
-		"unused"
-})
+@SuppressWarnings({"unchecked", "unused"})
 public class AddOn implements ADBBean {
     /* This type was generated from the piece of schema that had
        name = AddOn
@@ -389,6 +387,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return addons.curse.ArrayOfAddOnAttachment
 	 */
 	public ArrayOfAddOnAttachment getAttachments() {
@@ -397,6 +396,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Attachments
 	 */
 	public void setAttachments(ArrayOfAddOnAttachment param) {
@@ -411,6 +411,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return addons.curse.ArrayOfAddOnAuthor
 	 */
 	public ArrayOfAddOnAuthor getAuthors() {
@@ -419,6 +420,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Authors
 	 */
 	public void setAuthors(ArrayOfAddOnAuthor param) {
@@ -433,6 +435,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getAvatarUrl() {
@@ -441,6 +444,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param AvatarUrl
 	 */
 	public void setAvatarUrl(String param) {
@@ -455,6 +459,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return addons.curse.ArrayOfAddOnCategory
 	 */
 	public ArrayOfAddOnCategory getCategories() {
@@ -463,6 +468,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Categories
 	 */
 	public void setCategories(ArrayOfAddOnCategory param) {
@@ -477,6 +483,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return addons.curse.CategorySection
 	 */
 	public CategorySection getCategorySection() {
@@ -485,6 +492,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param CategorySection
 	 */
 	public void setCategorySection(CategorySection param) {
@@ -499,6 +507,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getCommentCount() {
@@ -507,6 +516,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param CommentCount
 	 */
 	public void setCommentCount(int param) {
@@ -522,6 +532,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getDefaultFileId() {
@@ -530,6 +541,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param DefaultFileId
 	 */
 	public void setDefaultFileId(int param) {
@@ -545,6 +557,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getDonationUrl() {
@@ -553,6 +566,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param DonationUrl
 	 */
 	public void setDonationUrl(String param) {
@@ -567,6 +581,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return double
 	 */
 	public double getDownloadCount() {
@@ -575,6 +590,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param DownloadCount
 	 */
 	public void setDownloadCount(double param) {
@@ -590,6 +606,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getExternalUrl() {
@@ -598,6 +615,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param ExternalUrl
 	 */
 	public void setExternalUrl(String param) {
@@ -612,6 +630,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getGameId() {
@@ -620,6 +639,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param GameId
 	 */
 	public void setGameId(int param) {
@@ -635,6 +655,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getGamePopularityRank() {
@@ -643,6 +664,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param GamePopularityRank
 	 */
 	public void setGamePopularityRank(int param) {
@@ -658,6 +680,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_addons.ArrayOfGameVersionLatestFile
 	 */
 	public ArrayOfGameVersionLatestFile getGameVersionLatestFiles() {
@@ -666,10 +689,10 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param GameVersionLatestFiles
 	 */
-	public void setGameVersionLatestFiles(
-			ArrayOfGameVersionLatestFile param) {
+	public void setGameVersionLatestFiles(ArrayOfGameVersionLatestFile param) {
 		localGameVersionLatestFilesTracker = true;
 
 		this.localGameVersionLatestFiles = param;
@@ -681,6 +704,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getIconId() {
@@ -689,6 +713,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param IconId
 	 */
 	public void setIconId(int param) {
@@ -704,6 +729,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getId() {
@@ -712,6 +738,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Id
 	 */
 	public void setId(int param) {
@@ -727,6 +754,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getInstallCount() {
@@ -735,6 +763,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param InstallCount
 	 */
 	public void setInstallCount(int param) {
@@ -750,6 +779,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getIsFeatured() {
@@ -758,6 +788,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param IsFeatured
 	 */
 	public void setIsFeatured(int param) {
@@ -773,6 +804,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return addons.curse.ArrayOfAddOnFile
 	 */
 	public ArrayOfAddOnFile getLatestFiles() {
@@ -781,6 +813,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param LatestFiles
 	 */
 	public void setLatestFiles(ArrayOfAddOnFile param) {
@@ -795,6 +828,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getLikes() {
@@ -803,6 +837,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Likes
 	 */
 	public void setLikes(int param) {
@@ -818,6 +853,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getName() {
@@ -826,6 +862,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Name
 	 */
 	public void setName(String param) {
@@ -840,6 +877,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_addons.PackageTypes
 	 */
 	public PackageTypes getPackageType() {
@@ -848,10 +886,10 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PackageType
 	 */
-	public void setPackageType(
-			PackageTypes param) {
+	public void setPackageType(PackageTypes param) {
 		localPackageTypeTracker = param != null;
 
 		this.localPackageType = param;
@@ -863,6 +901,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return double
 	 */
 	public double getPopularityScore() {
@@ -871,6 +910,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PopularityScore
 	 */
 	public void setPopularityScore(double param) {
@@ -886,6 +926,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getPrimaryAuthorName() {
@@ -894,6 +935,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PrimaryAuthorName
 	 */
 	public void setPrimaryAuthorName(String param) {
@@ -908,6 +950,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getPrimaryCategoryAvatarUrl() {
@@ -916,6 +959,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PrimaryCategoryAvatarUrl
 	 */
 	public void setPrimaryCategoryAvatarUrl(String param) {
@@ -930,6 +974,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getPrimaryCategoryId() {
@@ -938,6 +983,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PrimaryCategoryId
 	 */
 	public void setPrimaryCategoryId(int param) {
@@ -953,6 +999,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getPrimaryCategoryName() {
@@ -961,6 +1008,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param PrimaryCategoryName
 	 */
 	public void setPrimaryCategoryName(String param) {
@@ -975,6 +1023,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return int
 	 */
 	public int getRating() {
@@ -983,6 +1032,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Rating
 	 */
 	public void setRating(int param) {
@@ -998,6 +1048,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_addons.ProjectStage
 	 */
 	public ProjectStage getStage() {
@@ -1006,10 +1057,10 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Stage
 	 */
-	public void setStage(
-			ProjectStage param) {
+	public void setStage(ProjectStage param) {
 		localStageTracker = param != null;
 
 		this.localStage = param;
@@ -1021,6 +1072,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return org.datacontract.schemas._2004._07.curse_addons.ProjectStatus
 	 */
 	public ProjectStatus getStatus() {
@@ -1029,10 +1081,10 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Status
 	 */
-	public void setStatus(
-			ProjectStatus param) {
+	public void setStatus(ProjectStatus param) {
 		localStatusTracker = param != null;
 
 		this.localStatus = param;
@@ -1044,6 +1096,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getSummary() {
@@ -1052,6 +1105,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param Summary
 	 */
 	public void setSummary(String param) {
@@ -1066,6 +1120,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated getter method
+	 *
 	 * @return java.lang.String
 	 */
 	public String getWebSiteURL() {
@@ -1074,6 +1129,7 @@ public class AddOn implements ADBBean {
 
 	/**
 	 * Auto generated setter method
+	 *
 	 * @param param WebSiteURL
 	 */
 	public void setWebSiteURL(String param) {
@@ -1083,51 +1139,33 @@ public class AddOn implements ADBBean {
 	}
 
 	/**
-	 *
 	 * @param parentQName
 	 * @param factory
 	 * @return org.apache.axiom.om.OMElement
 	 */
-	public OMElement getOMElement(
-			final QName parentQName,
-			final OMFactory factory)
-			throws ADBException {
-		return factory.createOMElement(new ADBDataSource(
-				this, parentQName));
+	public OMElement getOMElement(final QName parentQName, final OMFactory factory) {
+		return factory.createOMElement(new ADBDataSource(this, parentQName));
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		serialize(parentQName, xmlWriter, false);
 	}
 
-	public void serialize(final QName parentQName,
-						  XMLStreamWriter xmlWriter, boolean serializeType)
-			throws XMLStreamException,
-			ADBException {
+	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(),
-				xmlWriter);
+		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter,
-					"Curse.AddOns");
+			String namespacePrefix = registerPrefix(xmlWriter, "Curse.AddOns");
 
-			if ((namespacePrefix != null) &&
-					(namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						namespacePrefix + ":AddOn", xmlWriter);
+			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":AddOn", xmlWriter);
 			} else {
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "type",
-						"AddOn", xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "AddOn", xmlWriter);
 			}
 		}
 
@@ -1136,13 +1174,10 @@ public class AddOn implements ADBBean {
 				writeStartElement(null, "Curse.AddOns", "Attachments", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAttachments.serialize(new QName(
-						"Curse.AddOns", "Attachments"), xmlWriter);
+				localAttachments.serialize(new QName("Curse.AddOns", "Attachments"), xmlWriter);
 			}
 		}
 
@@ -1151,13 +1186,10 @@ public class AddOn implements ADBBean {
 				writeStartElement(null, "Curse.AddOns", "Authors", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAuthors.serialize(new QName(
-						"Curse.AddOns", "Authors"), xmlWriter);
+				localAuthors.serialize(new QName("Curse.AddOns", "Authors"), xmlWriter);
 			}
 		}
 
@@ -1167,9 +1199,7 @@ public class AddOn implements ADBBean {
 
 			if (localAvatarUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localAvatarUrl);
 			}
@@ -1182,29 +1212,22 @@ public class AddOn implements ADBBean {
 				writeStartElement(null, "Curse.AddOns", "Categories", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localCategories.serialize(new QName(
-						"Curse.AddOns", "Categories"), xmlWriter);
+				localCategories.serialize(new QName("Curse.AddOns", "Categories"), xmlWriter);
 			}
 		}
 
 		if (localCategorySectionTracker) {
 			if (localCategorySection == null) {
-				writeStartElement(null, "Curse.AddOns", "CategorySection",
-						xmlWriter);
+				writeStartElement(null, "Curse.AddOns", "CategorySection", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localCategorySection.serialize(new QName(
-						"Curse.AddOns", "CategorySection"), xmlWriter);
+				localCategorySection.serialize(new QName("Curse.AddOns", "CategorySection"), xmlWriter);
 			}
 		}
 
@@ -1213,11 +1236,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "CommentCount", xmlWriter);
 
 			if (localCommentCount == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"CommentCount cannot be null!!");
+				throw new ADBException("CommentCount cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localCommentCount));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localCommentCount));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1228,11 +1249,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "DefaultFileId", xmlWriter);
 
 			if (localDefaultFileId == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"DefaultFileId cannot be null!!");
+				throw new ADBException("DefaultFileId cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localDefaultFileId));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localDefaultFileId));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1244,9 +1263,7 @@ public class AddOn implements ADBBean {
 
 			if (localDonationUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localDonationUrl);
 			}
@@ -1259,11 +1276,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "DownloadCount", xmlWriter);
 
 			if (Double.isNaN(localDownloadCount)) {
-				throw new ADBException(
-						"DownloadCount cannot be null!!");
+				throw new ADBException("DownloadCount cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localDownloadCount));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localDownloadCount));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1275,9 +1290,7 @@ public class AddOn implements ADBBean {
 
 			if (localExternalUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localExternalUrl);
 			}
@@ -1290,11 +1303,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "GameId", xmlWriter);
 
 			if (localGameId == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"GameId cannot be null!!");
+				throw new ADBException("GameId cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localGameId));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localGameId));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1305,11 +1316,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "GamePopularityRank", xmlWriter);
 
 			if (localGamePopularityRank == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"GamePopularityRank cannot be null!!");
+				throw new ADBException("GamePopularityRank cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localGamePopularityRank));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localGamePopularityRank));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1317,17 +1326,13 @@ public class AddOn implements ADBBean {
 
 		if (localGameVersionLatestFilesTracker) {
 			if (localGameVersionLatestFiles == null) {
-				writeStartElement(null, "Curse.AddOns",
-						"GameVersionLatestFiles", xmlWriter);
+				writeStartElement(null, "Curse.AddOns", "GameVersionLatestFiles", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGameVersionLatestFiles.serialize(new QName(
-						"Curse.AddOns", "GameVersionLatestFiles"), xmlWriter);
+				localGameVersionLatestFiles.serialize(new QName("Curse.AddOns", "GameVersionLatestFiles"), xmlWriter);
 			}
 		}
 
@@ -1336,11 +1341,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "IconId", xmlWriter);
 
 			if (localIconId == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"IconId cannot be null!!");
+				throw new ADBException("IconId cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localIconId));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localIconId));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1351,11 +1354,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "Id", xmlWriter);
 
 			if (localId == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"Id cannot be null!!");
+				throw new ADBException("Id cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localId));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localId));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1366,11 +1367,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "InstallCount", xmlWriter);
 
 			if (localInstallCount == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"InstallCount cannot be null!!");
+				throw new ADBException("InstallCount cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localInstallCount));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localInstallCount));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1381,11 +1380,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "IsFeatured", xmlWriter);
 
 			if (localIsFeatured == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"IsFeatured cannot be null!!");
+				throw new ADBException("IsFeatured cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localIsFeatured));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localIsFeatured));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1396,13 +1393,10 @@ public class AddOn implements ADBBean {
 				writeStartElement(null, "Curse.AddOns", "LatestFiles", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localLatestFiles.serialize(new QName(
-						"Curse.AddOns", "LatestFiles"), xmlWriter);
+				localLatestFiles.serialize(new QName("Curse.AddOns", "LatestFiles"), xmlWriter);
 			}
 		}
 
@@ -1411,11 +1405,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "Likes", xmlWriter);
 
 			if (localLikes == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"Likes cannot be null!!");
+				throw new ADBException("Likes cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localLikes));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localLikes));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1427,9 +1419,7 @@ public class AddOn implements ADBBean {
 
 			if (localName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localName);
 			}
@@ -1439,12 +1429,10 @@ public class AddOn implements ADBBean {
 
 		if (localPackageTypeTracker) {
 			if (localPackageType == null) {
-				throw new ADBException(
-						"PackageType cannot be null!!");
+				throw new ADBException("PackageType cannot be null!!");
 			}
 
-			localPackageType.serialize(new QName(
-					"Curse.AddOns", "PackageType"), xmlWriter);
+			localPackageType.serialize(new QName("Curse.AddOns", "PackageType"), xmlWriter);
 		}
 
 		if (localPopularityScoreTracker) {
@@ -1452,11 +1440,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "PopularityScore", xmlWriter);
 
 			if (Double.isNaN(localPopularityScore)) {
-				throw new ADBException(
-						"PopularityScore cannot be null!!");
+				throw new ADBException("PopularityScore cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localPopularityScore));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localPopularityScore));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1468,9 +1454,7 @@ public class AddOn implements ADBBean {
 
 			if (localPrimaryAuthorName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryAuthorName);
 			}
@@ -1480,14 +1464,11 @@ public class AddOn implements ADBBean {
 
 		if (localPrimaryCategoryAvatarUrlTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PrimaryCategoryAvatarUrl",
-					xmlWriter);
+			writeStartElement(null, namespace, "PrimaryCategoryAvatarUrl", xmlWriter);
 
 			if (localPrimaryCategoryAvatarUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryCategoryAvatarUrl);
 			}
@@ -1500,11 +1481,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "PrimaryCategoryId", xmlWriter);
 
 			if (localPrimaryCategoryId == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"PrimaryCategoryId cannot be null!!");
+				throw new ADBException("PrimaryCategoryId cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localPrimaryCategoryId));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localPrimaryCategoryId));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1516,9 +1495,7 @@ public class AddOn implements ADBBean {
 
 			if (localPrimaryCategoryName == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryCategoryName);
 			}
@@ -1531,11 +1508,9 @@ public class AddOn implements ADBBean {
 			writeStartElement(null, namespace, "Rating", xmlWriter);
 
 			if (localRating == Integer.MIN_VALUE) {
-				throw new ADBException(
-						"Rating cannot be null!!");
+				throw new ADBException("Rating cannot be null!!");
 			} else {
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						localRating));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(localRating));
 			}
 
 			xmlWriter.writeEndElement();
@@ -1543,22 +1518,18 @@ public class AddOn implements ADBBean {
 
 		if (localStageTracker) {
 			if (localStage == null) {
-				throw new ADBException(
-						"Stage cannot be null!!");
+				throw new ADBException("Stage cannot be null!!");
 			}
 
-			localStage.serialize(new QName("Curse.AddOns",
-					"Stage"), xmlWriter);
+			localStage.serialize(new QName("Curse.AddOns", "Stage"), xmlWriter);
 		}
 
 		if (localStatusTracker) {
 			if (localStatus == null) {
-				throw new ADBException(
-						"Status cannot be null!!");
+				throw new ADBException("Status cannot be null!!");
 			}
 
-			localStatus.serialize(new QName(
-					"Curse.AddOns", "Status"), xmlWriter);
+			localStatus.serialize(new QName("Curse.AddOns", "Status"), xmlWriter);
 		}
 
 		if (localSummaryTracker) {
@@ -1567,9 +1538,7 @@ public class AddOn implements ADBBean {
 
 			if (localSummary == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localSummary);
 			}
@@ -1583,9 +1552,7 @@ public class AddOn implements ADBBean {
 
 			if (localWebSiteURL == null) {
 				// write the nil attribute
-				writeAttribute("xsi",
-						"http://www.w3.org/2001/XMLSchema-instance", "nil", "1",
-						xmlWriter);
+				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localWebSiteURL);
 			}
@@ -1607,10 +1574,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(String prefix,
-								   String namespace, String localPart,
-								   XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -1631,10 +1595,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(String prefix,
-								String namespace, String attName,
-								String attValue, XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
@@ -1649,25 +1610,18 @@ public class AddOn implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(String namespace,
-								String attName, String attValue,
-								XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace),
-					namespace, attName, attValue);
+			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(String namespace,
-									 String attName, QName qname,
-									 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String attributeNamespace = qname.getNamespaceURI();
 		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
@@ -1687,17 +1641,14 @@ public class AddOn implements ADBBean {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
 			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName,
-					attributeValue);
+			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
 
 	/**
-	 *  method to handle Qnames
+	 * method to handle Qnames
 	 */
-	private void writeQName(QName qname,
-							XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
@@ -1710,27 +1661,21 @@ public class AddOn implements ADBBean {
 			}
 
 			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" +
-						ConverterUtil.convertToString(
-								qname));
+				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
 			} else {
 				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(
-						qname));
+				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 			}
 		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(
-					qname));
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
 		}
 	}
 
-	private void writeQNames(QName[] qnames,
-							 XMLStreamWriter xmlWriter)
-			throws XMLStreamException {
+	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (qnames != null) {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
-			StringBuffer stringToWrite = new StringBuffer();
+			StringBuilder stringToWrite = new StringBuilder();
 			String namespaceURI = null;
 			String prefix = null;
 
@@ -1751,16 +1696,12 @@ public class AddOn implements ADBBean {
 					}
 
 					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":")
-								.append(ConverterUtil.convertToString(
-										qnames[i]));
+						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
 					} else {
-						stringToWrite.append(ConverterUtil.convertToString(
-								qnames[i]));
+						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 					}
 				} else {
-					stringToWrite.append(ConverterUtil.convertToString(
-							qnames[i]));
+					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
 				}
 			}
 
@@ -1771,9 +1712,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private String registerPrefix(
-			XMLStreamWriter xmlWriter, String namespace)
-			throws XMLStreamException {
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
 		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
@@ -1799,7 +1738,7 @@ public class AddOn implements ADBBean {
 	}
 
 	/**
-	 *  Factory class that keeps the parse method
+	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
@@ -1807,12 +1746,11 @@ public class AddOn implements ADBBean {
 		/**
 		 * static method to create the object
 		 * Precondition:  If this object is an element, the current or next start element starts this object and any intervening reader events are ignorable
-		 *                If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
+		 * If this object is not an element, it is a complex type and the reader is at the event just after the outer start element
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
-		 *                If this object is a complex type, the reader is positioned at the end element of its outer element
+		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static AddOn parse(XMLStreamReader reader)
-				throws Exception {
+		public static AddOn parse(XMLStreamReader reader) throws Exception {
 			AddOn object = new AddOn();
 
 			int event;
@@ -1822,36 +1760,29 @@ public class AddOn implements ADBBean {
 			String namespaceuri = "";
 
 			try {
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				currentQName = reader.getName();
 
-				if (reader.getAttributeValue(
-						"http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
-					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"type");
+				if (reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type") != null) {
+					String fullTypeName = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "type");
 
 					if (fullTypeName != null) {
 						String nsPrefix = null;
 
-						if (fullTypeName.indexOf(":") > -1) {
-							nsPrefix = fullTypeName.substring(0,
-									fullTypeName.indexOf(":"));
+						if (fullTypeName.contains(":")) {
+							nsPrefix = fullTypeName.substring(0, fullTypeName.indexOf(":"));
 						}
 
 						nsPrefix = (nsPrefix == null) ? "" : nsPrefix;
 
-						String type = fullTypeName.substring(fullTypeName.indexOf(
-								":") + 1);
+						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
 						if (!"AddOn".equals(type)) {
 							//find namespace for the prefix
-							String nsUri = reader.getNamespaceContext()
-									.getNamespaceURI(nsPrefix);
+							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (AddOn) ExtensionMapper.getTypeObject(nsUri,
-									type, reader);
+							return (AddOn) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -1862,24 +1793,18 @@ public class AddOn implements ADBBean {
 
 				reader.next();
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"Attachments").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Attachments").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setAttachments(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setAttachments(ArrayOfAddOnAttachment.Factory.parse(
-								reader));
+						object.setAttachments(ArrayOfAddOnAttachment.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -1888,24 +1813,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Authors").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Authors").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setAuthors(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setAuthors(ArrayOfAddOnAuthor.Factory.parse(
-								reader));
+						object.setAuthors(ArrayOfAddOnAuthor.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -1914,21 +1833,15 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"AvatarUrl").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "AvatarUrl").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setAvatarUrl(ConverterUtil.convertToString(
-								content));
+						object.setAvatarUrl(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -1939,24 +1852,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"Categories").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Categories").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setCategories(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setCategories(ArrayOfAddOnCategory.Factory.parse(
-								reader));
+						object.setCategories(ArrayOfAddOnCategory.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -1965,24 +1872,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"CategorySection").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "CategorySection").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setCategorySection(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setCategorySection(CategorySection.Factory.parse(
-								reader));
+						object.setCategorySection(CategorySection.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -1991,26 +1892,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"CommentCount").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "CommentCount").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "CommentCount" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "CommentCount" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setCommentCount(ConverterUtil.convertToInt(
-							content));
+					object.setCommentCount(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2019,26 +1912,18 @@ public class AddOn implements ADBBean {
 					object.setCommentCount(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"DefaultFileId").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "DefaultFileId").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "DefaultFileId" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "DefaultFileId" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setDefaultFileId(ConverterUtil.convertToInt(
-							content));
+					object.setDefaultFileId(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2047,21 +1932,15 @@ public class AddOn implements ADBBean {
 					object.setDefaultFileId(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"DonationUrl").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "DonationUrl").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setDonationUrl(ConverterUtil.convertToString(
-								content));
+						object.setDonationUrl(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2072,26 +1951,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"DownloadCount").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "DownloadCount").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "DownloadCount" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "DownloadCount" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setDownloadCount(ConverterUtil.convertToDouble(
-							content));
+					object.setDownloadCount(ConverterUtil.convertToDouble(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2100,21 +1971,15 @@ public class AddOn implements ADBBean {
 					object.setDownloadCount(Double.NaN);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"ExternalUrl").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "ExternalUrl").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setExternalUrl(ConverterUtil.convertToString(
-								content));
+						object.setExternalUrl(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2125,25 +1990,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "GameId").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "GameId").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "GameId" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "GameId" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setGameId(ConverterUtil.convertToInt(
-							content));
+					object.setGameId(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2152,26 +2010,18 @@ public class AddOn implements ADBBean {
 					object.setGameId(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"GamePopularityRank").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "GamePopularityRank").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "GamePopularityRank" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "GamePopularityRank" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setGamePopularityRank(ConverterUtil.convertToInt(
-							content));
+					object.setGamePopularityRank(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2180,24 +2030,18 @@ public class AddOn implements ADBBean {
 					object.setGamePopularityRank(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"GameVersionLatestFiles").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "GameVersionLatestFiles").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setGameVersionLatestFiles(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setGameVersionLatestFiles(ArrayOfGameVersionLatestFile.Factory.parse(
-								reader));
+						object.setGameVersionLatestFiles(ArrayOfGameVersionLatestFile.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -2206,25 +2050,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "IconId").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "IconId").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "IconId" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "IconId" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setIconId(ConverterUtil.convertToInt(
-							content));
+					object.setIconId(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2233,25 +2070,18 @@ public class AddOn implements ADBBean {
 					object.setIconId(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Id").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Id").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "Id" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "Id" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setId(ConverterUtil.convertToInt(
-							content));
+					object.setId(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2260,26 +2090,18 @@ public class AddOn implements ADBBean {
 					object.setId(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"InstallCount").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "InstallCount").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "InstallCount" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "InstallCount" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setInstallCount(ConverterUtil.convertToInt(
-							content));
+					object.setInstallCount(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2288,26 +2110,18 @@ public class AddOn implements ADBBean {
 					object.setInstallCount(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"IsFeatured").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "IsFeatured").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "IsFeatured" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "IsFeatured" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setIsFeatured(ConverterUtil.convertToInt(
-							content));
+					object.setIsFeatured(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2316,24 +2130,18 @@ public class AddOn implements ADBBean {
 					object.setIsFeatured(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"LatestFiles").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "LatestFiles").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
 						object.setLatestFiles(null);
 						reader.next();
 
 						reader.next();
 					} else {
-						object.setLatestFiles(ArrayOfAddOnFile.Factory.parse(
-								reader));
+						object.setLatestFiles(ArrayOfAddOnFile.Factory.parse(reader));
 
 						reader.next();
 					}
@@ -2342,25 +2150,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Likes").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Likes").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "Likes" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "Likes" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setLikes(ConverterUtil.convertToInt(
-							content));
+					object.setLikes(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2369,21 +2170,15 @@ public class AddOn implements ADBBean {
 					object.setLikes(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Name").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Name").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setName(ConverterUtil.convertToString(
-								content));
+						object.setName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2394,14 +2189,10 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PackageType").equals(reader.getName())) {
-					object.setPackageType(PackageTypes.Factory.parse(
-							reader));
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PackageType").equals(reader.getName())) {
+					object.setPackageType(PackageTypes.Factory.parse(reader));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2409,26 +2200,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PopularityScore").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PopularityScore").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "PopularityScore" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "PopularityScore" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setPopularityScore(ConverterUtil.convertToDouble(
-							content));
+					object.setPopularityScore(ConverterUtil.convertToDouble(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2437,21 +2220,15 @@ public class AddOn implements ADBBean {
 					object.setPopularityScore(Double.NaN);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PrimaryAuthorName").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PrimaryAuthorName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setPrimaryAuthorName(ConverterUtil.convertToString(
-								content));
+						object.setPrimaryAuthorName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2462,21 +2239,15 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PrimaryCategoryAvatarUrl").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PrimaryCategoryAvatarUrl").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setPrimaryCategoryAvatarUrl(ConverterUtil.convertToString(
-								content));
+						object.setPrimaryCategoryAvatarUrl(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2487,26 +2258,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PrimaryCategoryId").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PrimaryCategoryId").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "PrimaryCategoryId" +
-										"  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "PrimaryCategoryId" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setPrimaryCategoryId(ConverterUtil.convertToInt(
-							content));
+					object.setPrimaryCategoryId(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2515,21 +2278,15 @@ public class AddOn implements ADBBean {
 					object.setPrimaryCategoryId(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"PrimaryCategoryName").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "PrimaryCategoryName").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setPrimaryCategoryName(ConverterUtil.convertToString(
-								content));
+						object.setPrimaryCategoryName(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2540,25 +2297,18 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Rating").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Rating").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if ("true".equals(nillableValue) ||
-							"1".equals(nillableValue)) {
-						throw new ADBException(
-								"The element: " + "Rating" + "  cannot be null");
+					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
+						throw new ADBException("The element: " + "Rating" + "  cannot be null");
 					}
 
 					String content = reader.getElementText();
 
-					object.setRating(ConverterUtil.convertToInt(
-							content));
+					object.setRating(ConverterUtil.convertToInt(content));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2567,14 +2317,10 @@ public class AddOn implements ADBBean {
 					object.setRating(Integer.MIN_VALUE);
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Stage").equals(
-								reader.getName())) {
-					object.setStage(ProjectStage.Factory.parse(
-							reader));
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Stage").equals(reader.getName())) {
+					object.setStage(ProjectStage.Factory.parse(reader));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2582,14 +2328,10 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Status").equals(
-								reader.getName())) {
-					object.setStatus(ProjectStatus.Factory.parse(
-							reader));
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Status").equals(reader.getName())) {
+					object.setStatus(ProjectStatus.Factory.parse(reader));
 
 					reader.next();
 				} // End of if for expected property start element
@@ -2597,21 +2339,15 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns", "Summary").equals(
-								reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "Summary").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setSummary(ConverterUtil.convertToString(
-								content));
+						object.setSummary(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2622,21 +2358,15 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() &&
-						new QName("Curse.AddOns",
-								"WebSiteURL").equals(reader.getName())) {
-					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance",
-							"nil");
+				if (reader.isStartElement() && new QName("Curse.AddOns", "WebSiteURL").equals(reader.getName())) {
+					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
-					if (!"true".equals(nillableValue) &&
-							!"1".equals(nillableValue)) {
+					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setWebSiteURL(ConverterUtil.convertToString(
-								content));
+						object.setWebSiteURL(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
@@ -2647,13 +2377,11 @@ public class AddOn implements ADBBean {
 				else {
 				}
 
-				while (!reader.isStartElement() && !reader.isEndElement())
-					reader.next();
+				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
 				if (reader.isStartElement()) {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
-					throw new ADBException(
-							"Unexpected subelement " + reader.getName());
+					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
 			} catch (XMLStreamException e) {
 				throw new Exception(e);

@@ -1,11 +1,7 @@
 package com.thiakil.curseapi;
 
-import com.sangupta.murmur.Murmur2;
-import org.apache.commons.io.IOUtils;
-
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.channels.Channels;
@@ -20,8 +16,6 @@ import java.nio.file.StandardOpenOption;
 public class Murmur2Hash {
 	private static final long SEED = 1;
 	private static final int BUFFER_SIZE = 65536;
-	private static final long m = 0x5bd1e995L;
-	private static final int r = 24;
 	private static final long UINT_MASK = 0xFFFFFFFFL;
 	private static final int UNSIGNED_MASK = 0xff;
 
@@ -36,8 +30,7 @@ public class Murmur2Hash {
 			long len = normalizeWhitespace ? computeNormalizedLength(Channels.newInputStream(ch.position(0)), null) : ch.size();
 			return computeHash(new BufferedInputStream(Channels.newInputStream(ch.position(0))), len, true);
 		} finally {
-			if (ch != null)
-				ch.close();
+			if (ch != null) ch.close();
 		}
 	}
 
@@ -125,18 +118,15 @@ public class Murmur2Hash {
 
 	public static long computeNormalizedLength(InputStream input, byte[] buffer) throws IOException {
 		long len = 0;
-		if (buffer == null)
-			buffer = new byte[BUFFER_SIZE];
+		if (buffer == null) buffer = new byte[BUFFER_SIZE];
 
 		while (true) {
 			int bytesRead = input.read(buffer, 0, BUFFER_SIZE);
 
-			if (bytesRead < 1)
-				return len;
+			if (bytesRead < 1) return len;
 
 			for (int index = 0; index < bytesRead; ++index) {
-				if (!Murmur2Hash.isWhitespaceCharacter(buffer[index]))
-					++len;
+				if (!Murmur2Hash.isWhitespaceCharacter(buffer[index])) ++len;
 			}
 		}
 	}
@@ -147,8 +137,7 @@ public class Murmur2Hash {
 	}
 
 	private static int getByte(InputStream data, boolean skipWS) throws IOException {
-		if (!skipWS)
-			return data.read();
+		if (!skipWS) return data.read();
 		int b;
 		do {
 			b = data.read();
