@@ -71,6 +71,7 @@ import com.curse.addonservice.V2GetChangeLogResponse;
 import com.curse.addonservice.V2GetFingerprintMatches;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOflong;
+import com.thiakil.curseapi.login.CurseToken;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -123,14 +124,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Constructor that takes in a configContext
 	 */
-	public AddOnServiceStub(ConfigurationContext configurationContext, String targetEndpoint) throws AxisFault {
-		this(configurationContext, targetEndpoint, false);
+	public AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint) throws AxisFault {
+		this(auth, configurationContext, targetEndpoint, false);
 	}
 
 	/**
 	 * Constructor that takes in a configContext  and useseperate listner
 	 */
-	public AddOnServiceStub(ConfigurationContext configurationContext, String targetEndpoint, boolean useSeparateListener) throws AxisFault {
+	public AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint, boolean useSeparateListener) throws AxisFault {
 		//To populate AxisService
 		populateAxisService();
 		populateFaults();
@@ -146,44 +147,33 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_serviceClient.getOptions().setSoapVersionURI(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);
 		_serviceClient.engageModule("addressing");
 
-        /*HttpTransportPropertiesImpl.Authenticator
-                auth = new HttpTransportPropertiesImpl.Authenticator();
-        auth.setUsername("thiakil");
-        auth.setPassword("????");
-        auth.setPreemptiveAuthentication(true);
-        _serviceClient.getOptions().setProperty(org.apache.axis2.transport.http.HTTPConstants.AUTHENTICATE, auth);*/
 		OMFactory factory = OMAbstractFactory.getOMFactory();
 		OMNamespace ns = factory.createOMNamespace("urn:Curse.FriendsService:v1", "");
 		OMNamespace ns2 = factory.createOMNamespace("http://www.w3.org/2001/XMLSchema-instance", "i");
 		OMElement header = factory.createOMElement("AuthenticationToken", ns);
-		factory.createOMElement("ApiKey", ns, header).addAttribute(factory.createOMAttribute("nil", ns2, "true"));
-		header.declareNamespace(ns2);
+		OMElement apikey = factory.createOMElement("ApiKey", ns, header);
+		if (auth.apiKey == null) {
+			header.declareNamespace(ns2);
+			apikey.addAttribute(factory.createOMAttribute("nil", ns2, "true"));
+		} else {
+			apikey.setText(auth.apiKey);
+		}
 		OMElement token = factory.createOMElement("Token", ns, header);
-		token.setText("ZRld3TscBuDPgYRVHrZztL2jW8x4VcyBLlVfjyE2dU0ilDM0hH4xzVGXjxDNqvL0YDz/EX6NMuAMYkZG1TIE6YdyljGCAPTRvt/YmwF4g1w5eivSFYBkzPDDLWVsJ4gKekOvQoaJU6VDqAd3rLjmPEj82LUw4jbmF3WfemzVLZ35pt28/cB4/6IDL06TwPP8");
+		token.setText(auth.token);
 		OMElement id = factory.createOMElement("UserID", ns, header);
-		id.setText("28798139");
+		id.setText(String.valueOf(auth.userID));
 		_serviceClient.addHeader(header);
 	}
 
-	/**
-	 * Default Constructor
-	 */
-	public AddOnServiceStub(ConfigurationContext configurationContext) throws AxisFault {
-		this(configurationContext, "https://addons.forgesvc.net/AddOnService.svc/soap12");
-	}
-
-	/**
-	 * Default Constructor
-	 */
-	public AddOnServiceStub() throws AxisFault {
-		this("https://addons.forgesvc.net/AddOnService.svc/soap12");
+	public AddOnServiceStub(CurseToken auth) throws AxisFault {
+		this(auth, "https://addons.forgesvc.net/AddOnService.svc/soap12");
 	}
 
 	/**
 	 * Constructor taking the target endpoint
 	 */
-	public AddOnServiceStub(String targetEndpoint) throws AxisFault {
-		this(null, targetEndpoint);
+	public AddOnServiceStub(CurseToken auth, String targetEndpoint) throws AxisFault {
+		this(auth, null, targetEndpoint);
 	}
 
 	private static synchronized String getUniqueSuffix() {
