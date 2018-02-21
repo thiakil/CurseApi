@@ -19,6 +19,8 @@ dependencies {
     compile "org.apache.axis2:axis2-jaxws:1.7.7"
     //compile "com.sangupta:murmur:1.0.0"
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.github.scribejava:scribejava-core:5.2.0-java7again'
+    compile 'com.github.scribejava:scribejava-httpclient-apache:5.2.0-java7again'
 }
 
 sourceSets {
