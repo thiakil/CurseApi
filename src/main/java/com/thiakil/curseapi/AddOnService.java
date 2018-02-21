@@ -7,6 +7,7 @@
 package com.thiakil.curseapi;
 
 
+import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.CacheHealthCheck;
 import com.curse.addonservice.CacheHealthCheckResponse;
 import com.curse.addonservice.CreateSyncGroup;
@@ -30,7 +31,6 @@ import com.curse.addonservice.GetChangeLogResponse;
 import com.curse.addonservice.GetDownloadToken;
 import com.curse.addonservice.GetDownloadTokenResponse;
 import com.curse.addonservice.GetFingerprintMatches;
-import com.curse.addonservice.GetFingerprintMatchesResponse;
 import com.curse.addonservice.GetFuzzyMatches;
 import com.curse.addonservice.GetFuzzyMatchesResponse;
 import com.curse.addonservice.GetRepositoryMatchFromSlug;
@@ -136,20 +136,19 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getFingerprintMatches6
+	 * @param fingerprints
 	 */
-	GetFingerprintMatchesResponse getFingerprintMatches(
-			GetFingerprintMatches getFingerprintMatches6)
+	FingerprintMatchResult getFingerprintMatches(
+			long... fingerprints)
 			throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getFingerprintMatches6
+	 * @param fingerprints
 	 */
 	void startgetFingerprintMatches(
-			GetFingerprintMatches getFingerprintMatches6,
-			final AddOnServiceCallbackHandler callback)
+			final AddOnServiceCallbackHandler callback, long... fingerprints)
 			throws RemoteException;
 
 	/**
