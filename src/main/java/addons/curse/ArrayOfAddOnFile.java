@@ -8,6 +8,7 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -87,25 +88,25 @@ public class ArrayOfAddOnFile  {
 			
 			prefix = parentQName.getPrefix();
 			namespace = parentQName.getNamespaceURI();
-			writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+			Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 			
 			if (addOnFileList != null) {
 				for (AddOnFile aLocalAddOnFile : addOnFileList) {
 					if (aLocalAddOnFile != null) {
 						aLocalAddOnFile.serialize(new QName("Curse.AddOns", "AddOnFile"), xmlWriter);
 					} else {
-						writeStartElement(null, "Curse.AddOns", "AddOnFile", xmlWriter);
+						Util.writeStartElement(null, "Curse.AddOns", "AddOnFile", xmlWriter);
 						
 						// write the nil attribute
-						writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+						Util.writeNil(xmlWriter);
 						xmlWriter.writeEndElement();
 					}
 				}
 			} else {
-				writeStartElement(null, "Curse.AddOns", "AddOnFile", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "AddOnFile", xmlWriter);
 				
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			}
 			
@@ -155,7 +156,7 @@ public class ArrayOfAddOnFile  {
 			if (namespace.equals("")) {
 				xmlWriter.writeAttribute(attName, attValue);
 			} else {
-				xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
+				xmlWriter.writeAttribute(Util.registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 			}
 		}
 

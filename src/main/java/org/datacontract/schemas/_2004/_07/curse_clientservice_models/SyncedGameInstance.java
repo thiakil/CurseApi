@@ -8,6 +8,7 @@ package org.datacontract.schemas._2004._07.curse_clientservice_models;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -376,24 +377,24 @@ public class SyncedGameInstance implements ADBBean {
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
+			String namespacePrefix = Util.registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models");
 
 			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":SyncedGameInstance", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":SyncedGameInstance", xmlWriter);
 			} else {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "SyncedGameInstance", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "SyncedGameInstance", xmlWriter);
 			}
 		}
 
 		if (localAddonsTracker) {
 			if (localAddons == null) {
-				writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons", xmlWriter);
+				Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
 				localAddons.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons"), xmlWriter);
@@ -402,10 +403,10 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localComputersTracker) {
 			if (localComputers == null) {
-				writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers", xmlWriter);
+				Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
 				localComputers.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers"), xmlWriter);
@@ -414,7 +415,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localGameIDTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "GameID", xmlWriter);
+			Util.writeStartElement(null, namespace, "GameID", xmlWriter);
 
 			if (localGameID == Integer.MIN_VALUE) {
 				throw new ADBException("GameID cannot be null!!");
@@ -427,7 +428,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localInstanceIDTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "InstanceID", xmlWriter);
+			Util.writeStartElement(null, namespace, "InstanceID", xmlWriter);
 
 			if (localInstanceID == Integer.MIN_VALUE) {
 				throw new ADBException("InstanceID cannot be null!!");
@@ -440,11 +441,11 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localInstanceNameTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "InstanceName", xmlWriter);
+			Util.writeStartElement(null, namespace, "InstanceName", xmlWriter);
 
 			if (localInstanceName == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localInstanceName);
 			}
@@ -454,7 +455,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupDateTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupDate", xmlWriter);
+			Util.writeStartElement(null, namespace, "LastBackupDate", xmlWriter);
 
 			if (localLastBackupDate == null) {
 				// write the nil attribute
@@ -468,7 +469,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupFingerprintTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupFingerprint", xmlWriter);
+			Util.writeStartElement(null, namespace, "LastBackupFingerprint", xmlWriter);
 
 			if (localLastBackupFingerprint == Long.MIN_VALUE) {
 				throw new ADBException("LastBackupFingerprint cannot be null!!");
@@ -481,7 +482,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupScreenHeightTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupScreenHeight", xmlWriter);
+			Util.writeStartElement(null, namespace, "LastBackupScreenHeight", xmlWriter);
 
 			if (localLastBackupScreenHeight == Long.MIN_VALUE) {
 				throw new ADBException("LastBackupScreenHeight cannot be null!!");
@@ -494,7 +495,7 @@ public class SyncedGameInstance implements ADBBean {
 
 		if (localLastBackupScreenWidthTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models";
-			writeStartElement(null, namespace, "LastBackupScreenWidth", xmlWriter);
+			Util.writeStartElement(null, namespace, "LastBackupScreenWidth", xmlWriter);
 
 			if (localLastBackupScreenWidth == Long.MIN_VALUE) {
 				throw new ADBException("LastBackupScreenWidth cannot be null!!");
@@ -516,171 +517,15 @@ public class SyncedGameInstance implements ADBBean {
 		return BeanUtil.getUniquePrefix();
 	}
 
-	/**
-	 * Utility method to write an element start tag.
-	 */
-	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
-		} else {
-			if (namespace.length() == 0) {
-				prefix = "";
-			} else if (prefix == null) {
-				prefix = generatePrefix(namespace);
-			}
 
-			xmlWriter.writeStartElement(prefix, localPart, namespace);
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute with the ns prefix
-	 */
-	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeAttribute(writerPrefix, namespace, attName, attValue);
-		} else {
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-			xmlWriter.writeAttribute(prefix, namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attValue);
-		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String attributeNamespace = qname.getNamespaceURI();
-		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
-		if (attributePrefix == null) {
-			attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-		}
 
-		String attributeValue;
 
-		if (attributePrefix.trim().length() > 0) {
-			attributeValue = attributePrefix + ":" + qname.getLocalPart();
-		} else {
-			attributeValue = qname.getLocalPart();
-		}
-
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attributeValue);
-		} else {
-			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
-		}
-	}
-
-	/**
-	 * method to handle Qnames
-	 */
-	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String namespaceURI = qname.getNamespaceURI();
-
-		if (namespaceURI != null) {
-			String prefix = xmlWriter.getPrefix(namespaceURI);
-
-			if (prefix == null) {
-				prefix = generatePrefix(namespaceURI);
-				xmlWriter.writeNamespace(prefix, namespaceURI);
-				xmlWriter.setPrefix(prefix, namespaceURI);
-			}
-
-			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
-			} else {
-				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-			}
-		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-		}
-	}
-
-	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (qnames != null) {
-			// we have to store this data until last moment since it is not possible to write any
-			// namespace data after writing the charactor data
-			StringBuilder stringToWrite = new StringBuilder();
-			String namespaceURI = null;
-			String prefix = null;
-
-			for (int i = 0; i < qnames.length; i++) {
-				if (i > 0) {
-					stringToWrite.append(" ");
-				}
-
-				namespaceURI = qnames[i].getNamespaceURI();
-
-				if (namespaceURI != null) {
-					prefix = xmlWriter.getPrefix(namespaceURI);
-
-					if ((prefix == null) || (prefix.length() == 0)) {
-						prefix = generatePrefix(namespaceURI);
-						xmlWriter.writeNamespace(prefix, namespaceURI);
-						xmlWriter.setPrefix(prefix, namespaceURI);
-					}
-
-					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
-					} else {
-						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-					}
-				} else {
-					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-				}
-			}
-
-			xmlWriter.writeCharacters(stringToWrite.toString());
-		}
-	}
-
-	/**
-	 * Register a namespace prefix
-	 */
-	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
-		String prefix = xmlWriter.getPrefix(namespace);
-
-		if (prefix == null) {
-			prefix = generatePrefix(namespace);
-
-			NamespaceContext nsContext = xmlWriter.getNamespaceContext();
-
-			while (true) {
-				String uri = nsContext.getNamespaceURI(prefix);
-
-				if ((uri == null) || (uri.length() == 0)) {
-					break;
-				}
-
-				prefix = BeanUtil.getUniquePrefix();
-			}
-
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-
-		return prefix;
-	}
 
 	/**
 	 * Factory class that keeps the parse method

@@ -8,6 +8,7 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -1159,49 +1160,49 @@ public class AddOn implements ADBBean {
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter, "Curse.AddOns");
+			String namespacePrefix = Util.registerPrefix(xmlWriter, "Curse.AddOns");
 
 			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":AddOn", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":AddOn", xmlWriter);
 			} else {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "AddOn", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "AddOn", xmlWriter);
 			}
 		}
 
 		if (localAttachmentsTracker) {
 			if (localAttachments == null) {
-				writeStartElement(null, "Curse.AddOns", "Attachments", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "Attachments", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAttachments.serialize(new QName("Curse.AddOns", "Attachments"), xmlWriter);
+				ArrayOfAddOnAttachment.serialize(new QName("Curse.AddOns", "Attachments"), xmlWriter, localAttachments);
 			}
 		}
 
 		if (localAuthorsTracker) {
 			if (localAuthors == null) {
-				writeStartElement(null, "Curse.AddOns", "Authors", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "Authors", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAuthors.serialize(new QName("Curse.AddOns", "Authors"), xmlWriter);
+				ArrayOfAddOnAuthor.serialize(new QName("Curse.AddOns", "Authors"), xmlWriter, localAuthors);
 			}
 		}
 
 		if (localAvatarUrlTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "AvatarUrl", xmlWriter);
+			Util.writeStartElement(null, namespace, "AvatarUrl", xmlWriter);
 
 			if (localAvatarUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localAvatarUrl);
 			}
@@ -1211,22 +1212,22 @@ public class AddOn implements ADBBean {
 
 		if (localCategoriesTracker) {
 			if (localCategories == null) {
-				writeStartElement(null, "Curse.AddOns", "Categories", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "Categories", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localCategories.serialize(new QName("Curse.AddOns", "Categories"), xmlWriter);
+				ArrayOfAddOnCategory.serialize(new QName("Curse.AddOns", "Categories"), xmlWriter, localCategories);
 			}
 		}
 
 		if (localCategorySectionTracker) {
 			if (localCategorySection == null) {
-				writeStartElement(null, "Curse.AddOns", "CategorySection", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "CategorySection", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
 				localCategorySection.serialize(new QName("Curse.AddOns", "CategorySection"), xmlWriter);
@@ -1235,7 +1236,7 @@ public class AddOn implements ADBBean {
 
 		if (localCommentCountTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "CommentCount", xmlWriter);
+			Util.writeStartElement(null, namespace, "CommentCount", xmlWriter);
 
 			if (localCommentCount == Integer.MIN_VALUE) {
 				throw new ADBException("CommentCount cannot be null!!");
@@ -1248,7 +1249,7 @@ public class AddOn implements ADBBean {
 
 		if (localDefaultFileIdTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "DefaultFileId", xmlWriter);
+			Util.writeStartElement(null, namespace, "DefaultFileId", xmlWriter);
 
 			if (localDefaultFileId == Integer.MIN_VALUE) {
 				throw new ADBException("DefaultFileId cannot be null!!");
@@ -1261,11 +1262,11 @@ public class AddOn implements ADBBean {
 
 		if (localDonationUrlTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "DonationUrl", xmlWriter);
+			Util.writeStartElement(null, namespace, "DonationUrl", xmlWriter);
 
 			if (localDonationUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localDonationUrl);
 			}
@@ -1275,7 +1276,7 @@ public class AddOn implements ADBBean {
 
 		if (localDownloadCountTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "DownloadCount", xmlWriter);
+			Util.writeStartElement(null, namespace, "DownloadCount", xmlWriter);
 
 			if (Double.isNaN(localDownloadCount)) {
 				throw new ADBException("DownloadCount cannot be null!!");
@@ -1288,11 +1289,11 @@ public class AddOn implements ADBBean {
 
 		if (localExternalUrlTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "ExternalUrl", xmlWriter);
+			Util.writeStartElement(null, namespace, "ExternalUrl", xmlWriter);
 
 			if (localExternalUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localExternalUrl);
 			}
@@ -1302,7 +1303,7 @@ public class AddOn implements ADBBean {
 
 		if (localGameIdTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "GameId", xmlWriter);
+			Util.writeStartElement(null, namespace, "GameId", xmlWriter);
 
 			if (localGameId == Integer.MIN_VALUE) {
 				throw new ADBException("GameId cannot be null!!");
@@ -1315,7 +1316,7 @@ public class AddOn implements ADBBean {
 
 		if (localGamePopularityRankTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "GamePopularityRank", xmlWriter);
+			Util.writeStartElement(null, namespace, "GamePopularityRank", xmlWriter);
 
 			if (localGamePopularityRank == Integer.MIN_VALUE) {
 				throw new ADBException("GamePopularityRank cannot be null!!");
@@ -1328,19 +1329,19 @@ public class AddOn implements ADBBean {
 
 		if (localGameVersionLatestFilesTracker) {
 			if (localGameVersionLatestFiles == null) {
-				writeStartElement(null, "Curse.AddOns", "GameVersionLatestFiles", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "GameVersionLatestFiles", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGameVersionLatestFiles.serialize(new QName("Curse.AddOns", "GameVersionLatestFiles"), xmlWriter);
+				ArrayOfGameVersionLatestFile.serialize(new QName("Curse.AddOns", "GameVersionLatestFiles"), xmlWriter, localGameVersionLatestFiles);
 			}
 		}
 
 		if (localIconIdTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "IconId", xmlWriter);
+			Util.writeStartElement(null, namespace, "IconId", xmlWriter);
 
 			if (localIconId == Integer.MIN_VALUE) {
 				throw new ADBException("IconId cannot be null!!");
@@ -1353,7 +1354,7 @@ public class AddOn implements ADBBean {
 
 		if (localIdTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "Id", xmlWriter);
+			Util.writeStartElement(null, namespace, "Id", xmlWriter);
 
 			if (localId == Integer.MIN_VALUE) {
 				throw new ADBException("Id cannot be null!!");
@@ -1366,7 +1367,7 @@ public class AddOn implements ADBBean {
 
 		if (localInstallCountTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "InstallCount", xmlWriter);
+			Util.writeStartElement(null, namespace, "InstallCount", xmlWriter);
 
 			if (localInstallCount == Integer.MIN_VALUE) {
 				throw new ADBException("InstallCount cannot be null!!");
@@ -1379,7 +1380,7 @@ public class AddOn implements ADBBean {
 
 		if (localIsFeaturedTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "IsFeatured", xmlWriter);
+			Util.writeStartElement(null, namespace, "IsFeatured", xmlWriter);
 
 			if (localIsFeatured == Integer.MIN_VALUE) {
 				throw new ADBException("IsFeatured cannot be null!!");
@@ -1392,10 +1393,10 @@ public class AddOn implements ADBBean {
 
 		if (localLatestFilesTracker) {
 			if (localLatestFiles == null) {
-				writeStartElement(null, "Curse.AddOns", "LatestFiles", xmlWriter);
+				Util.writeStartElement(null, "Curse.AddOns", "LatestFiles", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
 				ArrayOfAddOnFile.Factory.serialize(new QName("Curse.AddOns", "LatestFiles"), xmlWriter, localLatestFiles);
@@ -1404,7 +1405,7 @@ public class AddOn implements ADBBean {
 
 		if (localLikesTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "Likes", xmlWriter);
+			Util.writeStartElement(null, namespace, "Likes", xmlWriter);
 
 			if (localLikes == Integer.MIN_VALUE) {
 				throw new ADBException("Likes cannot be null!!");
@@ -1417,11 +1418,11 @@ public class AddOn implements ADBBean {
 
 		if (localNameTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "Name", xmlWriter);
+			Util.writeStartElement(null, namespace, "Name", xmlWriter);
 
 			if (localName == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localName);
 			}
@@ -1439,7 +1440,7 @@ public class AddOn implements ADBBean {
 
 		if (localPopularityScoreTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PopularityScore", xmlWriter);
+			Util.writeStartElement(null, namespace, "PopularityScore", xmlWriter);
 
 			if (Double.isNaN(localPopularityScore)) {
 				throw new ADBException("PopularityScore cannot be null!!");
@@ -1452,11 +1453,11 @@ public class AddOn implements ADBBean {
 
 		if (localPrimaryAuthorNameTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PrimaryAuthorName", xmlWriter);
+			Util.writeStartElement(null, namespace, "PrimaryAuthorName", xmlWriter);
 
 			if (localPrimaryAuthorName == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryAuthorName);
 			}
@@ -1466,11 +1467,11 @@ public class AddOn implements ADBBean {
 
 		if (localPrimaryCategoryAvatarUrlTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PrimaryCategoryAvatarUrl", xmlWriter);
+			Util.writeStartElement(null, namespace, "PrimaryCategoryAvatarUrl", xmlWriter);
 
 			if (localPrimaryCategoryAvatarUrl == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryCategoryAvatarUrl);
 			}
@@ -1480,7 +1481,7 @@ public class AddOn implements ADBBean {
 
 		if (localPrimaryCategoryIdTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PrimaryCategoryId", xmlWriter);
+			Util.writeStartElement(null, namespace, "PrimaryCategoryId", xmlWriter);
 
 			if (localPrimaryCategoryId == Integer.MIN_VALUE) {
 				throw new ADBException("PrimaryCategoryId cannot be null!!");
@@ -1493,11 +1494,11 @@ public class AddOn implements ADBBean {
 
 		if (localPrimaryCategoryNameTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "PrimaryCategoryName", xmlWriter);
+			Util.writeStartElement(null, namespace, "PrimaryCategoryName", xmlWriter);
 
 			if (localPrimaryCategoryName == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localPrimaryCategoryName);
 			}
@@ -1507,7 +1508,7 @@ public class AddOn implements ADBBean {
 
 		if (localRatingTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "Rating", xmlWriter);
+			Util.writeStartElement(null, namespace, "Rating", xmlWriter);
 
 			if (localRating == Integer.MIN_VALUE) {
 				throw new ADBException("Rating cannot be null!!");
@@ -1536,11 +1537,11 @@ public class AddOn implements ADBBean {
 
 		if (localSummaryTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "Summary", xmlWriter);
+			Util.writeStartElement(null, namespace, "Summary", xmlWriter);
 
 			if (localSummary == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localSummary);
 			}
@@ -1550,11 +1551,11 @@ public class AddOn implements ADBBean {
 
 		if (localWebSiteURLTracker) {
 			namespace = "Curse.AddOns";
-			writeStartElement(null, namespace, "WebSiteURL", xmlWriter);
+			Util.writeStartElement(null, namespace, "WebSiteURL", xmlWriter);
 
 			if (localWebSiteURL == null) {
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 			} else {
 				xmlWriter.writeCharacters(localWebSiteURL);
 			}
@@ -1573,171 +1574,15 @@ public class AddOn implements ADBBean {
 		return BeanUtil.getUniquePrefix();
 	}
 
-	/**
-	 * Utility method to write an element start tag.
-	 */
-	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
-		} else {
-			if (namespace.length() == 0) {
-				prefix = "";
-			} else if (prefix == null) {
-				prefix = generatePrefix(namespace);
-			}
 
-			xmlWriter.writeStartElement(prefix, localPart, namespace);
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute with the ns prefix
-	 */
-	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeAttribute(writerPrefix, namespace, attName, attValue);
-		} else {
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-			xmlWriter.writeAttribute(prefix, namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attValue);
-		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String attributeNamespace = qname.getNamespaceURI();
-		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
-		if (attributePrefix == null) {
-			attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-		}
 
-		String attributeValue;
 
-		if (attributePrefix.trim().length() > 0) {
-			attributeValue = attributePrefix + ":" + qname.getLocalPart();
-		} else {
-			attributeValue = qname.getLocalPart();
-		}
-
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attributeValue);
-		} else {
-			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
-		}
-	}
-
-	/**
-	 * method to handle Qnames
-	 */
-	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String namespaceURI = qname.getNamespaceURI();
-
-		if (namespaceURI != null) {
-			String prefix = xmlWriter.getPrefix(namespaceURI);
-
-			if (prefix == null) {
-				prefix = generatePrefix(namespaceURI);
-				xmlWriter.writeNamespace(prefix, namespaceURI);
-				xmlWriter.setPrefix(prefix, namespaceURI);
-			}
-
-			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
-			} else {
-				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-			}
-		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-		}
-	}
-
-	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (qnames != null) {
-			// we have to store this data until last moment since it is not possible to write any
-			// namespace data after writing the charactor data
-			StringBuilder stringToWrite = new StringBuilder();
-			String namespaceURI = null;
-			String prefix = null;
-
-			for (int i = 0; i < qnames.length; i++) {
-				if (i > 0) {
-					stringToWrite.append(" ");
-				}
-
-				namespaceURI = qnames[i].getNamespaceURI();
-
-				if (namespaceURI != null) {
-					prefix = xmlWriter.getPrefix(namespaceURI);
-
-					if ((prefix == null) || (prefix.length() == 0)) {
-						prefix = generatePrefix(namespaceURI);
-						xmlWriter.writeNamespace(prefix, namespaceURI);
-						xmlWriter.setPrefix(prefix, namespaceURI);
-					}
-
-					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
-					} else {
-						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-					}
-				} else {
-					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-				}
-			}
-
-			xmlWriter.writeCharacters(stringToWrite.toString());
-		}
-	}
-
-	/**
-	 * Register a namespace prefix
-	 */
-	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
-		String prefix = xmlWriter.getPrefix(namespace);
-
-		if (prefix == null) {
-			prefix = generatePrefix(namespace);
-
-			NamespaceContext nsContext = xmlWriter.getNamespaceContext();
-
-			while (true) {
-				String uri = nsContext.getNamespaceURI(prefix);
-
-				if ((uri == null) || (uri.length() == 0)) {
-					break;
-				}
-
-				prefix = BeanUtil.getUniquePrefix();
-			}
-
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-
-		return prefix;
-	}
 
 	/**
 	 * Factory class that keeps the parse method

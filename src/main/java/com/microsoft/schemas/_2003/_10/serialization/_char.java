@@ -7,6 +7,7 @@
 package com.microsoft.schemas._2003._10.serialization;
 
 
+import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -53,7 +54,7 @@ public class _char implements ADBBean {
 		this.local_char = param;
 	}
 
-	public java.lang.String toString() {
+	public String toString() {
 		return ConverterUtil.convertToString(local_char);
 	}
 
@@ -72,19 +73,19 @@ public class _char implements ADBBean {
 
 	public void serialize(final javax.xml.namespace.QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		//We can safely assume an element has only one type associated with it
-		java.lang.String namespace = parentQName.getNamespaceURI();
-		java.lang.String _localName = parentQName.getLocalPart();
+		String namespace = parentQName.getNamespaceURI();
+		String _localName = parentQName.getLocalPart();
 
-		writeStartElement(null, namespace, _localName, xmlWriter);
+		Util.writeStartElement(null, namespace, _localName, xmlWriter);
 
 		// add the type details if this is used in a simple type
 		if (serializeType) {
-			java.lang.String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.microsoft.com/2003/10/Serialization/");
+			String namespacePrefix = Util.registerPrefix(xmlWriter, "http://schemas.microsoft.com/2003/10/Serialization/");
 
 			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":char", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":char", xmlWriter);
 			} else {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "char", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "char", xmlWriter);
 			}
 		}
 
@@ -97,7 +98,7 @@ public class _char implements ADBBean {
 		xmlWriter.writeEndElement();
 	}
 
-	private static java.lang.String generatePrefix(java.lang.String namespace) {
+	private static String generatePrefix(String namespace) {
 		if (namespace.equals("http://schemas.microsoft.com/2003/10/Serialization/")) {
 			return "ns2";
 		}
@@ -108,8 +109,8 @@ public class _char implements ADBBean {
 	/**
 	 * Utility method to write an element start tag.
 	 */
-	private void writeStartElement(java.lang.String prefix, java.lang.String namespace, java.lang.String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
+		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
 			xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
@@ -129,8 +130,8 @@ public class _char implements ADBBean {
 	/**
 	 * Util method to write an attribute with the ns prefix
 	 */
-	private void writeAttribute(java.lang.String prefix, java.lang.String namespace, java.lang.String attName, java.lang.String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		java.lang.String writerPrefix = xmlWriter.getPrefix(namespace);
+	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
+		String writerPrefix = xmlWriter.getPrefix(namespace);
 
 		if (writerPrefix != null) {
 			xmlWriter.writeAttribute(writerPrefix, namespace, attName, attValue);
@@ -144,26 +145,26 @@ public class _char implements ADBBean {
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeAttribute(java.lang.String namespace, java.lang.String attName, java.lang.String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
+	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attValue);
 		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
+			xmlWriter.writeAttribute(Util.registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
 		}
 	}
 
 	/**
 	 * Util method to write an attribute without the ns prefix
 	 */
-	private void writeQNameAttribute(java.lang.String namespace, java.lang.String attName, javax.xml.namespace.QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		java.lang.String attributeNamespace = qname.getNamespaceURI();
-		java.lang.String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
+	private void writeQNameAttribute(String namespace, String attName, javax.xml.namespace.QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
+		String attributeNamespace = qname.getNamespaceURI();
+		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
 		if (attributePrefix == null) {
-			attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
+			attributePrefix = Util.registerPrefix(xmlWriter, attributeNamespace);
 		}
 
-		java.lang.String attributeValue;
+		String attributeValue;
 
 		if (attributePrefix.trim().length() > 0) {
 			attributeValue = attributePrefix + ":" + qname.getLocalPart();
@@ -174,7 +175,7 @@ public class _char implements ADBBean {
 		if (namespace.equals("")) {
 			xmlWriter.writeAttribute(attName, attributeValue);
 		} else {
-			registerPrefix(xmlWriter, namespace);
+			Util.registerPrefix(xmlWriter, namespace);
 			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
 		}
 	}
@@ -183,10 +184,10 @@ public class _char implements ADBBean {
 	 * method to handle Qnames
 	 */
 	private void writeQName(javax.xml.namespace.QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		java.lang.String namespaceURI = qname.getNamespaceURI();
+		String namespaceURI = qname.getNamespaceURI();
 
 		if (namespaceURI != null) {
-			java.lang.String prefix = xmlWriter.getPrefix(namespaceURI);
+			String prefix = xmlWriter.getPrefix(namespaceURI);
 
 			if (prefix == null) {
 				prefix = generatePrefix(namespaceURI);
@@ -210,8 +211,8 @@ public class _char implements ADBBean {
 			// we have to store this data until last moment since it is not possible to write any
 			// namespace data after writing the charactor data
 			StringBuilder stringToWrite = new StringBuilder();
-			java.lang.String namespaceURI = null;
-			java.lang.String prefix = null;
+			String namespaceURI = null;
+			String prefix = null;
 
 			for (int i = 0; i < qnames.length; i++) {
 				if (i > 0) {
@@ -246,8 +247,8 @@ public class _char implements ADBBean {
 	/**
 	 * Register a namespace prefix
 	 */
-	private java.lang.String registerPrefix(XMLStreamWriter xmlWriter, java.lang.String namespace) throws XMLStreamException {
-		java.lang.String prefix = xmlWriter.getPrefix(namespace);
+	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
+		String prefix = xmlWriter.getPrefix(namespace);
 
 		if (prefix == null) {
 			prefix = generatePrefix(namespace);
@@ -255,7 +256,7 @@ public class _char implements ADBBean {
 			NamespaceContext nsContext = xmlWriter.getNamespaceContext();
 
 			while (true) {
-				java.lang.String uri = nsContext.getNamespaceURI(prefix);
+				String uri = nsContext.getNamespaceURI(prefix);
 
 				if ((uri == null) || (uri.length() == 0)) {
 					break;
@@ -277,7 +278,7 @@ public class _char implements ADBBean {
 	public static class Factory {
 		private static Log log = LogFactory.getLog(Factory.class);
 
-		public static _char fromString(java.lang.String value, java.lang.String namespaceURI) {
+		public static _char fromString(String value, String namespaceURI) {
 			_char returnValue = new _char();
 
 			returnValue.set_char(ConverterUtil.convertToInt(value));
@@ -285,10 +286,10 @@ public class _char implements ADBBean {
 			return returnValue;
 		}
 
-		public static _char fromString(XMLStreamReader xmlStreamReader, java.lang.String content) {
+		public static _char fromString(XMLStreamReader xmlStreamReader, String content) {
 			if (content.contains(":")) {
-				java.lang.String prefix = content.substring(0, content.indexOf(":"));
-				java.lang.String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
+				String prefix = content.substring(0, content.indexOf(":"));
+				String namespaceUri = xmlStreamReader.getNamespaceContext().getNamespaceURI(prefix);
 
 				return _char.Factory.fromString(content, namespaceUri);
 			} else {
@@ -308,9 +309,9 @@ public class _char implements ADBBean {
 
 			int event;
 			javax.xml.namespace.QName currentQName = null;
-			java.lang.String nillableValue = null;
-			java.lang.String prefix = "";
-			java.lang.String namespaceuri = "";
+			String nillableValue = null;
+			String prefix = "";
+			String namespaceuri = "";
 
 			try {
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
@@ -330,7 +331,7 @@ public class _char implements ADBBean {
 								throw new ADBException("The element: " + "char" + "  cannot be null");
 							}
 
-							java.lang.String content = reader.getElementText();
+							String content = reader.getElementText();
 
 							object.set_char(ConverterUtil.convertToInt(content));
 						} // End of if for expected property start element

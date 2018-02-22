@@ -8,6 +8,7 @@ package org.datacontract.schemas._2004._07.curse_addons;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -115,21 +116,50 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 		serialize(parentQName, xmlWriter, false);
 	}
 
+	public static void serialize(final QName parentQName, XMLStreamWriter xmlWriter, List<GameVersionLatestFile> list) throws XMLStreamException {
+		String prefix = null;
+		String namespace = null;
+
+		prefix = parentQName.getPrefix();
+		namespace = parentQName.getNamespaceURI();
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+		if (list != null) {
+			for (GameVersionLatestFile aLocalGameVersionLatestFile : list) {
+				if (aLocalGameVersionLatestFile != null) {
+					aLocalGameVersionLatestFile.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile"), xmlWriter);
+				} else {
+					Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
+
+					// write the nil attribute
+					Util.writeNil(xmlWriter);
+					xmlWriter.writeEndElement();
+				}
+			}
+		} else {
+			Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
+
+			// write the nil attribute
+			Util.writeNil(xmlWriter);
+			xmlWriter.writeEndElement();
+		}
+	}
+
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
 
 		prefix = parentQName.getPrefix();
 		namespace = parentQName.getNamespaceURI();
-		writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
 
 		if (serializeType) {
-			String namespacePrefix = registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.AddOns");
+			String namespacePrefix = Util.registerPrefix(xmlWriter, "http://schemas.datacontract.org/2004/07/Curse.AddOns");
 
 			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":ArrayOfGameVersionLatestFile", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":ArrayOfGameVersionLatestFile", xmlWriter);
 			} else {
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "ArrayOfGameVersionLatestFile", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "ArrayOfGameVersionLatestFile", xmlWriter);
 			}
 		}
 
@@ -139,18 +169,18 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 					if (aLocalGameVersionLatestFile != null) {
 						aLocalGameVersionLatestFile.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile"), xmlWriter);
 					} else {
-						writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
+						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
 
 						// write the nil attribute
-						writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+						Util.writeNil(xmlWriter);
 						xmlWriter.writeEndElement();
 					}
 				}
 			} else {
-				writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
+				Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
 
 				// write the nil attribute
-				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
+				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			}
 		}
@@ -166,171 +196,15 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 		return BeanUtil.getUniquePrefix();
 	}
 
-	/**
-	 * Utility method to write an element start tag.
-	 */
-	private void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
-		} else {
-			if (namespace.length() == 0) {
-				prefix = "";
-			} else if (prefix == null) {
-				prefix = generatePrefix(namespace);
-			}
 
-			xmlWriter.writeStartElement(prefix, localPart, namespace);
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute with the ns prefix
-	 */
-	private void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String writerPrefix = xmlWriter.getPrefix(namespace);
 
-		if (writerPrefix != null) {
-			xmlWriter.writeAttribute(writerPrefix, namespace, attName, attValue);
-		} else {
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-			xmlWriter.writeAttribute(prefix, namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attValue);
-		} else {
-			xmlWriter.writeAttribute(registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
-		}
-	}
 
-	/**
-	 * Util method to write an attribute without the ns prefix
-	 */
-	private void writeQNameAttribute(String namespace, String attName, QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String attributeNamespace = qname.getNamespaceURI();
-		String attributePrefix = xmlWriter.getPrefix(attributeNamespace);
 
-		if (attributePrefix == null) {
-			attributePrefix = registerPrefix(xmlWriter, attributeNamespace);
-		}
 
-		String attributeValue;
 
-		if (attributePrefix.trim().length() > 0) {
-			attributeValue = attributePrefix + ":" + qname.getLocalPart();
-		} else {
-			attributeValue = qname.getLocalPart();
-		}
-
-		if (namespace.equals("")) {
-			xmlWriter.writeAttribute(attName, attributeValue);
-		} else {
-			registerPrefix(xmlWriter, namespace);
-			xmlWriter.writeAttribute(attributePrefix, namespace, attName, attributeValue);
-		}
-	}
-
-	/**
-	 * method to handle Qnames
-	 */
-	private void writeQName(QName qname, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		String namespaceURI = qname.getNamespaceURI();
-
-		if (namespaceURI != null) {
-			String prefix = xmlWriter.getPrefix(namespaceURI);
-
-			if (prefix == null) {
-				prefix = generatePrefix(namespaceURI);
-				xmlWriter.writeNamespace(prefix, namespaceURI);
-				xmlWriter.setPrefix(prefix, namespaceURI);
-			}
-
-			if (prefix.trim().length() > 0) {
-				xmlWriter.writeCharacters(prefix + ":" + ConverterUtil.convertToString(qname));
-			} else {
-				// i.e this is the default namespace
-				xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-			}
-		} else {
-			xmlWriter.writeCharacters(ConverterUtil.convertToString(qname));
-		}
-	}
-
-	private void writeQNames(QName[] qnames, XMLStreamWriter xmlWriter) throws XMLStreamException {
-		if (qnames != null) {
-			// we have to store this data until last moment since it is not possible to write any
-			// namespace data after writing the charactor data
-			StringBuilder stringToWrite = new StringBuilder();
-			String namespaceURI = null;
-			String prefix = null;
-
-			for (int i = 0; i < qnames.length; i++) {
-				if (i > 0) {
-					stringToWrite.append(" ");
-				}
-
-				namespaceURI = qnames[i].getNamespaceURI();
-
-				if (namespaceURI != null) {
-					prefix = xmlWriter.getPrefix(namespaceURI);
-
-					if ((prefix == null) || (prefix.length() == 0)) {
-						prefix = generatePrefix(namespaceURI);
-						xmlWriter.writeNamespace(prefix, namespaceURI);
-						xmlWriter.setPrefix(prefix, namespaceURI);
-					}
-
-					if (prefix.trim().length() > 0) {
-						stringToWrite.append(prefix).append(":").append(ConverterUtil.convertToString(qnames[i]));
-					} else {
-						stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-					}
-				} else {
-					stringToWrite.append(ConverterUtil.convertToString(qnames[i]));
-				}
-			}
-
-			xmlWriter.writeCharacters(stringToWrite.toString());
-		}
-	}
-
-	/**
-	 * Register a namespace prefix
-	 */
-	private String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
-		String prefix = xmlWriter.getPrefix(namespace);
-
-		if (prefix == null) {
-			prefix = generatePrefix(namespace);
-
-			NamespaceContext nsContext = xmlWriter.getNamespaceContext();
-
-			while (true) {
-				String uri = nsContext.getNamespaceURI(prefix);
-
-				if ((uri == null) || (uri.length() == 0)) {
-					break;
-				}
-
-				prefix = BeanUtil.getUniquePrefix();
-			}
-
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-
-		return prefix;
-	}
 
 	/**
 	 * Factory class that keeps the parse method
@@ -345,8 +219,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
 		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static ArrayOfGameVersionLatestFile parse(XMLStreamReader reader) throws Exception {
-			ArrayOfGameVersionLatestFile object = new ArrayOfGameVersionLatestFile();
+		public static List<GameVersionLatestFile> parse(XMLStreamReader reader) throws Exception {
 
 			int event;
 			QName currentQName = null;
@@ -377,7 +250,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 							//find namespace for the prefix
 							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (ArrayOfGameVersionLatestFile) ExtensionMapper.getTypeObject(nsUri, type, reader);
+							return (List<GameVersionLatestFile>) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -435,12 +308,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 						}
 					}
 
-					// call the converter utility  to convert and set the array
-					object.setGameVersionLatestFile((GameVersionLatestFile[]) ConverterUtil.convertToArray(GameVersionLatestFile.class, list1));
 				} // End of if for expected property start element
-
-				else {
-				}
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
@@ -448,11 +316,10 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
 					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
+				return list1;
 			} catch (XMLStreamException e) {
 				throw new Exception(e);
 			}
-
-			return object;
 		}
 	} //end of factory class
 }
