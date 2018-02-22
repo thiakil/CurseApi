@@ -143,6 +143,8 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 			Util.writeNil(xmlWriter);
 			xmlWriter.writeEndElement();
 		}
+
+		xmlWriter.writeEndElement();
 	}
 
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {

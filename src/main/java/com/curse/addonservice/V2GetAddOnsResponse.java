@@ -7,6 +7,7 @@
 package com.curse.addonservice;
 
 
+import addons.curse.AddOn;
 import addons.curse.ArrayOfAddOn;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
@@ -15,15 +16,14 @@ import org.apache.axis2.databinding.ADBBean;
 import org.apache.axis2.databinding.ADBDataSource;
 import org.apache.axis2.databinding.ADBException;
 import org.apache.axis2.databinding.utils.BeanUtil;
-import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -36,7 +36,7 @@ public class V2GetAddOnsResponse implements ADBBean {
 	/**
 	 * field for V2GetAddOnsResult
 	 */
-	protected ArrayOfAddOn localV2GetAddOnsResult;
+	protected List<AddOn> localV2GetAddOnsResult;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -53,7 +53,7 @@ public class V2GetAddOnsResponse implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOn
 	 */
-	public ArrayOfAddOn getV2GetAddOnsResult() {
+	public List<AddOn> getV2GetAddOnsResult() {
 		return localV2GetAddOnsResult;
 	}
 
@@ -62,7 +62,7 @@ public class V2GetAddOnsResponse implements ADBBean {
 	 *
 	 * @param param V2GetAddOnsResult
 	 */
-	public void setV2GetAddOnsResult(ArrayOfAddOn param) {
+	public void setV2GetAddOnsResult(List<AddOn> param) {
 		localV2GetAddOnsResultTracker = true;
 
 		this.localV2GetAddOnsResult = param;
@@ -107,7 +107,7 @@ public class V2GetAddOnsResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localV2GetAddOnsResult.serialize(new QName("http://addonservice.curse.com/", "v2GetAddOnsResult"), xmlWriter);
+				ArrayOfAddOn.serialize(new QName("http://addonservice.curse.com/", "v2GetAddOnsResult"), xmlWriter, localV2GetAddOnsResult);
 			}
 		}
 
