@@ -18,6 +18,7 @@ import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.datacontract.schemas._2004._07.curse_addons.ArrayOfGameVersionLatestFile;
+import org.datacontract.schemas._2004._07.curse_addons.GameVersionLatestFile;
 import org.datacontract.schemas._2004._07.curse_addons.PackageTypes;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStage;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStatus;
@@ -44,7 +45,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Attachments
 	 */
-	protected ArrayOfAddOnAttachment localAttachments;
+	protected List<AddOnAttachment> localAttachments;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -55,7 +56,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Authors
 	 */
-	protected ArrayOfAddOnAuthor localAuthors;
+	protected List<AddOnAuthor> localAuthors;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -77,7 +78,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Categories
 	 */
-	protected ArrayOfAddOnCategory localCategories;
+	protected List<AddOnCategory> localCategories;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -176,7 +177,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for GameVersionLatestFiles
 	 */
-	protected ArrayOfGameVersionLatestFile localGameVersionLatestFiles;
+	protected List<GameVersionLatestFile> localGameVersionLatestFiles;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -389,9 +390,9 @@ public class AddOn implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return addons.curse.ArrayOfAddOnAttachment
+	 * @return addons.curse.List<AddOnAttachment>
 	 */
-	public ArrayOfAddOnAttachment getAttachments() {
+	public List<AddOnAttachment> getAttachments() {
 		return localAttachments;
 	}
 
@@ -400,7 +401,7 @@ public class AddOn implements ADBBean {
 	 *
 	 * @param param Attachments
 	 */
-	public void setAttachments(ArrayOfAddOnAttachment param) {
+	public void setAttachments(List<AddOnAttachment> param) {
 		localAttachmentsTracker = true;
 
 		this.localAttachments = param;
@@ -413,9 +414,9 @@ public class AddOn implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return addons.curse.ArrayOfAddOnAuthor
+	 * @return addons.curse.List<AddOnAuthor>
 	 */
-	public ArrayOfAddOnAuthor getAuthors() {
+	public List<AddOnAuthor> getAuthors() {
 		return localAuthors;
 	}
 
@@ -424,7 +425,7 @@ public class AddOn implements ADBBean {
 	 *
 	 * @param param Authors
 	 */
-	public void setAuthors(ArrayOfAddOnAuthor param) {
+	public void setAuthors(List<AddOnAuthor> param) {
 		localAuthorsTracker = true;
 
 		this.localAuthors = param;
@@ -461,9 +462,9 @@ public class AddOn implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return addons.curse.ArrayOfAddOnCategory
+	 * @return addons.curse.List<AddOnCategory>
 	 */
-	public ArrayOfAddOnCategory getCategories() {
+	public List<AddOnCategory> getCategories() {
 		return localCategories;
 	}
 
@@ -472,7 +473,7 @@ public class AddOn implements ADBBean {
 	 *
 	 * @param param Categories
 	 */
-	public void setCategories(ArrayOfAddOnCategory param) {
+	public void setCategories(List<AddOnCategory> param) {
 		localCategoriesTracker = true;
 
 		this.localCategories = param;
@@ -682,9 +683,9 @@ public class AddOn implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return org.datacontract.schemas._2004._07.curse_addons.ArrayOfGameVersionLatestFile
+	 * @return org.datacontract.schemas._2004._07.curse_addons.List<GameVersionLatestFile>
 	 */
-	public ArrayOfGameVersionLatestFile getGameVersionLatestFiles() {
+	public List<GameVersionLatestFile> getGameVersionLatestFiles() {
 		return localGameVersionLatestFiles;
 	}
 
@@ -693,7 +694,7 @@ public class AddOn implements ADBBean {
 	 *
 	 * @param param GameVersionLatestFiles
 	 */
-	public void setGameVersionLatestFiles(ArrayOfGameVersionLatestFile param) {
+	public void setGameVersionLatestFiles(List<GameVersionLatestFile> param) {
 		localGameVersionLatestFilesTracker = true;
 
 		this.localGameVersionLatestFiles = param;
@@ -806,7 +807,7 @@ public class AddOn implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return addons.curse.ArrayOfAddOnFile
+	 * @return addons.curse.List<AddOnFile>
 	 */
 	public List<AddOnFile> getLatestFiles() {
 		return localLatestFiles;
