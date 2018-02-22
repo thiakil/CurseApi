@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -40,6 +42,7 @@ public class AddOnAuthor implements ADBBean {
 	/**
 	 * field for Name
 	 */
+	@SerializedName("Name")
 	protected String localName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -51,6 +54,8 @@ public class AddOnAuthor implements ADBBean {
 	/**
 	 * field for Url
 	 */
+	@SerializedName("Url")
+	@Expose
 	protected String localUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method

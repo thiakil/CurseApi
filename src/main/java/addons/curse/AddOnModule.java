@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -40,12 +42,16 @@ public class AddOnModule implements ADBBean {
 	/**
 	 * field for Fingerprint
 	 */
+	@SerializedName("Fingerprint")
+	@Expose
 	protected long localFingerprint;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
 	 *   in the serialized XML
 	 */
+	@SerializedName("Foldername")
+	@Expose
 	protected boolean localFingerprintTracker = false;
 
 	/**

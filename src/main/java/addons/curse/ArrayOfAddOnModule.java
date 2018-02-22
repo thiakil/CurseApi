@@ -114,6 +114,36 @@ public class ArrayOfAddOnModule implements ADBBean {
 		serialize(parentQName, xmlWriter, false);
 	}
 
+	public static void serialize(final QName parentQName, XMLStreamWriter xmlWriter, List<AddOnModule> list) throws XMLStreamException {
+		String prefix = null;
+		String namespace = null;
+
+		prefix = parentQName.getPrefix();
+		namespace = parentQName.getNamespaceURI();
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+		if (list != null) {
+			for (AddOnModule aLocalAddOnModule : list) {
+				if (aLocalAddOnModule != null) {
+					aLocalAddOnModule.serialize(new QName("Curse.AddOns", "AddOnModule"), xmlWriter);
+				} else {
+					Util.writeStartElement(null, "Curse.AddOns", "AddOnModule", xmlWriter);
+
+					// write the nil attribute
+					Util.writeNil(xmlWriter);
+					xmlWriter.writeEndElement();
+				}
+			}
+		} else {
+			Util.writeStartElement(null, "Curse.AddOns", "AddOnModule", xmlWriter);
+
+			// write the nil attribute
+			Util.writeNil(xmlWriter);
+			xmlWriter.writeEndElement();
+		}
+
+		xmlWriter.writeEndElement();
+	}
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
@@ -188,8 +218,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
 		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static ArrayOfAddOnModule parse(XMLStreamReader reader) throws Exception {
-			ArrayOfAddOnModule object = new ArrayOfAddOnModule();
+		public static List<AddOnModule> parse(XMLStreamReader reader) throws Exception {
 
 			int event;
 			QName currentQName = null;
@@ -220,7 +249,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 							//find namespace for the prefix
 							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (ArrayOfAddOnModule) ExtensionMapper.getTypeObject(nsUri, type, reader);
+							return (List<AddOnModule>) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -278,12 +307,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 						}
 					}
 
-					// call the converter utility  to convert and set the array
-					object.setAddOnModule((AddOnModule[]) ConverterUtil.convertToArray(AddOnModule.class, list1));
 				} // End of if for expected property start element
-
-				else {
-				}
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
@@ -291,11 +315,10 @@ public class ArrayOfAddOnModule implements ADBBean {
 					// 2 - A start element we are not expecting indicates a trailing invalid property
 					throw new ADBException("Unexpected subelement " + reader.getName());
 				}
+				return list1;
 			} catch (XMLStreamException e) {
 				throw new Exception(e);
 			}
-
-			return object;
 		}
 	} //end of factory class
 }

@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
@@ -22,12 +24,12 @@ import org.apache.commons.logging.LogFactory;
 import org.datacontract.schemas._2004._07.curse_addons.FileStatus;
 import org.datacontract.schemas._2004._07.curse_addons.FileType;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -44,6 +46,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for AlternateFileId
 	 */
+	@SerializedName("FileId")
+	@Expose
 	protected int localAlternateFileId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -55,7 +59,9 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for Dependencies
 	 */
-	protected ArrayOfAddOnFileDependency localDependencies;
+	@SerializedName("Dependencies")
+	@Expose
+	protected List<AddOnFileDependency> localDependencies;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -66,6 +72,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for DownloadURL
 	 */
+	@SerializedName("DownloadURL")
+	@Expose
 	protected String localDownloadURL;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -77,6 +85,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for FileDate
 	 */
+	@SerializedName("FileDate")
+	@Expose
 	protected Calendar localFileDate;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -88,6 +98,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for FileName
 	 */
+	@SerializedName("FileName")
+	@Expose
 	protected String localFileName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -99,6 +111,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for FileNameOnDisk
 	 */
+	@SerializedName("FileNameOnDisk")
+	@Expose
 	protected String localFileNameOnDisk;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -110,6 +124,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for FileStatus
 	 */
+	@SerializedName("FileStatus")
+	@Expose
 	protected FileStatus localFileStatus;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -121,7 +137,9 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for GameVersion
 	 */
-	protected ArrayOfstring localGameVersion;
+	@SerializedName("GameVersion")
+	@Expose
+	protected List<String> localGameVersion;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -132,6 +150,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for Id
 	 */
+	@SerializedName("Id")
+	@Expose
 	protected int localId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -143,6 +163,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for IsAlternate
 	 */
+	@SerializedName("IsAlternate")
+	@Expose
 	protected boolean localIsAlternate;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -154,6 +176,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for IsAvailable
 	 */
+	@SerializedName("IsAvailable")
+	@Expose
 	protected boolean localIsAvailable;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -165,7 +189,9 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for Modules
 	 */
-	protected ArrayOfAddOnModule localModules;
+	@SerializedName("Modules")
+	@Expose
+	protected List<AddOnModule> localModules;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -176,6 +202,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for PackageFingerprint
 	 */
+	@SerializedName("PackageFingerprint")
+	@Expose
 	protected long localPackageFingerprint;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -187,6 +215,8 @@ public class AddOnFile implements ADBBean {
 	/**
 	 * field for ReleaseType
 	 */
+	@SerializedName("ReleaseType")
+	@Expose
 	protected FileType localReleaseType;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -229,7 +259,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOnFileDependency
 	 */
-	public ArrayOfAddOnFileDependency getDependencies() {
+	public List<AddOnFileDependency> getDependencies() {
 		return localDependencies;
 	}
 
@@ -238,7 +268,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @param param Dependencies
 	 */
-	public void setDependencies(ArrayOfAddOnFileDependency param) {
+	public void setDependencies(List<AddOnFileDependency> param) {
 		localDependenciesTracker = true;
 
 		this.localDependencies = param;
@@ -373,7 +403,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring
 	 */
-	public ArrayOfstring getGameVersion() {
+	public List<String> getGameVersion() {
 		return localGameVersion;
 	}
 
@@ -382,7 +412,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @param param GameVersion
 	 */
-	public void setGameVersion(ArrayOfstring param) {
+	public void setGameVersion(List<String> param) {
 		localGameVersionTracker = true;
 
 		this.localGameVersion = param;
@@ -472,7 +502,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOnModule
 	 */
-	public ArrayOfAddOnModule getModules() {
+	public List<AddOnModule> getModules() {
 		return localModules;
 	}
 
@@ -481,7 +511,7 @@ public class AddOnFile implements ADBBean {
 	 *
 	 * @param param Modules
 	 */
-	public void setModules(ArrayOfAddOnModule param) {
+	public void setModules(List<AddOnModule> param) {
 		localModulesTracker = true;
 
 		this.localModules = param;
@@ -588,7 +618,7 @@ public class AddOnFile implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localDependencies.serialize(new QName("Curse.AddOns", "Dependencies"), xmlWriter);
+				ArrayOfAddOnFileDependency.serialize(new QName("Curse.AddOns", "Dependencies"), xmlWriter, localDependencies);
 			}
 		}
 
@@ -664,7 +694,7 @@ public class AddOnFile implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGameVersion.serialize(new QName("Curse.AddOns", "GameVersion"), xmlWriter);
+				ArrayOfstring.serialize(new QName("Curse.AddOns", "GameVersion"), xmlWriter, localGameVersion);
 			}
 		}
 
@@ -707,7 +737,7 @@ public class AddOnFile implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localModules.serialize(new QName("Curse.AddOns", "Modules"), xmlWriter);
+				ArrayOfAddOnModule.serialize(new QName("Curse.AddOns", "Modules"), xmlWriter, localModules);
 			}
 		}
 

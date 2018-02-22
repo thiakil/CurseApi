@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -41,6 +43,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for ExtraIncludePattern
 	 */
+	@SerializedName("ExtraIncludePattern")
+	@Expose
 	protected String localExtraIncludePattern;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -52,6 +56,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for GameID
 	 */
+	@SerializedName("GameID")
+	@Expose
 	protected int localGameID;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -63,6 +69,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for ID
 	 */
+	@SerializedName("ID")
+	@Expose
 	protected int localID;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -74,6 +82,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for InitialInclusionPattern
 	 */
+	@SerializedName("InitialInclusionPattern")
+	@Expose
 	protected String localInitialInclusionPattern;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -85,6 +95,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for Name
 	 */
+	@SerializedName("Name")
+	@Expose
 	protected String localName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -96,6 +108,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for PackageType
 	 */
+	@SerializedName("PackageType")
+	@Expose
 	protected PackageTypes localPackageType;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -107,6 +121,8 @@ public class CategorySection implements ADBBean {
 	/**
 	 * field for Path
 	 */
+	@SerializedName("Path")
+	@Expose
 	protected String localPath;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method

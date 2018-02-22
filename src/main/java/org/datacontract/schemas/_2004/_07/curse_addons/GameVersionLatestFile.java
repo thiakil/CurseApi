@@ -8,6 +8,8 @@ package org.datacontract.schemas._2004._07.curse_addons;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -40,6 +42,8 @@ public class GameVersionLatestFile implements ADBBean {
 	/**
 	 * field for FileType
 	 */
+	@SerializedName("FileType")
+	@Expose
 	protected FileType localFileType;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -51,6 +55,8 @@ public class GameVersionLatestFile implements ADBBean {
 	/**
 	 * field for GameVesion
 	 */
+	@SerializedName("GameVersion")
+	@Expose
 	protected String localGameVesion;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -62,6 +68,8 @@ public class GameVersionLatestFile implements ADBBean {
 	/**
 	 * field for ProjectFileID
 	 */
+	@SerializedName("ProjectFileID")
+	@Expose
 	protected int localProjectFileID;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -73,6 +81,8 @@ public class GameVersionLatestFile implements ADBBean {
 	/**
 	 * field for ProjectFileName
 	 */
+	@SerializedName("ProjectFileName")
+	@Expose
 	protected String localProjectFileName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method

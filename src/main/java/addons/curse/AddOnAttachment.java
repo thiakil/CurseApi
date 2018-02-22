@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -40,6 +42,8 @@ public class AddOnAttachment implements ADBBean {
 	/**
 	 * field for Description
 	 */
+	@SerializedName("Description")
+	@Expose
 	protected String localDescription;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -51,6 +55,8 @@ public class AddOnAttachment implements ADBBean {
 	/**
 	 * field for IsDefault
 	 */
+	@SerializedName("IsDefault")
+	@Expose
 	protected boolean localIsDefault;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -62,6 +68,8 @@ public class AddOnAttachment implements ADBBean {
 	/**
 	 * field for ThumbnailUrl
 	 */
+	@SerializedName("ThumbnailUrl")
+	@Expose
 	protected String localThumbnailUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -73,6 +81,8 @@ public class AddOnAttachment implements ADBBean {
 	/**
 	 * field for Title
 	 */
+	@SerializedName("Title")
+	@Expose
 	protected String localTitle;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -84,6 +94,8 @@ public class AddOnAttachment implements ADBBean {
 	/**
 	 * field for Url
 	 */
+	@SerializedName("Url")
+	@Expose
 	protected String localUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method

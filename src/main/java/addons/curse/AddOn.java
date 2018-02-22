@@ -8,6 +8,8 @@ package addons.curse;
 
 
 import com.curse.addonservice.ExtensionMapper;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.thiakil.curseapi.soap.Util;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -46,6 +48,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Attachments
 	 */
+	@SerializedName("Attachments")
+	@Expose
 	protected List<AddOnAttachment> localAttachments;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -57,6 +61,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Authors
 	 */
+	@SerializedName("Authors")
+	@Expose
 	protected List<AddOnAuthor> localAuthors;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -68,6 +74,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for AvatarUrl
 	 */
+	@SerializedName("AvatarUrl")
+	@Expose
 	protected String localAvatarUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -79,6 +87,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Categories
 	 */
+	@SerializedName("Categories")
+	@Expose
 	protected List<AddOnCategory> localCategories;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -90,6 +100,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for CategorySection
 	 */
+	@SerializedName("CategorySection")
+	@Expose
 	protected CategorySection localCategorySection;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -101,6 +113,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for CommentCount
 	 */
+	@SerializedName("CommentCount")
+	@Expose
 	protected int localCommentCount;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -112,6 +126,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for DefaultFileId
 	 */
+	@SerializedName("DefaultFileId")
+	@Expose
 	protected int localDefaultFileId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -123,6 +139,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for DonationUrl
 	 */
+	@SerializedName("DonationUrl")
+	@Expose
 	protected String localDonationUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -134,6 +152,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for DownloadCount
 	 */
+	@SerializedName("DownloadCount")
+	@Expose
 	protected double localDownloadCount;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -145,6 +165,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for ExternalUrl
 	 */
+	@SerializedName("ExternalUrl")
+	@Expose
 	protected String localExternalUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -156,6 +178,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for GameId
 	 */
+	@SerializedName("GameId")
+	@Expose
 	protected int localGameId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -167,6 +191,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for GamePopularityRank
 	 */
+	@SerializedName("GamePopularityRank")
+	@Expose
 	protected int localGamePopularityRank;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -178,6 +204,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for GameVersionLatestFiles
 	 */
+	@SerializedName("GameVersionLatestFiles")
+	@Expose
 	protected List<GameVersionLatestFile> localGameVersionLatestFiles;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -189,6 +217,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for IconId
 	 */
+	@SerializedName("IconId")
+	@Expose
 	protected int localIconId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -200,6 +230,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Id
 	 */
+	@SerializedName("Id")
+	@Expose
 	protected int localId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -211,6 +243,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for InstallCount
 	 */
+	@SerializedName("InstallCount")
+	@Expose
 	protected int localInstallCount;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -222,6 +256,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for IsFeatured
 	 */
+	@SerializedName("IsFeatured")
+	@Expose
 	protected int localIsFeatured;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -233,6 +269,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for LatestFiles
 	 */
+	@SerializedName("LatestFiles")
+	@Expose
 	protected List<AddOnFile> localLatestFiles;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -244,6 +282,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Likes
 	 */
+	@SerializedName("Likes")
+	@Expose
 	protected int localLikes;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -255,6 +295,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Name
 	 */
+	@SerializedName("Name")
+	@Expose
 	protected String localName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -266,6 +308,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PackageType
 	 */
+	@SerializedName("PackageType")
+	@Expose
 	protected PackageTypes localPackageType;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -277,6 +321,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PopularityScore
 	 */
+	@SerializedName("PopularityScore")
+	@Expose
 	protected double localPopularityScore;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -288,6 +334,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PrimaryAuthorName
 	 */
+	@SerializedName("PrimaryAuthorName")
+	@Expose
 	protected String localPrimaryAuthorName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -299,6 +347,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PrimaryCategoryAvatarUrl
 	 */
+	@SerializedName("PrimaryCategoryAvatarUrl")
+	@Expose
 	protected String localPrimaryCategoryAvatarUrl;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -310,6 +360,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PrimaryCategoryId
 	 */
+	@SerializedName("PrimaryCategoryId")
+	@Expose
 	protected int localPrimaryCategoryId;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -321,6 +373,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for PrimaryCategoryName
 	 */
+	@SerializedName("PrimaryCategoryName")
+	@Expose
 	protected String localPrimaryCategoryName;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -332,6 +386,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Rating
 	 */
+	@SerializedName("Rating")
+	@Expose
 	protected int localRating;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -343,6 +399,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Stage
 	 */
+	@SerializedName("Stage")
+	@Expose
 	protected ProjectStage localStage;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -354,6 +412,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Status
 	 */
+	@SerializedName("Status")
+	@Expose
 	protected ProjectStatus localStatus;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -365,6 +425,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for Summary
 	 */
+	@SerializedName("Summary")
+	@Expose
 	protected String localSummary;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
@@ -376,6 +438,8 @@ public class AddOn implements ADBBean {
 	/**
 	 * field for WebSiteURL
 	 */
+	@SerializedName("WebSiteURL")
+	@Expose
 	protected String localWebSiteURL;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method

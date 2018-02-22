@@ -15,15 +15,14 @@ import org.apache.axis2.databinding.ADBBean;
 import org.apache.axis2.databinding.ADBDataSource;
 import org.apache.axis2.databinding.ADBException;
 import org.apache.axis2.databinding.utils.BeanUtil;
-import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -36,7 +35,7 @@ public class LogDumpResponse implements ADBBean {
 	/**
 	 * field for LogDumpResult
 	 */
-	protected ArrayOfstring localLogDumpResult;
+	protected List<String> localLogDumpResult;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -53,7 +52,7 @@ public class LogDumpResponse implements ADBBean {
 	 *
 	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring
 	 */
-	public ArrayOfstring getLogDumpResult() {
+	public List<String> getLogDumpResult() {
 		return localLogDumpResult;
 	}
 
@@ -62,7 +61,7 @@ public class LogDumpResponse implements ADBBean {
 	 *
 	 * @param param LogDumpResult
 	 */
-	public void setLogDumpResult(ArrayOfstring param) {
+	public void setLogDumpResult(List<String> param) {
 		localLogDumpResultTracker = true;
 
 		this.localLogDumpResult = param;
@@ -107,7 +106,7 @@ public class LogDumpResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localLogDumpResult.serialize(new QName("http://addonservice.curse.com/", "LogDumpResult"), xmlWriter);
+				ArrayOfstring.serialize(new QName("http://addonservice.curse.com/", "LogDumpResult"), xmlWriter, localLogDumpResult);
 			}
 		}
 
