@@ -35,4 +35,6 @@ public class LoginStatus {
 	public static final int InvalidApiKey = 107;
 
 	public static final int MissingGrant = 108;
+	
+	public static final int GeneralError = 1000;
 }

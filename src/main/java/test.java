@@ -1,11 +1,10 @@
 import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
-import com.curse.addonservice.GetAddOnDump;
-import com.curse.addonservice.GetAddOnDumpResponse;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.thiakil.curseapi.AddOnServiceStub;
 import com.thiakil.curseapi.login.CurseAuth;
+import com.thiakil.curseapi.login.CurseAuthException;
 import com.thiakil.curseapi.login.CurseToken;
 import org.apache.axis2.AxisFault;
 
@@ -15,7 +14,7 @@ import java.rmi.RemoteException;
  * Created by Thiakil on 19/02/2018.
  */
 public class test {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws CurseAuthException {
 		if (args.length <2){
 			throw new RuntimeException("need user and pass on command line");
 		}
