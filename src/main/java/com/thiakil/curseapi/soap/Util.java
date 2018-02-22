@@ -1,6 +1,7 @@
 package com.thiakil.curseapi.soap;
 
 import org.apache.axis2.databinding.utils.BeanUtil;
+import org.apache.axis2.databinding.utils.ConverterUtil;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;

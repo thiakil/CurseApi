@@ -49,34 +49,6 @@ public class ArrayOfAddOnFile  {
 	}
 
 	/**
-	 * Register a namespace prefix
-	 */
-	private static String registerPrefix(XMLStreamWriter xmlWriter, String namespace) throws XMLStreamException {
-		String prefix = xmlWriter.getPrefix(namespace);
-
-		if (prefix == null) {
-			prefix = generatePrefix(namespace);
-
-			NamespaceContext nsContext = xmlWriter.getNamespaceContext();
-
-			while (true) {
-				String uri = nsContext.getNamespaceURI(prefix);
-
-				if ((uri == null) || (uri.length() == 0)) {
-					break;
-				}
-
-				prefix = BeanUtil.getUniquePrefix();
-			}
-
-			xmlWriter.writeNamespace(prefix, namespace);
-			xmlWriter.setPrefix(prefix, namespace);
-		}
-
-		return prefix;
-	}
-
-	/**
 	 * Factory class that keeps the parse method
 	 */
 	public static class Factory {
@@ -111,53 +83,6 @@ public class ArrayOfAddOnFile  {
 			}
 			
 			xmlWriter.writeEndElement();
-		}
-		
-		/**
-		 * Utility method to write an element start tag.
-		 */
-		private static void writeStartElement(String prefix, String namespace, String localPart, XMLStreamWriter xmlWriter) throws XMLStreamException {
-			String writerPrefix = xmlWriter.getPrefix(namespace);
-			
-			if (writerPrefix != null) {
-				xmlWriter.writeStartElement(writerPrefix, localPart, namespace);
-			} else {
-				if (namespace.length() == 0) {
-					prefix = "";
-				} else if (prefix == null) {
-					prefix = generatePrefix(namespace);
-				}
-				
-				xmlWriter.writeStartElement(prefix, localPart, namespace);
-				xmlWriter.writeNamespace(prefix, namespace);
-				xmlWriter.setPrefix(prefix, namespace);
-			}
-		}
-		
-		/**
-		 * Util method to write an attribute with the ns prefix
-		 */
-		private static void writeAttribute(String prefix, String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-			String writerPrefix = xmlWriter.getPrefix(namespace);
-			
-			if (writerPrefix != null) {
-				xmlWriter.writeAttribute(writerPrefix, namespace, attName, attValue);
-			} else {
-				xmlWriter.writeNamespace(prefix, namespace);
-				xmlWriter.setPrefix(prefix, namespace);
-				xmlWriter.writeAttribute(prefix, namespace, attName, attValue);
-			}
-		}
-		
-		/**
-		 * Util method to write an attribute without the ns prefix
-		 */
-		private static void writeAttribute(String namespace, String attName, String attValue, XMLStreamWriter xmlWriter) throws XMLStreamException {
-			if (namespace.equals("")) {
-				xmlWriter.writeAttribute(attName, attValue);
-			} else {
-				xmlWriter.writeAttribute(Util.registerPrefix(xmlWriter, namespace), namespace, attName, attValue);
-			}
 		}
 
 		/**
