@@ -2,7 +2,7 @@ import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
-import com.thiakil.curseapi.AddOnServiceStub;
+import com.thiakil.curseapi.soap.AddOnServiceStub;
 import com.thiakil.curseapi.login.CurseAuth;
 import com.thiakil.curseapi.login.CurseAuthException;
 import com.thiakil.curseapi.login.CurseToken;

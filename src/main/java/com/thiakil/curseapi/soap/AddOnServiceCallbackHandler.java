@@ -4,7 +4,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.7  Built on : Nov 20, 2017 (11:41:20 GMT)
  */
-package com.thiakil.curseapi;
+package com.thiakil.curseapi.soap;
 
 
 import com.curse.addonservice.CacheHealthCheckResponse;
