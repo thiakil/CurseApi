@@ -7,6 +7,7 @@
 package com.microsoft.schemas._2003._10.serialization.arrays;
 
 
+import addons.curse.AddOnFile;
 import addons.curse.ArrayOfAddOnFile;
 import com.curse.addonservice.ExtensionMapper;
 import org.apache.axiom.om.OMElement;
@@ -24,6 +25,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -45,7 +47,7 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 	/**
 	 * field for Value
 	 */
-	protected ArrayOfAddOnFile localValue;
+	protected List<AddOnFile> localValue;
 
 	/**
 	 * Auto generated getter method
@@ -70,7 +72,7 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOnFile
 	 */
-	public ArrayOfAddOnFile getValue() {
+	public List<AddOnFile> getValue() {
 		return localValue;
 	}
 
@@ -79,7 +81,7 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 	 *
 	 * @param param Value
 	 */
-	public void setValue(ArrayOfAddOnFile param) {
+	public void setValue(List<AddOnFile> param) {
 		this.localValue = param;
 	}
 
@@ -132,7 +134,7 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 			writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 			xmlWriter.writeEndElement();
 		} else {
-			localValue.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value"), xmlWriter);
+			ArrayOfAddOnFile.Factory.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value"), xmlWriter, localValue);
 		}
 
 		xmlWriter.writeEndElement();

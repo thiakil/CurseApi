@@ -41,6 +41,12 @@ public class GetAllFilesForAddOn implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localAddOnIDTracker = false;
+	
+	public GetAllFilesForAddOn(){}
+	
+	public GetAllFilesForAddOn(int addonID){
+		setAddOnID(addonID);
+	}
 
 	public boolean isAddOnIDSpecified() {
 		return localAddOnIDTracker;

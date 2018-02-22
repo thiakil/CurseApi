@@ -7,6 +7,7 @@
 package com.thiakil.curseapi.soap;
 
 
+import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.CacheHealthCheck;
 import com.curse.addonservice.CacheHealthCheckResponse;
@@ -70,6 +71,7 @@ import com.curse.addonservice.V2GetFingerprintMatches;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 /*
  *  AddOnService java interface
@@ -360,14 +362,14 @@ public interface AddOnService {
 	 *
 	 * @param getAllFilesForAddOn40
 	 */
-	GetAllFilesForAddOnResponse getAllFilesForAddOn(GetAllFilesForAddOn getAllFilesForAddOn40) throws RemoteException;
+	List<AddOnFile> getAllFilesForAddOn(int getAllFilesForAddOn40) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
 	 * @param getAllFilesForAddOn40
 	 */
-	void startgetAllFilesForAddOn(GetAllFilesForAddOn getAllFilesForAddOn40, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startgetAllFilesForAddOn(int getAllFilesForAddOn40, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature

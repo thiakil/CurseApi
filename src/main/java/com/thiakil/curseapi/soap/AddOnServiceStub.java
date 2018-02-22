@@ -7,6 +7,7 @@
 package com.thiakil.curseapi.soap;
 
 
+import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.CacheHealthCheck;
 import com.curse.addonservice.CacheHealthCheckResponse;
@@ -105,6 +106,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.rmi.RemoteException;
 import java.util.HashMap;
+import java.util.List;
 
 /*
  *  AddOnServiceStub java implementation
@@ -4096,10 +4098,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAllFilesForAddOn102
+	 * @param addonID
 	 * @see AddOnService#getAllFilesForAddOn
 	 */
-	public GetAllFilesForAddOnResponse getAllFilesForAddOn(GetAllFilesForAddOn getAllFilesForAddOn102) throws RemoteException {
+	public List<AddOnFile> getAllFilesForAddOn(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -4112,7 +4114,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env = null;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAllFilesForAddOn102, optimizeContent(new QName("http://addonservice.curse.com/", "getAllFilesForAddOn")), new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAllFilesForAddOn(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "getAllFilesForAddOn")), new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -4127,10 +4129,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+			
+			GetAllFilesForAddOnResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetAllFilesForAddOnResponse.class);
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAllFilesForAddOnResponse.class);
-
-			return (GetAllFilesForAddOnResponse) object;
+			return object.getGetAllFilesForAddOnResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -4171,10 +4173,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAllFilesForAddOn102
+	 * @param addonID
 	 * @see AddOnService#startgetAllFilesForAddOn
 	 */
-	public void startgetAllFilesForAddOn(GetAllFilesForAddOn getAllFilesForAddOn102, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startgetAllFilesForAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[20].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAllFilesForAddOn");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -4186,7 +4188,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAllFilesForAddOn102, optimizeContent(new QName("http://addonservice.curse.com/", "getAllFilesForAddOn")), new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAllFilesForAddOn(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "getAllFilesForAddOn")), new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);

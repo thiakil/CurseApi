@@ -9,6 +9,7 @@ import com.thiakil.curseapi.login.CurseToken;
 import org.apache.axis2.AxisFault;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
 /**
  * Created by Thiakil on 19/02/2018.
@@ -21,10 +22,8 @@ public class test {
 		try {
 			CurseToken token = CurseAuth.getTokenFromCurseAccount(args[0], args[1]);
 			AddOnServiceStub svc = new AddOnServiceStub(token);
-			GetAllFilesForAddOn addon = new GetAllFilesForAddOn();
-			addon.setAddOnID(268560);
-			GetAllFilesForAddOnResponse res = svc.getAllFilesForAddOn(addon);
-			for (AddOnFile f : res.getGetAllFilesForAddOnResult().getAddOnFile()) {
+			List<AddOnFile> res = svc.getAllFilesForAddOn(268560);
+			for (AddOnFile f : res) {
 				System.out.print(f.getFileName());
 				System.out.print(" : ");
 				System.out.println(f.getPackageFingerprint());

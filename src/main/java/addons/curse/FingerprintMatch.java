@@ -23,6 +23,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -61,7 +62,7 @@ public class FingerprintMatch implements ADBBean {
 	/**
 	 * field for LatestFiles
 	 */
-	protected ArrayOfAddOnFile localLatestFiles;
+	protected List<AddOnFile> localLatestFiles;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -127,7 +128,7 @@ public class FingerprintMatch implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOnFile
 	 */
-	public ArrayOfAddOnFile getLatestFiles() {
+	public List<AddOnFile> getLatestFiles() {
 		return localLatestFiles;
 	}
 
@@ -136,7 +137,7 @@ public class FingerprintMatch implements ADBBean {
 	 *
 	 * @param param LatestFiles
 	 */
-	public void setLatestFiles(ArrayOfAddOnFile param) {
+	public void setLatestFiles(List<AddOnFile> param) {
 		localLatestFilesTracker = true;
 
 		this.localLatestFiles = param;
@@ -206,7 +207,7 @@ public class FingerprintMatch implements ADBBean {
 				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localLatestFiles.serialize(new QName("Curse.AddOns", "LatestFiles"), xmlWriter);
+				ArrayOfAddOnFile.Factory.serialize(new QName("Curse.AddOns", "LatestFiles"), xmlWriter, localLatestFiles);
 			}
 		}
 

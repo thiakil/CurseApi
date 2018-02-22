@@ -7,6 +7,7 @@
 package com.curse.addonservice;
 
 
+import addons.curse.AddOnFile;
 import addons.curse.ArrayOfAddOnFile;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -23,6 +24,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -35,7 +37,7 @@ public class GetAllFilesForAddOnResponse implements ADBBean {
 	/**
 	 * field for GetAllFilesForAddOnResult
 	 */
-	protected ArrayOfAddOnFile localGetAllFilesForAddOnResult;
+	protected List<AddOnFile> localGetAllFilesForAddOnResult;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -52,7 +54,7 @@ public class GetAllFilesForAddOnResponse implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfAddOnFile
 	 */
-	public ArrayOfAddOnFile getGetAllFilesForAddOnResult() {
+	public List<AddOnFile> getGetAllFilesForAddOnResult() {
 		return localGetAllFilesForAddOnResult;
 	}
 
@@ -61,7 +63,7 @@ public class GetAllFilesForAddOnResponse implements ADBBean {
 	 *
 	 * @param param GetAllFilesForAddOnResult
 	 */
-	public void setGetAllFilesForAddOnResult(ArrayOfAddOnFile param) {
+	public void setGetAllFilesForAddOnResult(List<AddOnFile> param) {
 		localGetAllFilesForAddOnResultTracker = true;
 
 		this.localGetAllFilesForAddOnResult = param;
@@ -106,7 +108,7 @@ public class GetAllFilesForAddOnResponse implements ADBBean {
 				writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "nil", "1", xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGetAllFilesForAddOnResult.serialize(new QName("http://addonservice.curse.com/", "GetAllFilesForAddOnResult"), xmlWriter);
+				ArrayOfAddOnFile.Factory.serialize(new QName("http://addonservice.curse.com/", "GetAllFilesForAddOnResult"), xmlWriter, localGetAllFilesForAddOnResult);
 			}
 		}
 
