@@ -2,6 +2,7 @@ import addons.curse.AddOn;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
+import com.thiakil.curseapi.json.JsonDump;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,10 +13,8 @@ import java.util.List;
  */
 public class gsontest {
 	public static void main(String[] args) throws IOException {
-		Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-
-		Hourly test = GSON.fromJson(new FileReader("C:\\Users\\lex\\Downloads\\hourly.json"), Hourly.class);
-		System.out.println(test.data.size());
+		JsonDump test = JsonDump.GSON.fromJson(new FileReader("C:\\Users\\xander.v\\Downloads\\hourly.json"), JsonDump.class);
+		System.out.println(test.getAddons().size());
 	}
 
 	public static class Hourly{
