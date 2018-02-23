@@ -21,6 +21,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'com.github.scribejava:scribejava-core:5.2.0-java7again'
     compile 'com.github.scribejava:scribejava-httpclient-apache:5.2.0-java7again'
+    compile 'org.apache.httpcomponents:httpclient-cache:4.5.4'
 }
 
 sourceSets {
