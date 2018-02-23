@@ -49,21 +49,29 @@ public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
 	
 	static <T> List<T> readListOfObjects(JsonReader in, TypeAdapter<T> adaptor) throws IOException{
 		List<T> listOut = new LinkedList<>();
-		in.beginArray();
-		while (in.hasNext()){
-			listOut.add(adaptor.read(in));
+		if (in.peek() != JsonToken.NULL) {
+			in.beginArray();
+			while (in.hasNext()) {
+				listOut.add(adaptor.read(in));
+			}
+			in.endArray();
+		} else {
+			in.nextNull();
 		}
-		in.endArray();
 		return listOut;
 	}
 	
 	static List<String> readListOfStrings(JsonReader in) throws IOException{
 		List<String> listOut = new LinkedList<>();
-		in.beginArray();
-		while (in.hasNext()){
-			listOut.add(ProjectFeedAdaptor.readStringOrNull(in));
+		if (in.peek() != JsonToken.NULL) {
+			in.beginArray();
+			while (in.hasNext()) {
+				listOut.add(ProjectFeedAdaptor.readStringOrNull(in));
+			}
+			in.endArray();
+		} else {
+			in.nextNull();
 		}
-		in.endArray();
 		return listOut;
 	}
 	
