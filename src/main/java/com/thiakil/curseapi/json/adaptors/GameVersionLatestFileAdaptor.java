@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import org.datacontract.schemas._2004._07.curse_addons.GameVersionLatestFile;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -42,13 +40,13 @@ public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestF
 					out.setFileType(FileTypeAdaptor.INSTANCE.read(in));
 					break;
 				case "GameVesion":
-					out.setGameVesion(JsonDumpAdaptor.readStringOrNull(in));
+					out.setGameVesion(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "ProjectFileID":
 					out.setProjectFileID(in.nextInt());
 					break;
 				case "ProjectFileName":
-					out.setProjectFileName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setProjectFileName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

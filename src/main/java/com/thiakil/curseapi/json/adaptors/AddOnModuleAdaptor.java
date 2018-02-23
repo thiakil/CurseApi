@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnModule;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -36,7 +34,7 @@ public class AddOnModuleAdaptor extends TypeAdapter<AddOnModule> {
 					out.setFingerprint(in.nextLong());
 					break;
 				case "Foldername":
-					out.setFoldername(JsonDumpAdaptor.readStringOrNull(in));
+					out.setFoldername(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

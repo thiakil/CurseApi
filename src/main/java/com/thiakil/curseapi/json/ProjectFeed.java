@@ -20,7 +20,7 @@ import com.thiakil.curseapi.json.adaptors.DependencyTypeAdaptor;
 import com.thiakil.curseapi.json.adaptors.FileStatusAdaptor;
 import com.thiakil.curseapi.json.adaptors.FileTypeAdaptor;
 import com.thiakil.curseapi.json.adaptors.GameVersionLatestFileAdaptor;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
+import com.thiakil.curseapi.json.adaptors.ProjectFeedAdaptor;
 import com.thiakil.curseapi.json.adaptors.PackageTypesAdaptor;
 import com.thiakil.curseapi.json.adaptors.ProjectStageAdaptor;
 import com.thiakil.curseapi.json.adaptors.ProjectStatusAdaptor;
@@ -34,12 +34,12 @@ import org.datacontract.schemas._2004._07.curse_addons.ProjectStatus;
 
 import java.util.List;
 
-public class JsonDump {
+public class ProjectFeed {
 	public static final Gson GSON = registerTypeAdaptors(new GsonBuilder()).create();
 	
 	/**
 	 * Helper function to register the Json adaptors to your GSON builder instance, in case you need more than just these.
-	 * If you only want to read the structure from the root level, you only really need {@link JsonDumpAdaptor}, as the
+	 * If you only want to read the structure from the root level, you only really need {@link ProjectFeedAdaptor}, as the
 	 * others are chained statically.
 	 *
 	 * @param builderIn builder to add to
@@ -47,7 +47,7 @@ public class JsonDump {
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public static GsonBuilder registerTypeAdaptors(GsonBuilder builderIn){
-		return builderIn.registerTypeAdapter(JsonDump.class, JsonDumpAdaptor.INSTANCE)
+		return builderIn.registerTypeAdapter(ProjectFeed.class, ProjectFeedAdaptor.INSTANCE)
 				.registerTypeAdapter(AddOn.class, AddOnAdaptor.INSTANCE)
 				.registerTypeAdapter(AddOnAttachment.class, AddOnAttachmentAdaptor.INSTANCE)
 				.registerTypeAdapter(AddOnCategory.class, AddOnCategoryAdaptor.INSTANCE)

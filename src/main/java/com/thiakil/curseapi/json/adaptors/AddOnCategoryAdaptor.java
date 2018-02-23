@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnCategory;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -39,10 +37,10 @@ public class AddOnCategoryAdaptor extends TypeAdapter<AddOnCategory> {
 					out.setId(in.nextInt());
 					break;
 				case "Name":
-					out.setName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "URL":
-					out.setURL(JsonDumpAdaptor.readStringOrNull(in));
+					out.setURL(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

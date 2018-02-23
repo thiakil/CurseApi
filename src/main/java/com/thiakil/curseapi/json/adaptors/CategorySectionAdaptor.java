@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.CategorySection;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -48,7 +46,7 @@ public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
 			String prop = in.nextName();
 			switch (prop) {
 				case "ExtraIncludePattern":
-					out.setExtraIncludePattern(JsonDumpAdaptor.readStringOrNull(in));
+					out.setExtraIncludePattern(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "GameID":
 					out.setGameID(in.nextInt());
@@ -57,16 +55,16 @@ public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
 					out.setID(in.nextInt());
 					break;
 				case "InitialInclusionPattern":
-					out.setInitialInclusionPattern(JsonDumpAdaptor.readStringOrNull(in));
+					out.setInitialInclusionPattern(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "Name":
-					out.setName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "PackageType":
 					out.setPackageType(PackageTypesAdaptor.INSTANCE.read(in));
 					break;
 				case "Path":
-					out.setPath(JsonDumpAdaptor.readStringOrNull(in));
+					out.setPath(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

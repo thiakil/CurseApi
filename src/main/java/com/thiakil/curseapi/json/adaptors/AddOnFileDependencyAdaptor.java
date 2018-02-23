@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnFileDependency;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;

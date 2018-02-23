@@ -25,19 +25,19 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 			String prop = in.nextName();
 			switch (prop){
 				case "Attachments": {
-					out.setAttachments(JsonDumpAdaptor.readListOfObjects(in, AddOnAttachmentAdaptor.INSTANCE));
+					out.setAttachments(ProjectFeedAdaptor.readListOfObjects(in, AddOnAttachmentAdaptor.INSTANCE));
 					break;
 				}
 				case "Authors": {
-					out.setAuthors(JsonDumpAdaptor.readListOfObjects(in, AddOnAuthorAdaptor.INSTANCE));
+					out.setAuthors(ProjectFeedAdaptor.readListOfObjects(in, AddOnAuthorAdaptor.INSTANCE));
 					break;
 				}
 				case "AvatarUrl": {
-					out.setAvatarUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setAvatarUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "Categories": {
-					out.setCategories(JsonDumpAdaptor.readListOfObjects(in, AddOnCategoryAdaptor.INSTANCE));
+					out.setCategories(ProjectFeedAdaptor.readListOfObjects(in, AddOnCategoryAdaptor.INSTANCE));
 					break;
 				}
 				case "CategorySection": {
@@ -53,7 +53,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "DonationUrl": {
-					out.setDonationUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setDonationUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "DownloadCount": {
@@ -61,7 +61,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "ExternalUrl": {
-					out.setExternalUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setExternalUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "GameId": {
@@ -73,7 +73,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "GameVersionLatestFiles": {
-					out.setGameVersionLatestFiles(JsonDumpAdaptor.readListOfObjects(in, GameVersionLatestFileAdaptor.INSTANCE));
+					out.setGameVersionLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, GameVersionLatestFileAdaptor.INSTANCE));
 					break;
 				}
 				case "IconId": {
@@ -93,7 +93,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "LatestFiles": {
-					out.setLatestFiles(JsonDumpAdaptor.readListOfObjects(in, AddOnFileAdaptor.INSTANCE));
+					out.setLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, AddOnFileAdaptor.INSTANCE));
 					break;
 				}
 				case "Likes": {
@@ -101,7 +101,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "Name": {
-					out.setName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "PackageType": {
@@ -113,11 +113,11 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "PrimaryAuthorName": {
-					out.setPrimaryAuthorName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setPrimaryAuthorName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "PrimaryCategoryAvatarUrl": {
-					out.setPrimaryCategoryAvatarUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setPrimaryCategoryAvatarUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "PrimaryCategoryId": {
@@ -125,7 +125,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "PrimaryCategoryName": {
-					out.setPrimaryCategoryName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setPrimaryCategoryName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "Rating": {
@@ -141,11 +141,11 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "Summary": {
-					out.setSummary(JsonDumpAdaptor.readStringOrNull(in));
+					out.setSummary(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				case "WebSiteURL": {
-					out.setWebSiteURL(JsonDumpAdaptor.readStringOrNull(in));
+					out.setWebSiteURL(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				}
 				default:

@@ -25,7 +25,7 @@ for (clazz in classes){
 
     writer.println("package "+pkg+";\n")
     writer.println("import "+clazz.getName()+";\n" +
-            "import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;\n" +
+            "import com.thiakil.curseapi.json.adaptors.ProjectFeedAdaptor;\n" +
             "import com.google.gson.JsonParseException;\n" +
             "import com.google.gson.TypeAdapter;\n" +
             "import com.google.gson.stream.JsonReader;\n" +
@@ -57,7 +57,7 @@ for (clazz in classes){
             case List.class:
                 def genType = field.getGenericType()
                 if (genType instanceof ParameterizedType) {
-                    writer.println("\t\tJsonDumpAdaptor.writeArray(out, value.get" + fname + "(), " + ((Class) (genType.actualTypeArguments[0])).getSimpleName() + "Adaptor.INSTANCE);")
+                    writer.println("\t\tProjectFeedAdaptor.writeArray(out, value.get" + fname + "(), " + ((Class) (genType.actualTypeArguments[0])).getSimpleName() + "Adaptor.INSTANCE);")
                 } else {
                     writer.println("not parameterized!")
                 }
@@ -108,13 +108,13 @@ for (clazz in classes){
             case List.class:
                 def genType = field.getGenericType()
                 if (genType instanceof ParameterizedType) {
-                    writer.println("\t\t\t\t\tout.set" + fname + "(JsonDumpAdaptor.readListOfObjects(in, " + ((Class) (genType.actualTypeArguments[0])).getSimpleName() + "Adaptor.INSTANCE));")
+                    writer.println("\t\t\t\t\tout.set" + fname + "(ProjectFeedAdaptor.readListOfObjects(in, " + ((Class) (genType.actualTypeArguments[0])).getSimpleName() + "Adaptor.INSTANCE));")
                 } else {
                     writer.println("not parameterized!")
                 }
                 break
             default:
-                writer.println("\t\t\t\t\tout.set" + fname + "(JsonDumpAdaptor.readListOfObjects(in, " + field.getType().getSimpleName() + "Adaptor.INSTANCE));")
+                writer.println("\t\t\t\t\tout.set" + fname + "(ProjectFeedAdaptor.readListOfObjects(in, " + field.getType().getSimpleName() + "Adaptor.INSTANCE));")
         }
         writer.println("\t\t\t\t\tbreak;")
     }

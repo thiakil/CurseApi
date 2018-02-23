@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnFile;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -19,7 +17,7 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 		out.value(value.getAlternateFileId());
 
 		out.name("Dependencies");
-		JsonDumpAdaptor.writeArray(out, value.getDependencies(), AddOnFileDependencyAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getDependencies(), AddOnFileDependencyAdaptor.INSTANCE);
 
 		out.name("DownloadURL");
 		out.value(value.getDownloadURL());
@@ -37,7 +35,7 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 		FileStatusAdaptor.INSTANCE.write(out, value.getFileStatus());
 
 		out.name("GameVersion");
-		JsonDumpAdaptor.writeStringArray(out, value.getGameVersion());
+		ProjectFeedAdaptor.writeStringArray(out, value.getGameVersion());
 
 		out.name("Id");
 		out.value(value.getId());
@@ -49,7 +47,7 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 		out.value(value.getIsAvailable());
 
 		out.name("Modules");
-		JsonDumpAdaptor.writeArray(out, value.getModules(), AddOnModuleAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getModules(), AddOnModuleAdaptor.INSTANCE);
 
 		out.name("PackageFingerprint");
 		out.value(value.getPackageFingerprint());
@@ -72,25 +70,25 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 					out.setAlternateFileId(in.nextInt());
 					break;
 				case "Dependencies":
-					out.setDependencies(JsonDumpAdaptor.readListOfObjects(in, AddOnFileDependencyAdaptor.INSTANCE));
+					out.setDependencies(ProjectFeedAdaptor.readListOfObjects(in, AddOnFileDependencyAdaptor.INSTANCE));
 					break;
 				case "DownloadURL":
-					out.setDownloadURL(JsonDumpAdaptor.readStringOrNull(in));
+					out.setDownloadURL(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "FileDate":
 					out.setFileDate(CalendarAdaptor.INSTANCE.read(in));
 					break;
 				case "FileName":
-					out.setFileName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setFileName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "FileNameOnDisk":
-					out.setFileNameOnDisk(JsonDumpAdaptor.readStringOrNull(in));
+					out.setFileNameOnDisk(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "FileStatus":
 					out.setFileStatus(FileStatusAdaptor.INSTANCE.read(in));
 					break;
 				case "GameVersion":
-					out.setGameVersion(JsonDumpAdaptor.readListOfStrings(in));
+					out.setGameVersion(ProjectFeedAdaptor.readListOfStrings(in));
 					break;
 				case "Id":
 					out.setId(in.nextInt());
@@ -102,7 +100,7 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 					out.setIsAvailable(in.nextBoolean());
 					break;
 				case "Modules":
-					out.setModules(JsonDumpAdaptor.readListOfObjects(in, AddOnModuleAdaptor.INSTANCE));
+					out.setModules(ProjectFeedAdaptor.readListOfObjects(in, AddOnModuleAdaptor.INSTANCE));
 					break;
 				case "PackageFingerprint":
 					out.setPackageFingerprint(in.nextLong());

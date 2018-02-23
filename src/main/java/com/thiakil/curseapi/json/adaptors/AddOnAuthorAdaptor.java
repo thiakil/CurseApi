@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnAuthor;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -33,10 +31,10 @@ public class AddOnAuthorAdaptor extends TypeAdapter<AddOnAuthor> {
 			String prop = in.nextName();
 			switch (prop) {
 				case "Name":
-					out.setName(JsonDumpAdaptor.readStringOrNull(in));
+					out.setName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "Url":
-					out.setUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

@@ -1,22 +1,21 @@
 package com.thiakil.curseapi.json.adaptors;
 
-import addons.curse.AddOn;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
-import com.thiakil.curseapi.json.JsonDump;
+import com.thiakil.curseapi.json.ProjectFeed;
 
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class JsonDumpAdaptor extends TypeAdapter<JsonDump> {
-	public static JsonDumpAdaptor INSTANCE = new JsonDumpAdaptor();
+public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
+	public static ProjectFeedAdaptor INSTANCE = new ProjectFeedAdaptor();
 	
 	@Override
-	public void write(JsonWriter out, JsonDump value) throws IOException {
+	public void write(JsonWriter out, ProjectFeed value) throws IOException {
 		out.beginObject();
 		
 		out.name("timestamp");
@@ -29,8 +28,8 @@ public class JsonDumpAdaptor extends TypeAdapter<JsonDump> {
 	}
 	
 	@Override
-	public JsonDump read(JsonReader in) throws IOException {
-		JsonDump out = new JsonDump();
+	public ProjectFeed read(JsonReader in) throws IOException {
+		ProjectFeed out = new ProjectFeed();
 		
 		in.beginObject();
 		while (in.hasNext()){
@@ -62,7 +61,7 @@ public class JsonDumpAdaptor extends TypeAdapter<JsonDump> {
 		List<String> listOut = new LinkedList<>();
 		in.beginArray();
 		while (in.hasNext()){
-			listOut.add(JsonDumpAdaptor.readStringOrNull(in));
+			listOut.add(ProjectFeedAdaptor.readStringOrNull(in));
 		}
 		in.endArray();
 		return listOut;

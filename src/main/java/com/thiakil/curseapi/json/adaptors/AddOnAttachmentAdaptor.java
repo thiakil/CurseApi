@@ -1,8 +1,6 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnAttachment;
-import com.thiakil.curseapi.json.adaptors.JsonDumpAdaptor;
-import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -42,19 +40,19 @@ public class AddOnAttachmentAdaptor extends TypeAdapter<AddOnAttachment> {
 			String prop = in.nextName();
 			switch (prop) {
 				case "Description":
-					out.setDescription(JsonDumpAdaptor.readStringOrNull(in));
+					out.setDescription(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "IsDefault":
 					out.setIsDefault(in.nextBoolean());
 					break;
 				case "ThumbnailUrl":
-					out.setThumbnailUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setThumbnailUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "Title":
-					out.setTitle(JsonDumpAdaptor.readStringOrNull(in));
+					out.setTitle(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "Url":
-					out.setUrl(JsonDumpAdaptor.readStringOrNull(in));
+					out.setUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 			}
 		}

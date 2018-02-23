@@ -18,6 +18,6 @@ public class CalendarAdaptor extends TypeAdapter<Calendar> {
 	
 	@Override
 	public Calendar read(JsonReader in) throws IOException {
-		return ConverterUtil.convertToDateTime(JsonDumpAdaptor.readStringOrNull(in));
+		return ConverterUtil.convertToDateTime(ProjectFeedAdaptor.readStringOrNull(in));
 	}
 }
