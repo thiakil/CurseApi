@@ -26,6 +26,28 @@ import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Provides methods to download and parse curse's data dumps.
+ *
+ * HTTP responses are cached, as well as the timestamps built into the data being checked.
+ * The class also offers a way to save the parsed data to JSON or a custom format - highly recommended to avoid the
+ * startup overhead of decompressing the dump and skipping the 32mb or so of whitespace contained.
+ *
+ * The objects used are the same as returned from the SOAP API, so you could theoretically update the addon data map
+ * with data you retrieve from the SOAP calls.
+ *
+ * Basic usage
+ *
+ * <code>
+ *		ProjectFeedDownloader db = new ProjectFeedDownloader();
+ 		File dbStorage = new File(ProjectFeedDownloader.DEFAULT_CACHE_DIR, "db.json");
+		db.load(dbStorage);
+		db.sync();
+		db.save(dbStorage);
+ 		//use the data
+ * </code>
+ *
+ */
 public class ProjectFeedDownloader {
 	public static final String FEED_TEMPLATE = "https://clientupdate-v6.cursecdn.com/feed/addons/%d/v10/%s";//[gameid, feed-file]
 	public static final String DEFAULT_CACHE_DIR = System.getProperty("java.io.tmpdir") + File.separator + "cursefeed";
@@ -48,7 +70,16 @@ public class ProjectFeedDownloader {
 	private Int2ObjectMap<AddOn> addOns = new Int2ObjectOpenHashMap<>(15000);//actual expected is 20000
 	
 	private final CloseableHttpClient httpclient;
-	
+
+	/**
+	 * Create a downloaded with customised options
+	 *
+	 * @param gameId - gameid to query the feed for, default is {@link ProjectFeedDownloader#MINECRAFT_GAMEID}
+	 * @param feedTemplate - URL template for the remote server, in case you want to cache it or it changes.
+	 *                     Must contain %d for the game id, and %s for the filename. Default {@link ProjectFeedDownloader#FEED_TEMPLATE}
+	 * @param cacheDir - directory to store the HTTP cache in. Default is TEMP/cursefeed {@link ProjectFeedDownloader#DEFAULT_CACHE_DIR}
+	 * @throws IOException if the cache dir cannot be created
+	 */
 	public ProjectFeedDownloader(int gameId, String feedTemplate, File cacheDir) throws IOException {
 		this.usedCacheDir = cacheDir;
 		this.usedFeedTemplate = feedTemplate;
@@ -69,7 +100,12 @@ public class ProjectFeedDownloader {
 
 		httpclient = CachingHttpClients.custom().setCacheConfig(cacheConfig).setCacheDir(usedCacheDir).setHttpCacheStorage(storage).setDefaultRequestConfig(requestConfig).build();
 	}
-	
+
+	/**
+	 * Create a downloader with default options, configured for Minecraft
+	 *
+	 * @throws IOException if the TEMP/cursefeed directory cannot be created.
+	 */
 	public ProjectFeedDownloader() throws IOException {
 		this(MINECRAFT_GAMEID, FEED_TEMPLATE, new File(DEFAULT_CACHE_DIR));
 	}
@@ -98,7 +134,12 @@ public class ProjectFeedDownloader {
 	private String getUrl(String filename){
 		return String.format(usedFeedTemplate, gameId, filename);
 	}
-	
+
+	/**
+	 * Downloads/updates the data from the upstream server.
+	 *
+	 * @throws IOException on HTTP errors
+	 */
 	public void sync() throws IOException {
 		System.out.println("Start sync");
 		if (completeTimeStamp == -1 || completeTimeStamp != getTimestamp("complete.json.bz2.txt")){
@@ -124,14 +165,29 @@ public class ProjectFeedDownloader {
 		System.out.println("end sync");
 	}
 
+	/**
+	 * @return a map of all found addons, mapped by their ID
+	 */
 	public Int2ObjectMap<AddOn> getAddOns() {
 		return addOns;
 	}
 
+	/**
+	 * Retrieve an addon by ID
+	 *
+	 * @param id the id you're after
+	 * @return an Optional of the addon
+	 */
 	public Optional<AddOn> getAddonById(int id){
 		return Optional.ofNullable(addOns.get(id));
 	}
 
+	/**
+	 * Save the downloaded data to a JSON cache file.
+	 *
+	 * @param destination where the file goes
+	 * @throws IOException on IO errors passed up from the writers/streams
+	 */
 	public void save(File destination) throws IOException {
 		JsonWriter writer = new JsonWriter(new OutputStreamWriter(new FileOutputStream(destination), "utf-8"));
 		writer.beginObject();
@@ -198,6 +254,11 @@ public class ProjectFeedDownloader {
 		return true;
 	}
 
+	/**
+	 * Loads from a custom loader, e.g. database, etc
+	 *
+	 * @param loader where to query for the data
+	 */
 	public void loadCustom(ProjectFeedLoader loader){
 		this.completeTimeStamp = loader.getTimestampComplete();
 		this.hourlyTimeStamp = loader.getTimestampHourly();
@@ -205,6 +266,11 @@ public class ProjectFeedDownloader {
 		loader.getAddOns().forEach(a->addOns.put(a.getId(), a));
 	}
 
+	/**
+	 * Saves to a custom loader, e.g. database
+	 *
+	 * @param saver where to send the data.
+	 */
 	public void saveCustom(ProjectFeedSaver saver){
 		saver.save(this.completeTimeStamp, this.hourlyTimeStamp, this.addOns.values());
 	}
