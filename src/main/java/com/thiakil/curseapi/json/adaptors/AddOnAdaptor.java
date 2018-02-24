@@ -13,7 +13,103 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 	
 	@Override
 	public void write(JsonWriter out, AddOn value) throws IOException {
-		throw new IllegalStateException("TODO");
+		out.beginObject();
+
+		out.name("Attachments");
+		ProjectFeedAdaptor.writeArray(out, value.getAttachments(), AddOnAttachmentAdaptor.INSTANCE);
+
+		out.name("Authors");
+		ProjectFeedAdaptor.writeArray(out, value.getAuthors(), AddOnAuthorAdaptor.INSTANCE);
+
+		out.name("AvatarUrl");
+		out.value(value.getAvatarUrl());
+
+		out.name("Categories");
+		ProjectFeedAdaptor.writeArray(out, value.getCategories(), AddOnCategoryAdaptor.INSTANCE);
+
+		out.name("CategorySection");
+		CategorySectionAdaptor.INSTANCE.write(out, value.getCategorySection());
+
+		out.name("CommentCount");
+		out.value(value.getCommentCount());
+
+		out.name("DefaultFileId");
+		out.value(value.getDefaultFileId());
+
+		out.name("DonationUrl");
+		out.value(value.getDonationUrl());
+
+		out.name("DownloadCount");
+		out.value(value.getDownloadCount());
+
+		out.name("ExternalUrl");
+		out.value(value.getExternalUrl());
+
+		out.name("GameId");
+		out.value(value.getGameId());
+
+		out.name("GamePopularityRank");
+		out.value(value.getGamePopularityRank());
+
+		out.name("GameVersionLatestFiles");
+		ProjectFeedAdaptor.writeArray(out, value.getGameVersionLatestFiles(), GameVersionLatestFileAdaptor.INSTANCE);
+
+		out.name("IconId");
+		out.value(value.getIconId());
+
+		out.name("Id");
+		out.value(value.getId());
+
+		out.name("InstallCount");
+		out.value(value.getInstallCount());
+
+		out.name("IsFeatured");
+		out.value(value.getIsFeatured());
+
+		out.name("LatestFiles");
+		ProjectFeedAdaptor.writeArray(out, value.getLatestFiles(), AddOnFileAdaptor.INSTANCE);
+
+		out.name("Likes");
+		out.value(value.getLikes());
+
+		out.name("Name");
+		out.value(value.getName());
+
+		out.name("PackageType");
+		PackageTypesAdaptor.INSTANCE.write(out, value.getPackageType());
+
+		out.name("PopularityScore");
+		out.value(value.getPopularityScore());
+
+		out.name("PrimaryAuthorName");
+		out.value(value.getPrimaryAuthorName());
+
+		out.name("PrimaryCategoryAvatarUrl");
+		out.value(value.getPrimaryCategoryAvatarUrl());
+
+		out.name("PrimaryCategoryId");
+		out.value(value.getPrimaryCategoryId());
+
+		out.name("PrimaryCategoryName");
+		out.value(value.getPrimaryCategoryName());
+
+		out.name("Rating");
+		out.value(value.getRating());
+
+		out.name("Stage");
+		ProjectStageAdaptor.INSTANCE.write(out, value.getStage());
+
+		out.name("Status");
+		ProjectStatusAdaptor.INSTANCE.write(out, value.getStatus());
+
+		out.name("Summary");
+		out.value(value.getSummary());
+
+		out.name("WebSiteURL");
+		out.value(value.getWebSiteURL());
+
+		
+		out.endObject();
 	}
 	
 	@Override
