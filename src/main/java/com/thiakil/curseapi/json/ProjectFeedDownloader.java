@@ -197,4 +197,15 @@ public class ProjectFeedDownloader {
 
 		return true;
 	}
+
+	public void loadCustom(ProjectFeedLoader loader){
+		this.completeTimeStamp = loader.getTimestampComplete();
+		this.hourlyTimeStamp = loader.getTimestampHourly();
+		this.addOns.clear();
+		loader.getAddOns().forEach(a->addOns.put(a.getId(), a));
+	}
+
+	public void saveCustom(ProjectFeedSaver saver){
+		saver.save(this.completeTimeStamp, this.hourlyTimeStamp, this.addOns.values());
+	}
 }
