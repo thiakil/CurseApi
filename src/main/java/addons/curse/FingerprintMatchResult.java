@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -40,7 +41,7 @@ public class FingerprintMatchResult implements ADBBean {
 	/**
 	 * field for ExactMatches
 	 */
-	protected ArrayOfFingerprintMatch localExactMatches;
+	protected List<FingerprintMatch> localExactMatches;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -62,7 +63,7 @@ public class FingerprintMatchResult implements ADBBean {
 	/**
 	 * field for PartialMatches
 	 */
-	protected ArrayOfFingerprintMatch localPartialMatches;
+	protected List<FingerprintMatch> localPartialMatches;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -79,7 +80,7 @@ public class FingerprintMatchResult implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfFingerprintMatch
 	 */
-	public ArrayOfFingerprintMatch getExactMatches() {
+	public List<FingerprintMatch> getExactMatches() {
 		return localExactMatches;
 	}
 
@@ -88,7 +89,7 @@ public class FingerprintMatchResult implements ADBBean {
 	 *
 	 * @param param ExactMatches
 	 */
-	public void setExactMatches(ArrayOfFingerprintMatch param) {
+	public void setExactMatches(List<FingerprintMatch> param) {
 		localExactMatchesTracker = true;
 
 		this.localExactMatches = param;
@@ -128,7 +129,7 @@ public class FingerprintMatchResult implements ADBBean {
 	 *
 	 * @return addons.curse.ArrayOfFingerprintMatch
 	 */
-	public ArrayOfFingerprintMatch getPartialMatches() {
+	public List<FingerprintMatch> getPartialMatches() {
 		return localPartialMatches;
 	}
 
@@ -137,7 +138,7 @@ public class FingerprintMatchResult implements ADBBean {
 	 *
 	 * @param param PartialMatches
 	 */
-	public void setPartialMatches(ArrayOfFingerprintMatch param) {
+	public void setPartialMatches(List<FingerprintMatch> param) {
 		localPartialMatchesTracker = true;
 
 		this.localPartialMatches = param;
@@ -182,7 +183,7 @@ public class FingerprintMatchResult implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localExactMatches.serialize(new QName("Curse.AddOns", "ExactMatches"), xmlWriter);
+				ArrayOfFingerprintMatch.serialize(new QName("Curse.AddOns", "ExactMatches"), xmlWriter, localExactMatches);
 			}
 		}
 
@@ -203,7 +204,7 @@ public class FingerprintMatchResult implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localPartialMatches.serialize(new QName("Curse.AddOns", "PartialMatches"), xmlWriter);
+				ArrayOfFingerprintMatch.serialize(new QName("Curse.AddOns", "PartialMatches"), xmlWriter, localPartialMatches);
 			}
 		}
 

@@ -562,7 +562,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), createSyncGroup62, optimizeContent(new QName("http://addonservice.curse.com/", "createSyncGroup")), new QName("http://addonservice.curse.com/", "CreateSyncGroup"));
 
@@ -634,7 +634,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -711,7 +711,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[0].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -739,7 +739,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getSecureDownloadToken64, optimizeContent(new QName("http://addonservice.curse.com/", "getSecureDownloadToken")), new QName("http://addonservice.curse.com/", "GetSecureDownloadToken"));
 
@@ -811,7 +811,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -888,7 +888,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[1].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -902,10 +902,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param healthCheck66
 	 * @see AddOnService#healthCheck
 	 */
-	public HealthCheckResponse healthCheck(HealthCheck healthCheck66) throws RemoteException {
+	public String healthCheck() throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -916,9 +915,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), healthCheck66, optimizeContent(new QName("http://addonservice.curse.com/", "healthCheck")), new QName("http://addonservice.curse.com/", "HealthCheck"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new HealthCheck(), optimizeContent(new QName("http://addonservice.curse.com/", "healthCheck")), new QName("http://addonservice.curse.com/", "HealthCheck"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -934,9 +933,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), HealthCheckResponse.class);
+			HealthCheckResponse object = fromOM(_returnEnv.getBody().getFirstElement(), HealthCheckResponse.class);
 
-			return (HealthCheckResponse) object;
+			return object.getHealthCheckResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -977,10 +976,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param healthCheck66
 	 * @see AddOnService#starthealthCheck
 	 */
-	public void starthealthCheck(HealthCheck healthCheck66, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/HealthCheck");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -988,11 +986,11 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), healthCheck66, optimizeContent(new QName("http://addonservice.curse.com/", "healthCheck")), new QName("http://addonservice.curse.com/", "HealthCheck"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new HealthCheck(), optimizeContent(new QName("http://addonservice.curse.com/", "healthCheck")), new QName("http://addonservice.curse.com/", "HealthCheck"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -1065,7 +1063,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[2].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1076,13 +1074,11 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param fingerprints
-	 * @see AddOnService#getFingerprintMatches
-	 */
 	public FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException {
+
+		if (fingerprints.length == 0){
+			throw new IllegalArgumentException("fingerprints are required");
+		}
 
 		GetFingerprintMatches fpm = new GetFingerprintMatches();
 		ArrayOflong aol = new ArrayOflong();
@@ -1098,7 +1094,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), fpm, optimizeContent(new QName("http://addonservice.curse.com/", "getFingerprintMatches")), new QName("http://addonservice.curse.com/", "GetFingerprintMatches"));
 
@@ -1163,6 +1159,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	 * @see AddOnService#startgetFingerprintMatches
 	 */
 	public void startgetFingerprintMatches(final AddOnServiceCallbackHandler callback, long... fingerprints) throws RemoteException {
+		if (fingerprints.length == 0){
+			throw new IllegalArgumentException("fingerprints are required");
+		}
+
 		OperationClient _operationClient = _serviceClient.createClient(_operations[3].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetFingerprintMatches");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -1170,7 +1170,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		GetFingerprintMatches fpm = new GetFingerprintMatches();
@@ -1252,7 +1252,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[3].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1280,7 +1280,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), saveSyncTransactions70, optimizeContent(new QName("http://addonservice.curse.com/", "saveSyncTransactions")), new QName("http://addonservice.curse.com/", "SaveSyncTransactions"));
 
@@ -1352,7 +1352,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -1429,7 +1429,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[4].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1457,7 +1457,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getRepositoryMatchFromSlug72, optimizeContent(new QName("http://addonservice.curse.com/", "getRepositoryMatchFromSlug")), new QName("http://addonservice.curse.com/", "GetRepositoryMatchFromSlug"));
 
@@ -1529,7 +1529,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -1606,7 +1606,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[5].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1634,7 +1634,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetFingerprintMatches74, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches")), new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches"));
 
@@ -1706,7 +1706,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -1783,7 +1783,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[6].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1811,7 +1811,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), cacheHealthCheck76, optimizeContent(new QName("http://addonservice.curse.com/", "cacheHealthCheck")), new QName("http://addonservice.curse.com/", "CacheHealthCheck"));
 
@@ -1883,7 +1883,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -1960,7 +1960,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[7].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -1988,7 +1988,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnDescription78, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnDescription")), new QName("http://addonservice.curse.com/", "GetAddOnDescription"));
 
@@ -2060,7 +2060,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -2137,7 +2137,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[8].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -2165,7 +2165,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), resetFeeds80, optimizeContent(new QName("http://addonservice.curse.com/", "resetFeeds")), new QName("http://addonservice.curse.com/", "ResetFeeds"));
 
@@ -2237,7 +2237,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -2314,7 +2314,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[9].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -2342,7 +2342,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), leaveSyncGroup82, optimizeContent(new QName("http://addonservice.curse.com/", "leaveSyncGroup")), new QName("http://addonservice.curse.com/", "LeaveSyncGroup"));
 
@@ -2414,7 +2414,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -2491,7 +2491,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[10].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -2519,7 +2519,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), saveSyncSnapshot84, optimizeContent(new QName("http://addonservice.curse.com/", "saveSyncSnapshot")), new QName("http://addonservice.curse.com/", "SaveSyncSnapshot"));
 
@@ -2591,7 +2591,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -2668,7 +2668,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[11].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -2696,7 +2696,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnDump86, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnDump")), new QName("http://addonservice.curse.com/", "GetAddOnDump"));
 
@@ -2768,7 +2768,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -2845,7 +2845,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[12].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -2873,7 +2873,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOns88, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOns")), new QName("http://addonservice.curse.com/", "GetAddOns"));
 
@@ -2945,7 +2945,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3022,7 +3022,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[13].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3050,7 +3050,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getDownloadToken90, optimizeContent(new QName("http://addonservice.curse.com/", "getDownloadToken")), new QName("http://addonservice.curse.com/", "GetDownloadToken"));
 
@@ -3122,7 +3122,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3199,7 +3199,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[14].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3227,7 +3227,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetChangeLog92, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetChangeLog")), new QName("http://addonservice.curse.com/", "v2GetChangeLog"));
 
@@ -3299,7 +3299,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3376,7 +3376,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[15].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3404,7 +3404,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOns94, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOns")), new QName("http://addonservice.curse.com/", "v2GetAddOns"));
 
@@ -3476,7 +3476,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3553,7 +3553,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[16].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3581,7 +3581,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFile96, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFile")), new QName("http://addonservice.curse.com/", "GetAddOnFile"));
 
@@ -3653,7 +3653,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3730,7 +3730,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[17].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3758,7 +3758,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getChangeLog98, optimizeContent(new QName("http://addonservice.curse.com/", "getChangeLog")), new QName("http://addonservice.curse.com/", "GetChangeLog"));
 
@@ -3830,7 +3830,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -3907,7 +3907,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[18].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -3935,7 +3935,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getSyncProfile100, optimizeContent(new QName("http://addonservice.curse.com/", "getSyncProfile")), new QName("http://addonservice.curse.com/", "GetSyncProfile"));
 
@@ -4007,7 +4007,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4084,7 +4084,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[19].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4112,7 +4112,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAllFilesForAddOn(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "getAllFilesForAddOn")), new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn"));
 
@@ -4184,7 +4184,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4261,7 +4261,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[20].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4289,7 +4289,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getFuzzyMatches104, optimizeContent(new QName("http://addonservice.curse.com/", "getFuzzyMatches")), new QName("http://addonservice.curse.com/", "GetFuzzyMatches"));
 
@@ -4361,7 +4361,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4438,7 +4438,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[21].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4466,7 +4466,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), joinSyncGroup106, optimizeContent(new QName("http://addonservice.curse.com/", "joinSyncGroup")), new QName("http://addonservice.curse.com/", "JoinSyncGroup"));
 
@@ -4538,7 +4538,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4615,7 +4615,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[22].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4643,7 +4643,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), listFeeds108, optimizeContent(new QName("http://addonservice.curse.com/", "listFeeds")), new QName("http://addonservice.curse.com/", "ListFeeds"));
 
@@ -4715,7 +4715,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4792,7 +4792,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[23].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4820,7 +4820,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFiles110, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFiles")), new QName("http://addonservice.curse.com/", "GetAddOnFiles"));
 
@@ -4892,7 +4892,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -4969,7 +4969,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[24].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -4997,7 +4997,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOnDescription112, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOnDescription")), new QName("http://addonservice.curse.com/", "v2GetAddOnDescription"));
 
@@ -5069,7 +5069,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -5146,7 +5146,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[25].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -5174,7 +5174,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), resetSingleAddonCache114, optimizeContent(new QName("http://addonservice.curse.com/", "resetSingleAddonCache")), new QName("http://addonservice.curse.com/", "ResetSingleAddonCache"));
 
@@ -5246,7 +5246,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -5323,7 +5323,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[26].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -5351,7 +5351,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOn116, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOn")), new QName("http://addonservice.curse.com/", "GetAddOn"));
 
@@ -5423,7 +5423,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -5500,7 +5500,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[27].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -5528,7 +5528,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), logDump118, optimizeContent(new QName("http://addonservice.curse.com/", "logDump")), new QName("http://addonservice.curse.com/", "LogDump"));
 
@@ -5600,7 +5600,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -5677,7 +5677,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[28].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -5705,7 +5705,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), serviceHealthCheck120, optimizeContent(new QName("http://addonservice.curse.com/", "serviceHealthCheck")), new QName("http://addonservice.curse.com/", "ServiceHealthCheck"));
 
@@ -5777,7 +5777,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -5854,7 +5854,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[29].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();
@@ -5882,7 +5882,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 			// create SOAP envelope with that payload
-			SOAPEnvelope env = null;
+			SOAPEnvelope env;
 
 			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), resetAllAddonCache122, optimizeContent(new QName("http://addonservice.curse.com/", "resetAllAddonCache")), new QName("http://addonservice.curse.com/", "ResetAllAddonCache"));
 
@@ -5954,7 +5954,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		addPropertyToOperationClient(_operationClient, WSDL2Constants.ATTR_WHTTP_QUERY_PARAMETER_SEPARATOR, "&");
 
 		// create SOAP envelope with that payload
-		SOAPEnvelope env = null;
+		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
@@ -6031,7 +6031,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			}
 		});
 
-		CallbackReceiver _callbackReceiver = null;
+		CallbackReceiver _callbackReceiver;
 
 		if ((_operations[30].getMessageReceiver() == null) && _operationClient.getOptions().isUseSeparateListener()) {
 			_callbackReceiver = new CallbackReceiver();

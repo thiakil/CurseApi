@@ -25,8 +25,6 @@ import com.curse.addonservice.GetAddOnFilesResponse;
 import com.curse.addonservice.GetAddOnResponse;
 import com.curse.addonservice.GetAddOns;
 import com.curse.addonservice.GetAddOnsResponse;
-import com.curse.addonservice.GetAllFilesForAddOn;
-import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.curse.addonservice.GetChangeLog;
 import com.curse.addonservice.GetChangeLogResponse;
 import com.curse.addonservice.GetDownloadToken;
@@ -39,8 +37,6 @@ import com.curse.addonservice.GetSecureDownloadToken;
 import com.curse.addonservice.GetSecureDownloadTokenResponse;
 import com.curse.addonservice.GetSyncProfile;
 import com.curse.addonservice.GetSyncProfileResponse;
-import com.curse.addonservice.HealthCheck;
-import com.curse.addonservice.HealthCheckResponse;
 import com.curse.addonservice.JoinSyncGroup;
 import com.curse.addonservice.JoinSyncGroupResponse;
 import com.curse.addonservice.LeaveSyncGroup;
@@ -78,86 +74,79 @@ import java.util.List;
  */
 public interface AddOnService {
 	/**
-	 * Auto generated method signature
+	 * Unknown usage
 	 *
-	 * @param createSyncGroup0
+	 * @param createSyncGroup0 Sync Group params
 	 */
 	CreateSyncGroupResponse createSyncGroup(CreateSyncGroup createSyncGroup0) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Async. Unknown usage
 	 *
-	 * @param createSyncGroup0
+	 * @param createSyncGroup0 Sync Group params
+	 * @param callback - Async callback handler
 	 */
 	void startcreateSyncGroup(CreateSyncGroup createSyncGroup0, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Gets some sort of download token?
 	 *
-	 * @param getSecureDownloadToken2
+	 * @param getSecureDownloadToken2 req params
 	 */
 	GetSecureDownloadTokenResponse getSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getSecureDownloadToken2
+	 * @param getSecureDownloadToken2 req params
 	 */
 	void startgetSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param healthCheck4
 	 */
-	HealthCheckResponse healthCheck(HealthCheck healthCheck4) throws RemoteException;
+	String healthCheck() throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param healthCheck4
 	 */
-	void starthealthCheck(HealthCheck healthCheck4, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Find file matches for a series of {@link com.thiakil.curseapi.Murmur2Hash} fingerprints/hashes
 	 *
-	 * @param fingerprints
+	 * @param fingerprints fingerprints to check.
+	 * @return {@link FingerprintMatchResult} with the resulting matches
 	 */
 	FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Async version of {@link #getFingerprintMatches(long...)}
 	 *
-	 * @param fingerprints
+	 * @param callback async callback handler
+	 * @param fingerprints fingerprints to check.
 	 */
 	void startgetFingerprintMatches(final AddOnServiceCallbackHandler callback, long... fingerprints) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
-	 *
-	 * @param saveSyncTransactions8
+	 * Unknown method
 	 */
 	SaveSyncTransactionsResponse saveSyncTransactions(SaveSyncTransactions saveSyncTransactions8) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param saveSyncTransactions8
+	 * Unknown method
 	 */
 	void startsaveSyncTransactions(SaveSyncTransactions saveSyncTransactions8, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
-	 *
-	 * @param getRepositoryMatchFromSlug10
+	 * Unknown method
 	 */
 	GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getRepositoryMatchFromSlug10
+	 * Unknown method
 	 */
 	void startgetRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
