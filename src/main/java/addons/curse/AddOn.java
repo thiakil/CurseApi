@@ -1205,6 +1205,11 @@ public class AddOn implements ADBBean {
 		this.localWebSiteURL = param;
 	}
 
+	@Override
+	public int hashCode() {
+		return this.localId;
+	}
+
 	/**
 	 * @param parentQName
 	 * @param factory
