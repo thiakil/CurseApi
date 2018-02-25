@@ -2,6 +2,7 @@ import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
+import com.thiakil.curseapi.login.RenewTokenResponse;
 import com.thiakil.curseapi.soap.AddOnServiceStub;
 import com.thiakil.curseapi.login.CurseAuth;
 import com.thiakil.curseapi.login.CurseAuthException;
@@ -21,15 +22,16 @@ public class test {
 		}
 		try {
 			CurseToken token = CurseAuth.getTokenFromCurseAccount(args[0], args[1]);
+			//RenewTokenResponse res1 = CurseAuth.renewAccessToken(token.token);
 			AddOnServiceStub svc = new AddOnServiceStub(token);
-			List<AddOnFile> res = svc.getAllFilesForAddOn(268560);
+			List<AddOnFile> res = svc.getAllFilesForAddOn(269708);
 			for (AddOnFile f : res) {
 				System.out.print(f.getFileName());
 				System.out.print(" : ");
 				System.out.println(f.getPackageFingerprint());
 			}
 			FingerprintMatchResult fingerprintMatchResult = svc.getFingerprintMatches(3752024154L);
-			System.out.println(fingerprintMatchResult.getExactMatches().getFingerprintMatch()[0].getId());
+			System.out.println(fingerprintMatchResult.getExactMatches().get(0).getId());
 		} catch (AxisFault e) {
 			System.err.println(e.getReason());
 			System.err.println(e);
