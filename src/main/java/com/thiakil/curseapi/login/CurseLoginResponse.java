@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName;
  */
 public class CurseLoginResponse {
 	@SerializedName("Status")
-	public int Status;
+	public LoginStatus Status;
 	@SerializedName("StatusMessage")
 	public String StatusMessage;
 	@SerializedName("Session")
@@ -16,5 +16,5 @@ public class CurseLoginResponse {
 	public long Timestamp;
 	@SerializedName("TwitchUsernameReservationToken")
 	public String TwitchUsernameReservationToken;
-	
+
 }

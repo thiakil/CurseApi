@@ -1,40 +1,29 @@
 package com.thiakil.curseapi.login;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Thiakil on 21/02/2018.
  */
-public class LoginStatus {
-	public static final int Unsuccessful = 0;
-
-	public static final int Success = 1;
-
-	public static final int InvalidSession = 2;
-
-	public static final int UnauthorizedLogin = 3;
-
-	public static final int InvalidPassword = 4;
-
-	public static final int UnknownUsername = 5;
-
-	public static final int UnknownEmail = 6;
-
-	public static final int UnknownError = 100;
-
-	public static final int IncorrectTime = 101;
-
-	public static final int CorruptLibrary = 102;
-
-	public static final int OutdatedClient = 103;
-
-	public static final int SubscriptionMismatch = 104;
-
-	public static final int SubscriptionExpired = 105;
-
-	public static final int InsufficientAccessLevel = 106;
-
-	public static final int InvalidApiKey = 107;
-
-	public static final int MissingGrant = 108;
-	
-	public static final int GeneralError = 1000;
+public enum LoginStatus {
+	@SerializedName("1")
+	Success,
+	@SerializedName("3")
+	UnauthorizedLogin,
+	@SerializedName("4")
+	InvalidPassword,
+	@SerializedName("5")
+	UnknownUsername,
+	@SerializedName("6")
+	UnknownEmail,
+	@SerializedName("102")
+	CorruptLibrary, // 0x00000066
+	@SerializedName("104")
+	SubscriptionMismatch, // 0x00000068
+	@SerializedName("105")
+	SubscriptionExpired, // 0x00000069
+	@SerializedName("108")
+	MissingGrant, // 0x0000006C
+	@SerializedName("1000")
+	GeneralError, // 0x000003E8
 }

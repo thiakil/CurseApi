@@ -30,5 +30,17 @@ public class LoginSession {
 	@SerializedName("IsMerged")
 	public boolean IsMerged;
 	@SerializedName("Bans")
-	public int Bans;
+	public UserBanType Bans;
+
+	public enum UserBanType
+	{
+		@SerializedName("-1")
+		Global,
+		@SerializedName("0")
+		None,
+		@SerializedName("1")
+		Social,
+		@SerializedName("2")
+		Whisper,
+	}
 }
