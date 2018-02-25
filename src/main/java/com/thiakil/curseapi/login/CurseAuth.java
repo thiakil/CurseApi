@@ -30,7 +30,7 @@ public class CurseAuth {
 		try {
 			CloseableHttpResponse response = httpclient.execute(post);
 			if (response.getStatusLine().getStatusCode() != 200){
-				throw new CurseAuthException("HTTP response code "+response.getStatusLine().getStatusCode());
+				handleHttpErrorWithException(response);
 			}
 			if (response.getEntity() == null){
 				throw new CurseAuthException("HTTP response body empty");
@@ -53,14 +53,7 @@ public class CurseAuth {
 		try {
 			CloseableHttpResponse response = httpclient.execute(post);
 			if (response.getStatusLine().getStatusCode() != 200){
-				String errMsg = "";
-				if (response.getEntity() != null && response.getEntity().getContentLength() > 0){
-					Reader r = new InputStreamReader(response.getEntity().getContent(), "utf-8");
-					char[] buf = new char[(int)response.getEntity().getContentLength()];
-					r.read(buf);
-					errMsg = "\n"+new String(buf);
-				}
-				throw new CurseAuthException("HTTP response code "+response.getStatusLine().getStatusCode()+errMsg);
+				handleHttpErrorWithException(response);
 			}
 			if (response.getEntity() == null){
 				throw new CurseAuthException("HTTP response body empty");
@@ -72,6 +65,17 @@ public class CurseAuth {
 		} catch (IOException|JsonParseException e){
 			throw new CurseAuthException(e);
 		}
+	}
+
+	private static void handleHttpErrorWithException(CloseableHttpResponse response) throws IOException, CurseAuthException {
+		String errMsg = "";
+		if (response.getEntity() != null && response.getEntity().getContentLength() > 0){
+			Reader r = new InputStreamReader(response.getEntity().getContent(), "utf-8");
+			char[] buf = new char[(int)response.getEntity().getContentLength()];
+			r.read(buf);
+			errMsg = "\n"+new String(buf);
+		}
+		throw new CurseAuthException("HTTP response code "+response.getStatusLine().getStatusCode()+errMsg);
 	}
 
 	public static CurseToken getTokenFromCurseAccount(String username, String password) throws CurseAuthException{
@@ -88,6 +92,26 @@ public class CurseAuth {
 			throw new CurseAuthException("Unknown login status: "+response.status.name());
 		}
 		return new CurseToken(response.session.UserID, response.session.Token);
+	}
+
+	public static RenewTokenResponse renewAccessToken(String token) throws CurseAuthException {
+		HttpPost post = new HttpPost("https://logins-v1.curseapp.net/login/renew");
+		post.addHeader("AuthenticationToken", token);
+		try {
+			CloseableHttpResponse response = httpclient.execute(post);
+			if (response.getStatusLine().getStatusCode() != 200){
+				handleHttpErrorWithException(response);
+			}
+			if (response.getEntity() == null){
+				throw new CurseAuthException("HTTP response body empty");
+			}
+			HttpEntity entity = response.getEntity();
+			RenewTokenResponse renewTokenResponse = GSON.fromJson(new InputStreamReader(entity.getContent()), RenewTokenResponse.class);
+			entity.getContent().close();
+			return renewTokenResponse;
+		} catch (IOException|JsonParseException e){
+			throw new CurseAuthException(e);
+		}
 	}
 	
 }
