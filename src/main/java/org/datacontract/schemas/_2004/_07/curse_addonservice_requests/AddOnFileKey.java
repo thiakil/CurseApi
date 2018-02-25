@@ -59,6 +59,13 @@ public class AddOnFileKey implements ADBBean {
 	 */
 	protected boolean localFileIDTracker = false;
 
+	public AddOnFileKey(){}
+
+	public AddOnFileKey(int addonID, int fileID){
+		setAddOnID(addonID);
+		setFileID(fileID);
+	}
+
 	public boolean isAddOnIDSpecified() {
 		return localAddOnIDTracker;
 	}
