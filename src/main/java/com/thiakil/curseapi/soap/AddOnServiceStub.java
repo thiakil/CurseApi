@@ -89,6 +89,7 @@ import org.apache.axis2.client.ServiceClient;
 import org.apache.axis2.client.Stub;
 import org.apache.axis2.client.async.AxisCallback;
 import org.apache.axis2.context.ConfigurationContext;
+import org.apache.axis2.context.ConfigurationContextFactory;
 import org.apache.axis2.context.MessageContext;
 import org.apache.axis2.description.AxisOperation;
 import org.apache.axis2.description.AxisService;
@@ -137,6 +138,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		//To populate AxisService
 		populateAxisService();
 		populateFaults();
+
+		if (configurationContext == null) {
+			configurationContext = ConfigurationContextFactory.createConfigurationContextFromURIs(AddOnServiceStub.class.getResource("/curseclient-axis2.xml"), null);
+		}
 
 		_serviceClient = new ServiceClient(configurationContext, _service);
 
