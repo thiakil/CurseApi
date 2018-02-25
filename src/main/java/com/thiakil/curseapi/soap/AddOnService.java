@@ -65,6 +65,7 @@ import com.curse.addonservice.V2GetChangeLog;
 import com.curse.addonservice.V2GetChangeLogResponse;
 import com.curse.addonservice.V2GetFingerprintMatches;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
+import com.thiakil.curseapi.Murmur2Hash;
 
 import java.rmi.RemoteException;
 import java.util.List;
@@ -115,7 +116,7 @@ public interface AddOnService {
 	void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Find file matches for a series of {@link com.thiakil.curseapi.Murmur2Hash} fingerprints/hashes
+	 * Find file matches for a series of {@link Murmur2Hash#computeNormalizedFileHash(java.lang.String)} fingerprints/hashes
 	 *
 	 * @param fingerprints fingerprints to check.
 	 * @return {@link FingerprintMatchResult} with the resulting matches
