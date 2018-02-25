@@ -22,7 +22,8 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Created by Thiakil on 25/02/2018.
+ * Basic JavaFX window that directs to twitch auth url and captures the return data via injected Javascript.
+ * Exploits the WebEngine's alert() handling with a UUID value.
  */
 public class OauthPopup extends Application {
 	private Scene scene;
@@ -37,7 +38,7 @@ public class OauthPopup extends Application {
 		launch(oauthURL, uuid);
 		String retval = codes.remove(uuid);
 		if (retval == null){
-			throw new CurseAuthException("Didnt recieve a code back");
+			throw new CurseAuthException("Didn't receive a code back");
 		}
 		return retval;
 	}
@@ -60,6 +61,8 @@ public class OauthPopup extends Application {
 		final WebView browser = new WebView();
 		final WebEngine webEngine = browser.getEngine();
 
+		final String randomAlertValue = UUID.randomUUID().toString();
+
 		public Browser() {
 			//apply the styles
 			getStyleClass().add("browser");
@@ -70,8 +73,16 @@ public class OauthPopup extends Application {
 			});
 
 			webEngine.setOnAlert(event -> {
-				sendCode(event.getData());
-				Platform.exit();
+				if (event.getData().equals(randomAlertValue)) {
+					Object data = webEngine.executeScript("window['"+randomAlertValue+"']");
+					if (data instanceof String){
+						System.out.println((String)data);
+					} else if (data instanceof JSObject) {
+						JSObject evdata = (JSObject)data;
+						if (evdata.getMember("redirectURI") != null)
+							sendCode(evdata.getMember("redirectURI").toString());
+					}
+				}
 			});
 
 			// load the web page
@@ -96,8 +107,15 @@ public class OauthPopup extends Application {
 		}
 
 		private void addFunctionHandlerToDocument(WebEngine engine) {
-			JSObject window = (JSObject) engine.executeScript("window");
-			engine.executeScript("window.parent = window; window.addEventListener(\"message\", function (ev) {\n if (ev.data.messageType != 'cursePassportCallback') return;" + "document.body.innerText = \"Your code is \"+ev.data.redirectURI;\n" + "   alert(ev.data.redirectURI);\n" + "        });");
+			engine.executeScript("window.parent = window;" +
+					"window.addEventListener('message', function (ev) {" +
+						//"if (ev.data.messageType != 'cursePassportCallback') " +
+						//	"return;" +
+						//"document.body.innerText = \"Your code is \"+ev.data.redirectURI;\n" +
+						//"alert(ev.data.redirectURI);\n" +
+						"window['"+randomAlertValue+"'] = ev.data;" +
+						"window.alert('"+randomAlertValue+"');" +
+					"});");
 		}
 
 		public void sendCode(String urlStr){
@@ -106,10 +124,11 @@ public class OauthPopup extends Application {
 				URLEncodedUtils.parse(new URI(urlStr), StandardCharsets.UTF_8).forEach(p->params.put(p.getName(), p.getValue()));
 
 				OauthPopup.codes.put(uuid, params.get("code"));
-				stage.close();
 			} catch (URISyntaxException e){
 				OauthPopup.codes.put(uuid, null);
 			}
+			stage.close();
+			//Platform.exit();
 		}
 	}
 }
