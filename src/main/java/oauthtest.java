@@ -22,7 +22,7 @@ public class oauthtest {
 		System.out.println();
 		*/
 
-//Option 2, Swing UI
+//Option 2, JavaFX UI
 		final String code = OauthPopup.getCode(authurl);
 
 		//System.out.println("Trading the Request Token for an Access Token...");
