@@ -1,5 +1,6 @@
 package com.thiakil.curseapi.login;
 
+import com.thiakil.twitch.TwitchOAuth;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Worker;
@@ -22,8 +23,7 @@ import java.util.Map;
 import java.util.UUID;
 
 /**
- * Basic JavaFX window that directs to twitch auth url and captures the return data via injected Javascript.
- * Exploits the WebEngine's alert() handling with a UUID value.
+ * Basic JavaFX window that directs to twitch auth url and captures the return data via navigation handling.
  */
 public class OauthPopup extends Application {
 	private Scene scene;
@@ -61,27 +61,13 @@ public class OauthPopup extends Application {
 		final WebView browser = new WebView();
 		final WebEngine webEngine = browser.getEngine();
 
-		final String randomAlertValue = UUID.randomUUID().toString();
-
 		public Browser() {
 			//apply the styles
 			getStyleClass().add("browser");
 			webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-				if (newState == Worker.State.SUCCEEDED) {
-					addFunctionHandlerToDocument(webEngine);
-				}
-			});
-
-			webEngine.setOnAlert(event -> {
-				if (event.getData().equals(randomAlertValue)) {
-					Object data = webEngine.executeScript("window['"+randomAlertValue+"']");
-					if (data instanceof String){
-						System.out.println((String)data);
-					} else if (data instanceof JSObject) {
-						JSObject evdata = (JSObject)data;
-						if (evdata.getMember("redirectURI") != null)
-							sendCode(evdata.getMember("redirectURI").toString());
-					}
+				String loc = webEngine.getLocation();
+				if (loc.startsWith(TwitchOAuth.CURSE_REDIRECT_URI)){
+					sendCode(loc);
 				}
 			});
 
@@ -104,18 +90,6 @@ public class OauthPopup extends Application {
 
 		@Override protected double computePrefHeight(double width) {
 			return 500;
-		}
-
-		private void addFunctionHandlerToDocument(WebEngine engine) {
-			engine.executeScript("window.parent = window;" +
-					"window.addEventListener('message', function (ev) {" +
-						//"if (ev.data.messageType != 'cursePassportCallback') " +
-						//	"return;" +
-						//"document.body.innerText = \"Your code is \"+ev.data.redirectURI;\n" +
-						//"alert(ev.data.redirectURI);\n" +
-						"window['"+randomAlertValue+"'] = ev.data;" +
-						"window.alert('"+randomAlertValue+"');" +
-					"});");
 		}
 
 		public void sendCode(String urlStr){
