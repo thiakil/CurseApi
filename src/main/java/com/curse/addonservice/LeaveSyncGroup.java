@@ -83,6 +83,15 @@ public class LeaveSyncGroup implements ADBBean {
 	 */
 	protected boolean localInstanceGUIDTracker = false;
 
+	public LeaveSyncGroup() {
+	}
+
+	public LeaveSyncGroup(int instanceID, int computerID, String instanceGUID) {
+		this.setInstanceID(instanceID);
+		this.setComputerID(computerID);
+		this.setInstanceGUID(instanceGUID);
+	}
+
 	public boolean isInstanceIDSpecified() {
 		return localInstanceIDTracker;
 	}

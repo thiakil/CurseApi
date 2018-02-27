@@ -88,6 +88,15 @@ public class ServiceResponseOfSyncedGameInstanceeheogrl4 implements ADBBean {
 	 */
 	protected boolean localValueTracker = false;
 
+	public ServiceResponseOfSyncedGameInstanceeheogrl4() {
+	}
+
+	public ServiceResponseOfSyncedGameInstanceeheogrl4(String message, ServiceResponseStatus status, SyncedGameInstance value) {
+		this.setMessage(message);
+		this.setStatus(status);
+		this.setValue(value);
+	}
+
 	public boolean isMessageSpecified() {
 		return localMessageTracker;
 	}

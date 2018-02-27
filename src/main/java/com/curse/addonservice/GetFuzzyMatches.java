@@ -73,6 +73,14 @@ public class GetFuzzyMatches implements ADBBean {
 	 */
 	protected boolean localFolderFingerprintsTracker = false;
 
+	public GetFuzzyMatches() {
+	}
+
+	public GetFuzzyMatches(int gameID, ArrayOfFolderFingerprint folderFingerprints) {
+		this.setGameID(gameID);
+		this.setFolderFingerprints(folderFingerprints);
+	}
+
 	public boolean isGameIDSpecified() {
 		return localGameIDTracker;
 	}

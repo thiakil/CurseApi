@@ -77,6 +77,14 @@ public class ServiceResponse implements ADBBean {
 	 */
 	protected boolean localStatusTracker = false;
 
+	public ServiceResponse() {
+	}
+
+	public ServiceResponse(String message, ServiceResponseStatus status) {
+		this.setMessage(message);
+		this.setStatus(status);
+	}
+
 	public boolean isMessageSpecified() {
 		return localMessageTracker;
 	}

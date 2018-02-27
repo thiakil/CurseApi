@@ -54,6 +54,13 @@ public class _char implements ADBBean {
 	 */
 	protected int local_char;
 
+	public _char() {
+	}
+
+	public _char(int _char) {
+		this.set_char(_char);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

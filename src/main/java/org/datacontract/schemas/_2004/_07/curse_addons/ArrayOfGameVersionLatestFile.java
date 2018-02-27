@@ -69,6 +69,13 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 	 */
 	protected boolean localGameVersionLatestFileTracker = false;
 
+	public ArrayOfGameVersionLatestFile() {
+	}
+
+	public ArrayOfGameVersionLatestFile(GameVersionLatestFile[] gameVersionLatestFile) {
+		this.setGameVersionLatestFile(gameVersionLatestFile);
+	}
+
 	public boolean isGameVersionLatestFileSpecified() {
 		return localGameVersionLatestFileTracker;
 	}

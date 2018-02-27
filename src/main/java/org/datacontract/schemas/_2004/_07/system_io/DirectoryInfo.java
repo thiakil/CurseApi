@@ -58,6 +58,12 @@ public class DirectoryInfo extends FileSystemInfo implements ADBBean {
        Namespace URI = http://schemas.datacontract.org/2004/07/System.IO
        Namespace Prefix = ns7
      */
+	public DirectoryInfo(){}
+
+	public DirectoryInfo(OMElement[] extraElement,QName factoryType){
+		this.setExtraElement(extraElement);
+		this.setFactoryType(factoryType);
+	}
 
 	/**
 	 * @param parentQName

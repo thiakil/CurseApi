@@ -54,6 +54,13 @@ public class Duration implements ADBBean {
 	 */
 	protected org.apache.axis2.databinding.types.Duration localDuration;
 
+	public Duration() {
+	}
+
+	public Duration(org.apache.axis2.databinding.types.Duration duration) {
+		this.setDuration(duration);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

@@ -69,6 +69,13 @@ public class ArrayOfAddOnFileDependency implements ADBBean {
 	 */
 	protected boolean localAddOnFileDependencyTracker = false;
 
+	public ArrayOfAddOnFileDependency() {
+	}
+
+	public ArrayOfAddOnFileDependency(AddOnFileDependency[] addOnFileDependency) {
+		this.setAddOnFileDependency(addOnFileDependency);
+	}
+
 	public boolean isAddOnFileDependencySpecified() {
 		return localAddOnFileDependencyTracker;
 	}

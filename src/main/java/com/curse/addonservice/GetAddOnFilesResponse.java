@@ -62,6 +62,13 @@ public class GetAddOnFilesResponse implements ADBBean {
 	 */
 	protected boolean localGetAddOnFilesResultTracker = false;
 
+	public GetAddOnFilesResponse() {
+	}
+
+	public GetAddOnFilesResponse(ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp getAddOnFilesResult) {
+		this.setGetAddOnFilesResult(getAddOnFilesResult);
+	}
+
 	public boolean isGetAddOnFilesResultSpecified() {
 		return localGetAddOnFilesResultTracker;
 	}

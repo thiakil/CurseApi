@@ -72,6 +72,14 @@ public class GetAddOnFile implements ADBBean {
 	 */
 	protected boolean localFileIDTracker = false;
 
+	public GetAddOnFile() {
+	}
+
+	public GetAddOnFile(int addonID, int fileID) {
+		this.setAddonID(addonID);
+		this.setFileID(fileID);
+	}
+
 	public boolean isAddonIDSpecified() {
 		return localAddonIDTracker;
 	}

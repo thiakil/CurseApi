@@ -69,6 +69,13 @@ public class ArrayOfFuzzyMatch implements ADBBean {
 	 */
 	protected boolean localFuzzyMatchTracker = false;
 
+	public ArrayOfFuzzyMatch() {
+	}
+
+	public ArrayOfFuzzyMatch(FuzzyMatch[] fuzzyMatch) {
+		this.setFuzzyMatch(fuzzyMatch);
+	}
+
 	public boolean isFuzzyMatchSpecified() {
 		return localFuzzyMatchTracker;
 	}

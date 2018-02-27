@@ -62,6 +62,13 @@ public class GetFuzzyMatchesResponse implements ADBBean {
 	 */
 	protected boolean localGetFuzzyMatchesResultTracker = false;
 
+	public GetFuzzyMatchesResponse() {
+	}
+
+	public GetFuzzyMatchesResponse(ArrayOfFuzzyMatch getFuzzyMatchesResult) {
+		this.setGetFuzzyMatchesResult(getFuzzyMatchesResult);
+	}
+
 	public boolean isGetFuzzyMatchesResultSpecified() {
 		return localGetFuzzyMatchesResultTracker;
 	}

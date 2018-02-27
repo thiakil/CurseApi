@@ -62,6 +62,13 @@ public class SaveSyncTransactionsResponse implements ADBBean {
 	 */
 	protected boolean localSaveSyncTransactionsResultTracker = false;
 
+	public SaveSyncTransactionsResponse() {
+	}
+
+	public SaveSyncTransactionsResponse(ServiceResponse saveSyncTransactionsResult) {
+		this.setSaveSyncTransactionsResult(saveSyncTransactionsResult);
+	}
+
 	public boolean isSaveSyncTransactionsResultSpecified() {
 		return localSaveSyncTransactionsResultTracker;
 	}

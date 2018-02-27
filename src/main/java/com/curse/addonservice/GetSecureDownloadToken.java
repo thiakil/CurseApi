@@ -94,6 +94,16 @@ public class GetSecureDownloadToken implements ADBBean {
 	 */
 	protected boolean localSubscriptionTokenTracker = false;
 
+	public GetSecureDownloadToken() {
+	}
+
+	public GetSecureDownloadToken(int fileID, int userID, boolean hasPremium, int subscriptionToken) {
+		this.setFileID(fileID);
+		this.setUserID(userID);
+		this.setHasPremium(hasPremium);
+		this.setSubscriptionToken(subscriptionToken);
+	}
+
 	public boolean isFileIDSpecified() {
 		return localFileIDTracker;
 	}

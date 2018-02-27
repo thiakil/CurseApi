@@ -69,6 +69,13 @@ public class ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp implements ADBBean {
 	 */
 	protected boolean localKeyValueOfintArrayOfAddOnFileHlmYZPzpTracker = false;
 
+	public ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp() {
+	}
+
+	public ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp(KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0[] keyValueOfintArrayOfAddOnFileHlmYZPzp) {
+		this.setKeyValueOfintArrayOfAddOnFileHlmYZPzp(keyValueOfintArrayOfAddOnFileHlmYZPzp);
+	}
+
 	public boolean isKeyValueOfintArrayOfAddOnFileHlmYZPzpSpecified() {
 		return localKeyValueOfintArrayOfAddOnFileHlmYZPzpTracker;
 	}

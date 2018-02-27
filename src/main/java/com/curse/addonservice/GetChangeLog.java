@@ -72,6 +72,14 @@ public class GetChangeLog implements ADBBean {
 	 */
 	protected boolean localFileIDTracker = false;
 
+	public GetChangeLog() {
+	}
+
+	public GetChangeLog(int addonID, int fileID) {
+		this.setAddonID(addonID);
+		this.setFileID(fileID);
+	}
+
 	public boolean isAddonIDSpecified() {
 		return localAddonIDTracker;
 	}

@@ -61,6 +61,13 @@ public class ResetAllAddonCacheResponse implements ADBBean {
 	 */
 	protected boolean localResetAllAddonCacheResultTracker = false;
 
+	public ResetAllAddonCacheResponse() {
+	}
+
+	public ResetAllAddonCacheResponse(String resetAllAddonCacheResult) {
+		this.setResetAllAddonCacheResult(resetAllAddonCacheResult);
+	}
+
 	public boolean isResetAllAddonCacheResultSpecified() {
 		return localResetAllAddonCacheResultTracker;
 	}

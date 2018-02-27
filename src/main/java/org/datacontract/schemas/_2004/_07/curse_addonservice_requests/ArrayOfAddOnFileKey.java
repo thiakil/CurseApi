@@ -69,6 +69,13 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 	 */
 	protected boolean localAddOnFileKeyTracker = false;
 
+	public ArrayOfAddOnFileKey() {
+	}
+
+	public ArrayOfAddOnFileKey(AddOnFileKey[] addOnFileKey) {
+		this.setAddOnFileKey(addOnFileKey);
+	}
+
 	public boolean isAddOnFileKeySpecified() {
 		return localAddOnFileKeyTracker;
 	}

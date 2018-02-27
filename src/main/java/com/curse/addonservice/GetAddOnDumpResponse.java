@@ -56,6 +56,13 @@ public class GetAddOnDumpResponse implements ADBBean {
 	 */
 	protected StreamBody localGetAddOnDumpResult;
 
+	public GetAddOnDumpResponse() {
+	}
+
+	public GetAddOnDumpResponse(StreamBody getAddOnDumpResult) {
+		this.setGetAddOnDumpResult(getAddOnDumpResult);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

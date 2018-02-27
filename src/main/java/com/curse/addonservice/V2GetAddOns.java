@@ -62,6 +62,13 @@ public class V2GetAddOns implements ADBBean {
 	 */
 	protected boolean localIdsTracker = false;
 
+	public V2GetAddOns() {
+	}
+
+	public V2GetAddOns(ArrayOfint ids) {
+		this.setIds(ids);
+	}
+
 	public boolean isIdsSpecified() {
 		return localIdsTracker;
 	}

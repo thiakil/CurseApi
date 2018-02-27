@@ -69,6 +69,13 @@ public class ArrayOfSyncedComputer implements ADBBean {
 	 */
 	protected boolean localSyncedComputerTracker = false;
 
+	public ArrayOfSyncedComputer() {
+	}
+
+	public ArrayOfSyncedComputer(SyncedComputer[] syncedComputer) {
+		this.setSyncedComputer(syncedComputer);
+	}
+
 	public boolean isSyncedComputerSpecified() {
 		return localSyncedComputerTracker;
 	}

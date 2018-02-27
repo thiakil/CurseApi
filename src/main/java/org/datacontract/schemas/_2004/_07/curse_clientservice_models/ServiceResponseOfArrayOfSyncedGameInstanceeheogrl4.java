@@ -88,6 +88,15 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 	 */
 	protected boolean localValueTracker = false;
 
+	public ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4() {
+	}
+
+	public ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4(String message, ServiceResponseStatus status, ArrayOfSyncedGameInstance value) {
+		this.setMessage(message);
+		this.setStatus(status);
+		this.setValue(value);
+	}
+
 	public boolean isMessageSpecified() {
 		return localMessageTracker;
 	}

@@ -69,6 +69,13 @@ public class ArrayOfstring implements ADBBean {
 	 */
 	protected boolean localStringTracker = false;
 
+	public ArrayOfstring() {
+	}
+
+	public ArrayOfstring(String[] string) {
+		this.setString(string);
+	}
+
 	public boolean isStringSpecified() {
 		return localStringTracker;
 	}

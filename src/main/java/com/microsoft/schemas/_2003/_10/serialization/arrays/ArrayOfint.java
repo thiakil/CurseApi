@@ -68,6 +68,13 @@ public class ArrayOfint implements ADBBean {
 	 */
 	protected boolean local_intTracker = false;
 
+	public ArrayOfint() {
+	}
+
+	public ArrayOfint(int[] _int) {
+		this.set_int(_int);
+	}
+
 	public boolean is_intSpecified() {
 		return local_intTracker;
 	}

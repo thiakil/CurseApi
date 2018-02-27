@@ -62,6 +62,13 @@ public class LeaveSyncGroupResponse implements ADBBean {
 	 */
 	protected boolean localLeaveSyncGroupResultTracker = false;
 
+	public LeaveSyncGroupResponse() {
+	}
+
+	public LeaveSyncGroupResponse(ServiceResponse leaveSyncGroupResult) {
+		this.setLeaveSyncGroupResult(leaveSyncGroupResult);
+	}
+
 	public boolean isLeaveSyncGroupResultSpecified() {
 		return localLeaveSyncGroupResultTracker;
 	}

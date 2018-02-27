@@ -64,6 +64,13 @@ public class GetAllFilesForAddOnResponse implements ADBBean {
 	 */
 	protected boolean localGetAllFilesForAddOnResultTracker = false;
 
+	public GetAllFilesForAddOnResponse() {
+	}
+
+	public GetAllFilesForAddOnResponse(List<AddOnFile> getAllFilesForAddOnResult) {
+		this.setGetAllFilesForAddOnResult(getAllFilesForAddOnResult);
+	}
+
 	public boolean isGetAllFilesForAddOnResultSpecified() {
 		return localGetAllFilesForAddOnResultTracker;
 	}

@@ -68,6 +68,13 @@ public class ArrayOflong implements ADBBean {
 	 */
 	protected boolean local_longTracker = false;
 
+	public ArrayOflong() {
+	}
+
+	public ArrayOflong(long[] _long) {
+		this.set_long(_long);
+	}
+
 	public boolean is_longSpecified() {
 		return local_longTracker;
 	}

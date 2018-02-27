@@ -61,6 +61,13 @@ public class ServiceHealthCheckResponse implements ADBBean {
 	 */
 	protected boolean localServiceHealthCheckResultTracker = false;
 
+	public ServiceHealthCheckResponse() {
+	}
+
+	public ServiceHealthCheckResponse(String serviceHealthCheckResult) {
+		this.setServiceHealthCheckResult(serviceHealthCheckResult);
+	}
+
 	public boolean isServiceHealthCheckResultSpecified() {
 		return localServiceHealthCheckResultTracker;
 	}

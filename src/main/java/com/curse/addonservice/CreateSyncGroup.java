@@ -105,6 +105,17 @@ public class CreateSyncGroup implements ADBBean {
 	 */
 	protected boolean localInstanceLabelTracker = false;
 
+	public CreateSyncGroup() {
+	}
+
+	public CreateSyncGroup(String instanceName, int gameID, String computerName, String instanceGUID, String instanceLabel) {
+		this.setInstanceName(instanceName);
+		this.setGameID(gameID);
+		this.setComputerName(computerName);
+		this.setInstanceGUID(instanceGUID);
+		this.setInstanceLabel(instanceLabel);
+	}
+
 	public boolean isInstanceNameSpecified() {
 		return localInstanceNameTracker;
 	}

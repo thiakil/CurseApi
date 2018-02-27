@@ -62,6 +62,13 @@ public class GetSyncProfileResponse implements ADBBean {
 	 */
 	protected boolean localGetSyncProfileResultTracker = false;
 
+	public GetSyncProfileResponse() {
+	}
+
+	public GetSyncProfileResponse(ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 getSyncProfileResult) {
+		this.setGetSyncProfileResult(getSyncProfileResult);
+	}
+
 	public boolean isGetSyncProfileResultSpecified() {
 		return localGetSyncProfileResultTracker;
 	}

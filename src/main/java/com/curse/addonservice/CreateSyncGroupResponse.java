@@ -62,6 +62,13 @@ public class CreateSyncGroupResponse implements ADBBean {
 	 */
 	protected boolean localCreateSyncGroupResultTracker = false;
 
+	public CreateSyncGroupResponse() {
+	}
+
+	public CreateSyncGroupResponse(ServiceResponseOfSyncedGameInstanceeheogrl4 createSyncGroupResult) {
+		this.setCreateSyncGroupResult(createSyncGroupResult);
+	}
+
 	public boolean isCreateSyncGroupResultSpecified() {
 		return localCreateSyncGroupResultTracker;
 	}

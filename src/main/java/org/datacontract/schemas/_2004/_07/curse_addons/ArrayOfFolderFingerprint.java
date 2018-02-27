@@ -69,6 +69,13 @@ public class ArrayOfFolderFingerprint implements ADBBean {
 	 */
 	protected boolean localFolderFingerprintTracker = false;
 
+	public ArrayOfFolderFingerprint() {
+	}
+
+	public ArrayOfFolderFingerprint(FolderFingerprint[] folderFingerprint) {
+		this.setFolderFingerprint(folderFingerprint);
+	}
+
 	public boolean isFolderFingerprintSpecified() {
 		return localFolderFingerprintTracker;
 	}

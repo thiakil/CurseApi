@@ -69,6 +69,13 @@ public class ArrayOfAddOnCategory implements ADBBean {
 	 */
 	protected boolean localAddOnCategoryTracker = false;
 
+	public ArrayOfAddOnCategory() {
+	}
+
+	public ArrayOfAddOnCategory(AddOnCategory[] addOnCategory) {
+		this.setAddOnCategory(addOnCategory);
+	}
+
 	public boolean isAddOnCategorySpecified() {
 		return localAddOnCategoryTracker;
 	}

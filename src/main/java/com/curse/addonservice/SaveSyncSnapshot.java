@@ -73,6 +73,14 @@ public class SaveSyncSnapshot implements ADBBean {
 	 */
 	protected boolean localSyncedAddonsTracker = false;
 
+	public SaveSyncSnapshot() {
+	}
+
+	public SaveSyncSnapshot(int instanceID, ArrayOfSyncedAddon syncedAddons) {
+		this.setInstanceID(instanceID);
+		this.setSyncedAddons(syncedAddons);
+	}
+
 	public boolean isInstanceIDSpecified() {
 		return localInstanceIDTracker;
 	}

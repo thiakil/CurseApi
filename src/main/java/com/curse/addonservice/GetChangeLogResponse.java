@@ -61,6 +61,13 @@ public class GetChangeLogResponse implements ADBBean {
 	 */
 	protected boolean localGetChangeLogResultTracker = false;
 
+	public GetChangeLogResponse() {
+	}
+
+	public GetChangeLogResponse(String getChangeLogResult) {
+		this.setGetChangeLogResult(getChangeLogResult);
+	}
+
 	public boolean isGetChangeLogResultSpecified() {
 		return localGetChangeLogResultTracker;
 	}

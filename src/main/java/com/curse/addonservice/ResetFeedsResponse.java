@@ -61,6 +61,13 @@ public class ResetFeedsResponse implements ADBBean {
 	 */
 	protected boolean localResetFeedsResultTracker = false;
 
+	public ResetFeedsResponse() {
+	}
+
+	public ResetFeedsResponse(String resetFeedsResult) {
+		this.setResetFeedsResult(resetFeedsResult);
+	}
+
 	public boolean isResetFeedsResultSpecified() {
 		return localResetFeedsResultTracker;
 	}

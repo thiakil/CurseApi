@@ -62,6 +62,13 @@ public class GetRepositoryMatchFromSlugResponse implements ADBBean {
 	 */
 	protected boolean localGetRepositoryMatchFromSlugResultTracker = false;
 
+	public GetRepositoryMatchFromSlugResponse() {
+	}
+
+	public GetRepositoryMatchFromSlugResponse(RepositoryMatch getRepositoryMatchFromSlugResult) {
+		this.setGetRepositoryMatchFromSlugResult(getRepositoryMatchFromSlugResult);
+	}
+
 	public boolean isGetRepositoryMatchFromSlugResultSpecified() {
 		return localGetRepositoryMatchFromSlugResultTracker;
 	}

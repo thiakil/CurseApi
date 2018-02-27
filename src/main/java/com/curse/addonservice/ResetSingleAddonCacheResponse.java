@@ -61,6 +61,13 @@ public class ResetSingleAddonCacheResponse implements ADBBean {
 	 */
 	protected boolean localResetSingleAddonCacheResultTracker = false;
 
+	public ResetSingleAddonCacheResponse() {
+	}
+
+	public ResetSingleAddonCacheResponse(String resetSingleAddonCacheResult) {
+		this.setResetSingleAddonCacheResult(resetSingleAddonCacheResult);
+	}
+
 	public boolean isResetSingleAddonCacheResultSpecified() {
 		return localResetSingleAddonCacheResultTracker;
 	}

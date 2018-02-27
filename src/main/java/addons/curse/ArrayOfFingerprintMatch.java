@@ -69,6 +69,13 @@ public class ArrayOfFingerprintMatch implements ADBBean {
 	 */
 	protected boolean localFingerprintMatchTracker = false;
 
+	public ArrayOfFingerprintMatch() {
+	}
+
+	public ArrayOfFingerprintMatch(FingerprintMatch[] fingerprintMatch) {
+		this.setFingerprintMatch(fingerprintMatch);
+	}
+
 	public boolean isFingerprintMatchSpecified() {
 		return localFingerprintMatchTracker;
 	}

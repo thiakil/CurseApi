@@ -94,6 +94,16 @@ public class JoinSyncGroup implements ADBBean {
 	 */
 	protected boolean localInstanceLabelTracker = false;
 
+	public JoinSyncGroup() {
+	}
+
+	public JoinSyncGroup(int instanceID, String computerName, String instanceGUID, String instanceLabel) {
+		this.setInstanceID(instanceID);
+		this.setComputerName(computerName);
+		this.setInstanceGUID(instanceGUID);
+		this.setInstanceLabel(instanceLabel);
+	}
+
 	public boolean isInstanceIDSpecified() {
 		return localInstanceIDTracker;
 	}

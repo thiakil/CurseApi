@@ -68,6 +68,14 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 	 */
 	protected List<AddOnFile> localValue;
 
+	public KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0() {
+	}
+
+	public KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0(int key, List<AddOnFile> value) {
+		this.setKey(key);
+		this.setValue(value);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

@@ -61,6 +61,13 @@ public class GetDownloadToken implements ADBBean {
 	 */
 	protected boolean localFileIDTracker = false;
 
+	public GetDownloadToken() {
+	}
+
+	public GetDownloadToken(int fileID) {
+		this.setFileID(fileID);
+	}
+
 	public boolean isFileIDSpecified() {
 		return localFileIDTracker;
 	}

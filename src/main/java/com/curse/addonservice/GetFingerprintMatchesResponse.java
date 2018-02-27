@@ -62,6 +62,13 @@ public class GetFingerprintMatchesResponse implements ADBBean {
 	 */
 	protected boolean localGetFingerprintMatchesResultTracker = false;
 
+	public GetFingerprintMatchesResponse() {
+	}
+
+	public GetFingerprintMatchesResponse(FingerprintMatchResult getFingerprintMatchesResult) {
+		this.setGetFingerprintMatchesResult(getFingerprintMatchesResult);
+	}
+
 	public boolean isGetFingerprintMatchesResultSpecified() {
 		return localGetFingerprintMatchesResultTracker;
 	}

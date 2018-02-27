@@ -61,6 +61,13 @@ public class GetAddOn implements ADBBean {
 	 */
 	protected boolean localIdTracker = false;
 
+	public GetAddOn() {
+	}
+
+	public GetAddOn(int id) {
+		this.setId(id);
+	}
+
 	public boolean isIdSpecified() {
 		return localIdTracker;
 	}

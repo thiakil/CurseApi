@@ -54,6 +54,13 @@ public class Guid implements ADBBean {
 	 */
 	protected String localGuid;
 
+	public Guid() {
+	}
+
+	public Guid(String guid) {
+		this.setGuid(guid);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

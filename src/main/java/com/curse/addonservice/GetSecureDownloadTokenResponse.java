@@ -62,6 +62,13 @@ public class GetSecureDownloadTokenResponse implements ADBBean {
 	 */
 	protected boolean localGetSecureDownloadTokenResultTracker = false;
 
+	public GetSecureDownloadTokenResponse() {
+	}
+
+	public GetSecureDownloadTokenResponse(DownloadToken getSecureDownloadTokenResult) {
+		this.setGetSecureDownloadTokenResult(getSecureDownloadTokenResult);
+	}
+
 	public boolean isGetSecureDownloadTokenResultSpecified() {
 		return localGetSecureDownloadTokenResultTracker;
 	}

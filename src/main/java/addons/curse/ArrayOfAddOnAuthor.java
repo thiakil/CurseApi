@@ -69,6 +69,13 @@ public class ArrayOfAddOnAuthor implements ADBBean {
 	 */
 	protected boolean localAddOnAuthorTracker = false;
 
+	public ArrayOfAddOnAuthor() {
+	}
+
+	public ArrayOfAddOnAuthor(AddOnAuthor[] addOnAuthor) {
+		this.setAddOnAuthor(addOnAuthor);
+	}
+
 	public boolean isAddOnAuthorSpecified() {
 		return localAddOnAuthorTracker;
 	}

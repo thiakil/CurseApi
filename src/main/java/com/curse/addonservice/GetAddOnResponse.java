@@ -62,6 +62,13 @@ public class GetAddOnResponse implements ADBBean {
 	 */
 	protected boolean localGetAddOnResultTracker = false;
 
+	public GetAddOnResponse() {
+	}
+
+	public GetAddOnResponse(AddOn getAddOnResult) {
+		this.setGetAddOnResult(getAddOnResult);
+	}
+
 	public boolean isGetAddOnResultSpecified() {
 		return localGetAddOnResultTracker;
 	}

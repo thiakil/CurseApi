@@ -61,6 +61,13 @@ public class LogDumpResponse implements ADBBean {
 	 */
 	protected boolean localLogDumpResultTracker = false;
 
+	public LogDumpResponse() {
+	}
+
+	public LogDumpResponse(List<String> logDumpResult) {
+		this.setLogDumpResult(logDumpResult);
+	}
+
 	public boolean isLogDumpResultSpecified() {
 		return localLogDumpResultTracker;
 	}

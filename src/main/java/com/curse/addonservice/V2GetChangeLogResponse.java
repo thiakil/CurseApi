@@ -61,6 +61,13 @@ public class V2GetChangeLogResponse implements ADBBean {
 	 */
 	protected boolean localV2GetChangeLogResultTracker = false;
 
+	public V2GetChangeLogResponse() {
+	}
+
+	public V2GetChangeLogResponse(String v2GetChangeLogResult) {
+		this.setV2GetChangeLogResult(v2GetChangeLogResult);
+	}
+
 	public boolean isV2GetChangeLogResultSpecified() {
 		return localV2GetChangeLogResultTracker;
 	}

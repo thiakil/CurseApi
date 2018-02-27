@@ -69,6 +69,13 @@ public class ArrayOfSyncedAddon implements ADBBean {
 	 */
 	protected boolean localSyncedAddonTracker = false;
 
+	public ArrayOfSyncedAddon() {
+	}
+
+	public ArrayOfSyncedAddon(SyncedAddon[] syncedAddon) {
+		this.setSyncedAddon(syncedAddon);
+	}
+
 	public boolean isSyncedAddonSpecified() {
 		return localSyncedAddonTracker;
 	}

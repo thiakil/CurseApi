@@ -72,6 +72,14 @@ public class V2GetChangeLog implements ADBBean {
 	 */
 	protected boolean localFileIDTracker = false;
 
+	public V2GetChangeLog() {
+	}
+
+	public V2GetChangeLog(int addonID, int fileID) {
+		this.setAddonID(addonID);
+		this.setFileID(fileID);
+	}
+
 	public boolean isAddonIDSpecified() {
 		return localAddonIDTracker;
 	}

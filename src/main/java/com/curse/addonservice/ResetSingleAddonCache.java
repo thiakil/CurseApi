@@ -61,6 +61,13 @@ public class ResetSingleAddonCache implements ADBBean {
 	 */
 	protected boolean localIdTracker = false;
 
+	public ResetSingleAddonCache() {
+	}
+
+	public ResetSingleAddonCache(int id) {
+		this.setId(id);
+	}
+
 	public boolean isIdSpecified() {
 		return localIdTracker;
 	}

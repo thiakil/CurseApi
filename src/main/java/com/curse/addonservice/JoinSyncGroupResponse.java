@@ -62,6 +62,13 @@ public class JoinSyncGroupResponse implements ADBBean {
 	 */
 	protected boolean localJoinSyncGroupResultTracker = false;
 
+	public JoinSyncGroupResponse() {
+	}
+
+	public JoinSyncGroupResponse(ServiceResponse joinSyncGroupResult) {
+		this.setJoinSyncGroupResult(joinSyncGroupResult);
+	}
+
 	public boolean isJoinSyncGroupResultSpecified() {
 		return localJoinSyncGroupResultTracker;
 	}

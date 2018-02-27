@@ -62,6 +62,13 @@ public class GetFingerprintMatches implements ADBBean {
 	 */
 	protected boolean localFingerprintsTracker = false;
 
+	public GetFingerprintMatches() {
+	}
+
+	public GetFingerprintMatches(ArrayOflong fingerprints) {
+		this.setFingerprints(fingerprints);
+	}
+
 	public boolean isFingerprintsSpecified() {
 		return localFingerprintsTracker;
 	}

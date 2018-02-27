@@ -62,6 +62,13 @@ public class GetAddOnFiles implements ADBBean {
 	 */
 	protected boolean localAddOnFileKeysTracker = false;
 
+	public GetAddOnFiles() {
+	}
+
+	public GetAddOnFiles(ArrayOfAddOnFileKey addOnFileKeys) {
+		this.setAddOnFileKeys(addOnFileKeys);
+	}
+
 	public boolean isAddOnFileKeysSpecified() {
 		return localAddOnFileKeysTracker;
 	}

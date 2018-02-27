@@ -69,6 +69,13 @@ public class ArrayOfDirectoryInfo implements ADBBean {
 	 */
 	protected boolean localDirectoryInfoTracker = false;
 
+	public ArrayOfDirectoryInfo() {
+	}
+
+	public ArrayOfDirectoryInfo(DirectoryInfo[] directoryInfo) {
+		this.setDirectoryInfo(directoryInfo);
+	}
+
 	public boolean isDirectoryInfoSpecified() {
 		return localDirectoryInfoTracker;
 	}

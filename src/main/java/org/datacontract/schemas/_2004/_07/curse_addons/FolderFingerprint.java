@@ -78,6 +78,14 @@ public class FolderFingerprint implements ADBBean {
 	 */
 	protected boolean localFoldernameTracker = false;
 
+	public FolderFingerprint() {
+	}
+
+	public FolderFingerprint(ArrayOflong fingerprints, String foldername) {
+		this.setFingerprints(fingerprints);
+		this.setFoldername(foldername);
+	}
+
 	public boolean isFingerprintsSpecified() {
 		return localFingerprintsTracker;
 	}

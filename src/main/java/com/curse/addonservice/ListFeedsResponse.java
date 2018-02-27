@@ -62,6 +62,13 @@ public class ListFeedsResponse implements ADBBean {
 	 */
 	protected boolean localListFeedsResultTracker = false;
 
+	public ListFeedsResponse() {
+	}
+
+	public ListFeedsResponse(ArrayOfDirectoryInfo listFeedsResult) {
+		this.setListFeedsResult(listFeedsResult);
+	}
+
 	public boolean isListFeedsResultSpecified() {
 		return localListFeedsResultTracker;
 	}

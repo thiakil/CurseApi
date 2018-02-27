@@ -72,6 +72,14 @@ public class GetRepositoryMatchFromSlug implements ADBBean {
 	 */
 	protected boolean localAddonSlugTracker = false;
 
+	public GetRepositoryMatchFromSlug() {
+	}
+
+	public GetRepositoryMatchFromSlug(String gameSlug, String addonSlug) {
+		this.setGameSlug(gameSlug);
+		this.setAddonSlug(addonSlug);
+	}
+
 	public boolean isGameSlugSpecified() {
 		return localGameSlugTracker;
 	}

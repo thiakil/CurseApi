@@ -62,6 +62,13 @@ public class V2GetFingerprintMatchesResponse implements ADBBean {
 	 */
 	protected boolean localV2GetFingerprintMatchesResultTracker = false;
 
+	public V2GetFingerprintMatchesResponse() {
+	}
+
+	public V2GetFingerprintMatchesResponse(FingerprintMatchResult v2GetFingerprintMatchesResult) {
+		this.setV2GetFingerprintMatchesResult(v2GetFingerprintMatchesResult);
+	}
+
 	public boolean isV2GetFingerprintMatchesResultSpecified() {
 		return localV2GetFingerprintMatchesResultTracker;
 	}

@@ -69,6 +69,13 @@ public class ArrayOfAddOnAttachment implements ADBBean {
 	 */
 	protected boolean localAddOnAttachmentTracker = false;
 
+	public ArrayOfAddOnAttachment() {
+	}
+
+	public ArrayOfAddOnAttachment(AddOnAttachment[] addOnAttachment) {
+		this.setAddOnAttachment(addOnAttachment);
+	}
+
 	public boolean isAddOnAttachmentSpecified() {
 		return localAddOnAttachmentTracker;
 	}

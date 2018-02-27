@@ -73,6 +73,14 @@ public class SaveSyncTransactions implements ADBBean {
 	 */
 	protected boolean localTransactionsTracker = false;
 
+	public SaveSyncTransactions() {
+	}
+
+	public SaveSyncTransactions(int instanceID, ArrayOfSyncTransaction transactions) {
+		this.setInstanceID(instanceID);
+		this.setTransactions(transactions);
+	}
+
 	public boolean isInstanceIDSpecified() {
 		return localInstanceIDTracker;
 	}

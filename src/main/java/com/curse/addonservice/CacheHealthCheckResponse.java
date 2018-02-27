@@ -61,6 +61,13 @@ public class CacheHealthCheckResponse implements ADBBean {
 	 */
 	protected boolean localCacheHealthCheckResultTracker = false;
 
+	public CacheHealthCheckResponse() {
+	}
+
+	public CacheHealthCheckResponse(String cacheHealthCheckResult) {
+		this.setCacheHealthCheckResult(cacheHealthCheckResult);
+	}
+
 	public boolean isCacheHealthCheckResultSpecified() {
 		return localCacheHealthCheckResultTracker;
 	}

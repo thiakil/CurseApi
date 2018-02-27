@@ -89,6 +89,15 @@ public class FingerprintMatchResult implements ADBBean {
 	 */
 	protected boolean localPartialMatchesTracker = false;
 
+	public FingerprintMatchResult() {
+	}
+
+	public FingerprintMatchResult(List<FingerprintMatch> exactMatches, boolean isCacheBuilt, List<FingerprintMatch> partialMatches) {
+		this.setExactMatches(exactMatches);
+		this.setIsCacheBuilt(isCacheBuilt);
+		this.setPartialMatches(partialMatches);
+	}
+
 	public boolean isExactMatchesSpecified() {
 		return localExactMatchesTracker;
 	}

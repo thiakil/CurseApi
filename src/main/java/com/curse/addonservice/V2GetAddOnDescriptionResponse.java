@@ -61,6 +61,13 @@ public class V2GetAddOnDescriptionResponse implements ADBBean {
 	 */
 	protected boolean localV2GetAddOnDescriptionResultTracker = false;
 
+	public V2GetAddOnDescriptionResponse() {
+	}
+
+	public V2GetAddOnDescriptionResponse(String v2GetAddOnDescriptionResult) {
+		this.setV2GetAddOnDescriptionResult(v2GetAddOnDescriptionResult);
+	}
+
 	public boolean isV2GetAddOnDescriptionResultSpecified() {
 		return localV2GetAddOnDescriptionResultTracker;
 	}

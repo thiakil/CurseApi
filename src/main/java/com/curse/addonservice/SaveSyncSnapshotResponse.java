@@ -62,6 +62,13 @@ public class SaveSyncSnapshotResponse implements ADBBean {
 	 */
 	protected boolean localSaveSyncSnapshotResultTracker = false;
 
+	public SaveSyncSnapshotResponse() {
+	}
+
+	public SaveSyncSnapshotResponse(ServiceResponse saveSyncSnapshotResult) {
+		this.setSaveSyncSnapshotResult(saveSyncSnapshotResult);
+	}
+
 	public boolean isSaveSyncSnapshotResultSpecified() {
 		return localSaveSyncSnapshotResultTracker;
 	}

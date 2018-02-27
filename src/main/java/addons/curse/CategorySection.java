@@ -155,6 +155,19 @@ public class CategorySection implements ADBBean {
 	 */
 	protected boolean localPathTracker = false;
 
+	public CategorySection() {
+	}
+
+	public CategorySection(String extraIncludePattern, int gameID, int iD, String initialInclusionPattern, String name, PackageTypes packageType, String path) {
+		this.setExtraIncludePattern(extraIncludePattern);
+		this.setGameID(gameID);
+		this.setID(iD);
+		this.setInitialInclusionPattern(initialInclusionPattern);
+		this.setName(name);
+		this.setPackageType(packageType);
+		this.setPath(path);
+	}
+
 	public boolean isExtraIncludePatternSpecified() {
 		return localExtraIncludePatternTracker;
 	}

@@ -69,6 +69,13 @@ public class ArrayOfAddOnModule implements ADBBean {
 	 */
 	protected boolean localAddOnModuleTracker = false;
 
+	public ArrayOfAddOnModule() {
+	}
+
+	public ArrayOfAddOnModule(AddOnModule[] addOnModule) {
+		this.setAddOnModule(addOnModule);
+	}
+
 	public boolean isAddOnModuleSpecified() {
 		return localAddOnModuleTracker;
 	}

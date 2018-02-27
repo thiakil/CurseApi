@@ -78,6 +78,14 @@ public class FileSystemInfo implements ADBBean {
 	 */
 	protected QName localFactoryType;
 
+	public FileSystemInfo() {
+	}
+
+	public FileSystemInfo(OMElement[] extraElement, QName factoryType) {
+		this.setExtraElement(extraElement);
+		this.setFactoryType(factoryType);
+	}
+
 	public boolean isExtraElementSpecified() {
 		return localExtraElementTracker;
 	}

@@ -69,6 +69,13 @@ public class ArrayOfSyncTransaction implements ADBBean {
 	 */
 	protected boolean localSyncTransactionTracker = false;
 
+	public ArrayOfSyncTransaction() {
+	}
+
+	public ArrayOfSyncTransaction(SyncTransaction[] syncTransaction) {
+		this.setSyncTransaction(syncTransaction);
+	}
+
 	public boolean isSyncTransactionSpecified() {
 		return localSyncTransactionTracker;
 	}

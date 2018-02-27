@@ -61,6 +61,13 @@ public class GetAddOnDescription implements ADBBean {
 	 */
 	protected boolean localIdTracker = false;
 
+	public GetAddOnDescription() {
+	}
+
+	public GetAddOnDescription(int id) {
+		this.setId(id);
+	}
+
 	public boolean isIdSpecified() {
 		return localIdTracker;
 	}

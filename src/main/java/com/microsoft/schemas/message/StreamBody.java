@@ -56,6 +56,13 @@ public class StreamBody implements ADBBean {
 	 */
 	protected DataHandler localStreamBody;
 
+	public StreamBody() {
+	}
+
+	public StreamBody(DataHandler streamBody) {
+		this.setStreamBody(streamBody);
+	}
+
 	/**
 	 * Auto generated getter method
 	 *

@@ -62,6 +62,13 @@ public class V2GetAddOnsResponse implements ADBBean {
 	 */
 	protected boolean localV2GetAddOnsResultTracker = false;
 
+	public V2GetAddOnsResponse() {
+	}
+
+	public V2GetAddOnsResponse(List<AddOn> v2GetAddOnsResult) {
+		this.setV2GetAddOnsResult(v2GetAddOnsResult);
+	}
+
 	public boolean isV2GetAddOnsResultSpecified() {
 		return localV2GetAddOnsResultTracker;
 	}

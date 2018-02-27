@@ -89,6 +89,15 @@ public class FuzzyMatch implements ADBBean {
 	 */
 	protected boolean localLatestFilesTracker = false;
 
+	public FuzzyMatch() {
+	}
+
+	public FuzzyMatch(AddOnFile file, int id, List<AddOnFile> latestFiles) {
+		this.setFile(file);
+		this.setId(id);
+		this.setLatestFiles(latestFiles);
+	}
+
 	public boolean isFileSpecified() {
 		return localFileTracker;
 	}

@@ -69,6 +69,13 @@ public class ArrayOfSyncedGameInstance implements ADBBean {
 	 */
 	protected boolean localSyncedGameInstanceTracker = false;
 
+	public ArrayOfSyncedGameInstance() {
+	}
+
+	public ArrayOfSyncedGameInstance(SyncedGameInstance[] syncedGameInstance) {
+		this.setSyncedGameInstance(syncedGameInstance);
+	}
+
 	public boolean isSyncedGameInstanceSpecified() {
 		return localSyncedGameInstanceTracker;
 	}
