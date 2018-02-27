@@ -147,7 +147,7 @@ public class ProjectFeedDownloader {
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(completeFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != completeTimeStamp){//no point replacing if the json says its the same
 				this.addOns.clear();
-				feed.getAddons().forEach(a->addOns.put(a.getId(), a));
+				feed.getAddons().forEach(this::insertAddonEntry);
 			}
 			completeTimeStamp = feed.getTimestamp();
 			completeFeed.close();
@@ -157,7 +157,7 @@ public class ProjectFeedDownloader {
 			InputStream hourlyFeed = new BZip2CompressorInputStream(downloadToCache(getUrl("hourly.json.bz2")));
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(hourlyFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != hourlyTimeStamp) {//no point replacing if the json says its the same
-				feed.getAddons().forEach(a->addOns.put(a.getId(), a));
+				feed.getAddons().forEach(this::insertAddonEntry);
 			}
 			hourlyTimeStamp = feed.getTimestamp();
 			hourlyFeed.close();
@@ -238,8 +238,7 @@ public class ProjectFeedDownloader {
 					case "addons":
 						reader.beginArray();
 						while (reader.hasNext()) {
-							AddOn a = AddOnAdaptor.INSTANCE.read(reader);
-							this.addOns.put(a.getId(), a);
+							this.insertAddonEntry(AddOnAdaptor.INSTANCE.read(reader));
 						}
 						reader.endArray();
 						break;
@@ -263,7 +262,7 @@ public class ProjectFeedDownloader {
 		this.completeTimeStamp = loader.getTimestampComplete();
 		this.hourlyTimeStamp = loader.getTimestampHourly();
 		this.addOns.clear();
-		loader.getAddOns().forEach(a->addOns.put(a.getId(), a));
+		loader.getAddOns().forEach(this::insertAddonEntry);
 	}
 
 	/**
@@ -273,5 +272,9 @@ public class ProjectFeedDownloader {
 	 */
 	public void saveCustom(ProjectFeedSaver saver){
 		saver.save(this.completeTimeStamp, this.hourlyTimeStamp, this.addOns.values());
+	}
+	
+	private void insertAddonEntry(AddOn addon){
+		addOns.put(addon.getId(), addon);
 	}
 }
