@@ -129,7 +129,24 @@ public class AddOnAuthor implements ADBBean {
 
 		this.localUrl = param;
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj instanceof AddOnAuthor)
+			return ((AddOnAuthor) obj).isNameSpecified() == isNameSpecified() && ( getName() == null || ((AddOnAuthor) obj).getName().equals(getName()));
+		if (isNameSpecified() && obj instanceof String){
+			return getName().equals((String)obj);
+		}
+		return false;
+	}
+	
+	@Override
+	public int hashCode() {
+		return isNameSpecified() ? getName().hashCode() : super.hashCode();
+	}
+	
 	/**
 	 * @param parentQName
 	 * @param factory

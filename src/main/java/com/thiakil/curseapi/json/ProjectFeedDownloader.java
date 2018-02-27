@@ -19,7 +19,8 @@
 package com.thiakil.curseapi.json;
 
 import addons.curse.AddOn;
-import com.google.gson.TypeAdapter;
+import addons.curse.AddOnAuthor;
+import addons.curse.CategorySection;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.thiakil.curseapi.json.adaptors.AddOnAdaptor;
@@ -27,20 +28,17 @@ import com.thiakil.httpcache.PersistentHttpCacheStorage;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import org.apache.commons.compress.compressors.bzip2.BZip2CompressorInputStream;
-import org.apache.commons.io.IOUtils;
 import org.apache.http.client.cache.CacheResponseStatus;
 import org.apache.http.client.cache.HttpCacheContext;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.client.cache.CacheConfig;
 import org.apache.http.impl.client.cache.CachingHttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
-import java.util.LinkedHashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -86,6 +84,8 @@ public class ProjectFeedDownloader {
 	private long hourlyTimeStamp = -1;
 	private final int gameId;
 	private Int2ObjectMap<AddOn> addOns = new Int2ObjectOpenHashMap<>(15000);//actual expected is 20000
+	private MultiSet<AddOnAuthor, AddOn> authors = new MultiSet<>();
+	private MultiSet<Integer, AddOn> addonsByCategorySection = new MultiSet<>();
 	
 	private final CloseableHttpClient httpclient;
 
@@ -165,6 +165,8 @@ public class ProjectFeedDownloader {
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(completeFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != completeTimeStamp){//no point replacing if the json says its the same
 				this.addOns.clear();
+				this.authors.clear();
+				this.addonsByCategorySection.clear();
 				feed.getAddons().forEach(this::insertAddonEntry);
 			}
 			completeTimeStamp = feed.getTimestamp();
@@ -294,5 +296,39 @@ public class ProjectFeedDownloader {
 	
 	private void insertAddonEntry(AddOn addon){
 		addOns.put(addon.getId(), addon);
+		this.addonsByCategorySection.putValue(addon.getCategorySection().getID(), addon);
+		for (AddOnAuthor author : addon.getAuthors()){
+			this.authors.putValue(author, addon);
+		}
 	}
+	
+	public Set<AddOnAuthor> getAuthors() {
+		return this.authors.keySet();
+	}
+	
+	public AddOnAuthor getAuthor(String name){
+		return this.authors.keySet().stream().filter(addOnAuthor -> name.equals(addOnAuthor.getName())).findFirst().orElse(null);
+	}
+	
+	public Set<AddOn> getAddonsForAuthor(AddOnAuthor author){
+		return this.authors.get(author);
+	}
+	
+	public Set<AddOn> getAddonsForAuthor(String authorName){
+		return this.authors.keySet().stream().filter(addOnAuthor -> authorName.equals(addOnAuthor.getName())).findFirst().map(this.authors::get).orElse(null);
+	}
+	
+	public Set<AddOn> getAddonsByCategorySection(int section){
+		return this.addonsByCategorySection.get(section);
+	}
+	
+	public Set<AddOn> getMods(){
+		return getAddonsByCategorySection(CategorySection.ID_MODS);
+	}
+	
+	public Set<AddOn> getModPacks(){
+		return getAddonsByCategorySection(CategorySection.ID_MODPACKS);
+	}
+	
+	
 }

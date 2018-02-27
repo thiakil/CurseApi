@@ -16,13 +16,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import addons.curse.AddOn;
 import addons.curse.AddOnFile;
+import addons.curse.CategorySection;
 import com.thiakil.curseapi.json.ProjectFeed;
 import com.thiakil.curseapi.json.ProjectFeedDownloader;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Created by Thiakil on 22/02/2018.
@@ -42,6 +47,12 @@ public class gsontest {
 				System.out.println(f.getPackageFingerprint());
 			}
 		});
+		Set<AddOn> addons = db.getAddonsForAuthor("Thiakil");
+		if (addons != null){
+			addons.forEach(addOn -> System.out.println(addOn.getName()));
+		} else {
+			System.out.println("Author not found");
+		}
 	}
 
 }

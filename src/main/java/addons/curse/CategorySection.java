@@ -57,6 +57,12 @@ public class CategorySection implements ADBBean {
        Namespace URI = Curse.AddOns
        Namespace Prefix = ns4
      */
+	
+    /* Valid IDs for Minecraft */
+	public static final int ID_MODS = 6;
+	public static final int ID_WORLDS = 17;
+	public static final int ID_MODPACKS = 4471;
+	public static final int ID_TEXTURE_PACKS = 12;
 
 	/**
 	 * field for ExtraIncludePattern
@@ -318,7 +324,17 @@ public class CategorySection implements ADBBean {
 
 		this.localPath = param;
 	}
-
+	
+	@Override
+	public boolean equals(Object obj) {
+		return super.equals(obj) || (obj instanceof CategorySection && localID == ((CategorySection) obj).localID);
+	}
+	
+	@Override
+	public int hashCode() {
+		return this.localID;
+	}
+	
 	/**
 	 * @param parentQName
 	 * @param factory
