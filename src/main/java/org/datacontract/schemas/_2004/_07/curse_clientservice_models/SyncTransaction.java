@@ -87,7 +87,16 @@ public class SyncTransaction implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTypeTracker = false;
-
+	
+	public SyncTransaction() {
+	}
+	
+	public SyncTransaction(int addonID, int fileID, SyncTransactionType type) {
+		this.setAddonID(addonID);
+		this.setFileID(fileID);
+		this.setType(type);
+	}
+	
 	public boolean isAddonIDSpecified() {
 		return localAddonIDTracker;
 	}

@@ -154,7 +154,22 @@ public class SyncedGameInstance implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLastBackupScreenWidthTracker = false;
-
+	
+	public SyncedGameInstance() {
+	}
+	
+	public SyncedGameInstance(ArrayOfSyncedAddon addons, ArrayOfSyncedComputer computers, int gameID, int instanceID, String instanceName, Calendar lastBackupDate, long lastBackupFingerprint, long lastBackupScreenHeight, long lastBackupScreenWidth) {
+		this.setAddons(addons);
+		this.setComputers(computers);
+		this.setGameID(gameID);
+		this.setInstanceID(instanceID);
+		this.setInstanceName(instanceName);
+		this.setLastBackupDate(lastBackupDate);
+		this.setLastBackupFingerprint(lastBackupFingerprint);
+		this.setLastBackupScreenHeight(lastBackupScreenHeight);
+		this.setLastBackupScreenWidth(lastBackupScreenWidth);
+	}
+	
 	public boolean isAddonsSpecified() {
 		return localAddonsTracker;
 	}

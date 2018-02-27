@@ -77,7 +77,15 @@ public class DownloadToken implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTimestampTracker = false;
-
+	
+	public DownloadToken() {
+	}
+	
+	public DownloadToken(String iPAddress, Calendar timestamp) {
+		this.setIPAddress(iPAddress);
+		this.setTimestamp(timestamp);
+	}
+	
 	public boolean isIPAddressSpecified() {
 		return localIPAddressTracker;
 	}

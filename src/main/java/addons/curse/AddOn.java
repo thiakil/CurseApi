@@ -44,7 +44,6 @@ import org.datacontract.schemas._2004._07.curse_addons.PackageTypes;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStage;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStatus;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -465,7 +464,44 @@ public class AddOn implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localWebSiteURLTracker = false;
-
+	
+	public AddOn() {
+	}
+	
+	public AddOn(List<AddOnAttachment> attachments, List<AddOnAuthor> authors, String avatarUrl, List<AddOnCategory> categories, CategorySection categorySection, int commentCount, int defaultFileId, String donationUrl, double downloadCount, String externalUrl, int gameId, int gamePopularityRank, List<GameVersionLatestFile> gameVersionLatestFiles, int iconId, int id, int installCount, int iIsFeatured, List<AddOnFile> latestFiles, int likes, String name, PackageTypes packageType, double popularityScore, String primaryAuthorName, String primaryCategoryAvatarUrl, int primaryCategoryId, String primaryCategoryName, int rating, ProjectStage stage, ProjectStatus status, String summary, String webSiteURL) {
+		this.setAttachments(attachments);
+		this.setAuthors(authors);
+		this.setAvatarUrl(avatarUrl);
+		this.setCategories(categories);
+		this.setCategorySection(categorySection);
+		this.setCommentCount(commentCount);
+		this.setDefaultFileId(defaultFileId);
+		this.setDonationUrl(donationUrl);
+		this.setDownloadCount(downloadCount);
+		this.setExternalUrl(externalUrl);
+		this.setGameId(gameId);
+		this.setGamePopularityRank(gamePopularityRank);
+		this.setGameVersionLatestFiles(gameVersionLatestFiles);
+		this.setIconId(iconId);
+		this.setId(id);
+		this.setInstallCount(installCount);
+		this.setIsFeatured(iIsFeatured);
+		this.setLatestFiles(latestFiles);
+		this.setLikes(likes);
+		this.setName(name);
+		this.setPackageType(packageType);
+		this.setPopularityScore(popularityScore);
+		this.setPrimaryAuthorName(primaryAuthorName);
+		this.setPrimaryCategoryAvatarUrl(primaryCategoryAvatarUrl);
+		this.setPrimaryCategoryId(primaryCategoryId);
+		this.setPrimaryCategoryName(primaryCategoryName);
+		this.setRating(rating);
+		this.setStage(stage);
+		this.setStatus(status);
+		this.setSummary(summary);
+		this.setWebSiteURL(webSiteURL);
+	}
+	
 	public boolean isAttachmentsSpecified() {
 		return localAttachmentsTracker;
 	}

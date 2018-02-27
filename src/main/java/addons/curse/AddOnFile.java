@@ -242,7 +242,27 @@ public class AddOnFile implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localReleaseTypeTracker = false;
-
+	
+	public AddOnFile() {
+	}
+	
+	public AddOnFile(int alternateFileId, List<AddOnFileDependency> dependencies, String downloadURL, Calendar fileDate, String fileName, String fileNameOnDisk, FileStatus fileStatus, List<String> gameVersion, int id, boolean isAlternate, boolean isAvailable, List<AddOnModule> modules, long packageFingerprint, FileType releaseType) {
+		this.setAlternateFileId(alternateFileId);
+		this.setDependencies(dependencies);
+		this.setDownloadURL(downloadURL);
+		this.setFileDate(fileDate);
+		this.setFileName(fileName);
+		this.setFileNameOnDisk(fileNameOnDisk);
+		this.setFileStatus(fileStatus);
+		this.setGameVersion(gameVersion);
+		this.setId(id);
+		this.setIsAlternate(isAlternate);
+		this.setIsAvailable(isAvailable);
+		this.setModules(modules);
+		this.setPackageFingerprint(packageFingerprint);
+		this.setReleaseType(releaseType);
+	}
+	
 	public boolean isAlternateFileIdSpecified() {
 		return localAlternateFileIdTracker;
 	}

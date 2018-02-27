@@ -77,7 +77,15 @@ public class AddOnFileDependency implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTypeTracker = false;
-
+	
+	public AddOnFileDependency() {
+	}
+	
+	public AddOnFileDependency(int addOnId, DependencyType type) {
+		this.setAddOnId(addOnId);
+		this.setType(type);
+	}
+	
 	public boolean isAddOnIdSpecified() {
 		return localAddOnIdTracker;
 	}

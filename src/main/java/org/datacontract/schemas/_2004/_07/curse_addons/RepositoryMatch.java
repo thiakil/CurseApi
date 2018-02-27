@@ -79,7 +79,15 @@ public class RepositoryMatch implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLatestFilesTracker = false;
-
+	
+	public RepositoryMatch() {
+	}
+	
+	public RepositoryMatch(int id, List<AddOnFile> latestFiles) {
+		this.setId(id);
+		this.setLatestFiles(latestFiles);
+	}
+	
 	public boolean isIdSpecified() {
 		return localIdTracker;
 	}

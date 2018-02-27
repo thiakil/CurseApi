@@ -82,7 +82,15 @@ public class AddOnModule implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localFoldernameTracker = false;
-
+	
+	public AddOnModule() {
+	}
+	
+	public AddOnModule(long fingerprint, String foldername) {
+		this.setFingerprint(fingerprint);
+		this.setFoldername(foldername);
+	}
+	
 	public boolean isFingerprintSpecified() {
 		return localFingerprintTracker;
 	}

@@ -81,7 +81,15 @@ public class AddOnAuthor implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localUrlTracker = false;
-
+	
+	public AddOnAuthor() {
+	}
+	
+	public AddOnAuthor(String name, String url) {
+		this.setName(name);
+		this.setUrl(url);
+	}
+	
 	public boolean isNameSpecified() {
 		return localNameTracker;
 	}

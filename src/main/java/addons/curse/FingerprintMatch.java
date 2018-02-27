@@ -88,7 +88,16 @@ public class FingerprintMatch implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLatestFilesTracker = false;
-
+	
+	public FingerprintMatch() {
+	}
+	
+	public FingerprintMatch(AddOnFile file, int id, List<AddOnFile> latestFiles) {
+		this.setFile(file);
+		this.setId(id);
+		this.setLatestFiles(latestFiles);
+	}
+	
 	public boolean isFileSpecified() {
 		return localFileTracker;
 	}

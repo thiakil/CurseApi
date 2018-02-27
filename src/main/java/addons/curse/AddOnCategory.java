@@ -95,7 +95,16 @@ public class AddOnCategory implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localURLTracker = false;
-
+	
+	public AddOnCategory() {
+	}
+	
+	public AddOnCategory(int id, String name, String URL) {
+		this.setId(id);
+		this.setName(name);
+		this.setURL(URL);
+	}
+	
 	public boolean isIdSpecified() {
 		return localIdTracker;
 	}

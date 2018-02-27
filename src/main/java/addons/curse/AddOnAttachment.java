@@ -121,7 +121,18 @@ public class AddOnAttachment implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localUrlTracker = false;
-
+	
+	public AddOnAttachment() {
+	}
+	
+	public AddOnAttachment(String description, boolean isDefault, String thumbnailUrl, String title, String url) {
+		this.setDescription(description);
+		this.setIsDefault(isDefault);
+		this.setThumbnailUrl(thumbnailUrl);
+		this.setTitle(title);
+		this.setUrl(url);
+	}
+	
 	public boolean isDescriptionSpecified() {
 		return localDescriptionTracker;
 	}

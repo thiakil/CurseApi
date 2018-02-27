@@ -98,7 +98,17 @@ public class SyncedComputer implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localInstanceLabelTracker = false;
-
+	
+	public SyncedComputer() {
+	}
+	
+	public SyncedComputer(int computerID, String computerName, String instanceGuid, String instanceLabel) {
+		this.setComputerID(computerID);
+		this.setComputerName(computerName);
+		this.setInstanceGuid(instanceGuid);
+		this.setInstanceLabel(instanceLabel);
+	}
+	
 	public boolean isComputerIDSpecified() {
 		return localComputerIDTracker;
 	}

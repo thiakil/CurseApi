@@ -108,7 +108,17 @@ public class GameVersionLatestFile implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localProjectFileNameTracker = false;
-
+	
+	public GameVersionLatestFile() {
+	}
+	
+	public GameVersionLatestFile(FileType fileType, String gameVesion, int projectFileID, String projectFileName) {
+		this.setFileType(fileType);
+		this.setGameVesion(gameVesion);
+		this.setProjectFileID(projectFileID);
+		this.setProjectFileName(projectFileName);
+	}
+	
 	public boolean isFileTypeSpecified() {
 		return localFileTypeTracker;
 	}

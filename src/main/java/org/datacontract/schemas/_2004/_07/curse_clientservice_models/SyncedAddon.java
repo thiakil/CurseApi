@@ -76,7 +76,15 @@ public class SyncedAddon implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localFileIDTracker = false;
-
+	
+	public SyncedAddon() {
+	}
+	
+	public SyncedAddon(int addonID, int fileID) {
+		this.setAddonID(addonID);
+		this.setFileID(fileID);
+	}
+	
 	public boolean isAddonIDSpecified() {
 		return localAddonIDTracker;
 	}
