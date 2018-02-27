@@ -1,3 +1,7 @@
+<!--
+  Curse WDSL, Copyright Curse. Retrieved from http://addons.forgesvc.net/AddOnService.svc?singleWsdl
+  -->
+
 <wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
 				  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
 				  xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
