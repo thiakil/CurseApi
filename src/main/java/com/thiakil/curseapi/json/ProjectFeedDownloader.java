@@ -160,7 +160,8 @@ public class ProjectFeedDownloader {
 	 */
 	public void sync() throws IOException {
 		System.out.println("Start sync");
-		if (completeTimeStamp == -1 || completeTimeStamp != getTimestamp("complete.json.bz2.txt")){
+		long txtCompleteStamp = getTimestamp("complete.json.bz2.txt");
+		if (completeTimeStamp == -1 || completeTimeStamp != txtCompleteStamp){
 			InputStream completeFeed = new BZip2CompressorInputStream(downloadToCache(getUrl("complete.json.bz2")));
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(completeFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != completeTimeStamp){//no point replacing if the json says its the same
@@ -169,17 +170,18 @@ public class ProjectFeedDownloader {
 				this.addonsByCategorySection.clear();
 				feed.getAddons().forEach(this::insertAddonEntry);
 			}
-			completeTimeStamp = feed.getTimestamp();
+			completeTimeStamp = txtCompleteStamp;
 			completeFeed.close();
 		}
 		System.out.println("Start hourly sync");
-		if (hourlyTimeStamp == -1 || hourlyTimeStamp != getTimestamp("hourly.json.bz2.txt")){
+		long txtHourlyStamp = getTimestamp("hourly.json.bz2.txt");
+		if (hourlyTimeStamp == -1 || hourlyTimeStamp != txtHourlyStamp){
 			InputStream hourlyFeed = new BZip2CompressorInputStream(downloadToCache(getUrl("hourly.json.bz2")));
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(hourlyFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != hourlyTimeStamp) {//no point replacing if the json says its the same
 				feed.getAddons().forEach(this::insertAddonEntry);
 			}
-			hourlyTimeStamp = feed.getTimestamp();
+			hourlyTimeStamp = txtHourlyStamp;
 			hourlyFeed.close();
 		}
 		System.out.println("end sync");
