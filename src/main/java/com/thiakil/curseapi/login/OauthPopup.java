@@ -113,7 +113,7 @@ public class OauthPopup extends Application {
 		public void sendCode(String urlStr){
 			try {
 				Map<String,String> params = new HashMap<>();
-				URLEncodedUtils.parse(new URI(urlStr), StandardCharsets.UTF_8).forEach(p->params.put(p.getName(), p.getValue()));
+				URLEncodedUtils.parse(new URI(urlStr), "utf-8").forEach(p->params.put(p.getName(), p.getValue()));
 
 				OauthPopup.codes.put(uuid, params.get("code"));
 			} catch (URISyntaxException e){
