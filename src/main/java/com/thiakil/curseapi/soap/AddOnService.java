@@ -38,26 +38,17 @@
 package com.thiakil.curseapi.soap;
 
 
+import addons.curse.AddOn;
 import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.CacheHealthCheck;
 import com.curse.addonservice.CacheHealthCheckResponse;
 import com.curse.addonservice.CreateSyncGroup;
 import com.curse.addonservice.CreateSyncGroupResponse;
-import com.curse.addonservice.GetAddOn;
 import com.curse.addonservice.GetAddOnDescription;
 import com.curse.addonservice.GetAddOnDescriptionResponse;
 import com.curse.addonservice.GetAddOnDump;
 import com.curse.addonservice.GetAddOnDumpResponse;
-import com.curse.addonservice.GetAddOnFile;
-import com.curse.addonservice.GetAddOnFileResponse;
-import com.curse.addonservice.GetAddOnFiles;
-import com.curse.addonservice.GetAddOnFilesResponse;
-import com.curse.addonservice.GetAddOnResponse;
-import com.curse.addonservice.GetAddOns;
-import com.curse.addonservice.GetAddOnsResponse;
-import com.curse.addonservice.GetChangeLog;
-import com.curse.addonservice.GetChangeLogResponse;
 import com.curse.addonservice.GetDownloadToken;
 import com.curse.addonservice.GetDownloadTokenResponse;
 import com.curse.addonservice.GetFuzzyMatches;
@@ -88,15 +79,11 @@ import com.curse.addonservice.SaveSyncTransactions;
 import com.curse.addonservice.SaveSyncTransactionsResponse;
 import com.curse.addonservice.ServiceHealthCheck;
 import com.curse.addonservice.ServiceHealthCheckResponse;
-import com.curse.addonservice.V2GetAddOnDescription;
-import com.curse.addonservice.V2GetAddOnDescriptionResponse;
-import com.curse.addonservice.V2GetAddOns;
-import com.curse.addonservice.V2GetAddOnsResponse;
-import com.curse.addonservice.V2GetChangeLog;
-import com.curse.addonservice.V2GetChangeLogResponse;
-import com.curse.addonservice.V2GetFingerprintMatches;
-import com.curse.addonservice.V2GetFingerprintMatchesResponse;
 import com.thiakil.curseapi.Murmur2Hash;
+import com.thiakil.curseapi.login.CurseToken;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import org.apache.axis2.AxisFault;
+import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 import java.rmi.RemoteException;
 import java.util.List;
@@ -151,16 +138,22 @@ public interface AddOnService {
 	 *
 	 * @param fingerprints fingerprints to check.
 	 * @return {@link FingerprintMatchResult} with the resulting matches
+	 *
+	 * @deprecated See {@link #v2GetFingerprintMatches(long...)}
 	 */
+	@Deprecated
 	FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException;
 
 	/**
 	 * Async version of {@link #getFingerprintMatches(long...)}
 	 *
-	 * @param callback async callback handler
 	 * @param fingerprints fingerprints to check.
+	 *
+	 * @param callback async callback handler
+	 * @deprecated See {@link #startv2GetFingerprintMatches(long[], AddOnServiceCallbackHandler)}
 	 */
-	void startgetFingerprintMatches(final AddOnServiceCallbackHandler callback, long... fingerprints) throws RemoteException;
+	@Deprecated
+	void startgetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Unknown method
@@ -185,16 +178,16 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param v2GetFingerprintMatches12
+	 * @param fingerprints
 	 */
-	V2GetFingerprintMatchesResponse v2GetFingerprintMatches(V2GetFingerprintMatches v2GetFingerprintMatches12) throws RemoteException;
+	FingerprintMatchResult v2GetFingerprintMatches(long... fingerprints) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param v2GetFingerprintMatches12
+	 * @param fingerprints
 	 */
-	void startv2GetFingerprintMatches(V2GetFingerprintMatches v2GetFingerprintMatches12, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startv2GetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -214,14 +207,20 @@ public interface AddOnService {
 	 * Auto generated method signature
 	 *
 	 * @param getAddOnDescription16
+	 *
+	 * @deprecated see {@link #v2GetAddOnDescription(int)}
 	 */
+	@Deprecated
 	GetAddOnDescriptionResponse getAddOnDescription(GetAddOnDescription getAddOnDescription16) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
 	 * @param getAddOnDescription16
+	 *
+	 * @deprecated See {@link #startv2GetAddOnDescription(int, AddOnServiceCallbackHandler)}
 	 */
+	@Deprecated
 	void startgetAddOnDescription(GetAddOnDescription getAddOnDescription16, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
@@ -283,16 +282,22 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAddOns26
+	 * @param addonIDs
+	 *
+	 * @deprecated see {@link #v2GetAddOns(int...)}
 	 */
-	GetAddOnsResponse getAddOns(GetAddOns getAddOns26) throws RemoteException;
+	@Deprecated
+	List<AddOn> getAddOns(int... addonIDs) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOns26
+	 * @param addonIDs
+	 *
+	 * @deprecated see {@link #startv2GetAddOns(int[], AddOnServiceCallbackHandler)}
 	 */
-	void startgetAddOns(GetAddOns getAddOns26, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	@Deprecated
+	void startgetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -311,58 +316,70 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param v2GetChangeLog30
+	 * @param addonID
+	 * @param fileID
 	 */
-	V2GetChangeLogResponse v2GetChangeLog(V2GetChangeLog v2GetChangeLog30) throws RemoteException;
+	String v2GetChangeLog(int addonID, int fileID) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param v2GetChangeLog30
+	 * @param addonID
+	 * @param fileID
 	 */
-	void startv2GetChangeLog(V2GetChangeLog v2GetChangeLog30, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startv2GetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Get a list of addons by IDs
 	 *
-	 * @param v2GetAddOns32
+	 * @param addonIDs the addons you want
 	 */
-	V2GetAddOnsResponse v2GetAddOns(V2GetAddOns v2GetAddOns32) throws RemoteException;
+	List<AddOn> v2GetAddOns(int... addonIDs) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Get a list of addons by IDs
 	 *
-	 * @param v2GetAddOns32
+	 * @param addonIDs the addons you want
 	 */
-	void startv2GetAddOns(V2GetAddOns v2GetAddOns32, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startv2GetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Retrieve a single AddOnFile by IDs
 	 *
-	 * @param getAddOnFile34
+	 * @param addonID addon's ID
+	 * @param fileID file's ID
 	 */
-	GetAddOnFileResponse getAddOnFile(GetAddOnFile getAddOnFile34) throws RemoteException;
+	AddOnFile getAddOnFile(int addonID, int fileID) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Retrieve a single AddOnFile by IDs
 	 *
-	 * @param getAddOnFile34
+	 * @param addonID addon's ID
+	 * @param fileID file's ID
 	 */
-	void startgetAddOnFile(GetAddOnFile getAddOnFile34, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startgetAddOnFile(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Get the changelog for a single file
 	 *
-	 * @param getChangeLog36
+	 * @param addonID addon's ID
+	 * @param fileID file's ID
+	 *
+	 * @deprecated See {@link #v2GetChangeLog(int, int)}
 	 */
-	GetChangeLogResponse getChangeLog(GetChangeLog getChangeLog36) throws RemoteException;
+	@Deprecated
+	String getChangeLog(int addonID, int fileID) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Get the changelog for a single file
 	 *
-	 * @param getChangeLog36
+	 * @param addonID addon's ID
+	 * @param fileID file's ID
+	 *
+	 * @deprecated See {@link #startv2GetChangeLog(int, int, AddOnServiceCallbackHandler)}
 	 */
-	void startgetChangeLog(GetChangeLog getChangeLog36, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	@Deprecated
+	void startgetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -379,18 +396,18 @@ public interface AddOnService {
 	void startgetSyncProfile(GetSyncProfile getSyncProfile38, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Get a list of all the file for an addon
 	 *
-	 * @param getAllFilesForAddOn40
+	 * @param addonID
 	 */
-	List<AddOnFile> getAllFilesForAddOn(int getAllFilesForAddOn40) throws RemoteException;
+	List<AddOnFile> getAllFilesForAddOn(int addonID) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Get a list of all the file for an addon
 	 *
-	 * @param getAllFilesForAddOn40
+	 * @param addonID
 	 */
-	void startgetAllFilesForAddOn(int getAllFilesForAddOn40, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startgetAllFilesForAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -435,32 +452,33 @@ public interface AddOnService {
 	void startlistFeeds(ListFeeds listFeeds46, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Get a map of addonID -> AddOnFile List for the ids supplied
 	 *
-	 * @param getAddOnFiles48
+	 * @param addOnFileKeys int id pairs of addon & file
 	 */
-	GetAddOnFilesResponse getAddOnFiles(GetAddOnFiles getAddOnFiles48) throws RemoteException;
+	Int2ObjectMap<List<AddOnFile>> getAddOnFiles(AddOnFileKey... addOnFileKeys) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOnFiles48
+	 * @param addOnFileKeys
 	 */
-	void startgetAddOnFiles(GetAddOnFiles getAddOnFiles48, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startgetAddOnFiles(AddOnFileKey[] addOnFileKeys, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Get description for addon
 	 *
-	 * @param v2GetAddOnDescription50
+	 * @param addonID id for which to retrieve the description
+	 * @return the description
 	 */
-	V2GetAddOnDescriptionResponse v2GetAddOnDescription(V2GetAddOnDescription v2GetAddOnDescription50) throws RemoteException;
+	String v2GetAddOnDescription(int addonID) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * Get description for addon
 	 *
-	 * @param v2GetAddOnDescription50
+	 * @param addonID id for which to retrieve the description
 	 */
-	void startv2GetAddOnDescription(V2GetAddOnDescription v2GetAddOnDescription50, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startv2GetAddOnDescription(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -479,16 +497,16 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAddOn54
+	 * @param addonID
 	 */
-	GetAddOnResponse getAddOn(GetAddOn getAddOn54) throws RemoteException;
+	AddOn getAddOn(int addonID) throws RemoteException;
 
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOn54
+	 * @param addonID
 	 */
-	void startgetAddOn(GetAddOn getAddOn54, final AddOnServiceCallbackHandler callback) throws RemoteException;
+	void startgetAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
 	 * Auto generated method signature
@@ -532,5 +550,11 @@ public interface AddOnService {
 	 */
 	void startresetAllAddonCache(ResetAllAddonCache resetAllAddonCache60, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
-	//
+	static AddOnService initialise(CurseToken auth) throws AxisFault {
+		return new AddOnServiceStub(auth);
+	}
+
+	static AddOnService initialise(CurseToken auth, String targetEndpoint) throws AxisFault {
+		return new AddOnServiceStub(auth, targetEndpoint);
+	}
 }

@@ -67,7 +67,7 @@ public class V2GetFingerprintMatches implements ADBBean {
 	/**
 	 * field for Fingerprints
 	 */
-	protected ArrayOflong localFingerprints;
+	protected long[] localFingerprints;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -78,7 +78,7 @@ public class V2GetFingerprintMatches implements ADBBean {
 	public V2GetFingerprintMatches() {
 	}
 
-	public V2GetFingerprintMatches(ArrayOflong fingerprints) {
+	public V2GetFingerprintMatches(long[] fingerprints) {
 		this.setFingerprints(fingerprints);
 	}
 
@@ -91,7 +91,7 @@ public class V2GetFingerprintMatches implements ADBBean {
 	 *
 	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOflong
 	 */
-	public ArrayOflong getFingerprints() {
+	public long[] getFingerprints() {
 		return localFingerprints;
 	}
 
@@ -100,7 +100,7 @@ public class V2GetFingerprintMatches implements ADBBean {
 	 *
 	 * @param param Fingerprints
 	 */
-	public void setFingerprints(ArrayOflong param) {
+	public void setFingerprints(long[] param) {
 		localFingerprintsTracker = true;
 
 		this.localFingerprints = param;
@@ -145,7 +145,7 @@ public class V2GetFingerprintMatches implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localFingerprints.serialize(new QName("http://addonservice.curse.com/", "fingerprints"), xmlWriter);
+				ArrayOflong.serialize(new QName("http://addonservice.curse.com/", "fingerprints"), xmlWriter, localFingerprints);
 			}
 		}
 

@@ -72,7 +72,7 @@ public class FolderFingerprint implements ADBBean {
 	/**
 	 * field for Fingerprints
 	 */
-	protected ArrayOflong localFingerprints;
+	protected long[] localFingerprints;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -94,7 +94,7 @@ public class FolderFingerprint implements ADBBean {
 	public FolderFingerprint() {
 	}
 
-	public FolderFingerprint(ArrayOflong fingerprints, String foldername) {
+	public FolderFingerprint(long[] fingerprints, String foldername) {
 		this.setFingerprints(fingerprints);
 		this.setFoldername(foldername);
 	}
@@ -108,7 +108,7 @@ public class FolderFingerprint implements ADBBean {
 	 *
 	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOflong
 	 */
-	public ArrayOflong getFingerprints() {
+	public long[] getFingerprints() {
 		return localFingerprints;
 	}
 
@@ -117,7 +117,7 @@ public class FolderFingerprint implements ADBBean {
 	 *
 	 * @param param Fingerprints
 	 */
-	public void setFingerprints(ArrayOflong param) {
+	public void setFingerprints(long[] param) {
 		localFingerprintsTracker = true;
 
 		this.localFingerprints = param;
@@ -186,7 +186,7 @@ public class FolderFingerprint implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localFingerprints.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Fingerprints"), xmlWriter);
+				ArrayOflong.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Fingerprints"), xmlWriter, localFingerprints);
 			}
 		}
 

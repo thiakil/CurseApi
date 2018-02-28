@@ -154,6 +154,37 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 		serialize(parentQName, xmlWriter, false);
 	}
 
+	public static void serialize(final QName parentQName, XMLStreamWriter xmlWriter, AddOnFileKey[] keys) throws XMLStreamException {
+		String prefix = null;
+		String namespace = null;
+
+		prefix = parentQName.getPrefix();
+		namespace = parentQName.getNamespaceURI();
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+		if (keys != null) {
+			for (AddOnFileKey aLocalAddOnFileKey : keys) {
+				if (aLocalAddOnFileKey != null) {
+					aLocalAddOnFileKey.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey"), xmlWriter);
+				} else {
+					Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey", xmlWriter);
+
+					// write the nil attribute
+					Util.writeNil(xmlWriter);
+					xmlWriter.writeEndElement();
+				}
+			}
+		} else {
+			Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey", xmlWriter);
+
+			// write the nil attribute
+			Util.writeNil(xmlWriter);
+			xmlWriter.writeEndElement();
+		}
+
+		xmlWriter.writeEndElement();
+	}
+
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
@@ -228,8 +259,8 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
 		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static ArrayOfAddOnFileKey parse(XMLStreamReader reader) throws Exception {
-			ArrayOfAddOnFileKey object = new ArrayOfAddOnFileKey();
+		public static AddOnFileKey[] parse(XMLStreamReader reader) throws Exception {
+			AddOnFileKey[] object = new AddOnFileKey[0];
 
 			int event;
 			QName currentQName = null;
@@ -260,7 +291,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 							//find namespace for the prefix
 							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (ArrayOfAddOnFileKey) ExtensionMapper.getTypeObject(nsUri, type, reader);
+							return (AddOnFileKey[]) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -319,7 +350,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 					}
 
 					// call the converter utility  to convert and set the array
-					object.setAddOnFileKey((AddOnFileKey[]) ConverterUtil.convertToArray(AddOnFileKey.class, list1));
+					object = (AddOnFileKey[]) ConverterUtil.convertToArray(AddOnFileKey.class, list1);
 				} // End of if for expected property start element
 
 				else {

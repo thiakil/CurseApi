@@ -48,6 +48,7 @@ import org.apache.axis2.databinding.utils.BeanUtil;
 import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.ArrayOfAddOnFileKey;
 
 import javax.xml.namespace.NamespaceContext;
@@ -67,7 +68,7 @@ public class GetAddOnFiles implements ADBBean {
 	/**
 	 * field for AddOnFileKeys
 	 */
-	protected ArrayOfAddOnFileKey localAddOnFileKeys;
+	protected AddOnFileKey[] localAddOnFileKeys;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -78,7 +79,7 @@ public class GetAddOnFiles implements ADBBean {
 	public GetAddOnFiles() {
 	}
 
-	public GetAddOnFiles(ArrayOfAddOnFileKey addOnFileKeys) {
+	public GetAddOnFiles(AddOnFileKey[] addOnFileKeys) {
 		this.setAddOnFileKeys(addOnFileKeys);
 	}
 
@@ -91,7 +92,7 @@ public class GetAddOnFiles implements ADBBean {
 	 *
 	 * @return org.datacontract.schemas._2004._07.curse_addonservice_requests.ArrayOfAddOnFileKey
 	 */
-	public ArrayOfAddOnFileKey getAddOnFileKeys() {
+	public AddOnFileKey[] getAddOnFileKeys() {
 		return localAddOnFileKeys;
 	}
 
@@ -100,7 +101,7 @@ public class GetAddOnFiles implements ADBBean {
 	 *
 	 * @param param AddOnFileKeys
 	 */
-	public void setAddOnFileKeys(ArrayOfAddOnFileKey param) {
+	public void setAddOnFileKeys(AddOnFileKey[] param) {
 		localAddOnFileKeysTracker = true;
 
 		this.localAddOnFileKeys = param;
@@ -145,7 +146,7 @@ public class GetAddOnFiles implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAddOnFileKeys.serialize(new QName("http://addonservice.curse.com/", "addOnFileKeys"), xmlWriter);
+				ArrayOfAddOnFileKey.serialize(new QName("http://addonservice.curse.com/", "addOnFileKeys"), xmlWriter, localAddOnFileKeys);
 			}
 		}
 

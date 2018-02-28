@@ -38,23 +38,24 @@
 package com.curse.addonservice;
 
 
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp;
+import addons.curse.AddOnFile;
+import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValue_int_AddOnFile;
 import com.thiakil.curseapi.soap.Util;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
 import org.apache.axis2.databinding.ADBDataSource;
 import org.apache.axis2.databinding.ADBException;
 import org.apache.axis2.databinding.utils.BeanUtil;
-import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -67,7 +68,7 @@ public class GetAddOnFilesResponse implements ADBBean {
 	/**
 	 * field for GetAddOnFilesResult
 	 */
-	protected ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp localGetAddOnFilesResult;
+	protected Int2ObjectMap<List<AddOnFile>> localGetAddOnFilesResult;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -78,7 +79,7 @@ public class GetAddOnFilesResponse implements ADBBean {
 	public GetAddOnFilesResponse() {
 	}
 
-	public GetAddOnFilesResponse(ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp getAddOnFilesResult) {
+	public GetAddOnFilesResponse(Int2ObjectMap<List<AddOnFile>> getAddOnFilesResult) {
 		this.setGetAddOnFilesResult(getAddOnFilesResult);
 	}
 
@@ -89,9 +90,9 @@ public class GetAddOnFilesResponse implements ADBBean {
 	/**
 	 * Auto generated getter method
 	 *
-	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp
+	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValue_int_AddOnFile
 	 */
-	public ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp getGetAddOnFilesResult() {
+	public Int2ObjectMap<List<AddOnFile>> getGetAddOnFilesResult() {
 		return localGetAddOnFilesResult;
 	}
 
@@ -100,7 +101,7 @@ public class GetAddOnFilesResponse implements ADBBean {
 	 *
 	 * @param param GetAddOnFilesResult
 	 */
-	public void setGetAddOnFilesResult(ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp param) {
+	public void setGetAddOnFilesResult(Int2ObjectMap<List<AddOnFile>> param) {
 		localGetAddOnFilesResultTracker = true;
 
 		this.localGetAddOnFilesResult = param;
@@ -145,7 +146,7 @@ public class GetAddOnFilesResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGetAddOnFilesResult.serialize(new QName("http://addonservice.curse.com/", "GetAddOnFilesResult"), xmlWriter);
+				ArrayOfKeyValue_int_AddOnFile.serialize(new QName("http://addonservice.curse.com/", "GetAddOnFilesResult"), xmlWriter, localGetAddOnFilesResult);
 			}
 		}
 
@@ -237,7 +238,7 @@ public class GetAddOnFilesResponse implements ADBBean {
 
 						reader.next();
 					} else {
-						object.setGetAddOnFilesResult(ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp.Factory.parse(reader));
+						object.setGetAddOnFilesResult(ArrayOfKeyValue_int_AddOnFile.Factory.parse(reader));
 
 						reader.next();
 					}

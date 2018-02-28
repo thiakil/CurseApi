@@ -38,6 +38,7 @@
 package com.thiakil.curseapi.soap;
 
 
+import addons.curse.AddOn;
 import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.CacheHealthCheck;
@@ -102,8 +103,8 @@ import com.curse.addonservice.V2GetChangeLog;
 import com.curse.addonservice.V2GetChangeLogResponse;
 import com.curse.addonservice.V2GetFingerprintMatches;
 import com.curse.addonservice.V2GetFingerprintMatchesResponse;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOflong;
 import com.thiakil.curseapi.login.CurseToken;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -131,6 +132,7 @@ import org.apache.axis2.util.Utils;
 import org.apache.axis2.wsdl.WSDLConstants;
 import org.apache.neethi.Policy;
 import org.apache.neethi.PolicyEngine;
+import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 import javax.xml.namespace.QName;
 import java.io.StringReader;
@@ -158,14 +160,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Constructor that takes in a configContext
 	 */
-	public AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint) throws AxisFault {
+	AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint) throws AxisFault {
 		this(auth, configurationContext, targetEndpoint, false);
 	}
 
 	/**
 	 * Constructor that takes in a configContext  and useseperate listner
 	 */
-	public AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint, boolean useSeparateListener) throws AxisFault {
+	AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint, boolean useSeparateListener) throws AxisFault {
 		//To populate AxisService
 		populateAxisService();
 		populateFaults();
@@ -203,14 +205,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_serviceClient.addHeader(header);
 	}
 
-	public AddOnServiceStub(CurseToken auth) throws AxisFault {
+	AddOnServiceStub(CurseToken auth) throws AxisFault {
 		this(auth, "https://addons.forgesvc.net/AddOnService.svc/soap12");
 	}
 
 	/**
 	 * Constructor taking the target endpoint
 	 */
-	public AddOnServiceStub(CurseToken auth, String targetEndpoint) throws AxisFault {
+	AddOnServiceStub(CurseToken auth, String targetEndpoint) throws AxisFault {
 		this(auth, null, targetEndpoint);
 	}
 
@@ -1110,16 +1112,13 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
+	@Deprecated
 	public FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException {
 
 		if (fingerprints.length == 0){
 			throw new IllegalArgumentException("fingerprints are required");
 		}
 
-		GetFingerprintMatches fpm = new GetFingerprintMatches();
-		ArrayOflong aol = new ArrayOflong();
-		fpm.setFingerprints(aol);
-		aol.set_long(fingerprints);
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -1132,7 +1131,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), fpm, optimizeContent(new QName("http://addonservice.curse.com/", "getFingerprintMatches")), new QName("http://addonservice.curse.com/", "GetFingerprintMatches"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetFingerprintMatches(fingerprints), optimizeContent(new QName("http://addonservice.curse.com/", "getFingerprintMatches")), new QName("http://addonservice.curse.com/", "GetFingerprintMatches"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -1188,13 +1187,8 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param fingerprints
-	 * @see AddOnService#startgetFingerprintMatches
-	 */
-	public void startgetFingerprintMatches(final AddOnServiceCallbackHandler callback, long... fingerprints) throws RemoteException {
+	@Deprecated
+	public void startgetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		if (fingerprints.length == 0){
 			throw new IllegalArgumentException("fingerprints are required");
 		}
@@ -1209,13 +1203,8 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		SOAPEnvelope env;
 		final MessageContext _messageContext = new MessageContext();
 
-		GetFingerprintMatches fpm = new GetFingerprintMatches();
-		ArrayOflong aol = new ArrayOflong();
-		fpm.setFingerprints(aol);
-		aol.set_long(fingerprints);
-
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), fpm, optimizeContent(new QName("http://addonservice.curse.com/", "getFingerprintMatches")), new QName("http://addonservice.curse.com/", "GetFingerprintMatches"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetFingerprintMatches(fingerprints), optimizeContent(new QName("http://addonservice.curse.com/", "getFingerprintMatches")), new QName("http://addonservice.curse.com/", "GetFingerprintMatches"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -1656,10 +1645,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param v2GetFingerprintMatches74
+	 * @param fingerprints
 	 * @see AddOnService#v2GetFingerprintMatches
 	 */
-	public V2GetFingerprintMatchesResponse v2GetFingerprintMatches(V2GetFingerprintMatches v2GetFingerprintMatches74) throws RemoteException {
+	public FingerprintMatchResult v2GetFingerprintMatches(long... fingerprints) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -1672,7 +1661,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetFingerprintMatches74, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches")), new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetFingerprintMatches(fingerprints), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches")), new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -1688,9 +1677,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetFingerprintMatchesResponse.class);
+			V2GetFingerprintMatchesResponse object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetFingerprintMatchesResponse.class);
 
-			return (V2GetFingerprintMatchesResponse) object;
+			return object.getV2GetFingerprintMatchesResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -1731,10 +1720,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param v2GetFingerprintMatches74
+	 * @param fingerprints
 	 * @see AddOnService#startv2GetFingerprintMatches
 	 */
-	public void startv2GetFingerprintMatches(V2GetFingerprintMatches v2GetFingerprintMatches74, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startv2GetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[6].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetFingerprintMatches");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -1746,7 +1735,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetFingerprintMatches74, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches")), new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetFingerprintMatches(fingerprints), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches")), new QName("http://addonservice.curse.com/", "v2GetFingerprintMatches"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -2007,12 +1996,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getAddOnDescription78
-	 * @see AddOnService#getAddOnDescription
-	 */
+	@Deprecated
 	public GetAddOnDescriptionResponse getAddOnDescription(GetAddOnDescription getAddOnDescription78) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -2082,12 +2066,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getAddOnDescription78
-	 * @see AddOnService#startgetAddOnDescription
-	 */
+	@Deprecated
 	public void startgetAddOnDescription(GetAddOnDescription getAddOnDescription78, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[8].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOnDescription");
@@ -2892,13 +2871,11 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getAddOns88
-	 * @see AddOnService#getAddOns
-	 */
-	public GetAddOnsResponse getAddOns(GetAddOns getAddOns88) throws RemoteException {
+	@Deprecated
+	public List<AddOn> getAddOns(int... addonIDs) throws RemoteException {
+		if (addonIDs==null || addonIDs.length == 0){
+			throw new IllegalArgumentException("addonIDs");
+		}
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -2911,7 +2888,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOns88, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOns")), new QName("http://addonservice.curse.com/", "GetAddOns"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOns(addonIDs), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOns")), new QName("http://addonservice.curse.com/", "GetAddOns"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -2927,9 +2904,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnsResponse.class);
+			GetAddOnsResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnsResponse.class);
 
-			return (GetAddOnsResponse) object;
+			return  object.getGetAddOnsResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2967,13 +2944,12 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getAddOns88
-	 * @see AddOnService#startgetAddOns
-	 */
-	public void startgetAddOns(GetAddOns getAddOns88, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	@Deprecated
+	public void startgetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException {
+		if (addonIDs==null || addonIDs.length == 0){
+			throw new IllegalArgumentException("addonIDs");
+		}
+
 		OperationClient _operationClient = _serviceClient.createClient(_operations[13].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOns");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -2985,7 +2961,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOns88, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOns")), new QName("http://addonservice.curse.com/", "GetAddOns"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOns(addonIDs), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOns")), new QName("http://addonservice.curse.com/", "GetAddOns"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -3000,8 +2976,8 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 				try {
 					SOAPEnvelope resultEnv = resultContext.getEnvelope();
 
-					Object object = fromOM(resultEnv.getBody().getFirstElement(), GetAddOnsResponse.class);
-					callback.receiveResultgetAddOns((GetAddOnsResponse) object);
+					GetAddOnsResponse object = fromOM(resultEnv.getBody().getFirstElement(), GetAddOnsResponse.class);
+					callback.receiveResultgetAddOns(object);
 				} catch (AxisFault e) {
 					callback.receiveErrorgetAddOns(e);
 				}
@@ -3246,13 +3222,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param v2GetChangeLog92
-	 * @see AddOnService#v2GetChangeLog
-	 */
-	public V2GetChangeLogResponse v2GetChangeLog(V2GetChangeLog v2GetChangeLog92) throws RemoteException {
+	public String v2GetChangeLog(int addonID, int fileID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -3265,7 +3235,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetChangeLog92, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetChangeLog")), new QName("http://addonservice.curse.com/", "v2GetChangeLog"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetChangeLog(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetChangeLog")), new QName("http://addonservice.curse.com/", "v2GetChangeLog"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -3281,9 +3251,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetChangeLogResponse.class);
+			V2GetChangeLogResponse object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetChangeLogResponse.class);
 
-			return (V2GetChangeLogResponse) object;
+			return object.getV2GetChangeLogResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3321,13 +3291,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param v2GetChangeLog92
-	 * @see AddOnService#startv2GetChangeLog
-	 */
-	public void startv2GetChangeLog(V2GetChangeLog v2GetChangeLog92, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startv2GetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[15].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetChangeLog");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -3339,7 +3303,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetChangeLog92, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetChangeLog")), new QName("http://addonservice.curse.com/", "v2GetChangeLog"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetChangeLog(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetChangeLog")), new QName("http://addonservice.curse.com/", "v2GetChangeLog"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -3426,10 +3390,13 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param v2GetAddOns94
+	 * @param addonIDs
 	 * @see AddOnService#v2GetAddOns
 	 */
-	public V2GetAddOnsResponse v2GetAddOns(V2GetAddOns v2GetAddOns94) throws RemoteException {
+	public List<AddOn> v2GetAddOns(int... addonIDs) throws RemoteException {
+		if (addonIDs == null || addonIDs.length == 0){
+			throw new IllegalArgumentException("addonIDs");
+		}
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -3442,7 +3409,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOns94, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOns")), new QName("http://addonservice.curse.com/", "v2GetAddOns"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetAddOns(addonIDs), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOns")), new QName("http://addonservice.curse.com/", "v2GetAddOns"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -3458,9 +3425,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetAddOnsResponse.class);
+			V2GetAddOnsResponse object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetAddOnsResponse.class);
 
-			return (V2GetAddOnsResponse) object;
+			return object.getV2GetAddOnsResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3501,10 +3468,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param v2GetAddOns94
+	 * @param addonIDs
 	 * @see AddOnService#startv2GetAddOns
 	 */
-	public void startv2GetAddOns(V2GetAddOns v2GetAddOns94, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startv2GetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException {
+		if (addonIDs == null || addonIDs.length == 0){
+			throw new IllegalArgumentException("addonIDs");
+		}
+
 		OperationClient _operationClient = _serviceClient.createClient(_operations[16].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetAddOns");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -3516,7 +3487,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOns94, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOns")), new QName("http://addonservice.curse.com/", "v2GetAddOns"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetAddOns(addonIDs), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOns")), new QName("http://addonservice.curse.com/", "v2GetAddOns"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -3603,10 +3574,11 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAddOnFile96
+	 * @param addonID
+	 * @param fileID
 	 * @see AddOnService#getAddOnFile
 	 */
-	public GetAddOnFileResponse getAddOnFile(GetAddOnFile getAddOnFile96) throws RemoteException {
+	public AddOnFile getAddOnFile(int addonID, int fileID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -3619,7 +3591,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFile96, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFile")), new QName("http://addonservice.curse.com/", "GetAddOnFile"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOnFile(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFile")), new QName("http://addonservice.curse.com/", "GetAddOnFile"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -3635,9 +3607,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnFileResponse.class);
+			GetAddOnFileResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnFileResponse.class);
 
-			return (GetAddOnFileResponse) object;
+			return object.getGetAddOnFileResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3678,10 +3650,11 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOnFile96
+	 * @param addonID
+	 * @param fileID
 	 * @see AddOnService#startgetAddOnFile
 	 */
-	public void startgetAddOnFile(GetAddOnFile getAddOnFile96, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startgetAddOnFile(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[17].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOnFile");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -3693,7 +3666,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFile96, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFile")), new QName("http://addonservice.curse.com/", "GetAddOnFile"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOnFile(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFile")), new QName("http://addonservice.curse.com/", "GetAddOnFile"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -3777,13 +3750,8 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getChangeLog98
-	 * @see AddOnService#getChangeLog
-	 */
-	public GetChangeLogResponse getChangeLog(GetChangeLog getChangeLog98) throws RemoteException {
+	@Deprecated
+	public String getChangeLog(int addonID, int fileID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -3796,7 +3764,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getChangeLog98, optimizeContent(new QName("http://addonservice.curse.com/", "getChangeLog")), new QName("http://addonservice.curse.com/", "GetChangeLog"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetChangeLog(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "getChangeLog")), new QName("http://addonservice.curse.com/", "GetChangeLog"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -3812,9 +3780,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetChangeLogResponse.class);
+			GetChangeLogResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetChangeLogResponse.class);
 
-			return (GetChangeLogResponse) object;
+			return object.getGetChangeLogResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3852,13 +3820,8 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getChangeLog98
-	 * @see AddOnService#startgetChangeLog
-	 */
-	public void startgetChangeLog(GetChangeLog getChangeLog98, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	@Deprecated
+	public void startgetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[18].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetChangeLog");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -3870,7 +3833,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getChangeLog98, optimizeContent(new QName("http://addonservice.curse.com/", "getChangeLog")), new QName("http://addonservice.curse.com/", "GetChangeLog"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetChangeLog(addonID, fileID), optimizeContent(new QName("http://addonservice.curse.com/", "getChangeLog")), new QName("http://addonservice.curse.com/", "GetChangeLog"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -4842,10 +4805,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAddOnFiles110
+	 * @param addOnFileKeys
 	 * @see AddOnService#getAddOnFiles
 	 */
-	public GetAddOnFilesResponse getAddOnFiles(GetAddOnFiles getAddOnFiles110) throws RemoteException {
+	public Int2ObjectMap<List<AddOnFile>> getAddOnFiles(AddOnFileKey... addOnFileKeys) throws RemoteException {
+		if (addOnFileKeys == null || addOnFileKeys.length == 0){
+			throw new IllegalArgumentException("addOnFileKeys");
+		}
+
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -4858,7 +4825,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFiles110, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFiles")), new QName("http://addonservice.curse.com/", "GetAddOnFiles"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOnFiles(addOnFileKeys), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFiles")), new QName("http://addonservice.curse.com/", "GetAddOnFiles"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -4874,9 +4841,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnFilesResponse.class);
+			GetAddOnFilesResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnFilesResponse.class);
 
-			return (GetAddOnFilesResponse) object;
+			return object.getGetAddOnFilesResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -4917,10 +4884,14 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOnFiles110
+	 * @param addOnFileKeys
 	 * @see AddOnService#startgetAddOnFiles
 	 */
-	public void startgetAddOnFiles(GetAddOnFiles getAddOnFiles110, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startgetAddOnFiles(AddOnFileKey[] addOnFileKeys, final AddOnServiceCallbackHandler callback) throws RemoteException {
+		if (addOnFileKeys == null || addOnFileKeys.length == 0){
+			throw new IllegalArgumentException("addOnFileKeys");
+		}
+
 		OperationClient _operationClient = _serviceClient.createClient(_operations[24].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOnFiles");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -4932,7 +4903,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOnFiles110, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFiles")), new QName("http://addonservice.curse.com/", "GetAddOnFiles"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOnFiles(addOnFileKeys), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOnFiles")), new QName("http://addonservice.curse.com/", "GetAddOnFiles"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -5019,10 +4990,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param v2GetAddOnDescription112
+	 * @param addonID
 	 * @see AddOnService#v2GetAddOnDescription
 	 */
-	public V2GetAddOnDescriptionResponse v2GetAddOnDescription(V2GetAddOnDescription v2GetAddOnDescription112) throws RemoteException {
+	public String v2GetAddOnDescription(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -5035,7 +5006,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOnDescription112, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOnDescription")), new QName("http://addonservice.curse.com/", "v2GetAddOnDescription"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetAddOnDescription(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOnDescription")), new QName("http://addonservice.curse.com/", "v2GetAddOnDescription"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -5051,9 +5022,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetAddOnDescriptionResponse.class);
+			V2GetAddOnDescriptionResponse object = fromOM(_returnEnv.getBody().getFirstElement(), V2GetAddOnDescriptionResponse.class);
 
-			return (V2GetAddOnDescriptionResponse) object;
+			return object.getV2GetAddOnDescriptionResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5094,10 +5065,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param v2GetAddOnDescription112
+	 * @param addonID
 	 * @see AddOnService#startv2GetAddOnDescription
 	 */
-	public void startv2GetAddOnDescription(V2GetAddOnDescription v2GetAddOnDescription112, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startv2GetAddOnDescription(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetAddOnDescription");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -5109,7 +5080,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), v2GetAddOnDescription112, optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOnDescription")), new QName("http://addonservice.curse.com/", "v2GetAddOnDescription"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new V2GetAddOnDescription(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "v2GetAddOnDescription")), new QName("http://addonservice.curse.com/", "v2GetAddOnDescription"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);
@@ -5373,10 +5344,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param getAddOn116
+	 * @param addonID
 	 * @see AddOnService#getAddOn
 	 */
-	public GetAddOnResponse getAddOn(GetAddOn getAddOn116) throws RemoteException {
+	public AddOn getAddOn(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -5389,7 +5360,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOn116, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOn")), new QName("http://addonservice.curse.com/", "GetAddOn"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOn(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOn")), new QName("http://addonservice.curse.com/", "GetAddOn"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -5405,9 +5376,9 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnResponse.class);
+			GetAddOnResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnResponse.class);
 
-			return (GetAddOnResponse) object;
+			return object.getGetAddOnResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5448,10 +5419,10 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 	/**
 	 * Auto generated method signature for Asynchronous Invocations
 	 *
-	 * @param getAddOn116
+	 * @param addonID
 	 * @see AddOnService#startgetAddOn
 	 */
-	public void startgetAddOn(GetAddOn getAddOn116, final AddOnServiceCallbackHandler callback) throws RemoteException {
+	public void startgetAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOn");
 		_operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
@@ -5463,7 +5434,7 @@ public class AddOnServiceStub extends Stub implements AddOnService {
 		final MessageContext _messageContext = new MessageContext();
 
 		//Style is Doc.
-		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getAddOn116, optimizeContent(new QName("http://addonservice.curse.com/", "getAddOn")), new QName("http://addonservice.curse.com/", "GetAddOn"));
+		env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetAddOn(addonID), optimizeContent(new QName("http://addonservice.curse.com/", "getAddOn")), new QName("http://addonservice.curse.com/", "GetAddOn"));
 
 		// adding SOAP soap_headers
 		_serviceClient.addHeadersToEnvelope(env);

@@ -62,11 +62,8 @@ import addons.curse.FuzzyMatch;
 import com.microsoft.schemas._2003._10.serialization.Duration;
 import com.microsoft.schemas._2003._10.serialization.Guid;
 import com.microsoft.schemas._2003._10.serialization._char;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfint;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOflong;
-import com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfstring;
-import com.microsoft.schemas._2003._10.serialization.arrays.KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0;
+import com.microsoft.schemas._2003._10.serialization.arrays.*;
+import com.microsoft.schemas._2003._10.serialization.arrays.KeyValuePair_int_AddonFileList;
 import com.microsoft.schemas.message.StreamBody;
 import org.apache.axis2.databinding.ADBException;
 import org.datacontract.schemas._2004._07.curse_addons.ArrayOfFolderFingerprint;
@@ -151,8 +148,8 @@ public class ExtensionMapper {
 			return _char.Factory.parse(reader);
 		}
 
-		if ("http://schemas.microsoft.com/2003/10/Serialization/Arrays".equals(namespaceURI) && "ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp".equals(typeName)) {
-			return ArrayOfKeyValueOfintArrayOfAddOnFileHlmYZPzp.Factory.parse(reader);
+		if ("http://schemas.microsoft.com/2003/10/Serialization/Arrays".equals(namespaceURI) && "ArrayOfKeyValue_int_AddOnFile".equals(typeName)) {
+			return ArrayOfKeyValue_int_AddOnFile.Factory.parse(reader);
 		}
 
 		if ("http://schemas.datacontract.org/2004/07/System.IO".equals(namespaceURI) && "ArrayOfDirectoryInfo".equals(typeName)) {
@@ -223,8 +220,8 @@ public class ExtensionMapper {
 			return ProjectStatus.Factory.parse(reader);
 		}
 
-		if ("http://schemas.microsoft.com/2003/10/Serialization/Arrays".equals(namespaceURI) && "KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0".equals(typeName)) {
-			return KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0.Factory.parse(reader);
+		if ("http://schemas.microsoft.com/2003/10/Serialization/Arrays".equals(namespaceURI) && "KeyValuePair_int_AddonFileList".equals(typeName)) {
+			return KeyValuePair_int_AddonFileList.Factory.parse(reader);
 		}
 
 		if ("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models".equals(namespaceURI) && "ServiceResponseStatus".equals(typeName)) {

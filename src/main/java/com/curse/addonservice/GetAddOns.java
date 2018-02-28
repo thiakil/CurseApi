@@ -67,7 +67,7 @@ public class GetAddOns implements ADBBean {
 	/**
 	 * field for Ids
 	 */
-	protected ArrayOfint localIds;
+	protected int[] localIds;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -78,7 +78,7 @@ public class GetAddOns implements ADBBean {
 	public GetAddOns() {
 	}
 
-	public GetAddOns(ArrayOfint ids) {
+	public GetAddOns(int[] ids) {
 		this.setIds(ids);
 	}
 
@@ -91,7 +91,7 @@ public class GetAddOns implements ADBBean {
 	 *
 	 * @return com.microsoft.schemas._2003._10.serialization.arrays.ArrayOfint
 	 */
-	public ArrayOfint getIds() {
+	public int[] getIds() {
 		return localIds;
 	}
 
@@ -100,7 +100,7 @@ public class GetAddOns implements ADBBean {
 	 *
 	 * @param param Ids
 	 */
-	public void setIds(ArrayOfint param) {
+	public void setIds(int[] param) {
 		localIdsTracker = true;
 
 		this.localIds = param;
@@ -145,7 +145,7 @@ public class GetAddOns implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localIds.serialize(new QName("http://addonservice.curse.com/", "ids"), xmlWriter);
+				ArrayOfint.serialize(new QName("http://addonservice.curse.com/", "ids"), xmlWriter, localIds);
 			}
 		}
 

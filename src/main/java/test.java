@@ -34,11 +34,14 @@ import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
 import com.thiakil.curseapi.login.RenewTokenResponse;
+import com.thiakil.curseapi.soap.AddOnService;
 import com.thiakil.curseapi.soap.AddOnServiceStub;
 import com.thiakil.curseapi.login.CurseAuth;
 import com.thiakil.curseapi.login.CurseAuthException;
 import com.thiakil.curseapi.login.CurseToken;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axis2.AxisFault;
+import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 import java.rmi.RemoteException;
 import java.util.List;
@@ -54,15 +57,18 @@ public class test {
 		try {
 			CurseToken token = CurseAuth.getTokenFromCurseAccount(args[0], args[1]);
 			//RenewTokenResponse res1 = CurseAuth.renewAccessToken(token.token);
-			AddOnServiceStub svc = new AddOnServiceStub(token);
-			List<AddOnFile> res = svc.getAllFilesForAddOn(269708);
+			AddOnService svc = AddOnService.initialise(token);
+			/*List<AddOnFile> res = svc.getAllFilesForAddOn(269708);
 			for (AddOnFile f : res) {
 				System.out.print(f.getFileName());
 				System.out.print(" : ");
 				System.out.println(f.getPackageFingerprint());
 			}
-			FingerprintMatchResult fingerprintMatchResult = svc.getFingerprintMatches(3752024154L);
-			System.out.println(fingerprintMatchResult.getExactMatches().get(0).getId());
+			FingerprintMatchResult fingerprintMatchResult = svc.v2GetFingerprintMatches(3752024154L);
+			System.out.println(fingerprintMatchResult.getExactMatches().get(0).getFile().getFileName());
+			System.out.println(svc.healthCheck());*/
+			Int2ObjectMap<List<AddOnFile>> map =  svc.getAddOnFiles(new AddOnFileKey(222836, 2535679), new AddOnFileKey(222836, 2316313), new AddOnFileKey(241596, 2350574));
+			System.out.println(map.size());
 		} catch (AxisFault e) {
 			System.err.println(e.getReason());
 			System.err.println(e);

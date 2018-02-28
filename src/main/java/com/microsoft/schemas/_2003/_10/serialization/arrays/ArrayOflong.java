@@ -133,6 +133,34 @@ public class ArrayOflong implements ADBBean {
 		serialize(parentQName, xmlWriter, false);
 	}
 
+	public static void serialize(final QName parentQName, XMLStreamWriter xmlWriter, long[] elements) throws XMLStreamException {
+		String prefix = null;
+		String namespace = null;
+
+		prefix = parentQName.getPrefix();
+		namespace = parentQName.getNamespaceURI();
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+		if (elements != null) {
+			namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays";
+
+			for (long aLocal_long : elements) {
+				if (aLocal_long != Long.MIN_VALUE) {
+					Util.writeStartElement(null, namespace, "long", xmlWriter);
+
+					xmlWriter.writeCharacters(ConverterUtil.convertToString(aLocal_long));
+					xmlWriter.writeEndElement();
+				} else {
+					// we have to do nothing since minOccurs is zero
+				}
+			}
+		} else {
+			throw new ADBException("long cannot be null!!");
+		}
+
+		xmlWriter.writeEndElement();
+	}
+
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
@@ -204,8 +232,8 @@ public class ArrayOflong implements ADBBean {
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
 		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static ArrayOflong parse(XMLStreamReader reader) throws Exception {
-			ArrayOflong object = new ArrayOflong();
+		public static long[] parse(XMLStreamReader reader) throws Exception {
+			long[] object = new long[0];
 
 			int event;
 			QName currentQName = null;
@@ -236,7 +264,7 @@ public class ArrayOflong implements ADBBean {
 							//find namespace for the prefix
 							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (ArrayOflong) ExtensionMapper.getTypeObject(nsUri, type, reader);
+							return (long[]) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -283,7 +311,7 @@ public class ArrayOflong implements ADBBean {
 					}
 
 					// call the converter utility  to convert and set the array
-					object.set_long((long[]) ConverterUtil.convertToArray(long.class, list1));
+					object = (long[]) ConverterUtil.convertToArray(long.class, list1);
 				} // End of if for expected property start element
 
 				else {

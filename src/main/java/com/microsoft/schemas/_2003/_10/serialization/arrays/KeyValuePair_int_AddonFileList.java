@@ -30,7 +30,7 @@
  */
 
 /**
- * KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0.java
+ * KeyValuePair_int_AddonFileList.java
  * <p>
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.7  Built on : Nov 20, 2017 (11:41:50 GMT)
@@ -38,10 +38,13 @@
 package com.microsoft.schemas._2003._10.serialization.arrays;
 
 
+import addons.curse.AddOn;
 import addons.curse.AddOnFile;
 import addons.curse.ArrayOfAddOnFile;
 import com.curse.addonservice.ExtensionMapper;
 import com.thiakil.curseapi.soap.Util;
+import it.unimi.dsi.fastutil.ints.AbstractInt2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axis2.databinding.ADBBean;
@@ -52,7 +55,6 @@ import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -61,12 +63,12 @@ import java.util.List;
 import java.util.Vector;
 
 /**
- * KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 bean class
+ * KeyValuePair_int_AddonFileList bean class
  */
 @SuppressWarnings({"unchecked", "unused"})
-public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
+public class KeyValuePair_int_AddonFileList implements ADBBean {
     /* This type was generated from the piece of schema that had
-       name = KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0
+       name = KeyValuePair_int_AddonFileList
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
        Namespace Prefix = ns3
      */
@@ -81,10 +83,10 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 	 */
 	protected List<AddOnFile> localValue;
 
-	public KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0() {
+	public KeyValuePair_int_AddonFileList() {
 	}
 
-	public KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0(int key, List<AddOnFile> value) {
+	public KeyValuePair_int_AddonFileList(int key, List<AddOnFile> value) {
 		this.setKey(key);
 		this.setValue(value);
 	}
@@ -138,6 +140,38 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 		serialize(parentQName, xmlWriter, false);
 	}
 
+	public static void serialize(final QName parentQName, XMLStreamWriter xmlWriter, Int2ObjectMap.Entry<List<AddOnFile>> entry) throws XMLStreamException {
+		String prefix = null;
+		String namespace = null;
+
+		prefix = parentQName.getPrefix();
+		namespace = parentQName.getNamespaceURI();
+		Util.writeStartElement(prefix, namespace, parentQName.getLocalPart(), xmlWriter);
+
+		namespace = "http://schemas.microsoft.com/2003/10/Serialization/Arrays";
+		Util.writeStartElement(null, namespace, "Key", xmlWriter);
+
+		if (entry.getIntKey() == Integer.MIN_VALUE) {
+			throw new ADBException("Key cannot be null!!");
+		} else {
+			xmlWriter.writeCharacters(ConverterUtil.convertToString(entry.getIntKey()));
+		}
+
+		xmlWriter.writeEndElement();
+
+		if (entry.getValue() == null) {
+			Util.writeStartElement(null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value", xmlWriter);
+
+			// write the nil attribute
+			Util.writeNil(xmlWriter);
+			xmlWriter.writeEndElement();
+		} else {
+			ArrayOfAddOnFile.Factory.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value"), xmlWriter, entry.getValue());
+		}
+
+		xmlWriter.writeEndElement();
+	}
+
 	public void serialize(final QName parentQName, XMLStreamWriter xmlWriter, boolean serializeType) throws XMLStreamException {
 		String prefix = null;
 		String namespace = null;
@@ -150,9 +184,9 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 			String namespacePrefix = Util.registerPrefix(xmlWriter, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
 
 			if ((namespacePrefix != null) && (namespacePrefix.trim().length() > 0)) {
-				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", namespacePrefix + ":KeyValuePair_int_AddonFileList", xmlWriter);
 			} else {
-				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0", xmlWriter);
+				Util.writeAttribute("xsi", "http://www.w3.org/2001/XMLSchema-instance", "type", "KeyValuePair_int_AddonFileList", xmlWriter);
 			}
 		}
 
@@ -211,8 +245,8 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 		 * Postcondition: If this object is an element, the reader is positioned at its end element
 		 * If this object is a complex type, the reader is positioned at the end element of its outer element
 		 */
-		public static KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 parse(XMLStreamReader reader) throws Exception {
-			KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 object = new KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0();
+		public static Int2ObjectMap.Entry<List<AddOnFile>> parse(XMLStreamReader reader) throws Exception {
+			KeyValuePair_int_AddonFileList object = new KeyValuePair_int_AddonFileList();
 
 			int event;
 			QName currentQName = null;
@@ -239,11 +273,11 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 
 						String type = fullTypeName.substring(fullTypeName.indexOf(":") + 1);
 
-						if (!"KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0".equals(type)) {
+						if (!"KeyValuePair_int_AddonFileList".equals(type)) {
 							//find namespace for the prefix
 							String nsUri = reader.getNamespaceContext().getNamespaceURI(nsPrefix);
 
-							return (KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0) ExtensionMapper.getTypeObject(nsUri, type, reader);
+							return (Int2ObjectMap.Entry<List<AddOnFile>>) ExtensionMapper.getTypeObject(nsUri, type, reader);
 						}
 					}
 				}
@@ -307,7 +341,7 @@ public class KeyValueOfintArrayOfAddOnFileHlmYZPzp_type0 implements ADBBean {
 				throw new Exception(e);
 			}
 
-			return object;
+			return new AbstractInt2ObjectMap.BasicEntry(object.localKey, object.localValue);
 		}
 	} //end of factory class
 }
