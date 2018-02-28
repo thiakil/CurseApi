@@ -60,7 +60,10 @@ public class BeanEnumAdaptor<T> extends TypeAdapter<T> {
 	
 	@Override
 	public void write(JsonWriter out, T value) throws IOException {
-		out.value(getIndex(value));
+		if (value != null)
+			out.value(getIndex(value));
+		else
+			out.nullValue();
 	}
 	
 	@Override

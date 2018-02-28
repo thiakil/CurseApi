@@ -108,16 +108,20 @@ public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
 	
 	static <T> void writeArray(JsonWriter out, List<T> list, TypeAdapter<T> adaptor) throws IOException {
 		out.beginArray();
-		for (T el : list){
-			adaptor.write(out, el);
+		if (list != null) {
+			for (T el : list) {
+				adaptor.write(out, el);
+			}
 		}
 		out.endArray();
 	}
 	
 	static void writeStringArray(JsonWriter out, List<String> list) throws IOException {
 		out.beginArray();
-		for (String el : list){
-			out.value(el);
+		if (list != null) {
+			for (String el : list) {
+				out.value(el);
+			}
 		}
 		out.endArray();
 	}
