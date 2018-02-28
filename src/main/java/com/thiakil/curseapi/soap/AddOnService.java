@@ -128,20 +128,20 @@ public interface AddOnService {
 	GetSecureDownloadTokenResponse getSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2) throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * See {@link #getSecureDownloadToken(com.curse.addonservice.GetSecureDownloadToken)}
 	 *
 	 * @param getSecureDownloadToken2 req params
 	 */
 	void startgetSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2, final AddOnServiceCallbackHandler callback) throws RemoteException;
 
 	/**
-	 * Auto generated method signature
+	 * Some kind of health check. "Success" is a known value.
 	 *
 	 */
 	String healthCheck() throws RemoteException;
 
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
+	 * See {@link #healthCheck())
 	 *
 	 */
 	void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException;
