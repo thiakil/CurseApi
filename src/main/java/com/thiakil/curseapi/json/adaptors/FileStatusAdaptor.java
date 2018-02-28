@@ -14,6 +14,19 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Additional permission under GNU GPL version 3 section 7
+ *
+ * This library may be dynamically linked against (used as a dependency) in any project licenced under terms requiring complete
+ * source code availability (a "FREE SOFTWARE LICENCE" https://www.gnu.org/philosophy/free-sw.html), such as the Apache License(s),
+ * without the using project being required to be GPL licenced. This library remains GPL licenced and any modifications to this
+ * library must still be made under the terms of the GPL. Bundling of the compiled binary class files ("fat jars") is permitted
+ * for OPEN SOURCE projects, provided no modifications have been made (in which case source code for modifications must be available).
+ *
+ * Repackaging (sometimes known as "shading") where ONLY the package names are changed to avoid conflicts requires the configuration
+ * and instructions for the method of repackaging to be made available in the same manner as source code.
+ *
+ * You may NOT use this library in a closed source project under any circumstance.
  */
 
 package com.thiakil.curseapi.json.adaptors;
