@@ -193,6 +193,8 @@
                         class="org.apache.axis2.builder.XFormURLEncodedBuilder"/>
         <messageBuilder contentType="multipart/form-data"
                         class="org.apache.axis2.builder.MultipartFormDataBuilder"/>
+        <messageBuilder contentType="application/soap+xml" class="com.thiakil.curseapi.soap.CustomSoapBuilder" />
+        <messageBuilder contentType="text/xml" class="com.thiakil.curseapi.soap.CustomSoapBuilder" />
     </messageBuilders>
 
     <!-- ================================================= -->
