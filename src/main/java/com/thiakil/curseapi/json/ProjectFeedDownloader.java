@@ -188,7 +188,7 @@ public class ProjectFeedDownloader {
 		}
 		System.out.println("Start hourly sync");
 		long txtHourlyStamp = getTimestamp("hourly.json.bz2.txt");
-		if (hourlyTimeStamp == -1 || hourlyTimeStamp != txtHourlyStamp){
+		if (hourlyTimeStamp == -1 || (hourlyTimeStamp != txtHourlyStamp && txtHourlyStamp > txtCompleteStamp)){
 			InputStream hourlyFeed = new BZip2CompressorInputStream(downloadToCache(getUrl("hourly.json.bz2")));
 			ProjectFeed feed = ProjectFeed.GSON.fromJson(new InputStreamReader(hourlyFeed), ProjectFeed.class);
 			if (feed.getTimestamp() != hourlyTimeStamp) {//no point replacing if the json says its the same
