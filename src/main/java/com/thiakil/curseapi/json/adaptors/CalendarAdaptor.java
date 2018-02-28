@@ -38,9 +38,11 @@ import org.apache.axis2.databinding.utils.ConverterUtil;
 
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.regex.Pattern;
 
 public class CalendarAdaptor extends TypeAdapter<Calendar> {
 	public static final CalendarAdaptor INSTANCE = new CalendarAdaptor();
+	private static final Pattern tzPattern = Pattern.compile("[-+]\\d+(:\\d+)?$");
 	
 	@Override
 	public void write(JsonWriter out, Calendar value) throws IOException {
@@ -49,6 +51,12 @@ public class CalendarAdaptor extends TypeAdapter<Calendar> {
 	
 	@Override
 	public Calendar read(JsonReader in) throws IOException {
-		return ConverterUtil.convertToDateTime(ProjectFeedAdaptor.readStringOrNull(in));
+		String timeStr = ProjectFeedAdaptor.readStringOrNull(in);
+		if (timeStr.equals("")){
+			return null;
+		} else if (!timeStr.endsWith("Z") && !tzPattern.matcher(timeStr).find()){
+			timeStr += "Z";
+		}
+		return ConverterUtil.convertToDateTime(timeStr);
 	}
 }
