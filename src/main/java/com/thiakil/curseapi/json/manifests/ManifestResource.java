@@ -31,11 +31,14 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.thiakil.curseapi.json.adaptors.ManifestResourceAdaptor;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 /**
  * Created by Thiakil on 25/02/2018.
  */
+@JsonAdapter(ManifestResourceAdaptor.class)
 public class ManifestResource {
 	//json prop = projectID
 	public int projectID;

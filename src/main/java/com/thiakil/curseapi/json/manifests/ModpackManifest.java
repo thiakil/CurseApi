@@ -31,11 +31,17 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.thiakil.curseapi.json.adaptors.ModpackManifestAdaptor;
+import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
+
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Thiakil on 25/02/2018.
  */
+@JsonAdapter(ModpackManifestAdaptor.class)
 public class ModpackManifest {
 
 	//manifestType
@@ -64,5 +70,13 @@ public class ModpackManifest {
 	
 	//overrides
 	public String overrides;
+	
+	/**
+	 * Maps the {@link #files} elements to {@link AddOnFileKey} instances
+	 * @return the list of file keys
+	 */
+	public List<AddOnFileKey> getFileKeys(){
+		return files.stream().map(ManifestResource::toAddOnFileKey).collect(Collectors.toList());
+	}
 
 }

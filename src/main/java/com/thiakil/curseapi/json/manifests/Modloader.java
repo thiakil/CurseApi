@@ -31,9 +31,13 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.thiakil.curseapi.json.adaptors.ModloaderAdaptor;
+
 /**
  * Created by Thiakil on 25/02/2018.
  */
+@JsonAdapter(ModloaderAdaptor.class)
 public class Modloader {
 
 	public String id;

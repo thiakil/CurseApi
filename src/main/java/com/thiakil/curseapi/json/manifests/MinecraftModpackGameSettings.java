@@ -31,12 +31,16 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.thiakil.curseapi.json.adaptors.MinecraftModpackGameSettingsAdaptor;
+
 import java.util.List;
 import java.util.Map;
 
 /**
  * Created by Thiakil on 25/02/2018.
  */
+@JsonAdapter(MinecraftModpackGameSettingsAdaptor.class)
 public class MinecraftModpackGameSettings {
 	public String version;
 

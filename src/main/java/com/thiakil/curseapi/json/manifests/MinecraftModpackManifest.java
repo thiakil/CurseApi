@@ -31,9 +31,13 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import com.google.gson.annotations.JsonAdapter;
+import com.thiakil.curseapi.json.adaptors.MinecraftModpackManifestAdaptor;
+
 /**
  * Created by Thiakil on 25/02/2018.
  */
+@JsonAdapter(MinecraftModpackManifestAdaptor.class)
 public class MinecraftModpackManifest extends ModpackManifest {
 	public MinecraftModpackGameSettings minecraft;
 }
