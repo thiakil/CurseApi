@@ -128,12 +128,7 @@ jar.doLast {
 task incrementBuildNumber(group: "Build") {
     doLast {
         if (!versionPropsFile.canRead()) {
-            //throw new FileNotFoundException("Could not read version.properties!")
-            def Properties versionProps = new Properties()
-            versionProps['VERSION_BUILD'] = "1"
-            def writer = versionPropsFile.newWriter()
-            versionProps.store(writer, null)
-            writer.close()
+            throw new FileNotFoundException("Could not read version.properties!")
         }
         def Properties versionProps = new Properties()
         versionProps.load(new FileInputStream(versionPropsFile))
