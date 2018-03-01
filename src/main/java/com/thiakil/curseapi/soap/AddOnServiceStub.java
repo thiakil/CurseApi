@@ -133,6 +133,7 @@ import org.apache.axis2.wsdl.WSDLConstants;
 import org.apache.neethi.Policy;
 import org.apache.neethi.PolicyEngine;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
+import org.datacontract.schemas._2004._07.system_io.DirectoryInfo;
 
 import javax.xml.namespace.QName;
 import java.io.StringReader;
@@ -4631,7 +4632,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 	 * @param listFeeds108
 	 * @see AddOnService#listFeeds
 	 */
-	public ListFeedsResponse listFeeds(ListFeeds listFeeds108) throws RemoteException {
+	public DirectoryInfo[] listFeeds() throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -4644,7 +4645,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), listFeeds108, optimizeContent(new QName("http://addonservice.curse.com/", "listFeeds")), new QName("http://addonservice.curse.com/", "ListFeeds"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new ListFeeds(), optimizeContent(new QName("http://addonservice.curse.com/", "listFeeds")), new QName("http://addonservice.curse.com/", "ListFeeds"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -4659,10 +4660,10 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
+			
+			ListFeedsResponse object = fromOM(_returnEnv.getBody().getFirstElement(), ListFeedsResponse.class);
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), ListFeedsResponse.class);
-
-			return (ListFeedsResponse) object;
+			return object.getListFeedsResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 

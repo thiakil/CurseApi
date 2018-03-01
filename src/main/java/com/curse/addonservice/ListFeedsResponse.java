@@ -49,6 +49,7 @@ import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.datacontract.schemas._2004._07.system_io.ArrayOfDirectoryInfo;
+import org.datacontract.schemas._2004._07.system_io.DirectoryInfo;
 
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
@@ -67,7 +68,7 @@ public class ListFeedsResponse implements ADBBean {
 	/**
 	 * field for ListFeedsResult
 	 */
-	protected ArrayOfDirectoryInfo localListFeedsResult;
+	protected DirectoryInfo[] localListFeedsResult;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
@@ -78,7 +79,7 @@ public class ListFeedsResponse implements ADBBean {
 	public ListFeedsResponse() {
 	}
 
-	public ListFeedsResponse(ArrayOfDirectoryInfo listFeedsResult) {
+	public ListFeedsResponse(DirectoryInfo[] listFeedsResult) {
 		this.setListFeedsResult(listFeedsResult);
 	}
 
@@ -91,7 +92,7 @@ public class ListFeedsResponse implements ADBBean {
 	 *
 	 * @return org.datacontract.schemas._2004._07.system_io.ArrayOfDirectoryInfo
 	 */
-	public ArrayOfDirectoryInfo getListFeedsResult() {
+	public DirectoryInfo[] getListFeedsResult() {
 		return localListFeedsResult;
 	}
 
@@ -100,7 +101,7 @@ public class ListFeedsResponse implements ADBBean {
 	 *
 	 * @param param ListFeedsResult
 	 */
-	public void setListFeedsResult(ArrayOfDirectoryInfo param) {
+	public void setListFeedsResult(DirectoryInfo[] param) {
 		localListFeedsResultTracker = true;
 
 		this.localListFeedsResult = param;
@@ -145,7 +146,7 @@ public class ListFeedsResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localListFeedsResult.serialize(new QName("http://addonservice.curse.com/", "ListFeedsResult"), xmlWriter);
+				ArrayOfDirectoryInfo.serialize(new QName("http://addonservice.curse.com/", "ListFeedsResult"), xmlWriter, localListFeedsResult);
 			}
 		}
 

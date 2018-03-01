@@ -63,8 +63,6 @@ import com.curse.addonservice.JoinSyncGroup;
 import com.curse.addonservice.JoinSyncGroupResponse;
 import com.curse.addonservice.LeaveSyncGroup;
 import com.curse.addonservice.LeaveSyncGroupResponse;
-import com.curse.addonservice.ListFeeds;
-import com.curse.addonservice.ListFeedsResponse;
 import com.curse.addonservice.LogDump;
 import com.curse.addonservice.LogDumpResponse;
 import com.curse.addonservice.ResetAllAddonCache;
@@ -84,6 +82,7 @@ import com.thiakil.curseapi.login.CurseToken;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axis2.AxisFault;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
+import org.datacontract.schemas._2004._07.system_io.DirectoryInfo;
 
 import java.rmi.RemoteException;
 import java.util.List;
@@ -267,9 +266,8 @@ public interface AddOnService {
 	/**
 	 * Auto generated method signature
 	 *
-	 * @param listFeeds46
 	 */
-	ListFeedsResponse listFeeds(ListFeeds listFeeds46) throws RemoteException;
+	DirectoryInfo[] listFeeds() throws RemoteException;
 	
 	/**
 	 * Get a map of addonID -> AddOnFile List for the ids supplied
