@@ -145,7 +145,7 @@ import java.util.List;
 /*
  *  AddOnServiceStub java implementation
  */
-public class AddOnServiceStub extends Stub implements AddOnService {
+public class AddOnServiceStub extends Stub implements AddOnService, AddOnServiceAync {
 	private static int counter = 0;
 	protected AxisOperation[] _operations;
 

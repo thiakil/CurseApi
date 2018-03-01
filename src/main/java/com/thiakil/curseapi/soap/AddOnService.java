@@ -98,41 +98,20 @@ public interface AddOnService {
 	 * @param createSyncGroup0 Sync Group params
 	 */
 	CreateSyncGroupResponse createSyncGroup(CreateSyncGroup createSyncGroup0) throws RemoteException;
-
-	/**
-	 * Async. Unknown usage
-	 *
-	 * @param createSyncGroup0 Sync Group params
-	 * @param callback - Async callback handler
-	 */
-	void startcreateSyncGroup(CreateSyncGroup createSyncGroup0, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Gets some sort of download token?
 	 *
 	 * @param getSecureDownloadToken2 req params
 	 */
 	GetSecureDownloadTokenResponse getSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2) throws RemoteException;
-
-	/**
-	 * See {@link #getSecureDownloadToken(com.curse.addonservice.GetSecureDownloadToken)}
-	 *
-	 * @param getSecureDownloadToken2 req params
-	 */
-	void startgetSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken2, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Some kind of health check. "Success" is a known value.
 	 *
 	 */
 	String healthCheck() throws RemoteException;
-
-	/**
-	 * See {@link #healthCheck())
-	 *
-	 */
-	void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Find file matches for a series of {@link Murmur2Hash#computeNormalizedFileHash(java.lang.String)} fingerprints/hashes
 	 *
@@ -143,66 +122,31 @@ public interface AddOnService {
 	 */
 	@Deprecated
 	FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException;
-
-	/**
-	 * Async version of {@link #getFingerprintMatches(long...)}
-	 *
-	 * @param fingerprints fingerprints to check.
-	 *
-	 * @param callback async callback handler
-	 * @deprecated See {@link #startv2GetFingerprintMatches(long[], AddOnServiceCallbackHandler)}
-	 */
-	@Deprecated
-	void startgetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Unknown method
 	 */
 	SaveSyncTransactionsResponse saveSyncTransactions(SaveSyncTransactions saveSyncTransactions8) throws RemoteException;
-
-	/**
-	 * Unknown method
-	 */
-	void startsaveSyncTransactions(SaveSyncTransactions saveSyncTransactions8, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Unknown method
 	 */
 	GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10) throws RemoteException;
-
-	/**
-	 * Unknown method
-	 */
-	void startgetRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param fingerprints
 	 */
 	FingerprintMatchResult v2GetFingerprintMatches(long... fingerprints) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param fingerprints
-	 */
-	void startv2GetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param cacheHealthCheck14
 	 */
 	CacheHealthCheckResponse cacheHealthCheck(CacheHealthCheck cacheHealthCheck14) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param cacheHealthCheck14
-	 */
-	void startcacheHealthCheck(CacheHealthCheck cacheHealthCheck14, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
@@ -212,73 +156,35 @@ public interface AddOnService {
 	 */
 	@Deprecated
 	GetAddOnDescriptionResponse getAddOnDescription(GetAddOnDescription getAddOnDescription16) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getAddOnDescription16
-	 *
-	 * @deprecated See {@link #startv2GetAddOnDescription(int, AddOnServiceCallbackHandler)}
-	 */
-	@Deprecated
-	void startgetAddOnDescription(GetAddOnDescription getAddOnDescription16, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param resetFeeds18
 	 */
 	ResetFeedsResponse resetFeeds(ResetFeeds resetFeeds18) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetFeeds18
-	 */
-	void startresetFeeds(ResetFeeds resetFeeds18, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param leaveSyncGroup20
 	 */
 	LeaveSyncGroupResponse leaveSyncGroup(LeaveSyncGroup leaveSyncGroup20) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param leaveSyncGroup20
-	 */
-	void startleaveSyncGroup(LeaveSyncGroup leaveSyncGroup20, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param saveSyncSnapshot22
 	 */
 	SaveSyncSnapshotResponse saveSyncSnapshot(SaveSyncSnapshot saveSyncSnapshot22) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param saveSyncSnapshot22
-	 */
-	void startsaveSyncSnapshot(SaveSyncSnapshot saveSyncSnapshot22, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param getAddOnDump24
 	 */
 	GetAddOnDumpResponse getAddOnDump(GetAddOnDump getAddOnDump24) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getAddOnDump24
-	 */
-	void startgetAddOnDump(GetAddOnDump getAddOnDump24, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
@@ -288,31 +194,14 @@ public interface AddOnService {
 	 */
 	@Deprecated
 	List<AddOn> getAddOns(int... addonIDs) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonIDs
-	 *
-	 * @deprecated see {@link #startv2GetAddOns(int[], AddOnServiceCallbackHandler)}
-	 */
-	@Deprecated
-	void startgetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param getDownloadToken28
 	 */
 	GetDownloadTokenResponse getDownloadToken(GetDownloadToken getDownloadToken28) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getDownloadToken28
-	 */
-	void startgetDownloadToken(GetDownloadToken getDownloadToken28, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
@@ -320,29 +209,14 @@ public interface AddOnService {
 	 * @param fileID
 	 */
 	String v2GetChangeLog(int addonID, int fileID) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 * @param fileID
-	 */
-	void startv2GetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Get a list of addons by IDs
 	 *
 	 * @param addonIDs the addons you want
 	 */
 	List<AddOn> v2GetAddOns(int... addonIDs) throws RemoteException;
-
-	/**
-	 * Get a list of addons by IDs
-	 *
-	 * @param addonIDs the addons you want
-	 */
-	void startv2GetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Retrieve a single AddOnFile by IDs
 	 *
@@ -350,15 +224,7 @@ public interface AddOnService {
 	 * @param fileID file's ID
 	 */
 	AddOnFile getAddOnFile(int addonID, int fileID) throws RemoteException;
-
-	/**
-	 * Retrieve a single AddOnFile by IDs
-	 *
-	 * @param addonID addon's ID
-	 * @param fileID file's ID
-	 */
-	void startgetAddOnFile(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Get the changelog for a single file
 	 *
@@ -369,102 +235,49 @@ public interface AddOnService {
 	 */
 	@Deprecated
 	String getChangeLog(int addonID, int fileID) throws RemoteException;
-
-	/**
-	 * Get the changelog for a single file
-	 *
-	 * @param addonID addon's ID
-	 * @param fileID file's ID
-	 *
-	 * @deprecated See {@link #startv2GetChangeLog(int, int, AddOnServiceCallbackHandler)}
-	 */
-	@Deprecated
-	void startgetChangeLog(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param getSyncProfile38
 	 */
 	GetSyncProfileResponse getSyncProfile(GetSyncProfile getSyncProfile38) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getSyncProfile38
-	 */
-	void startgetSyncProfile(GetSyncProfile getSyncProfile38, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Get a list of all the file for an addon
 	 *
 	 * @param addonID
 	 */
 	List<AddOnFile> getAllFilesForAddOn(int addonID) throws RemoteException;
-
-	/**
-	 * Get a list of all the file for an addon
-	 *
-	 * @param addonID
-	 */
-	void startgetAllFilesForAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param getFuzzyMatches42
 	 */
 	GetFuzzyMatchesResponse getFuzzyMatches(GetFuzzyMatches getFuzzyMatches42) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getFuzzyMatches42
-	 */
-	void startgetFuzzyMatches(GetFuzzyMatches getFuzzyMatches42, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param joinSyncGroup44
 	 */
 	JoinSyncGroupResponse joinSyncGroup(JoinSyncGroup joinSyncGroup44) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param joinSyncGroup44
-	 */
-	void startjoinSyncGroup(JoinSyncGroup joinSyncGroup44, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param listFeeds46
 	 */
 	ListFeedsResponse listFeeds(ListFeeds listFeeds46) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param listFeeds46
-	 */
-	void startlistFeeds(ListFeeds listFeeds46, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Get a map of addonID -> AddOnFile List for the ids supplied
 	 *
 	 * @param addOnFileKeys int id pairs of addon & file
 	 */
 	Int2ObjectMap<List<AddOnFile>> getAddOnFiles(AddOnFileKey... addOnFileKeys) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addOnFileKeys
-	 */
-	void startgetAddOnFiles(AddOnFileKey[] addOnFileKeys, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Get description for addon
 	 *
@@ -472,88 +285,52 @@ public interface AddOnService {
 	 * @return the description
 	 */
 	String v2GetAddOnDescription(int addonID) throws RemoteException;
-
-	/**
-	 * Get description for addon
-	 *
-	 * @param addonID id for which to retrieve the description
-	 */
-	void startv2GetAddOnDescription(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param resetSingleAddonCache52
 	 */
 	ResetSingleAddonCacheResponse resetSingleAddonCache(ResetSingleAddonCache resetSingleAddonCache52) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetSingleAddonCache52
-	 */
-	void startresetSingleAddonCache(ResetSingleAddonCache resetSingleAddonCache52, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param addonID
 	 */
 	AddOn getAddOn(int addonID) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 */
-	void startgetAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param logDump56
 	 */
 	LogDumpResponse logDump(LogDump logDump56) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param logDump56
-	 */
-	void startlogDump(LogDump logDump56, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param serviceHealthCheck58
 	 */
 	ServiceHealthCheckResponse serviceHealthCheck(ServiceHealthCheck serviceHealthCheck58) throws RemoteException;
-
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param serviceHealthCheck58
-	 */
-	void startserviceHealthCheck(ServiceHealthCheck serviceHealthCheck58, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
+	
 	/**
 	 * Auto generated method signature
 	 *
 	 * @param resetAllAddonCache60
 	 */
 	ResetAllAddonCacheResponse resetAllAddonCache(ResetAllAddonCache resetAllAddonCache60) throws RemoteException;
-
+	
 	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetAllAddonCache60
+	 * Note that the provided service implements BOTH Sync and Async interfaces
 	 */
-	void startresetAllAddonCache(ResetAllAddonCache resetAllAddonCache60, final AddOnServiceCallbackHandler callback) throws RemoteException;
-
 	static AddOnService initialise(CurseToken auth) throws AxisFault {
 		return new AddOnServiceStub(auth);
 	}
-
+	
+	/**
+	 * Note that the provided service implements BOTH Sync and Async interfaces
+	 */
 	static AddOnService initialise(CurseToken auth, String targetEndpoint) throws AxisFault {
 		return new AddOnServiceStub(auth, targetEndpoint);
 	}
