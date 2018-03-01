@@ -1,7 +1,21 @@
 apply plugin: 'java'
 
+def versionPropsFile = file('version.properties')
+def versionBuild
+
+/*Setting default value for versionBuild which is the last incremented value stored in the file */
+if (versionPropsFile.canRead()) {
+    def Properties versionProps = new Properties()
+    def strm = new FileInputStream(versionPropsFile)
+    versionProps.load(strm)
+    strm.close()
+    versionBuild = versionProps['VERSION_BUILD']
+} else {
+    versionBuild = "HOMEBAKED"
+}
+
 group = "com.thiakil"
-version = "1.0"
+version = "1.0.${versionBuild}"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -108,5 +122,22 @@ jar.doLast {
             )
         }
 
+    }
+}
+
+task incrementBuildNumber(group: "Build") {
+    doLast {
+        if (versionPropsFile.canRead()) {
+            def Properties versionProps = new Properties()
+            versionProps.load(new FileInputStream(versionPropsFile))
+            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+            versionProps['VERSION_BUILD'] = versionBuild.toString()
+            def writer = versionPropsFile.newWriter()
+            versionProps.store(writer, null)
+            writer.close()
+            project.version = "1.0.${versionBuild}"
+        } else {
+            throw new FileNotFoundException("Could not read version.properties!")
+        }
     }
 }
