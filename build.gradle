@@ -40,6 +40,7 @@ dependencies {
     compile 'org.apache.httpcomponents:httpclient-cache:4.5.4'
     compile "org.apache.commons:commons-compress:1.16.1"
     compile 'it.unimi.dsi:fastutil:8.1.1'
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
 }
 
 configurations{

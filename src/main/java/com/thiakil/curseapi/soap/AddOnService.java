@@ -53,8 +53,6 @@ import com.curse.addonservice.GetDownloadToken;
 import com.curse.addonservice.GetDownloadTokenResponse;
 import com.curse.addonservice.GetFuzzyMatches;
 import com.curse.addonservice.GetFuzzyMatchesResponse;
-import com.curse.addonservice.GetRepositoryMatchFromSlug;
-import com.curse.addonservice.GetRepositoryMatchFromSlugResponse;
 import com.curse.addonservice.GetSecureDownloadToken;
 import com.curse.addonservice.GetSecureDownloadTokenResponse;
 import com.curse.addonservice.GetSyncProfile;
@@ -81,9 +79,12 @@ import com.thiakil.curseapi.Murmur2Hash;
 import com.thiakil.curseapi.login.CurseToken;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axis2.AxisFault;
+import org.datacontract.schemas._2004._07.curse_addons.RepositoryMatch;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 import org.datacontract.schemas._2004._07.system_io.DirectoryInfo;
 
+import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -109,6 +110,7 @@ public interface AddOnService {
 	 * Some kind of health check. "Success" is a known value.
 	 *
 	 */
+	@CheckForNull
 	String healthCheck() throws RemoteException;
 	
 	/**
@@ -120,6 +122,7 @@ public interface AddOnService {
 	 * @deprecated See {@link #v2GetFingerprintMatches(long...)}
 	 */
 	@Deprecated
+	@CheckForNull
 	FingerprintMatchResult getFingerprintMatches(long... fingerprints) throws RemoteException;
 	
 	/**
@@ -129,15 +132,20 @@ public interface AddOnService {
 	
 	/**
 	 * Unknown method
+	 * @param gameSlug
+	 * @param addonSlug
 	 */
-	GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug10) throws RemoteException;
+	@CheckForNull
+	RepositoryMatch getRepositoryMatchFromSlug(String gameSlug, String addonSlug) throws RemoteException;
 	
 	/**
-	 * Auto generated method signature
+	 * Find file matches for a series of {@link Murmur2Hash#computeNormalizedFileHash(java.lang.String)} fingerprints/hashes
 	 *
-	 * @param fingerprints
+	 * @param fingerprints fingerprints to check.
+	 * @return {@link FingerprintMatchResult} with the resulting matches
 	 */
-	FingerprintMatchResult v2GetFingerprintMatches(long... fingerprints) throws RemoteException;
+	@CheckForNull
+	FingerprintMatchResult v2GetFingerprintMatches(@Nonnull long... fingerprints) throws RemoteException;
 	
 	/**
 	 * Auto generated method signature
@@ -207,6 +215,7 @@ public interface AddOnService {
 	 * @param addonID
 	 * @param fileID
 	 */
+	@CheckForNull
 	String v2GetChangeLog(int addonID, int fileID) throws RemoteException;
 	
 	/**
@@ -214,7 +223,8 @@ public interface AddOnService {
 	 *
 	 * @param addonIDs the addons you want
 	 */
-	List<AddOn> v2GetAddOns(int... addonIDs) throws RemoteException;
+	@CheckForNull
+	List<AddOn> v2GetAddOns(@Nonnull int... addonIDs) throws RemoteException;
 	
 	/**
 	 * Retrieve a single AddOnFile by IDs
@@ -222,6 +232,7 @@ public interface AddOnService {
 	 * @param addonID addon's ID
 	 * @param fileID file's ID
 	 */
+	@CheckForNull
 	AddOnFile getAddOnFile(int addonID, int fileID) throws RemoteException;
 	
 	/**
@@ -247,6 +258,7 @@ public interface AddOnService {
 	 *
 	 * @param addonID
 	 */
+	@CheckForNull
 	List<AddOnFile> getAllFilesForAddOn(int addonID) throws RemoteException;
 	
 	/**
@@ -267,6 +279,7 @@ public interface AddOnService {
 	 * Auto generated method signature
 	 *
 	 */
+	@CheckForNull
 	DirectoryInfo[] listFeeds() throws RemoteException;
 	
 	/**
@@ -274,6 +287,7 @@ public interface AddOnService {
 	 *
 	 * @param addOnFileKeys int id pairs of addon & file
 	 */
+	@CheckForNull
 	Int2ObjectMap<List<AddOnFile>> getAddOnFiles(AddOnFileKey... addOnFileKeys) throws RemoteException;
 	
 	/**
@@ -282,6 +296,7 @@ public interface AddOnService {
 	 * @param addonID id for which to retrieve the description
 	 * @return the description
 	 */
+	@CheckForNull
 	String v2GetAddOnDescription(int addonID) throws RemoteException;
 	
 	/**
@@ -296,6 +311,7 @@ public interface AddOnService {
 	 *
 	 * @param addonID
 	 */
+	@CheckForNull
 	AddOn getAddOn(int addonID) throws RemoteException;
 	
 	/**
@@ -322,14 +338,16 @@ public interface AddOnService {
 	/**
 	 * Note that the provided service implements BOTH Sync and Async interfaces
 	 */
-	static AddOnService initialise(CurseToken auth) throws AxisFault {
+	@Nonnull
+	static AddOnService initialise(@Nonnull CurseToken auth) throws AxisFault {
 		return new AddOnServiceStub(auth);
 	}
 	
 	/**
 	 * Note that the provided service implements BOTH Sync and Async interfaces
 	 */
-	static AddOnService initialise(CurseToken auth, String targetEndpoint) throws AxisFault {
+	@Nonnull
+	static AddOnService initialise(@Nonnull CurseToken auth, @Nonnull String targetEndpoint) throws AxisFault {
 		return new AddOnServiceStub(auth, targetEndpoint);
 	}
 }

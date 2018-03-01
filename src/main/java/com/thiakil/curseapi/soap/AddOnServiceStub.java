@@ -29,12 +29,7 @@
  * You may NOT use this library in a closed source project under any circumstance.
  */
 
-/**
- * AddOnServiceStub.java
- * <p>
- * This file was auto-generated from WSDL
- * by the Apache Axis2 version: 1.7.7  Built on : Nov 20, 2017 (11:41:20 GMT)
- */
+
 package com.thiakil.curseapi.soap;
 
 
@@ -132,9 +127,11 @@ import org.apache.axis2.util.Utils;
 import org.apache.axis2.wsdl.WSDLConstants;
 import org.apache.neethi.Policy;
 import org.apache.neethi.PolicyEngine;
+import org.datacontract.schemas._2004._07.curse_addons.RepositoryMatch;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 import org.datacontract.schemas._2004._07.system_io.DirectoryInfo;
 
+import javax.annotation.Nonnull;
 import javax.xml.namespace.QName;
 import java.io.StringReader;
 import java.lang.reflect.Constructor;
@@ -158,16 +155,12 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 	/////////////////////////////////////////////////////////////////////////
 	private QName[] opNameArray = null;
 
-	/**
-	 * Constructor that takes in a configContext
-	 */
+	
 	AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint) throws AxisFault {
 		this(auth, configurationContext, targetEndpoint, false);
 	}
 
-	/**
-	 * Constructor that takes in a configContext  and useseperate listner
-	 */
+	
 	AddOnServiceStub(CurseToken auth, ConfigurationContext configurationContext, String targetEndpoint, boolean useSeparateListener) throws AxisFault {
 		//To populate AxisService
 		populateAxisService();
@@ -210,9 +203,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		this(auth, "https://addons.forgesvc.net/AddOnService.svc/soap12");
 	}
 
-	/**
-	 * Constructor taking the target endpoint
-	 */
+	
 	AddOnServiceStub(CurseToken auth, String targetEndpoint) throws AxisFault {
 		this(auth, null, targetEndpoint);
 	}
@@ -584,12 +575,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 	private void populateFaults() {
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param createSyncGroup62
-	 * @see AddOnService#createSyncGroup
-	 */
+	
 	public CreateSyncGroupResponse createSyncGroup(CreateSyncGroup createSyncGroup62) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -619,9 +605,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), CreateSyncGroupResponse.class);
-
-			return (CreateSyncGroupResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), CreateSyncGroupResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -659,12 +643,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param createSyncGroup62
-	 * @see AddOnService#startcreateSyncGroup
-	 */
+	
 	public void startcreateSyncGroup(CreateSyncGroup createSyncGroup62, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/CreateSyncGroup");
@@ -761,12 +740,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getSecureDownloadToken64
-	 * @see AddOnService#getSecureDownloadToken
-	 */
+	
 	public GetSecureDownloadTokenResponse getSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken64) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -796,9 +770,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetSecureDownloadTokenResponse.class);
-
-			return (GetSecureDownloadTokenResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetSecureDownloadTokenResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -836,12 +808,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getSecureDownloadToken64
-	 * @see AddOnService#startgetSecureDownloadToken
-	 */
+	
 	public void startgetSecureDownloadToken(GetSecureDownloadToken getSecureDownloadToken64, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[1].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetSecureDownloadToken");
@@ -938,11 +905,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @see AddOnService#healthCheck
-	 */
+	
 	public String healthCheck() throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -1012,11 +975,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @see AddOnService#starthealthCheck
-	 */
+	
 	public void starthealthCheck(final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[2].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/HealthCheck");
@@ -1150,7 +1109,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 
 			GetFingerprintMatchesResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetFingerprintMatchesResponse.class);
 
-			return object.isGetFingerprintMatchesResultSpecified() ? object.getGetFingerprintMatchesResult() : new FingerprintMatchResult();
+			return object.getGetFingerprintMatchesResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -1289,12 +1248,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param saveSyncTransactions70
-	 * @see AddOnService#saveSyncTransactions
-	 */
+	
 	public SaveSyncTransactionsResponse saveSyncTransactions(SaveSyncTransactions saveSyncTransactions70) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -1324,9 +1278,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), SaveSyncTransactionsResponse.class);
-
-			return (SaveSyncTransactionsResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), SaveSyncTransactionsResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -1364,12 +1316,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param saveSyncTransactions70
-	 * @see AddOnService#startsaveSyncTransactions
-	 */
+	
 	public void startsaveSyncTransactions(SaveSyncTransactions saveSyncTransactions70, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[4].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/SaveSyncTransactions");
@@ -1466,13 +1413,8 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getRepositoryMatchFromSlug72
-	 * @see AddOnService#getRepositoryMatchFromSlug
-	 */
-	public GetRepositoryMatchFromSlugResponse getRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug72) throws RemoteException {
+	
+	public RepositoryMatch getRepositoryMatchFromSlug(String gameSlug, String addonSlug) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -1485,7 +1427,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			// create SOAP envelope with that payload
 			SOAPEnvelope env;
 
-			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), getRepositoryMatchFromSlug72, optimizeContent(new QName("http://addonservice.curse.com/", "getRepositoryMatchFromSlug")), new QName("http://addonservice.curse.com/", "GetRepositoryMatchFromSlug"));
+			env = toEnvelope(getFactory(_operationClient.getOptions().getSoapVersionURI()), new GetRepositoryMatchFromSlug(gameSlug, addonSlug), optimizeContent(new QName("http://addonservice.curse.com/", "getRepositoryMatchFromSlug")), new QName("http://addonservice.curse.com/", "GetRepositoryMatchFromSlug"));
 
 			//adding SOAP soap_headers
 			_serviceClient.addHeadersToEnvelope(env);
@@ -1501,9 +1443,9 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetRepositoryMatchFromSlugResponse.class);
+			GetRepositoryMatchFromSlugResponse object = fromOM(_returnEnv.getBody().getFirstElement(), GetRepositoryMatchFromSlugResponse.class);
 
-			return (GetRepositoryMatchFromSlugResponse) object;
+			return object.getGetRepositoryMatchFromSlugResult();
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -1541,12 +1483,6 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getRepositoryMatchFromSlug72
-	 * @see AddOnService#startgetRepositoryMatchFromSlug
-	 */
 	public void startgetRepositoryMatchFromSlug(GetRepositoryMatchFromSlug getRepositoryMatchFromSlug72, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[5].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetRepositoryMatchFromSlug");
@@ -1643,13 +1579,12 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param fingerprints
-	 * @see AddOnService#v2GetFingerprintMatches
-	 */
-	public FingerprintMatchResult v2GetFingerprintMatches(long... fingerprints) throws RemoteException {
+	
+	public FingerprintMatchResult v2GetFingerprintMatches(@Nonnull long... fingerprints) throws RemoteException {
+		if (fingerprints == null || fingerprints.length == 0){
+			throw new IllegalArgumentException("fingerprints");
+		}
+
 		MessageContext _messageContext = new MessageContext();
 
 		try {
@@ -1718,12 +1653,6 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param fingerprints
-	 * @see AddOnService#startv2GetFingerprintMatches
-	 */
 	public void startv2GetFingerprintMatches(long[] fingerprints, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[6].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetFingerprintMatches");
@@ -1820,12 +1749,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param cacheHealthCheck76
-	 * @see AddOnService#cacheHealthCheck
-	 */
+	
 	public CacheHealthCheckResponse cacheHealthCheck(CacheHealthCheck cacheHealthCheck76) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -1855,9 +1779,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), CacheHealthCheckResponse.class);
-
-			return (CacheHealthCheckResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), CacheHealthCheckResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -1895,12 +1817,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param cacheHealthCheck76
-	 * @see AddOnService#startcacheHealthCheck
-	 */
+	
 	public void startcacheHealthCheck(CacheHealthCheck cacheHealthCheck76, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[7].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/CacheHealthCheck");
@@ -2027,9 +1944,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnDescriptionResponse.class);
-
-			return (GetAddOnDescriptionResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnDescriptionResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2164,12 +2079,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param resetFeeds80
-	 * @see AddOnService#resetFeeds
-	 */
+	
 	public ResetFeedsResponse resetFeeds(ResetFeeds resetFeeds80) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -2199,9 +2109,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), ResetFeedsResponse.class);
-
-			return (ResetFeedsResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), ResetFeedsResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2239,12 +2147,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetFeeds80
-	 * @see AddOnService#startresetFeeds
-	 */
+	
 	public void startresetFeeds(ResetFeeds resetFeeds80, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[9].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/ResetFeeds");
@@ -2341,12 +2244,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param leaveSyncGroup82
-	 * @see AddOnService#leaveSyncGroup
-	 */
+	
 	public LeaveSyncGroupResponse leaveSyncGroup(LeaveSyncGroup leaveSyncGroup82) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -2376,9 +2274,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), LeaveSyncGroupResponse.class);
-
-			return (LeaveSyncGroupResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), LeaveSyncGroupResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2416,12 +2312,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param leaveSyncGroup82
-	 * @see AddOnService#startleaveSyncGroup
-	 */
+	
 	public void startleaveSyncGroup(LeaveSyncGroup leaveSyncGroup82, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[10].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/LeaveSyncGroup");
@@ -2518,12 +2409,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param saveSyncSnapshot84
-	 * @see AddOnService#saveSyncSnapshot
-	 */
+	
 	public SaveSyncSnapshotResponse saveSyncSnapshot(SaveSyncSnapshot saveSyncSnapshot84) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -2553,9 +2439,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), SaveSyncSnapshotResponse.class);
-
-			return (SaveSyncSnapshotResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), SaveSyncSnapshotResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2593,12 +2477,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param saveSyncSnapshot84
-	 * @see AddOnService#startsaveSyncSnapshot
-	 */
+	
 	public void startsaveSyncSnapshot(SaveSyncSnapshot saveSyncSnapshot84, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[11].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/SaveSyncSnapshot");
@@ -2695,12 +2574,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getAddOnDump86
-	 * @see AddOnService#getAddOnDump
-	 */
+	
 	public GetAddOnDumpResponse getAddOnDump(GetAddOnDump getAddOnDump86) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -2730,9 +2604,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnDumpResponse.class);
-
-			return (GetAddOnDumpResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetAddOnDumpResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -2770,12 +2642,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getAddOnDump86
-	 * @see AddOnService#startgetAddOnDump
-	 */
+	
 	public void startgetAddOnDump(GetAddOnDump getAddOnDump86, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[12].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOnDump");
@@ -3046,12 +2913,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getDownloadToken90
-	 * @see AddOnService#getDownloadToken
-	 */
+	
 	public GetDownloadTokenResponse getDownloadToken(GetDownloadToken getDownloadToken90) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -3081,9 +2943,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetDownloadTokenResponse.class);
-
-			return (GetDownloadTokenResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetDownloadTokenResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3121,12 +2981,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getDownloadToken90
-	 * @see AddOnService#startgetDownloadToken
-	 */
+	
 	public void startgetDownloadToken(GetDownloadToken getDownloadToken90, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[14].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetDownloadToken");
@@ -3388,13 +3243,8 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addonIDs
-	 * @see AddOnService#v2GetAddOns
-	 */
-	public List<AddOn> v2GetAddOns(int... addonIDs) throws RemoteException {
+	
+	public List<AddOn> v2GetAddOns(@Nonnull int... addonIDs) throws RemoteException {
 		if (addonIDs == null || addonIDs.length == 0){
 			throw new IllegalArgumentException("addonIDs");
 		}
@@ -3466,12 +3316,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonIDs
-	 * @see AddOnService#startv2GetAddOns
-	 */
+	
 	public void startv2GetAddOns(int[] addonIDs, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		if (addonIDs == null || addonIDs.length == 0){
 			throw new IllegalArgumentException("addonIDs");
@@ -3572,13 +3417,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addonID
-	 * @param fileID
-	 * @see AddOnService#getAddOnFile
-	 */
+	
 	public AddOnFile getAddOnFile(int addonID, int fileID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -3648,13 +3487,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 * @param fileID
-	 * @see AddOnService#startgetAddOnFile
-	 */
+	
 	public void startgetAddOnFile(int addonID, int fileID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[17].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOnFile");
@@ -3918,12 +3751,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getSyncProfile100
-	 * @see AddOnService#getSyncProfile
-	 */
+	
 	public GetSyncProfileResponse getSyncProfile(GetSyncProfile getSyncProfile100) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -3953,9 +3781,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetSyncProfileResponse.class);
-
-			return (GetSyncProfileResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetSyncProfileResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -3993,12 +3819,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getSyncProfile100
-	 * @see AddOnService#startgetSyncProfile
-	 */
+	
 	public void startgetSyncProfile(GetSyncProfile getSyncProfile100, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[19].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetSyncProfile");
@@ -4095,12 +3916,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addonID
-	 * @see AddOnService#getAllFilesForAddOn
-	 */
+	
 	public List<AddOnFile> getAllFilesForAddOn(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -4170,12 +3986,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 * @see AddOnService#startgetAllFilesForAddOn
-	 */
+	
 	public void startgetAllFilesForAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[20].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAllFilesForAddOn");
@@ -4272,12 +4083,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param getFuzzyMatches104
-	 * @see AddOnService#getFuzzyMatches
-	 */
+	
 	public GetFuzzyMatchesResponse getFuzzyMatches(GetFuzzyMatches getFuzzyMatches104) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -4307,9 +4113,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), GetFuzzyMatchesResponse.class);
-
-			return (GetFuzzyMatchesResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), GetFuzzyMatchesResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -4347,12 +4151,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param getFuzzyMatches104
-	 * @see AddOnService#startgetFuzzyMatches
-	 */
+	
 	public void startgetFuzzyMatches(GetFuzzyMatches getFuzzyMatches104, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[21].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetFuzzyMatches");
@@ -4449,12 +4248,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param joinSyncGroup106
-	 * @see AddOnService#joinSyncGroup
-	 */
+	
 	public JoinSyncGroupResponse joinSyncGroup(JoinSyncGroup joinSyncGroup106) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -4484,9 +4278,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), JoinSyncGroupResponse.class);
-
-			return (JoinSyncGroupResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), JoinSyncGroupResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -4524,12 +4316,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param joinSyncGroup106
-	 * @see AddOnService#startjoinSyncGroup
-	 */
+	
 	public void startjoinSyncGroup(JoinSyncGroup joinSyncGroup106, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[22].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/JoinSyncGroup");
@@ -4626,12 +4413,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param listFeeds108
-	 * @see AddOnService#listFeeds
-	 */
+	
 	public DirectoryInfo[] listFeeds() throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -4701,12 +4483,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param listFeeds108
-	 * @see AddOnService#startlistFeeds
-	 */
+	
 	public void startlistFeeds(ListFeeds listFeeds108, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[23].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/ListFeeds");
@@ -4803,12 +4580,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addOnFileKeys
-	 * @see AddOnService#getAddOnFiles
-	 */
+	
 	public Int2ObjectMap<List<AddOnFile>> getAddOnFiles(AddOnFileKey... addOnFileKeys) throws RemoteException {
 		if (addOnFileKeys == null || addOnFileKeys.length == 0){
 			throw new IllegalArgumentException("addOnFileKeys");
@@ -4882,12 +4654,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addOnFileKeys
-	 * @see AddOnService#startgetAddOnFiles
-	 */
+	
 	public void startgetAddOnFiles(AddOnFileKey[] addOnFileKeys, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		if (addOnFileKeys == null || addOnFileKeys.length == 0){
 			throw new IllegalArgumentException("addOnFileKeys");
@@ -4988,12 +4755,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addonID
-	 * @see AddOnService#v2GetAddOnDescription
-	 */
+	
 	public String v2GetAddOnDescription(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5063,12 +4825,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 * @see AddOnService#startv2GetAddOnDescription
-	 */
+	
 	public void startv2GetAddOnDescription(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[25].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/v2GetAddOnDescription");
@@ -5165,12 +4922,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param resetSingleAddonCache114
-	 * @see AddOnService#resetSingleAddonCache
-	 */
+	
 	public ResetSingleAddonCacheResponse resetSingleAddonCache(ResetSingleAddonCache resetSingleAddonCache114) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5200,9 +4952,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), ResetSingleAddonCacheResponse.class);
-
-			return (ResetSingleAddonCacheResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), ResetSingleAddonCacheResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5240,12 +4990,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetSingleAddonCache114
-	 * @see AddOnService#startresetSingleAddonCache
-	 */
+	
 	public void startresetSingleAddonCache(ResetSingleAddonCache resetSingleAddonCache114, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[26].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/ResetSingleAddonCache");
@@ -5342,12 +5087,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param addonID
-	 * @see AddOnService#getAddOn
-	 */
+	
 	public AddOn getAddOn(int addonID) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5417,12 +5157,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param addonID
-	 * @see AddOnService#startgetAddOn
-	 */
+	
 	public void startgetAddOn(int addonID, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[27].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/GetAddOn");
@@ -5519,12 +5254,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param logDump118
-	 * @see AddOnService#logDump
-	 */
+	
 	public LogDumpResponse logDump(LogDump logDump118) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5554,9 +5284,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), LogDumpResponse.class);
-
-			return (LogDumpResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), LogDumpResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5594,12 +5322,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param logDump118
-	 * @see AddOnService#startlogDump
-	 */
+	
 	public void startlogDump(LogDump logDump118, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[28].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/LogDump");
@@ -5696,12 +5419,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param serviceHealthCheck120
-	 * @see AddOnService#serviceHealthCheck
-	 */
+	
 	public ServiceHealthCheckResponse serviceHealthCheck(ServiceHealthCheck serviceHealthCheck120) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5731,9 +5449,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), ServiceHealthCheckResponse.class);
-
-			return (ServiceHealthCheckResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), ServiceHealthCheckResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5771,12 +5487,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param serviceHealthCheck120
-	 * @see AddOnService#startserviceHealthCheck
-	 */
+	
 	public void startserviceHealthCheck(ServiceHealthCheck serviceHealthCheck120, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[29].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/ServiceHealthCheck");
@@ -5873,12 +5584,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		_operationClient.execute(false);
 	}
 
-	/**
-	 * Auto generated method signature
-	 *
-	 * @param resetAllAddonCache122
-	 * @see AddOnService#resetAllAddonCache
-	 */
+	
 	public ResetAllAddonCacheResponse resetAllAddonCache(ResetAllAddonCache resetAllAddonCache122) throws RemoteException {
 		MessageContext _messageContext = new MessageContext();
 
@@ -5908,9 +5614,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 			MessageContext _returnMessageContext = _operationClient.getMessageContext(WSDLConstants.MESSAGE_LABEL_IN_VALUE);
 			SOAPEnvelope _returnEnv = _returnMessageContext.getEnvelope();
 
-			Object object = fromOM(_returnEnv.getBody().getFirstElement(), ResetAllAddonCacheResponse.class);
-
-			return (ResetAllAddonCacheResponse) object;
+			return fromOM(_returnEnv.getBody().getFirstElement(), ResetAllAddonCacheResponse.class);
 		} catch (AxisFault f) {
 			OMElement faultElt = f.getDetail();
 
@@ -5948,12 +5652,7 @@ public class AddOnServiceStub extends Stub implements AddOnService, AddOnService
 		}
 	}
 
-	/**
-	 * Auto generated method signature for Asynchronous Invocations
-	 *
-	 * @param resetAllAddonCache122
-	 * @see AddOnService#startresetAllAddonCache
-	 */
+	
 	public void startresetAllAddonCache(ResetAllAddonCache resetAllAddonCache122, final AddOnServiceCallbackHandler callback) throws RemoteException {
 		OperationClient _operationClient = _serviceClient.createClient(_operations[30].getName());
 		_operationClient.getOptions().setAction("http://addonservice.curse.com/IAddOnService/ResetAllAddonCache");
