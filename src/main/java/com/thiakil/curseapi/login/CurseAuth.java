@@ -111,10 +111,10 @@ public class CurseAuth {
 
 	public static CurseToken getTokenFromCurseAccount(String username, String password) throws CurseAuthException{
 		CurseLoginResponse response = getResponseFromCurseAccount(username, password);
-		if (response.Status != LoginStatus.Success){
-			throw new CurseAuthException("Incorrect login status: "+response.Status);
+		if (response.status != LoginStatus.Success){
+			throw new CurseAuthException("Incorrect login status: "+response.status);
 		}
-		return new CurseToken(response.Session.UserID, response.Session.Token);
+		return new CurseToken(response.session.userID, response.session.token);
 	}
 	
 	public static CurseToken getTokenFromTwitchOauth(String code) throws CurseAuthException {
@@ -122,7 +122,7 @@ public class CurseAuth {
 		if (response.status != TwitchOAuthResponse.TwitchOAuthStatus.Success){
 			throw new CurseAuthException("Unknown login status: "+response.status.name());
 		}
-		return new CurseToken(response.session.UserID, response.session.Token);
+		return new CurseToken(response.session.userID, response.session.token);
 	}
 
 	public static RenewTokenResponse renewAccessToken(String token) throws CurseAuthException {

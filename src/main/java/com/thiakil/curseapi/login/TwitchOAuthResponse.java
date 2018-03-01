@@ -33,7 +33,7 @@ package com.thiakil.curseapi.login;
 
 import com.google.gson.annotations.SerializedName;
 
-public class TwitchOAuthResponse {
+public class TwitchOAuthResponse implements LoginSessionProvider {
 	@SerializedName("Status")
 	public TwitchOAuthStatus status;
 	
@@ -57,6 +57,21 @@ public class TwitchOAuthResponse {
 	
 	@SerializedName("TwitchUserID")
 	public String twitchUserID;
+	
+	@Override
+	public LoginSession getLoginSession() {
+		return session;
+	}
+	
+	@Override
+	public long getTimestamp() {
+		return timestamp;
+	}
+	
+	@Override
+	public boolean isSuccess() {
+		return status == TwitchOAuthStatus.Success;
+	}
 	
 	public enum TwitchOAuthStatus
 	{

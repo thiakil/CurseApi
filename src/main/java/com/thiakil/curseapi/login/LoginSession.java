@@ -35,33 +35,33 @@ import com.google.gson.annotations.SerializedName;
 
 public class LoginSession {
 	@SerializedName("UserID")
-	public long UserID;
+	public long userID;
 	@SerializedName("Username")
-	public String Username;
+	public String username;
 	@SerializedName("DisplayName")
-	public String DisplayName;
+	public String displayName;
 	@SerializedName("SessionID")
-	public String SessionID;
+	public String sessionID;
 	@SerializedName("Token")
-	public String Token;
+	public String token;
 	@SerializedName("EmailAddress")
-	public String EmailAddress;
+	public String emailAddress;
 	@SerializedName("EffectivePremiumStatus")
-	public boolean EffectivePremiumStatus;
+	public boolean effectivePremiumStatus;
 	@SerializedName("ActualPremiumStatus")
-	public boolean ActualPremiumStatus;
+	public boolean actualPremiumStatus;
 	@SerializedName("SubscriptionToken")
-	public long SubscriptionToken;
+	public long subscriptionToken;
 	@SerializedName("Expires")
-	public long Expires;
+	public long expires;
 	@SerializedName("RenewAfter")
-	public long RenewAfter;
+	public long renewAfter;
 	@SerializedName("IsTemporaryAccount")
-	public boolean IsTemporaryAccount;
+	public boolean isTemporaryAccount;
 	@SerializedName("IsMerged")
-	public boolean IsMerged;
+	public boolean isMerged;
 	@SerializedName("Bans")
-	public UserBanType Bans;
+	public UserBanType bans;
 
 	public enum UserBanType
 	{

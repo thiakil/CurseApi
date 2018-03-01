@@ -36,16 +36,30 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Thiakil on 21/02/2018.
  */
-public class CurseLoginResponse {
+public class CurseLoginResponse implements LoginSessionProvider {
 	@SerializedName("Status")
-	public LoginStatus Status;
+	public LoginStatus status;
 	@SerializedName("StatusMessage")
-	public String StatusMessage;
+	public String statusMessage;
 	@SerializedName("Session")
-	public LoginSession Session;
+	public LoginSession session;
 	@SerializedName("Timestamp")
-	public long Timestamp;
+	public long timestamp;
 	@SerializedName("TwitchUsernameReservationToken")
-	public String TwitchUsernameReservationToken;
-
+	public String twitchUsernameReservationToken;
+	
+	@Override
+	public LoginSession getLoginSession() {
+		return session;
+	}
+	
+	@Override
+	public long getTimestamp() {
+		return timestamp;
+	}
+	
+	@Override
+	public boolean isSuccess() {
+		return status == LoginStatus.Success;
+	}
 }
