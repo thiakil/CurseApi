@@ -80,7 +80,6 @@ import java.util.Set;
 public class ProjectFeedDownloader {
 	public static final String FEED_TEMPLATE = "https://clientupdate-v6.cursecdn.com/feed/addons/%d/v10/%s";//[gameid, feed-file]
 	public static final String DEFAULT_CACHE_DIR = System.getProperty("java.io.tmpdir") + File.separator + "cursefeed";
-	public static final int MINECRAFT_GAMEID = 432;
 	
 	private static final CacheConfig cacheConfig = CacheConfig.custom()
 			                          .setMaxCacheEntries(1000)
@@ -105,16 +104,16 @@ public class ProjectFeedDownloader {
 	/**
 	 * Create a downloaded with customised options
 	 *
-	 * @param gameId - gameid to query the feed for, default is {@link ProjectFeedDownloader#MINECRAFT_GAMEID}
+	 * @param curseGame - gameid to query the feed for, default is {@link CurseGame#MINECRAFT}
 	 * @param feedTemplate - URL template for the remote server, in case you want to cache it or it changes.
 	 *                     Must contain %d for the game id, and %s for the filename. Default {@link ProjectFeedDownloader#FEED_TEMPLATE}
 	 * @param cacheDir - directory to store the HTTP cache in. Default is TEMP/cursefeed {@link ProjectFeedDownloader#DEFAULT_CACHE_DIR}
 	 * @throws IOException if the cache dir cannot be created
 	 */
-	public ProjectFeedDownloader(int gameId, String feedTemplate, File cacheDir) throws IOException {
+	public ProjectFeedDownloader(CurseGame curseGame, String feedTemplate, File cacheDir) throws IOException {
 		this.usedCacheDir = cacheDir;
 		this.usedFeedTemplate = feedTemplate;
-		this.gameId = gameId;
+		this.gameId = curseGame.id;
 		
 		if (!cacheDir.exists() && !cacheDir.mkdirs()){
 			throw new IOException("Cache dir could not be created or does not already exist");
@@ -138,7 +137,7 @@ public class ProjectFeedDownloader {
 	 * @throws IOException if the TEMP/cursefeed directory cannot be created.
 	 */
 	public ProjectFeedDownloader() throws IOException {
-		this(MINECRAFT_GAMEID, FEED_TEMPLATE, new File(DEFAULT_CACHE_DIR));
+		this(CurseGame.MINECRAFT, FEED_TEMPLATE, new File(DEFAULT_CACHE_DIR));
 	}
 	
 	private InputStream downloadToCache(String url) throws IOException {
