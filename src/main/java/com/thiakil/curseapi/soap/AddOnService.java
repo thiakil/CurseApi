@@ -131,9 +131,12 @@ public interface AddOnService {
 	SaveSyncTransactionsResponse saveSyncTransactions(SaveSyncTransactions saveSyncTransactions8) throws RemoteException;
 	
 	/**
-	 * Unknown method
-	 * @param gameSlug
-	 * @param addonSlug
+	 * Maps a website url parts to a project id.
+	 *
+	 * E.g https://www.curseforge.com/minecraft/mc-mods/immersive-engineering
+	 *
+	 * @param gameSlug - 'mc' in the above
+	 * @param addonSlug - 'immersive-engineering' in the above
 	 */
 	@CheckForNull
 	RepositoryMatch getRepositoryMatchFromSlug(String gameSlug, String addonSlug) throws RemoteException;
