@@ -52,6 +52,7 @@ import org.apache.http.impl.client.cache.CachingHttpClients;
 import org.apache.http.util.EntityUtils;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
@@ -344,5 +345,19 @@ public class ProjectFeedDownloader {
 		return getAddonsByCategorySection(CategorySection.ID_MODPACKS);
 	}
 	
-	
+	/**
+	 * Find an addon by its website slug.
+	 *
+	 * For the URLS
+	 * https://minecraft.curseforge.com/projects/immersive-engineering
+	 * https://www.curseforge.com/minecraft/mc-mods/immersive-engineering
+	 *
+	 * the slug is "immersive-engineering"
+	 *
+	 * @param slug the addon's slug
+	 * @return optional addon if found
+	 */
+	public Optional<AddOn> findAddonBySlug(String slug){
+		return this.addOns.values().stream().filter(a-> Objects.equals(a.getAddonSlug(), slug)).findFirst();
+	}
 }

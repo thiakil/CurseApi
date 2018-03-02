@@ -57,12 +57,15 @@ import org.datacontract.schemas._2004._07.curse_addons.PackageTypes;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStage;
 import org.datacontract.schemas._2004._07.curse_addons.ProjectStatus;
 
+import javax.annotation.CheckForNull;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.stream.XMLStreamWriter;
 import java.util.List;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * AddOn bean class
@@ -74,6 +77,8 @@ public class AddOn implements ADBBean {
        Namespace URI = Curse.AddOns
        Namespace Prefix = ns4
      */
+	
+	private static final Pattern CF_URL = Pattern.compile("https://www.curseforge.com/([^/]+)/([^-]+)-([^/]+)/(.+)");
 
 	/**
 	 * field for Attachments
@@ -1275,6 +1280,23 @@ public class AddOn implements ADBBean {
 	@Override
 	public int hashCode() {
 		return this.localId;
+	}
+	
+	@CheckForNull
+	public String getAddonSlug(){
+		if (localWebSiteURL == null){
+			return null;
+		}
+		Matcher m = CF_URL.matcher(this.localWebSiteURL);
+		return m.find() ? m.group(4) : null;
+	}
+	
+	public String getGameSlug(){
+		if (localWebSiteURL == null){
+			return null;
+		}
+		Matcher m = CF_URL.matcher(this.localWebSiteURL);
+		return m.find() ? m.group(2) : null;
 	}
 
 	/**

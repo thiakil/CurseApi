@@ -131,7 +131,7 @@ public interface AddOnService {
 	SaveSyncTransactionsResponse saveSyncTransactions(SaveSyncTransactions saveSyncTransactions8) throws RemoteException;
 	
 	/**
-	 * Maps a website url parts to a project id.
+	 * Maps a website url parts to a project id. You can also do this with {@link com.thiakil.curseapi.json.ProjectFeedDownloader#findAddonBySlug(java.lang.String)}
 	 *
 	 * E.g https://www.curseforge.com/minecraft/mc-mods/immersive-engineering
 	 *
