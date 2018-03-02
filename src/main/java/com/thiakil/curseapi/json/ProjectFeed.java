@@ -31,31 +31,10 @@
 
 package com.thiakil.curseapi.json;
 
-import addons.curse.AddOn;
-import addons.curse.AddOnAttachment;
-import addons.curse.AddOnCategory;
-import addons.curse.AddOnFile;
-import addons.curse.AddOnFileDependency;
-import addons.curse.AddOnModule;
-import addons.curse.CategorySection;
+import addons.curse.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.thiakil.curseapi.json.adaptors.AdaptorFactory;
-import com.thiakil.curseapi.json.adaptors.AddOnAdaptor;
-import com.thiakil.curseapi.json.adaptors.AddOnAttachmentAdaptor;
-import com.thiakil.curseapi.json.adaptors.AddOnCategoryAdaptor;
-import com.thiakil.curseapi.json.adaptors.AddOnFileAdaptor;
-import com.thiakil.curseapi.json.adaptors.AddOnFileDependencyAdaptor;
-import com.thiakil.curseapi.json.adaptors.AddOnModuleAdaptor;
-import com.thiakil.curseapi.json.adaptors.CategorySectionAdaptor;
-import com.thiakil.curseapi.json.adaptors.DependencyTypeAdaptor;
-import com.thiakil.curseapi.json.adaptors.FileStatusAdaptor;
-import com.thiakil.curseapi.json.adaptors.FileTypeAdaptor;
-import com.thiakil.curseapi.json.adaptors.GameVersionLatestFileAdaptor;
-import com.thiakil.curseapi.json.adaptors.ProjectFeedAdaptor;
-import com.thiakil.curseapi.json.adaptors.PackageTypesAdaptor;
-import com.thiakil.curseapi.json.adaptors.ProjectStageAdaptor;
-import com.thiakil.curseapi.json.adaptors.ProjectStatusAdaptor;
+import com.thiakil.curseapi.json.adaptors.*;
 import org.datacontract.schemas._2004._07.curse_addons.DependencyType;
 import org.datacontract.schemas._2004._07.curse_addons.FileStatus;
 import org.datacontract.schemas._2004._07.curse_addons.FileType;
@@ -93,7 +72,8 @@ public class ProjectFeed {
 				.registerTypeAdapterFactory(new AdaptorFactory<>(GameVersionLatestFileAdaptor::new, GameVersionLatestFile.class))
 				.registerTypeAdapter(PackageTypes.class, PackageTypesAdaptor.INSTANCE)
 				.registerTypeAdapter(ProjectStage.class, ProjectStageAdaptor.INSTANCE)
-				.registerTypeAdapter(ProjectStatus.class, ProjectStatusAdaptor.INSTANCE);
+				.registerTypeAdapter(ProjectStatus.class, ProjectStatusAdaptor.INSTANCE)
+				.registerTypeAdapter(AddOnAuthor.class, AddOnAuthorAdaptor.INSTANCE);
 	}
 	
 	private long timestamp;
