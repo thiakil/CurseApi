@@ -31,6 +31,8 @@
 
 package com.thiakil.curseapi.json.adaptors;
 
+import com.google.gson.Gson;
+import org.datacontract.schemas._2004._07.curse_addons.FileType;
 import org.datacontract.schemas._2004._07.curse_addons.GameVersionLatestFile;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
@@ -39,13 +41,19 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestFile> {
-	public static GameVersionLatestFileAdaptor INSTANCE = new GameVersionLatestFileAdaptor();
+	
+	private final TypeAdapter<FileType> fileTypeTypeAdapter;
+	
+	public GameVersionLatestFileAdaptor(Gson gson){
+		
+		fileTypeTypeAdapter = gson.getAdapter(FileType.class);
+	}
 	
 	@Override
 	public void write(JsonWriter out, GameVersionLatestFile value) throws IOException {
 		out.beginObject();
 		out.name("FileType");
-		FileTypeAdaptor.INSTANCE.write(out, value.getFileType());
+		fileTypeTypeAdapter.write(out, value.getFileType());
 
 		out.name("GameVesion");
 		out.value(value.getGameVesion());
@@ -68,7 +76,7 @@ public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestF
 			String prop = in.nextName();
 			switch (prop) {
 				case "FileType":
-					out.setFileType(FileTypeAdaptor.INSTANCE.read(in));
+					out.setFileType(fileTypeTypeAdapter.read(in));
 					break;
 				case "GameVesion":
 					out.setGameVesion(ProjectFeedAdaptor.readStringOrNull(in));

@@ -40,6 +40,7 @@ import addons.curse.AddOnModule;
 import addons.curse.CategorySection;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.thiakil.curseapi.json.adaptors.AdaptorFactory;
 import com.thiakil.curseapi.json.adaptors.AddOnAdaptor;
 import com.thiakil.curseapi.json.adaptors.AddOnAttachmentAdaptor;
 import com.thiakil.curseapi.json.adaptors.AddOnCategoryAdaptor;
@@ -78,18 +79,18 @@ public class ProjectFeed {
 	 */
 	@SuppressWarnings("WeakerAccess")
 	public static GsonBuilder registerTypeAdaptors(GsonBuilder builderIn){
-		return builderIn.registerTypeAdapter(ProjectFeed.class, ProjectFeedAdaptor.INSTANCE)
-				.registerTypeAdapter(AddOn.class, AddOnAdaptor.INSTANCE)
+		return builderIn.registerTypeAdapterFactory(new AdaptorFactory<>(ProjectFeedAdaptor::new, ProjectFeed.class))
+				.registerTypeAdapterFactory(new AdaptorFactory<>(AddOnAdaptor::new, AddOn.class))
 				.registerTypeAdapter(AddOnAttachment.class, AddOnAttachmentAdaptor.INSTANCE)
 				.registerTypeAdapter(AddOnCategory.class, AddOnCategoryAdaptor.INSTANCE)
-				.registerTypeAdapter(AddOnFile.class, AddOnFileAdaptor.INSTANCE)
-				.registerTypeAdapter(AddOnFileDependency.class, AddOnFileDependencyAdaptor.INSTANCE)
+				.registerTypeAdapterFactory(new AdaptorFactory<>(AddOnFileAdaptor::new, AddOnFile.class))
+				.registerTypeAdapterFactory(new AdaptorFactory<>(AddOnFileDependencyAdaptor::new, AddOnFileDependency.class))
 				.registerTypeAdapter(AddOnModule.class, AddOnModuleAdaptor.INSTANCE)
-				.registerTypeAdapter(CategorySection.class, CategorySectionAdaptor.INSTANCE)
+				.registerTypeAdapterFactory(new AdaptorFactory<>(CategorySectionAdaptor::new, CategorySection.class))
 				.registerTypeAdapter(DependencyType.class, DependencyTypeAdaptor.INSTANCE)
 				.registerTypeAdapter(FileStatus.class, FileStatusAdaptor.INSTANCE)
 				.registerTypeAdapter(FileType.class, FileTypeAdaptor.INSTANCE)
-				.registerTypeAdapter(GameVersionLatestFile.class, GameVersionLatestFileAdaptor.INSTANCE)
+				.registerTypeAdapterFactory(new AdaptorFactory<>(GameVersionLatestFileAdaptor::new, GameVersionLatestFile.class))
 				.registerTypeAdapter(PackageTypes.class, PackageTypesAdaptor.INSTANCE)
 				.registerTypeAdapter(ProjectStage.class, ProjectStageAdaptor.INSTANCE)
 				.registerTypeAdapter(ProjectStatus.class, ProjectStatusAdaptor.INSTANCE);

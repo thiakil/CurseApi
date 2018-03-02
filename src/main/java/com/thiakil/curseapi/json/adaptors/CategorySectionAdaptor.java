@@ -32,14 +32,21 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.CategorySection;
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import org.datacontract.schemas._2004._07.curse_addons.PackageTypes;
 
 import java.io.IOException;
 
 public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
-	public static CategorySectionAdaptor INSTANCE = new CategorySectionAdaptor();
+	
+	private final TypeAdapter<PackageTypes> packageTypesTypeAdapter;
+	
+	public CategorySectionAdaptor(Gson g){
+		packageTypesTypeAdapter = g.getAdapter(PackageTypes.class);
+	}
 	
 	@Override
 	public void write(JsonWriter out, CategorySection value) throws IOException {
@@ -60,7 +67,7 @@ public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
 		out.value(value.getName());
 
 		out.name("PackageType");
-		PackageTypesAdaptor.INSTANCE.write(out, value.getPackageType());
+		packageTypesTypeAdapter.write(out, value.getPackageType());
 
 		out.name("Path");
 		out.value(value.getPath());
@@ -92,7 +99,7 @@ public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
 					out.setName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
 				case "PackageType":
-					out.setPackageType(PackageTypesAdaptor.INSTANCE.read(in));
+					out.setPackageType(packageTypesTypeAdapter.read(in));
 					break;
 				case "Path":
 					out.setPath(ProjectFeedAdaptor.readStringOrNull(in));

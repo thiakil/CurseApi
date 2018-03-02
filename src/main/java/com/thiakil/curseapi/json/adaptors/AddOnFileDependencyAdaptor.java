@@ -32,14 +32,21 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOnFileDependency;
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import org.datacontract.schemas._2004._07.curse_addons.DependencyType;
 
 import java.io.IOException;
 
 public class AddOnFileDependencyAdaptor extends TypeAdapter<AddOnFileDependency> {
-	public static AddOnFileDependencyAdaptor INSTANCE = new AddOnFileDependencyAdaptor();
+	
+	private final TypeAdapter<DependencyType> dependencyTypeTypeAdapter;
+	
+	public AddOnFileDependencyAdaptor(Gson g){
+		dependencyTypeTypeAdapter = g.getAdapter(DependencyType.class);
+	}
 	
 	@Override
 	public void write(JsonWriter out, AddOnFileDependency value) throws IOException {
@@ -48,7 +55,7 @@ public class AddOnFileDependencyAdaptor extends TypeAdapter<AddOnFileDependency>
 		out.value(value.getAddOnId());
 
 		out.name("Type");
-		DependencyTypeAdaptor.INSTANCE.write(out, value.getType());
+		dependencyTypeTypeAdapter.write(out, value.getType());
 
 		out.endObject();
 	}
@@ -65,7 +72,7 @@ public class AddOnFileDependencyAdaptor extends TypeAdapter<AddOnFileDependency>
 					out.setAddOnId(in.nextInt());
 					break;
 				case "Type":
-					out.setType(DependencyTypeAdaptor.INSTANCE.read(in));
+					out.setType(dependencyTypeTypeAdapter.read(in));
 					break;
 			}
 		}

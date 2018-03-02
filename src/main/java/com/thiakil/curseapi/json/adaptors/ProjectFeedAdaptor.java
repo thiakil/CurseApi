@@ -31,6 +31,8 @@
 
 package com.thiakil.curseapi.json.adaptors;
 
+import addons.curse.AddOn;
+import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
@@ -43,7 +45,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
-	public static ProjectFeedAdaptor INSTANCE = new ProjectFeedAdaptor();
+	
+	private final TypeAdapter<AddOn> addOnTypeAdapter;
+	
+	public ProjectFeedAdaptor(Gson gson){
+		
+		addOnTypeAdapter = gson.getAdapter(AddOn.class);
+	}
 	
 	@Override
 	public void write(JsonWriter out, ProjectFeed value) throws IOException {
@@ -53,7 +61,7 @@ public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
 		out.value(value.getTimestamp());
 		
 		out.name("data");
-		writeArray(out, value.getAddons(), AddOnAdaptor.INSTANCE);
+		writeArray(out, value.getAddons(), addOnTypeAdapter);
 		
 		out.endObject();
 	}
@@ -68,7 +76,7 @@ public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
 			if (prop.equals("timestamp")){
 				out.setTimestamp(in.nextLong());
 			} else if (prop.equals("data")){
-				out.setData(readListOfObjects(in, AddOnAdaptor.INSTANCE));
+				out.setData(readListOfObjects(in, addOnTypeAdapter));
 			} else {
 				throw new JsonParseException("Unknown property '"+prop+"'");
 			}

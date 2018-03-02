@@ -34,6 +34,7 @@ package com.thiakil.curseapi.json;
 import addons.curse.AddOn;
 import addons.curse.AddOnAuthor;
 import addons.curse.CategorySection;
+import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.thiakil.curseapi.json.adaptors.AddOnAdaptor;
@@ -93,6 +94,7 @@ public class ProjectFeedDownloader {
 	
 	private final String usedFeedTemplate;
 	private final File usedCacheDir;
+	private final TypeAdapter<AddOn> addOnTypeAdapter;
 	private long completeTimeStamp = -1;
 	private long hourlyTimeStamp = -1;
 	private final int gameId;
@@ -101,7 +103,7 @@ public class ProjectFeedDownloader {
 	private MultiSet<Integer, AddOn> addonsByCategorySection = new MultiSet<>();
 	
 	private final CloseableHttpClient httpclient;
-
+	
 	/**
 	 * Create a downloaded with customised options
 	 *
@@ -130,6 +132,7 @@ public class ProjectFeedDownloader {
 		Runtime.getRuntime().addShutdownHook(new Thread(storage::close));
 
 		httpclient = CachingHttpClients.custom().setCacheConfig(cacheConfig).setCacheDir(usedCacheDir).setHttpCacheStorage(storage).setDefaultRequestConfig(requestConfig).build();
+		addOnTypeAdapter = ProjectFeed.GSON.getAdapter(AddOn.class);
 	}
 
 	/**
@@ -237,7 +240,7 @@ public class ProjectFeedDownloader {
 		writer.beginArray();
 		addOns.values().forEach(a->{
 			try {
-				AddOnAdaptor.INSTANCE.write(writer, a);
+				addOnTypeAdapter.write(writer, a);
 			} catch (IOException e){
 				throw new RuntimeException(e);
 			}
@@ -273,7 +276,7 @@ public class ProjectFeedDownloader {
 					case "addons":
 						reader.beginArray();
 						while (reader.hasNext()) {
-							this.insertAddonEntry(AddOnAdaptor.INSTANCE.read(reader));
+							this.insertAddonEntry(addOnTypeAdapter.read(reader));
 						}
 						reader.endArray();
 						break;

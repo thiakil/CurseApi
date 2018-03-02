@@ -32,34 +32,64 @@
 package com.thiakil.curseapi.json.adaptors;
 
 import addons.curse.AddOn;
+import addons.curse.AddOnAttachment;
+import addons.curse.AddOnAuthor;
+import addons.curse.AddOnCategory;
+import addons.curse.AddOnFile;
+import addons.curse.CategorySection;
+import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import org.datacontract.schemas._2004._07.curse_addons.GameVersionLatestFile;
+import org.datacontract.schemas._2004._07.curse_addons.PackageTypes;
+import org.datacontract.schemas._2004._07.curse_addons.ProjectStage;
+import org.datacontract.schemas._2004._07.curse_addons.ProjectStatus;
 
 import java.io.IOException;
 
 public class AddOnAdaptor extends TypeAdapter<AddOn> {
-	public static final AddOnAdaptor INSTANCE = new AddOnAdaptor();
+	private final TypeAdapter<AddOnAttachment> addOnAttachmentTypeAdaptor;
+	private final TypeAdapter<AddOnAuthor> addOnAuthorTypeAdaptor;
+	private final TypeAdapter<AddOnCategory> addOnCategoryAdaptor;
+	private final TypeAdapter<CategorySection> categorySectionAdaptor;
+	private final TypeAdapter<GameVersionLatestFile> gameVersionLatestFileAdaptor;
+	private final TypeAdapter<AddOnFile> addOnFileAdaptor;
+	private final TypeAdapter<PackageTypes> packageTypesAdaptor;
+	private final TypeAdapter<ProjectStage> projectStageAdaptor;
+	private final TypeAdapter<ProjectStatus> projectStatusAdaptor;
+	
+	public AddOnAdaptor(Gson gson){
+		addOnAttachmentTypeAdaptor = gson.getAdapter(AddOnAttachment.class);
+		addOnAuthorTypeAdaptor = gson.getAdapter(AddOnAuthor.class);
+		addOnCategoryAdaptor = gson.getAdapter(AddOnCategory.class);
+		categorySectionAdaptor = gson.getAdapter(CategorySection.class);
+		gameVersionLatestFileAdaptor = gson.getAdapter(GameVersionLatestFile.class);
+		addOnFileAdaptor = gson.getAdapter(AddOnFile.class);
+		packageTypesAdaptor = gson.getAdapter(PackageTypes.class);
+		projectStageAdaptor = gson.getAdapter(ProjectStage.class);
+		projectStatusAdaptor = gson.getAdapter(ProjectStatus.class);
+	}
 	
 	@Override
 	public void write(JsonWriter out, AddOn value) throws IOException {
 		out.beginObject();
 
 		out.name("Attachments");
-		ProjectFeedAdaptor.writeArray(out, value.getAttachments(), AddOnAttachmentAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getAttachments(), addOnAttachmentTypeAdaptor);
 
 		out.name("Authors");
-		ProjectFeedAdaptor.writeArray(out, value.getAuthors(), AddOnAuthorAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getAuthors(), addOnAuthorTypeAdaptor);
 
 		out.name("AvatarUrl");
 		out.value(value.getAvatarUrl());
 
 		out.name("Categories");
-		ProjectFeedAdaptor.writeArray(out, value.getCategories(), AddOnCategoryAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getCategories(), addOnCategoryAdaptor);
 
 		out.name("CategorySection");
-		CategorySectionAdaptor.INSTANCE.write(out, value.getCategorySection());
+		categorySectionAdaptor.write(out, value.getCategorySection());
 
 		out.name("CommentCount");
 		out.value(value.getCommentCount());
@@ -83,7 +113,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 		out.value(value.getGamePopularityRank());
 
 		out.name("GameVersionLatestFiles");
-		ProjectFeedAdaptor.writeArray(out, value.getGameVersionLatestFiles(), GameVersionLatestFileAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getGameVersionLatestFiles(), gameVersionLatestFileAdaptor);
 
 		out.name("IconId");
 		out.value(value.getIconId());
@@ -98,7 +128,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 		out.value(value.getIsFeatured());
 
 		out.name("LatestFiles");
-		ProjectFeedAdaptor.writeArray(out, value.getLatestFiles(), AddOnFileAdaptor.INSTANCE);
+		ProjectFeedAdaptor.writeArray(out, value.getLatestFiles(), addOnFileAdaptor);
 
 		out.name("Likes");
 		out.value(value.getLikes());
@@ -107,7 +137,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 		out.value(value.getName());
 
 		out.name("PackageType");
-		PackageTypesAdaptor.INSTANCE.write(out, value.getPackageType());
+		packageTypesAdaptor.write(out, value.getPackageType());
 
 		out.name("PopularityScore");
 		out.value(value.getPopularityScore());
@@ -128,10 +158,10 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 		out.value(value.getRating());
 
 		out.name("Stage");
-		ProjectStageAdaptor.INSTANCE.write(out, value.getStage());
+		projectStageAdaptor.write(out, value.getStage());
 
 		out.name("Status");
-		ProjectStatusAdaptor.INSTANCE.write(out, value.getStatus());
+		projectStatusAdaptor.write(out, value.getStatus());
 
 		out.name("Summary");
 		out.value(value.getSummary());
@@ -152,11 +182,11 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 			String prop = in.nextName();
 			switch (prop){
 				case "Attachments": {
-					out.setAttachments(ProjectFeedAdaptor.readListOfObjects(in, AddOnAttachmentAdaptor.INSTANCE));
+					out.setAttachments(ProjectFeedAdaptor.readListOfObjects(in, addOnAttachmentTypeAdaptor));
 					break;
 				}
 				case "Authors": {
-					out.setAuthors(ProjectFeedAdaptor.readListOfObjects(in, AddOnAuthorAdaptor.INSTANCE));
+					out.setAuthors(ProjectFeedAdaptor.readListOfObjects(in, addOnAuthorTypeAdaptor));
 					break;
 				}
 				case "AvatarUrl": {
@@ -164,11 +194,11 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "Categories": {
-					out.setCategories(ProjectFeedAdaptor.readListOfObjects(in, AddOnCategoryAdaptor.INSTANCE));
+					out.setCategories(ProjectFeedAdaptor.readListOfObjects(in, addOnCategoryAdaptor));
 					break;
 				}
 				case "CategorySection": {
-					out.setCategorySection(CategorySectionAdaptor.INSTANCE.read(in));
+					out.setCategorySection(categorySectionAdaptor.read(in));
 					break;
 				}
 				case "CommentCount": {
@@ -200,7 +230,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "GameVersionLatestFiles": {
-					out.setGameVersionLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, GameVersionLatestFileAdaptor.INSTANCE));
+					out.setGameVersionLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, gameVersionLatestFileAdaptor));
 					break;
 				}
 				case "IconId": {
@@ -220,7 +250,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "LatestFiles": {
-					out.setLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, AddOnFileAdaptor.INSTANCE));
+					out.setLatestFiles(ProjectFeedAdaptor.readListOfObjects(in, addOnFileAdaptor));
 					break;
 				}
 				case "Likes": {
@@ -232,7 +262,7 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "PackageType": {
-					out.setPackageType(PackageTypesAdaptor.INSTANCE.read(in));
+					out.setPackageType(packageTypesAdaptor.read(in));
 					break;
 				}
 				case "PopularityScore": {
@@ -260,11 +290,11 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				case "Stage": {
-					out.setStage(ProjectStageAdaptor.INSTANCE.read(in));
+					out.setStage(projectStageAdaptor.read(in));
 					break;
 				}
 				case "Status": {
-					out.setStatus(ProjectStatusAdaptor.INSTANCE.read(in));
+					out.setStatus(projectStatusAdaptor.read(in));
 					break;
 				}
 				case "Summary": {
