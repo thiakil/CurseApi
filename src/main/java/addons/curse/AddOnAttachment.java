@@ -64,6 +64,11 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnAttachment implements ADBBean {
+	private static final QName descriptionQName = new QName("Curse.AddOns", "Description");
+	private static final QName isDefaultQName = new QName("Curse.AddOns", "IsDefault");
+	private static final QName thumbnailUrlQName = new QName("Curse.AddOns", "ThumbnailUrl");
+	private static final QName titleQName = new QName("Curse.AddOns", "Title");
+	private static final QName urlQName = new QName("Curse.AddOns", "Url");
     /* This type was generated from the piece of schema that had
        name = AddOnAttachment
        Namespace URI = Curse.AddOns
@@ -134,7 +139,7 @@ public class AddOnAttachment implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localUrlTracker = false;
-	
+
 	public AddOnAttachment() {
 	}
 	
@@ -442,7 +447,7 @@ public class AddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Description").equals(reader.getName())) {
+				if (reader.isStartElement() && descriptionQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -461,7 +466,7 @@ public class AddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "IsDefault").equals(reader.getName())) {
+				if (reader.isStartElement() && isDefaultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -480,7 +485,7 @@ public class AddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "ThumbnailUrl").equals(reader.getName())) {
+				if (reader.isStartElement() && thumbnailUrlQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -499,7 +504,7 @@ public class AddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Title").equals(reader.getName())) {
+				if (reader.isStartElement() && titleQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -518,7 +523,7 @@ public class AddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Url").equals(reader.getName())) {
+				if (reader.isStartElement() && urlQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class LeaveSyncGroupResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "LeaveSyncGroupResponse", "ns9");
+	private static final QName leaveSyncGroupResultQName = new QName("http://addonservice.curse.com/", "LeaveSyncGroupResult");
 
 	/**
 	 * field for LeaveSyncGroupResult
@@ -145,7 +146,7 @@ public class LeaveSyncGroupResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localLeaveSyncGroupResult.serialize(new QName("http://addonservice.curse.com/", "LeaveSyncGroupResult"), xmlWriter);
+				localLeaveSyncGroupResult.serialize(leaveSyncGroupResultQName, xmlWriter);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class LeaveSyncGroupResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "LeaveSyncGroupResult").equals(reader.getName())) {
+				if (reader.isStartElement() && leaveSyncGroupResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

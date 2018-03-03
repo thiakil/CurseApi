@@ -63,6 +63,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnFileDependency implements ADBBean {
+	private static final QName addOnIdQName = new QName("Curse.AddOns", "AddOnId");
+	private static final QName typeQName = new QName("Curse.AddOns", "Type");
     /* This type was generated from the piece of schema that had
        name = AddOnFileDependency
        Namespace URI = Curse.AddOns
@@ -90,7 +92,7 @@ public class AddOnFileDependency implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTypeTracker = false;
-	
+
 	public AddOnFileDependency() {
 	}
 	
@@ -197,7 +199,7 @@ public class AddOnFileDependency implements ADBBean {
 				throw new ADBException("Type cannot be null!!");
 			}
 
-			localType.serialize(new QName("Curse.AddOns", "Type"), xmlWriter);
+			localType.serialize(typeQName, xmlWriter);
 		}
 
 		xmlWriter.writeEndElement();
@@ -279,7 +281,7 @@ public class AddOnFileDependency implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnId").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnIdQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -299,7 +301,7 @@ public class AddOnFileDependency implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Type").equals(reader.getName())) {
+				if (reader.isStartElement() && typeQName.equals(reader.getName())) {
 					object.setType(DependencyType.Factory.parse(reader));
 
 					reader.next();

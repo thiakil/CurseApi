@@ -64,6 +64,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnModule implements ADBBean {
+	private static final QName fingerprintQName = new QName("Curse.AddOns", "Fingerprint");
+	private static final QName foldernameQName = new QName("Curse.AddOns", "Foldername");
     /* This type was generated from the piece of schema that had
        name = AddOnModule
        Namespace URI = Curse.AddOns
@@ -95,7 +97,7 @@ public class AddOnModule implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localFoldernameTracker = false;
-	
+
 	public AddOnModule() {
 	}
 	
@@ -290,7 +292,7 @@ public class AddOnModule implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Fingerprint").equals(reader.getName())) {
+				if (reader.isStartElement() && fingerprintQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -310,7 +312,7 @@ public class AddOnModule implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Foldername").equals(reader.getName())) {
+				if (reader.isStartElement() && foldernameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

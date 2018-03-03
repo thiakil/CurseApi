@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnAttachment implements ADBBean {
+	private static final QName addOnAttachmentQName = new QName("Curse.AddOns", "AddOnAttachment");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnAttachment
        Namespace URI = Curse.AddOns
@@ -174,7 +175,7 @@ public class ArrayOfAddOnAttachment implements ADBBean {
 			if (localAddOnAttachment != null) {
 				for (AddOnAttachment aLocalAddOnAttachment : localAddOnAttachment) {
 					if (aLocalAddOnAttachment != null) {
-						aLocalAddOnAttachment.serialize(new QName("Curse.AddOns", "AddOnAttachment"), xmlWriter);
+						aLocalAddOnAttachment.serialize(addOnAttachmentQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnAttachment", xmlWriter);
 
@@ -202,7 +203,7 @@ public class ArrayOfAddOnAttachment implements ADBBean {
 		if (list != null) {
 			for (AddOnAttachment aLocalAddOnAttachment : list) {
 				if (aLocalAddOnAttachment != null) {
-					aLocalAddOnAttachment.serialize(new QName("Curse.AddOns", "AddOnAttachment"), xmlWriter);
+					aLocalAddOnAttachment.serialize(addOnAttachmentQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOnAttachment", xmlWriter);
 
@@ -296,7 +297,7 @@ public class ArrayOfAddOnAttachment implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnAttachment").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnAttachmentQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -324,7 +325,7 @@ public class ArrayOfAddOnAttachment implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnAttachment").equals(reader.getName())) {
+							if (addOnAttachmentQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

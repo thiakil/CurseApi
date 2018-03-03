@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnFileKey implements ADBBean {
+	private static final QName addOnFileKeyQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnFileKey
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests
@@ -165,7 +166,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 		if (keys != null) {
 			for (AddOnFileKey aLocalAddOnFileKey : keys) {
 				if (aLocalAddOnFileKey != null) {
-					aLocalAddOnFileKey.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey"), xmlWriter);
+					aLocalAddOnFileKey.serialize(addOnFileKeyQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey", xmlWriter);
 
@@ -207,7 +208,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 			if (localAddOnFileKey != null) {
 				for (AddOnFileKey aLocalAddOnFileKey : localAddOnFileKey) {
 					if (aLocalAddOnFileKey != null) {
-						aLocalAddOnFileKey.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey"), xmlWriter);
+						aLocalAddOnFileKey.serialize(addOnFileKeyQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey", xmlWriter);
 
@@ -306,7 +307,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnFileKeyQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -334,7 +335,7 @@ public class ArrayOfAddOnFileKey implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnFileKey").equals(reader.getName())) {
+							if (addOnFileKeyQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

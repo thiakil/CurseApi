@@ -64,7 +64,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused", "ValidExternallyBoundObject"})
 public class ArrayOfAddOnFile  {
-    /* This type was generated from the piece of schema that had
+	private static final QName addOnFileQName = new QName("Curse.AddOns", "AddOnFile");
+	/* This type was generated from the piece of schema that had
        name = ArrayOfAddOnFile
        Namespace URI = Curse.AddOns
        Namespace Prefix = ns4
@@ -96,7 +97,7 @@ public class ArrayOfAddOnFile  {
 			if (addOnFileList != null) {
 				for (AddOnFile aLocalAddOnFile : addOnFileList) {
 					if (aLocalAddOnFile != null) {
-						aLocalAddOnFile.serialize(new QName("Curse.AddOns", "AddOnFile"), xmlWriter);
+						aLocalAddOnFile.serialize(addOnFileQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnFile", xmlWriter);
 						
@@ -168,7 +169,7 @@ public class ArrayOfAddOnFile  {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnFile").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnFileQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -196,7 +197,7 @@ public class ArrayOfAddOnFile  {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnFile").equals(reader.getName())) {
+							if (addOnFileQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

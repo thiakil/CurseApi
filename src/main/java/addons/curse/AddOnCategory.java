@@ -64,6 +64,9 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnCategory implements ADBBean {
+	private static final QName idQName = new QName("Curse.AddOns", "Id");
+	private static final QName nameQName = new QName("Curse.AddOns", "Name");
+	private static final QName urlQName = new QName("Curse.AddOns", "URL");
     /* This type was generated from the piece of schema that had
        name = AddOnCategory
        Namespace URI = Curse.AddOns
@@ -108,7 +111,7 @@ public class AddOnCategory implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localURLTracker = false;
-	
+
 	public AddOnCategory() {
 	}
 	
@@ -342,7 +345,7 @@ public class AddOnCategory implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Id").equals(reader.getName())) {
+				if (reader.isStartElement() && idQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -362,7 +365,7 @@ public class AddOnCategory implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Name").equals(reader.getName())) {
+				if (reader.isStartElement() && nameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -381,7 +384,7 @@ public class AddOnCategory implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "URL").equals(reader.getName())) {
+				if (reader.isStartElement() && urlQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

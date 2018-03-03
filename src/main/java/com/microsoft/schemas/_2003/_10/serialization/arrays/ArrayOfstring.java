@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfstring implements ADBBean {
+	private static final QName stringQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string");
     /* This type was generated from the piece of schema that had
        name = ArrayOfstring
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
@@ -319,7 +320,7 @@ public class ArrayOfstring implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string").equals(reader.getName())) {
+				if (reader.isStartElement() && stringQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -350,7 +351,7 @@ public class ArrayOfstring implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "string").equals(reader.getName())) {
+							if (stringQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

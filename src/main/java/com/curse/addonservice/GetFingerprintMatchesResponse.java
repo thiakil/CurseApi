@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetFingerprintMatchesResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetFingerprintMatchesResponse", "ns9");
+	private static final QName getFingerprintMatchesResultQName = new QName("http://addonservice.curse.com/", "GetFingerprintMatchesResult");
 
 	/**
 	 * field for GetFingerprintMatchesResult
@@ -145,7 +146,7 @@ public class GetFingerprintMatchesResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGetFingerprintMatchesResult.serialize(new QName("http://addonservice.curse.com/", "GetFingerprintMatchesResult"), xmlWriter);
+				localGetFingerprintMatchesResult.serialize(getFingerprintMatchesResultQName, xmlWriter);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class GetFingerprintMatchesResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "GetFingerprintMatchesResult").equals(reader.getName())) {
+				if (reader.isStartElement() && getFingerprintMatchesResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

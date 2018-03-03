@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnAuthor implements ADBBean {
+	private static final QName addOnAuthorQName = new QName("Curse.AddOns", "AddOnAuthor");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnAuthor
        Namespace URI = Curse.AddOns
@@ -162,7 +163,7 @@ public class ArrayOfAddOnAuthor implements ADBBean {
 		if (list != null) {
 			for (AddOnAuthor aLocalAddOnAuthor : list) {
 				if (aLocalAddOnAuthor != null) {
-					aLocalAddOnAuthor.serialize(new QName("Curse.AddOns", "AddOnAuthor"), xmlWriter);
+					aLocalAddOnAuthor.serialize(addOnAuthorQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOnAuthor", xmlWriter);
 
@@ -204,7 +205,7 @@ public class ArrayOfAddOnAuthor implements ADBBean {
 			if (localAddOnAuthor != null) {
 				for (AddOnAuthor aLocalAddOnAuthor : localAddOnAuthor) {
 					if (aLocalAddOnAuthor != null) {
-						aLocalAddOnAuthor.serialize(new QName("Curse.AddOns", "AddOnAuthor"), xmlWriter);
+						aLocalAddOnAuthor.serialize(addOnAuthorQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnAuthor", xmlWriter);
 
@@ -301,7 +302,7 @@ public class ArrayOfAddOnAuthor implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnAuthor").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnAuthorQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -329,7 +330,7 @@ public class ArrayOfAddOnAuthor implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnAuthor").equals(reader.getName())) {
+							if (addOnAuthorQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

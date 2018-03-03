@@ -62,6 +62,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ServiceResponse implements ADBBean {
+	private static final QName messageQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Message");
+	private static final QName statusQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status");
     /* This type was generated from the piece of schema that had
        name = ServiceResponse
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -196,7 +198,7 @@ public class ServiceResponse implements ADBBean {
 				throw new ADBException("Status cannot be null!!");
 			}
 
-			localStatus.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status"), xmlWriter);
+			localStatus.serialize(statusQName, xmlWriter);
 		}
 
 		xmlWriter.writeEndElement();
@@ -278,7 +280,7 @@ public class ServiceResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Message").equals(reader.getName())) {
+				if (reader.isStartElement() && messageQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -297,7 +299,7 @@ public class ServiceResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status").equals(reader.getName())) {
+				if (reader.isStartElement() && statusQName.equals(reader.getName())) {
 					object.setStatus(ServiceResponseStatus.Factory.parse(reader));
 
 					reader.next();

@@ -77,6 +77,14 @@ public class CategorySection implements ADBBean {
 	public static final int ID_MODPACKS = 4471;
 	public static final int ID_TEXTURE_PACKS = 12;
 
+	private static final QName extraIncludePatternQName = new QName("Curse.AddOns", "ExtraIncludePattern");
+	private static final QName gameIDQName = new QName("Curse.AddOns", "GameID");
+	private static final QName idQName = new QName("Curse.AddOns", "ID");
+	private static final QName initialInclusionPatternQName = new QName("Curse.AddOns", "InitialInclusionPattern");
+	private static final QName nameQName = new QName("Curse.AddOns", "Name");
+	private static final QName packageTypeQName = new QName("Curse.AddOns", "PackageType");
+	private static final QName pathQName = new QName("Curse.AddOns", "Path");
+
 	/**
 	 * field for ExtraIncludePattern
 	 */
@@ -465,7 +473,7 @@ public class CategorySection implements ADBBean {
 				throw new ADBException("PackageType cannot be null!!");
 			}
 
-			localPackageType.serialize(new QName("Curse.AddOns", "PackageType"), xmlWriter);
+			localPackageType.serialize(packageTypeQName, xmlWriter);
 		}
 
 		if (localPathTracker) {
@@ -561,7 +569,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "ExtraIncludePattern").equals(reader.getName())) {
+				if (reader.isStartElement() && extraIncludePatternQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -580,7 +588,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "GameID").equals(reader.getName())) {
+				if (reader.isStartElement() && gameIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -600,7 +608,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "ID").equals(reader.getName())) {
+				if (reader.isStartElement() && idQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -620,7 +628,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "InitialInclusionPattern").equals(reader.getName())) {
+				if (reader.isStartElement() && initialInclusionPatternQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -639,7 +647,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Name").equals(reader.getName())) {
+				if (reader.isStartElement() && nameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -658,7 +666,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "PackageType").equals(reader.getName())) {
+				if (reader.isStartElement() && packageTypeQName.equals(reader.getName())) {
 					object.setPackageType(PackageTypes.Factory.parse(reader));
 
 					reader.next();
@@ -669,7 +677,7 @@ public class CategorySection implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Path").equals(reader.getName())) {
+				if (reader.isStartElement() && pathQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

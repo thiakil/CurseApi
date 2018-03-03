@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOn implements ADBBean {
+	private static final QName addOnQName = new QName("Curse.AddOns", "AddOn");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOn
        Namespace URI = Curse.AddOns
@@ -163,7 +164,7 @@ public class ArrayOfAddOn implements ADBBean {
 		if (list != null) {
 			for (AddOn aLocalAddOn : list) {
 				if (aLocalAddOn != null) {
-					aLocalAddOn.serialize(new QName("Curse.AddOns", "AddOn"), xmlWriter);
+					aLocalAddOn.serialize(addOnQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOn", xmlWriter);
 
@@ -205,7 +206,7 @@ public class ArrayOfAddOn implements ADBBean {
 			if (localAddOn != null) {
 				for (AddOn aLocalAddOn : localAddOn) {
 					if (aLocalAddOn != null) {
-						aLocalAddOn.serialize(new QName("Curse.AddOns", "AddOn"), xmlWriter);
+						aLocalAddOn.serialize(addOnQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOn", xmlWriter);
 
@@ -303,7 +304,7 @@ public class ArrayOfAddOn implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOn").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -331,7 +332,7 @@ public class ArrayOfAddOn implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOn").equals(reader.getName())) {
+							if (addOnQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

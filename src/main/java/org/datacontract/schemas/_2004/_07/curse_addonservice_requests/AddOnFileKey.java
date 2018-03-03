@@ -62,6 +62,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnFileKey implements ADBBean {
+	private static final QName addOnIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnID");
+	private static final QName fileIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "FileID");
     /* This type was generated from the piece of schema that had
        name = AddOnFileKey
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests
@@ -283,7 +285,7 @@ public class AddOnFileKey implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "AddOnID").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -303,7 +305,7 @@ public class AddOnFileKey implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOnService.Requests", "FileID").equals(reader.getName())) {
+				if (reader.isStartElement() && fileIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

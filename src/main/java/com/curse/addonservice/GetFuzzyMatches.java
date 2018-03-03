@@ -63,6 +63,8 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetFuzzyMatches implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetFuzzyMatches", "ns9");
+	private static final QName gameIDQName = new QName("http://addonservice.curse.com/", "gameID");
+	private static final QName folderFingerprintsQName = new QName("http://addonservice.curse.com/", "folderFingerprints");
 
 	/**
 	 * field for GameID
@@ -195,7 +197,7 @@ public class GetFuzzyMatches implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localFolderFingerprints.serialize(new QName("http://addonservice.curse.com/", "folderFingerprints"), xmlWriter);
+				localFolderFingerprints.serialize(folderFingerprintsQName, xmlWriter);
 			}
 		}
 
@@ -278,7 +280,7 @@ public class GetFuzzyMatches implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "gameID").equals(reader.getName())) {
+				if (reader.isStartElement() && gameIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -298,7 +300,7 @@ public class GetFuzzyMatches implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "folderFingerprints").equals(reader.getName())) {
+				if (reader.isStartElement() && folderFingerprintsQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

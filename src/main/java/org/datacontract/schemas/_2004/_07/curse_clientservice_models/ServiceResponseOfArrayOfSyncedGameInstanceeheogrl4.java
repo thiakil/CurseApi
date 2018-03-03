@@ -62,6 +62,9 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBean {
+	private static final QName messageQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Message");
+	private static final QName statusQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status");
+	private static final QName valueQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Value");
     /* This type was generated from the piece of schema that had
        name = ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -232,7 +235,7 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 				throw new ADBException("Status cannot be null!!");
 			}
 
-			localStatus.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status"), xmlWriter);
+			localStatus.serialize(statusQName, xmlWriter);
 		}
 
 		if (localValueTracker) {
@@ -243,7 +246,7 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localValue.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Value"), xmlWriter);
+				localValue.serialize(valueQName, xmlWriter);
 			}
 		}
 
@@ -326,7 +329,7 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Message").equals(reader.getName())) {
+				if (reader.isStartElement() && messageQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -345,7 +348,7 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Status").equals(reader.getName())) {
+				if (reader.isStartElement() && statusQName.equals(reader.getName())) {
 					object.setStatus(ServiceResponseStatus.Factory.parse(reader));
 
 					reader.next();
@@ -356,7 +359,7 @@ public class ServiceResponseOfArrayOfSyncedGameInstanceeheogrl4 implements ADBBe
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Value").equals(reader.getName())) {
+				if (reader.isStartElement() && valueQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

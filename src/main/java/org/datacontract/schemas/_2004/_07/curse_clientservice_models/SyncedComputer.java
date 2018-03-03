@@ -62,6 +62,10 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class SyncedComputer implements ADBBean {
+	private static final QName computerIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerID");
+	private static final QName computerNameQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerName");
+	private static final QName instanceGuidQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceGuid");
+	private static final QName instanceLabelQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceLabel");
     /* This type was generated from the piece of schema that had
        name = SyncedComputer
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -111,7 +115,7 @@ public class SyncedComputer implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localInstanceLabelTracker = false;
-	
+
 	public SyncedComputer() {
 	}
 	
@@ -384,7 +388,7 @@ public class SyncedComputer implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerID").equals(reader.getName())) {
+				if (reader.isStartElement() && computerIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -404,7 +408,7 @@ public class SyncedComputer implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "ComputerName").equals(reader.getName())) {
+				if (reader.isStartElement() && computerNameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -423,7 +427,7 @@ public class SyncedComputer implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceGuid").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceGuidQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -442,7 +446,7 @@ public class SyncedComputer implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceLabel").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceLabelQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

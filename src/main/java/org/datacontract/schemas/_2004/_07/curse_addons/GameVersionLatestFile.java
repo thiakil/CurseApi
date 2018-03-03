@@ -63,6 +63,10 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class GameVersionLatestFile implements ADBBean {
+	private static final QName fileTypeQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FileType");
+	private static final QName projectFileIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "ProjectFileID");
+	private static final QName projectFileNameQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "ProjectFileName");
+	private static final QName gameVesionQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVesion");
     /* This type was generated from the piece of schema that had
        name = GameVersionLatestFile
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOns
@@ -120,7 +124,7 @@ public class GameVersionLatestFile implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localProjectFileNameTracker = false;
-	
+
 	public GameVersionLatestFile() {
 	}
 	
@@ -264,7 +268,7 @@ public class GameVersionLatestFile implements ADBBean {
 				throw new ADBException("FileType cannot be null!!");
 			}
 
-			localFileType.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FileType"), xmlWriter);
+			localFileType.serialize(fileTypeQName, xmlWriter);
 		}
 
 		if (localGameVersionTracker) {
@@ -387,7 +391,7 @@ public class GameVersionLatestFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FileType").equals(reader.getName())) {
+				if (reader.isStartElement() && fileTypeQName.equals(reader.getName())) {
 					object.setFileType(FileType.Factory.parse(reader));
 
 					reader.next();
@@ -398,7 +402,7 @@ public class GameVersionLatestFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVesion").equals(reader.getName())) {
+				if (reader.isStartElement() && gameVesionQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -417,7 +421,7 @@ public class GameVersionLatestFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "ProjectFileID").equals(reader.getName())) {
+				if (reader.isStartElement() && projectFileIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -437,7 +441,7 @@ public class GameVersionLatestFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "ProjectFileName").equals(reader.getName())) {
+				if (reader.isStartElement() && projectFileNameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

@@ -64,6 +64,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class ListFeedsResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "ListFeedsResponse", "ns9");
+	private static final QName listFeedsResultQName = new QName("http://addonservice.curse.com/", "ListFeedsResult");
 
 	/**
 	 * field for ListFeedsResult
@@ -146,7 +147,7 @@ public class ListFeedsResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfDirectoryInfo.serialize(new QName("http://addonservice.curse.com/", "ListFeedsResult"), xmlWriter, localListFeedsResult);
+				ArrayOfDirectoryInfo.serialize(listFeedsResultQName, xmlWriter, localListFeedsResult);
 			}
 		}
 
@@ -229,7 +230,7 @@ public class ListFeedsResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "ListFeedsResult").equals(reader.getName())) {
+				if (reader.isStartElement() && listFeedsResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

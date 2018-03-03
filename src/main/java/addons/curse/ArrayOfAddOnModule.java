@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnModule implements ADBBean {
+	private static final QName addOnModuleQName = new QName("Curse.AddOns", "AddOnModule");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnModule
        Namespace URI = Curse.AddOns
@@ -163,7 +164,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 		if (list != null) {
 			for (AddOnModule aLocalAddOnModule : list) {
 				if (aLocalAddOnModule != null) {
-					aLocalAddOnModule.serialize(new QName("Curse.AddOns", "AddOnModule"), xmlWriter);
+					aLocalAddOnModule.serialize(addOnModuleQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOnModule", xmlWriter);
 
@@ -204,7 +205,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 			if (localAddOnModule != null) {
 				for (AddOnModule aLocalAddOnModule : localAddOnModule) {
 					if (aLocalAddOnModule != null) {
-						aLocalAddOnModule.serialize(new QName("Curse.AddOns", "AddOnModule"), xmlWriter);
+						aLocalAddOnModule.serialize(addOnModuleQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnModule", xmlWriter);
 
@@ -302,7 +303,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnModule").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnModuleQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -330,7 +331,7 @@ public class ArrayOfAddOnModule implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnModule").equals(reader.getName())) {
+							if (addOnModuleQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

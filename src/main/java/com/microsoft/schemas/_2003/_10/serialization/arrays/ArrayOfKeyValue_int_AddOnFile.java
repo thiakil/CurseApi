@@ -69,6 +69,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfKeyValue_int_AddOnFile implements ADBBean {
+	private static final QName keyValueOfintArrayOfAddOnFileHlmYZPzpQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "KeyValueOfintArrayOfAddOnFileHlmYZPzp");
     /* This type was generated from the piece of schema that had
        name = ArrayOfKeyValue_int_AddOnFile
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
@@ -166,7 +167,7 @@ public class ArrayOfKeyValue_int_AddOnFile implements ADBBean {
 		if (map != null) {
 			for (Int2ObjectMap.Entry<List<AddOnFile>> entry : map.int2ObjectEntrySet()) {
 				if (entry != null) {
-					KeyValuePair_int_AddonFileList.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "KeyValueOfintArrayOfAddOnFileHlmYZPzp"), xmlWriter, entry);
+					KeyValuePair_int_AddonFileList.serialize(keyValueOfintArrayOfAddOnFileHlmYZPzpQName, xmlWriter, entry);
 				} else {
 					// we don't have to do any thing since minOccures is zero
 				}
@@ -200,7 +201,7 @@ public class ArrayOfKeyValue_int_AddOnFile implements ADBBean {
 			if (localKeyValueOfintArrayOfAddOnFileHlmYZPzp != null) {
 				for (Int2ObjectMap.Entry<List<AddOnFile>> entry : localKeyValueOfintArrayOfAddOnFileHlmYZPzp.int2ObjectEntrySet()) {
 					if (entry != null) {
-						KeyValuePair_int_AddonFileList.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "KeyValueOfintArrayOfAddOnFileHlmYZPzp"), xmlWriter, entry);
+						KeyValuePair_int_AddonFileList.serialize(keyValueOfintArrayOfAddOnFileHlmYZPzpQName, xmlWriter, entry);
 					} else {
 						// we don't have to do any thing since minOccures is zero
 					}
@@ -291,7 +292,7 @@ public class ArrayOfKeyValue_int_AddOnFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "KeyValueOfintArrayOfAddOnFileHlmYZPzp").equals(reader.getName())) {
+				if (reader.isStartElement() && keyValueOfintArrayOfAddOnFileHlmYZPzpQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					Int2ObjectMap.Entry<List<AddOnFile>> e = KeyValuePair_int_AddonFileList.Factory.parse(reader);
 					object.put(e.getIntKey(), e.getValue());
@@ -313,7 +314,7 @@ public class ArrayOfKeyValue_int_AddOnFile implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "KeyValueOfintArrayOfAddOnFileHlmYZPzp").equals(reader.getName())) {
+							if (keyValueOfintArrayOfAddOnFileHlmYZPzpQName.equals(reader.getName())) {
 								Int2ObjectMap.Entry<List<AddOnFile>> e2 = KeyValuePair_int_AddonFileList.Factory.parse(reader);
 								object.put(e2.getIntKey(), e2.getValue());
 							} else {

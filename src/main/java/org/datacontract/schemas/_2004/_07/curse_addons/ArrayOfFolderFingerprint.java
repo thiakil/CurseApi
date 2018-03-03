@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfFolderFingerprint implements ADBBean {
+	private static final QName folderFingerprintQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FolderFingerprint");
     /* This type was generated from the piece of schema that had
        name = ArrayOfFolderFingerprint
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOns
@@ -176,7 +177,7 @@ public class ArrayOfFolderFingerprint implements ADBBean {
 			if (localFolderFingerprint != null) {
 				for (FolderFingerprint aLocalFolderFingerprint : localFolderFingerprint) {
 					if (aLocalFolderFingerprint != null) {
-						aLocalFolderFingerprint.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FolderFingerprint"), xmlWriter);
+						aLocalFolderFingerprint.serialize(folderFingerprintQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "FolderFingerprint", xmlWriter);
 
@@ -275,7 +276,7 @@ public class ArrayOfFolderFingerprint implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FolderFingerprint").equals(reader.getName())) {
+				if (reader.isStartElement() && folderFingerprintQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -303,7 +304,7 @@ public class ArrayOfFolderFingerprint implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FolderFingerprint").equals(reader.getName())) {
+							if (folderFingerprintQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

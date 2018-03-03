@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetAddOnFileResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetAddOnFileResponse", "ns9");
+	private static final QName getAddOnFileResultQName = new QName("http://addonservice.curse.com/", "GetAddOnFileResult");
 
 	/**
 	 * field for GetAddOnFileResult
@@ -145,7 +146,7 @@ public class GetAddOnFileResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localGetAddOnFileResult.serialize(new QName("http://addonservice.curse.com/", "GetAddOnFileResult"), xmlWriter);
+				localGetAddOnFileResult.serialize(getAddOnFileResultQName, xmlWriter);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class GetAddOnFileResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "GetAddOnFileResult").equals(reader.getName())) {
+				if (reader.isStartElement() && getAddOnFileResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

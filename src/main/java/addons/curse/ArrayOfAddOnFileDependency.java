@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnFileDependency implements ADBBean {
+	private static final QName addOnFileDependencyQName = new QName("Curse.AddOns", "AddOnFileDependency");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnFileDependency
        Namespace URI = Curse.AddOns
@@ -163,7 +164,7 @@ public class ArrayOfAddOnFileDependency implements ADBBean {
 		if (list != null) {
 			for (AddOnFileDependency aLocalAddOnFileDependency : list) {
 				if (aLocalAddOnFileDependency != null) {
-					aLocalAddOnFileDependency.serialize(new QName("Curse.AddOns", "AddOnFileDependency"), xmlWriter);
+					aLocalAddOnFileDependency.serialize(addOnFileDependencyQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOnFileDependency", xmlWriter);
 
@@ -205,7 +206,7 @@ public class ArrayOfAddOnFileDependency implements ADBBean {
 			if (localAddOnFileDependency != null) {
 				for (AddOnFileDependency aLocalAddOnFileDependency : localAddOnFileDependency) {
 					if (aLocalAddOnFileDependency != null) {
-						aLocalAddOnFileDependency.serialize(new QName("Curse.AddOns", "AddOnFileDependency"), xmlWriter);
+						aLocalAddOnFileDependency.serialize(addOnFileDependencyQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnFileDependency", xmlWriter);
 
@@ -303,7 +304,7 @@ public class ArrayOfAddOnFileDependency implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnFileDependency").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnFileDependencyQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -331,7 +332,7 @@ public class ArrayOfAddOnFileDependency implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnFileDependency").equals(reader.getName())) {
+							if (addOnFileDependencyQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

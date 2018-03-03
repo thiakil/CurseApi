@@ -62,6 +62,8 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetRepositoryMatchFromSlug implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetRepositoryMatchFromSlug", "ns9");
+	private static final QName gameSlugQName = new QName("http://addonservice.curse.com/", "gameSlug");
+	private static final QName addonSlugQName = new QName("http://addonservice.curse.com/", "addonSlug");
 
 	/**
 	 * field for GameSlug
@@ -279,7 +281,7 @@ public class GetRepositoryMatchFromSlug implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "gameSlug").equals(reader.getName())) {
+				if (reader.isStartElement() && gameSlugQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -298,7 +300,7 @@ public class GetRepositoryMatchFromSlug implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "addonSlug").equals(reader.getName())) {
+				if (reader.isStartElement() && addonSlugQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

@@ -64,6 +64,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class AddOnAuthor implements ADBBean {
+	private static final QName nameQName = new QName("Curse.AddOns", "Name");
+	private static final QName urlQName = new QName("Curse.AddOns", "Url");
     /* This type was generated from the piece of schema that had
        name = AddOnAuthor
        Namespace URI = Curse.AddOns
@@ -94,7 +96,7 @@ public class AddOnAuthor implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localUrlTracker = false;
-	
+
 	public AddOnAuthor() {
 	}
 	
@@ -306,7 +308,7 @@ public class AddOnAuthor implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Name").equals(reader.getName())) {
+				if (reader.isStartElement() && nameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -325,7 +327,7 @@ public class AddOnAuthor implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Url").equals(reader.getName())) {
+				if (reader.isStartElement() && urlQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

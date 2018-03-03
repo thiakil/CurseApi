@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfGameVersionLatestFile implements ADBBean {
+	private static final QName gameVersionLatestFileQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile");
     /* This type was generated from the piece of schema that had
        name = ArrayOfGameVersionLatestFile
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOns
@@ -165,7 +166,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 		if (list != null) {
 			for (GameVersionLatestFile aLocalGameVersionLatestFile : list) {
 				if (aLocalGameVersionLatestFile != null) {
-					aLocalGameVersionLatestFile.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile"), xmlWriter);
+					aLocalGameVersionLatestFile.serialize(gameVersionLatestFileQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
 
@@ -207,7 +208,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 			if (localGameVersionLatestFile != null) {
 				for (GameVersionLatestFile aLocalGameVersionLatestFile : localGameVersionLatestFile) {
 					if (aLocalGameVersionLatestFile != null) {
-						aLocalGameVersionLatestFile.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile"), xmlWriter);
+						aLocalGameVersionLatestFile.serialize(gameVersionLatestFileQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile", xmlWriter);
 
@@ -305,7 +306,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile").equals(reader.getName())) {
+				if (reader.isStartElement() && gameVersionLatestFileQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -333,7 +334,7 @@ public class ArrayOfGameVersionLatestFile implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "GameVersionLatestFile").equals(reader.getName())) {
+							if (gameVersionLatestFileQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

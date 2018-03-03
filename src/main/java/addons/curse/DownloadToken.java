@@ -63,6 +63,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class DownloadToken implements ADBBean {
+	private static final QName ipAddressQName = new QName("Curse.AddOns", "IPAddress");
+	private static final QName timestampQName = new QName("Curse.AddOns", "Timestamp");
     /* This type was generated from the piece of schema that had
        name = DownloadToken
        Namespace URI = Curse.AddOns
@@ -90,7 +92,7 @@ public class DownloadToken implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTimestampTracker = false;
-	
+
 	public DownloadToken() {
 	}
 	
@@ -285,7 +287,7 @@ public class DownloadToken implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "IPAddress").equals(reader.getName())) {
+				if (reader.isStartElement() && ipAddressQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -304,7 +306,7 @@ public class DownloadToken implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Timestamp").equals(reader.getName())) {
+				if (reader.isStartElement() && timestampQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

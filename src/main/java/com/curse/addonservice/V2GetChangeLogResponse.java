@@ -62,6 +62,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class V2GetChangeLogResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "v2GetChangeLogResponse", "ns9");
+	private static final QName v2GetChangeLogResultQName = new QName("http://addonservice.curse.com/", "v2GetChangeLogResult");
 
 	/**
 	 * field for V2GetChangeLogResult
@@ -229,7 +230,7 @@ public class V2GetChangeLogResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "v2GetChangeLogResult").equals(reader.getName())) {
+				if (reader.isStartElement() && v2GetChangeLogResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

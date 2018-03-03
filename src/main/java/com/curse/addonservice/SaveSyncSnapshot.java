@@ -63,6 +63,8 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class SaveSyncSnapshot implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "SaveSyncSnapshot", "ns9");
+	private static final QName instanceIDQName = new QName("http://addonservice.curse.com/", "instanceID");
+	private static final QName syncedAddonsQName = new QName("http://addonservice.curse.com/", "syncedAddons");
 
 	/**
 	 * field for InstanceID
@@ -195,7 +197,7 @@ public class SaveSyncSnapshot implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localSyncedAddons.serialize(new QName("http://addonservice.curse.com/", "syncedAddons"), xmlWriter);
+				localSyncedAddons.serialize(syncedAddonsQName, xmlWriter);
 			}
 		}
 
@@ -278,7 +280,7 @@ public class SaveSyncSnapshot implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceID").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -298,7 +300,7 @@ public class SaveSyncSnapshot implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "syncedAddons").equals(reader.getName())) {
+				if (reader.isStartElement() && syncedAddonsQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

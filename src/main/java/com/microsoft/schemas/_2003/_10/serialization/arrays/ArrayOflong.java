@@ -63,6 +63,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOflong implements ADBBean {
+	private static final QName aLongQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long");
     /* This type was generated from the piece of schema that had
        name = ArrayOflong
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
@@ -279,7 +280,7 @@ public class ArrayOflong implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long").equals(reader.getName())) {
+				if (reader.isStartElement() && aLongQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					list1.add(reader.getElementText());
 
@@ -302,7 +303,7 @@ public class ArrayOflong implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "long").equals(reader.getName())) {
+							if (aLongQName.equals(reader.getName())) {
 								list1.add(reader.getElementText());
 							} else {
 								loopDone1 = true;

@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfSyncedComputer implements ADBBean {
+	private static final QName syncedComputerQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedComputer");
     /* This type was generated from the piece of schema that had
        name = ArrayOfSyncedComputer
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -176,7 +177,7 @@ public class ArrayOfSyncedComputer implements ADBBean {
 			if (localSyncedComputer != null) {
 				for (SyncedComputer aLocalSyncedComputer : localSyncedComputer) {
 					if (aLocalSyncedComputer != null) {
-						aLocalSyncedComputer.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedComputer"), xmlWriter);
+						aLocalSyncedComputer.serialize(syncedComputerQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedComputer", xmlWriter);
 
@@ -275,7 +276,7 @@ public class ArrayOfSyncedComputer implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedComputer").equals(reader.getName())) {
+				if (reader.isStartElement() && syncedComputerQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -303,7 +304,7 @@ public class ArrayOfSyncedComputer implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedComputer").equals(reader.getName())) {
+							if (syncedComputerQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

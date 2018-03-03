@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfFuzzyMatch implements ADBBean {
+	private static final QName fuzzyMatchQName = new QName("Curse.AddOns", "FuzzyMatch");
     /* This type was generated from the piece of schema that had
        name = ArrayOfFuzzyMatch
        Namespace URI = Curse.AddOns
@@ -174,7 +175,7 @@ public class ArrayOfFuzzyMatch implements ADBBean {
 			if (localFuzzyMatch != null) {
 				for (FuzzyMatch aLocalFuzzyMatch : localFuzzyMatch) {
 					if (aLocalFuzzyMatch != null) {
-						aLocalFuzzyMatch.serialize(new QName("Curse.AddOns", "FuzzyMatch"), xmlWriter);
+						aLocalFuzzyMatch.serialize(fuzzyMatchQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "FuzzyMatch", xmlWriter);
 
@@ -273,7 +274,7 @@ public class ArrayOfFuzzyMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "FuzzyMatch").equals(reader.getName())) {
+				if (reader.isStartElement() && fuzzyMatchQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -301,7 +302,7 @@ public class ArrayOfFuzzyMatch implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "FuzzyMatch").equals(reader.getName())) {
+							if (fuzzyMatchQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

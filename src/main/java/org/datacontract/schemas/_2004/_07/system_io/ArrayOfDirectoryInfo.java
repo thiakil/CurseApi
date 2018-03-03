@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfDirectoryInfo implements ADBBean {
+	private static final QName directoryInfoQName = new QName("http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo");
     /* This type was generated from the piece of schema that had
        name = ArrayOfDirectoryInfo
        Namespace URI = http://schemas.datacontract.org/2004/07/System.IO
@@ -165,7 +166,7 @@ public class ArrayOfDirectoryInfo implements ADBBean {
 		if (list != null) {
 			for (DirectoryInfo aLocalDirectoryInfo : list) {
 				if (aLocalDirectoryInfo != null) {
-					aLocalDirectoryInfo.serialize(new QName("http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo"), xmlWriter);
+					aLocalDirectoryInfo.serialize(directoryInfoQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo", xmlWriter);
 					
@@ -207,7 +208,7 @@ public class ArrayOfDirectoryInfo implements ADBBean {
 			if (localDirectoryInfo != null) {
 				for (DirectoryInfo aLocalDirectoryInfo : localDirectoryInfo) {
 					if (aLocalDirectoryInfo != null) {
-						aLocalDirectoryInfo.serialize(new QName("http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo"), xmlWriter);
+						aLocalDirectoryInfo.serialize(directoryInfoQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo", xmlWriter);
 
@@ -306,7 +307,7 @@ public class ArrayOfDirectoryInfo implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo").equals(reader.getName())) {
+				if (reader.isStartElement() && directoryInfoQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -334,7 +335,7 @@ public class ArrayOfDirectoryInfo implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/System.IO", "DirectoryInfo").equals(reader.getName())) {
+							if (directoryInfoQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

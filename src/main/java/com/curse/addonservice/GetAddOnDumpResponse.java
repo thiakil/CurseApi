@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetAddOnDumpResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetAddOnDumpResponse", "ns9");
+	private static final QName getAddOnDumpResultQName = new QName("http://addonservice.curse.com/", "GetAddOnDumpResult");
 
 	/**
 	 * field for GetAddOnDumpResult
@@ -129,7 +130,7 @@ public class GetAddOnDumpResponse implements ADBBean {
 			throw new ADBException("GetAddOnDumpResult cannot be null!!");
 		}
 
-		localGetAddOnDumpResult.serialize(new QName("http://addonservice.curse.com/", "GetAddOnDumpResult"), xmlWriter);
+		localGetAddOnDumpResult.serialize(getAddOnDumpResultQName, xmlWriter);
 
 		xmlWriter.writeEndElement();
 	}
@@ -210,7 +211,7 @@ public class GetAddOnDumpResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "GetAddOnDumpResult").equals(reader.getName())) {
+				if (reader.isStartElement() && getAddOnDumpResultQName.equals(reader.getName())) {
 					object.setGetAddOnDumpResult(StreamBody.Factory.parse(reader));
 
 					reader.next();

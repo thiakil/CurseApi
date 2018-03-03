@@ -63,6 +63,9 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class FingerprintMatch implements ADBBean {
+	private static final QName fileQName = new QName("Curse.AddOns", "File");
+	private static final QName idQName = new QName("Curse.AddOns", "Id");
+	private static final QName latestFilesQName = new QName("Curse.AddOns", "LatestFiles");
     /* This type was generated from the piece of schema that had
        name = FingerprintMatch
        Namespace URI = Curse.AddOns
@@ -101,7 +104,7 @@ public class FingerprintMatch implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLatestFilesTracker = false;
-	
+
 	public FingerprintMatch() {
 	}
 	
@@ -223,7 +226,7 @@ public class FingerprintMatch implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localFile.serialize(new QName("Curse.AddOns", "File"), xmlWriter);
+				localFile.serialize(fileQName, xmlWriter);
 			}
 		}
 
@@ -248,7 +251,7 @@ public class FingerprintMatch implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfAddOnFile.Factory.serialize(new QName("Curse.AddOns", "LatestFiles"), xmlWriter, localLatestFiles);
+				ArrayOfAddOnFile.Factory.serialize(latestFilesQName, xmlWriter, localLatestFiles);
 			}
 		}
 
@@ -331,7 +334,7 @@ public class FingerprintMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "File").equals(reader.getName())) {
+				if (reader.isStartElement() && fileQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -351,7 +354,7 @@ public class FingerprintMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "Id").equals(reader.getName())) {
+				if (reader.isStartElement() && idQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -371,7 +374,7 @@ public class FingerprintMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "LatestFiles").equals(reader.getName())) {
+				if (reader.isStartElement() && latestFilesQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

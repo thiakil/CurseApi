@@ -63,6 +63,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfint implements ADBBean {
+	private static final QName anIntQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int");
     /* This type was generated from the piece of schema that had
        name = ArrayOfint
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
@@ -277,7 +278,7 @@ public class ArrayOfint implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int").equals(reader.getName())) {
+				if (reader.isStartElement() && anIntQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					list1.add(reader.getElementText());
 
@@ -300,7 +301,7 @@ public class ArrayOfint implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "int").equals(reader.getName())) {
+							if (anIntQName.equals(reader.getName())) {
 								list1.add(reader.getElementText());
 							} else {
 								loopDone1 = true;

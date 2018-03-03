@@ -62,6 +62,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class CacheHealthCheckResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "CacheHealthCheckResponse", "ns9");
+	private static final QName cacheHealthCheckResultQName = new QName("http://addonservice.curse.com/", "CacheHealthCheckResult");
 
 	/**
 	 * field for CacheHealthCheckResult
@@ -229,7 +230,7 @@ public class CacheHealthCheckResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "CacheHealthCheckResult").equals(reader.getName())) {
+				if (reader.isStartElement() && cacheHealthCheckResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

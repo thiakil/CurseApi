@@ -63,6 +63,15 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class SyncedGameInstance implements ADBBean {
+	private static final QName addonsQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons");
+	private static final QName computersQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers");
+	private static final QName gameIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "GameID");
+	private static final QName instanceIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceID");
+	private static final QName instanceNameQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceName");
+	private static final QName lastBackupDateQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupDate");
+	private static final QName lastBackupFingerprintQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupFingerprint");
+	private static final QName lastBackupScreenHeightQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenHeight");
+	private static final QName lastBackupScreenWidthQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenWidth");
     /* This type was generated from the piece of schema that had
        name = SyncedGameInstance
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -167,7 +176,7 @@ public class SyncedGameInstance implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLastBackupScreenWidthTracker = false;
-	
+
 	public SyncedGameInstance() {
 	}
 	
@@ -443,7 +452,7 @@ public class SyncedGameInstance implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localAddons.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons"), xmlWriter);
+				localAddons.serialize(addonsQName, xmlWriter);
 			}
 		}
 
@@ -455,7 +464,7 @@ public class SyncedGameInstance implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localComputers.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers"), xmlWriter);
+				localComputers.serialize(computersQName, xmlWriter);
 			}
 		}
 
@@ -631,7 +640,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Addons").equals(reader.getName())) {
+				if (reader.isStartElement() && addonsQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -651,7 +660,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Computers").equals(reader.getName())) {
+				if (reader.isStartElement() && computersQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -671,7 +680,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "GameID").equals(reader.getName())) {
+				if (reader.isStartElement() && gameIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -691,7 +700,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceID").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -711,7 +720,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "InstanceName").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceNameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -730,7 +739,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupDate").equals(reader.getName())) {
+				if (reader.isStartElement() && lastBackupDateQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -749,7 +758,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupFingerprint").equals(reader.getName())) {
+				if (reader.isStartElement() && lastBackupFingerprintQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -769,7 +778,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenHeight").equals(reader.getName())) {
+				if (reader.isStartElement() && lastBackupScreenHeightQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -789,7 +798,7 @@ public class SyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "LastBackupScreenWidth").equals(reader.getName())) {
+				if (reader.isStartElement() && lastBackupScreenWidthQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

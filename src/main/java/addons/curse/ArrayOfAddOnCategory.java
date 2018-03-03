@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfAddOnCategory implements ADBBean {
+	private static final QName addOnCategoryQName = new QName("Curse.AddOns", "AddOnCategory");
     /* This type was generated from the piece of schema that had
        name = ArrayOfAddOnCategory
        Namespace URI = Curse.AddOns
@@ -163,7 +164,7 @@ public class ArrayOfAddOnCategory implements ADBBean {
 		if (list != null) {
 			for (AddOnCategory aLocalAddOnCategory : list) {
 				if (aLocalAddOnCategory != null) {
-					aLocalAddOnCategory.serialize(new QName("Curse.AddOns", "AddOnCategory"), xmlWriter);
+					aLocalAddOnCategory.serialize(addOnCategoryQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "AddOnCategory", xmlWriter);
 
@@ -205,7 +206,7 @@ public class ArrayOfAddOnCategory implements ADBBean {
 			if (localAddOnCategory != null) {
 				for (AddOnCategory aLocalAddOnCategory : localAddOnCategory) {
 					if (aLocalAddOnCategory != null) {
-						aLocalAddOnCategory.serialize(new QName("Curse.AddOns", "AddOnCategory"), xmlWriter);
+						aLocalAddOnCategory.serialize(addOnCategoryQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "AddOnCategory", xmlWriter);
 
@@ -303,7 +304,7 @@ public class ArrayOfAddOnCategory implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "AddOnCategory").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnCategoryQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -331,7 +332,7 @@ public class ArrayOfAddOnCategory implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "AddOnCategory").equals(reader.getName())) {
+							if (addOnCategoryQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

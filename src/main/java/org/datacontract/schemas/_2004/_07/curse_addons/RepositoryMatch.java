@@ -65,6 +65,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class RepositoryMatch implements ADBBean {
+	private static final QName idQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Id");
+	private static final QName latestFilesQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "LatestFiles");
     /* This type was generated from the piece of schema that had
        name = RepositoryMatch
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOns
@@ -92,7 +94,7 @@ public class RepositoryMatch implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localLatestFilesTracker = false;
-	
+
 	public RepositoryMatch() {
 	}
 	
@@ -202,7 +204,7 @@ public class RepositoryMatch implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfAddOnFile.Factory.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "LatestFiles"), xmlWriter, localLatestFiles);
+				ArrayOfAddOnFile.Factory.serialize(latestFilesQName, xmlWriter, localLatestFiles);
 			}
 		}
 
@@ -285,7 +287,7 @@ public class RepositoryMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Id").equals(reader.getName())) {
+				if (reader.isStartElement() && idQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -305,7 +307,7 @@ public class RepositoryMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "LatestFiles").equals(reader.getName())) {
+				if (reader.isStartElement() && latestFilesQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

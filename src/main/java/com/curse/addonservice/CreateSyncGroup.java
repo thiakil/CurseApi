@@ -62,6 +62,11 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class CreateSyncGroup implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "CreateSyncGroup", "ns9");
+	private static final QName instanceNameQName = new QName("http://addonservice.curse.com/", "instanceName");
+	private static final QName gameIDQName = new QName("http://addonservice.curse.com/", "gameID");
+	private static final QName computerNameQName = new QName("http://addonservice.curse.com/", "computerName");
+	private static final QName instanceGUIDQName = new QName("http://addonservice.curse.com/", "instanceGUID");
+	private static final QName instanceLabelQName = new QName("http://addonservice.curse.com/", "instanceLabel");
 
 	/**
 	 * field for InstanceName
@@ -429,7 +434,7 @@ public class CreateSyncGroup implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceName").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceNameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -448,7 +453,7 @@ public class CreateSyncGroup implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "gameID").equals(reader.getName())) {
+				if (reader.isStartElement() && gameIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -468,7 +473,7 @@ public class CreateSyncGroup implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "computerName").equals(reader.getName())) {
+				if (reader.isStartElement() && computerNameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -487,7 +492,7 @@ public class CreateSyncGroup implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceGUID").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceGUIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
@@ -506,7 +511,7 @@ public class CreateSyncGroup implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "instanceLabel").equals(reader.getName())) {
+				if (reader.isStartElement() && instanceLabelQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

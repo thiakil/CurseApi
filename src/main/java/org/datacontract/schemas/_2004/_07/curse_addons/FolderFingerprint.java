@@ -63,6 +63,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class FolderFingerprint implements ADBBean {
+	private static final QName fingerprintsQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Fingerprints");
+	private static final QName foldernameQName = new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Foldername");
     /* This type was generated from the piece of schema that had
        name = FolderFingerprint
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.AddOns
@@ -186,7 +188,7 @@ public class FolderFingerprint implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOflong.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Fingerprints"), xmlWriter, localFingerprints);
+				ArrayOflong.serialize(fingerprintsQName, xmlWriter, localFingerprints);
 			}
 		}
 
@@ -283,7 +285,7 @@ public class FolderFingerprint implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Fingerprints").equals(reader.getName())) {
+				if (reader.isStartElement() && fingerprintsQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -303,7 +305,7 @@ public class FolderFingerprint implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "Foldername").equals(reader.getName())) {
+				if (reader.isStartElement() && foldernameQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class V2GetFingerprintMatchesResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "v2GetFingerprintMatchesResponse", "ns9");
+	private static final QName v2GetFingerprintMatchesResultQName = new QName("http://addonservice.curse.com/", "v2GetFingerprintMatchesResult");
 
 	/**
 	 * field for V2GetFingerprintMatchesResult
@@ -145,7 +146,7 @@ public class V2GetFingerprintMatchesResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localV2GetFingerprintMatchesResult.serialize(new QName("http://addonservice.curse.com/", "v2GetFingerprintMatchesResult"), xmlWriter);
+				localV2GetFingerprintMatchesResult.serialize(v2GetFingerprintMatchesResultQName, xmlWriter);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class V2GetFingerprintMatchesResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "v2GetFingerprintMatchesResult").equals(reader.getName())) {
+				if (reader.isStartElement() && v2GetFingerprintMatchesResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

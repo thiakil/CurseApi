@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class SaveSyncSnapshotResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "SaveSyncSnapshotResponse", "ns9");
+	private static final QName saveSyncSnapshotResultQName = new QName("http://addonservice.curse.com/", "SaveSyncSnapshotResult");
 
 	/**
 	 * field for SaveSyncSnapshotResult
@@ -145,7 +146,7 @@ public class SaveSyncSnapshotResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				localSaveSyncSnapshotResult.serialize(new QName("http://addonservice.curse.com/", "SaveSyncSnapshotResult"), xmlWriter);
+				localSaveSyncSnapshotResult.serialize(saveSyncSnapshotResultQName, xmlWriter);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class SaveSyncSnapshotResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "SaveSyncSnapshotResult").equals(reader.getName())) {
+				if (reader.isStartElement() && saveSyncSnapshotResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

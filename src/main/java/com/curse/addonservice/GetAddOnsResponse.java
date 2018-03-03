@@ -63,6 +63,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetAddOnsResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetAddOnsResponse", "ns9");
+	private static final QName getAddOnsResultQName = new QName("http://addonservice.curse.com/", "GetAddOnsResult");
 
 	/**
 	 * field for GetAddOnsResult
@@ -145,7 +146,7 @@ public class GetAddOnsResponse implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfAddOn.serialize(new QName("http://addonservice.curse.com/", "GetAddOnsResult"), xmlWriter, localGetAddOnsResult);
+				ArrayOfAddOn.serialize(getAddOnsResultQName, xmlWriter, localGetAddOnsResult);
 			}
 		}
 
@@ -228,7 +229,7 @@ public class GetAddOnsResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "GetAddOnsResult").equals(reader.getName())) {
+				if (reader.isStartElement() && getAddOnsResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

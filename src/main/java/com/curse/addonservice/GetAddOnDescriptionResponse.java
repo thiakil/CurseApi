@@ -62,6 +62,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetAddOnDescriptionResponse implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetAddOnDescriptionResponse", "ns9");
+	private static final QName getAddOnDescriptionResultQName = new QName("http://addonservice.curse.com/", "GetAddOnDescriptionResult");
 
 	/**
 	 * field for GetAddOnDescriptionResult
@@ -229,7 +230,7 @@ public class GetAddOnDescriptionResponse implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "GetAddOnDescriptionResult").equals(reader.getName())) {
+				if (reader.isStartElement() && getAddOnDescriptionResultQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {

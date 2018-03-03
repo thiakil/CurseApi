@@ -62,6 +62,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class SyncedAddon implements ADBBean {
+	private static final QName addonIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "AddonID");
+	private static final QName fileIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "FileID");
     /* This type was generated from the piece of schema that had
        name = SyncedAddon
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -89,7 +91,7 @@ public class SyncedAddon implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localFileIDTracker = false;
-	
+
 	public SyncedAddon() {
 	}
 	
@@ -284,7 +286,7 @@ public class SyncedAddon implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "AddonID").equals(reader.getName())) {
+				if (reader.isStartElement() && addonIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -304,7 +306,7 @@ public class SyncedAddon implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "FileID").equals(reader.getName())) {
+				if (reader.isStartElement() && fileIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

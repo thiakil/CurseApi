@@ -62,6 +62,7 @@ import java.util.Vector;
 @SuppressWarnings({"unchecked", "unused"})
 public class GetAllFilesForAddOn implements ADBBean {
 	public static final QName MY_QNAME = new QName("http://addonservice.curse.com/", "GetAllFilesForAddOn", "");
+	private static final QName addOnIDQName = new QName("http://addonservice.curse.com/", "addOnID");
 
 	/**
 	 * field for AddOnID
@@ -73,7 +74,7 @@ public class GetAllFilesForAddOn implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localAddOnIDTracker = false;
-	
+
 	public GetAllFilesForAddOn(){}
 	
 	public GetAllFilesForAddOn(int addonID){
@@ -228,7 +229,7 @@ public class GetAllFilesForAddOn implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://addonservice.curse.com/", "addOnID").equals(reader.getName())) {
+				if (reader.isStartElement() && addOnIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

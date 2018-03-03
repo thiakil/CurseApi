@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfSyncedAddon implements ADBBean {
+	private static final QName syncedAddonQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedAddon");
     /* This type was generated from the piece of schema that had
        name = ArrayOfSyncedAddon
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -176,7 +177,7 @@ public class ArrayOfSyncedAddon implements ADBBean {
 			if (localSyncedAddon != null) {
 				for (SyncedAddon aLocalSyncedAddon : localSyncedAddon) {
 					if (aLocalSyncedAddon != null) {
-						aLocalSyncedAddon.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedAddon"), xmlWriter);
+						aLocalSyncedAddon.serialize(syncedAddonQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedAddon", xmlWriter);
 
@@ -275,7 +276,7 @@ public class ArrayOfSyncedAddon implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedAddon").equals(reader.getName())) {
+				if (reader.isStartElement() && syncedAddonQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -303,7 +304,7 @@ public class ArrayOfSyncedAddon implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedAddon").equals(reader.getName())) {
+							if (syncedAddonQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

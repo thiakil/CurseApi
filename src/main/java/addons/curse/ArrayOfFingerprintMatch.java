@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfFingerprintMatch implements ADBBean {
+	private static final QName fingerprintMatchQName = new QName("Curse.AddOns", "FingerprintMatch");
     /* This type was generated from the piece of schema that had
        name = ArrayOfFingerprintMatch
        Namespace URI = Curse.AddOns
@@ -163,7 +164,7 @@ public class ArrayOfFingerprintMatch implements ADBBean {
 		if (list != null) {
 			for (FingerprintMatch aLocalFingerprintMatch : list) {
 				if (aLocalFingerprintMatch != null) {
-					aLocalFingerprintMatch.serialize(new QName("Curse.AddOns", "FingerprintMatch"), xmlWriter);
+					aLocalFingerprintMatch.serialize(fingerprintMatchQName, xmlWriter);
 				} else {
 					Util.writeStartElement(null, "Curse.AddOns", "FingerprintMatch", xmlWriter);
 
@@ -205,7 +206,7 @@ public class ArrayOfFingerprintMatch implements ADBBean {
 			if (localFingerprintMatch != null) {
 				for (FingerprintMatch aLocalFingerprintMatch : localFingerprintMatch) {
 					if (aLocalFingerprintMatch != null) {
-						aLocalFingerprintMatch.serialize(new QName("Curse.AddOns", "FingerprintMatch"), xmlWriter);
+						aLocalFingerprintMatch.serialize(fingerprintMatchQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "Curse.AddOns", "FingerprintMatch", xmlWriter);
 
@@ -303,7 +304,7 @@ public class ArrayOfFingerprintMatch implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "FingerprintMatch").equals(reader.getName())) {
+				if (reader.isStartElement() && fingerprintMatchQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -331,7 +332,7 @@ public class ArrayOfFingerprintMatch implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("Curse.AddOns", "FingerprintMatch").equals(reader.getName())) {
+							if (fingerprintMatchQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

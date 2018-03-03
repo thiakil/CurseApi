@@ -64,6 +64,7 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class ArrayOfSyncedGameInstance implements ADBBean {
+	private static final QName syncedGameInstanceQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedGameInstance");
     /* This type was generated from the piece of schema that had
        name = ArrayOfSyncedGameInstance
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -176,7 +177,7 @@ public class ArrayOfSyncedGameInstance implements ADBBean {
 			if (localSyncedGameInstance != null) {
 				for (SyncedGameInstance aLocalSyncedGameInstance : localSyncedGameInstance) {
 					if (aLocalSyncedGameInstance != null) {
-						aLocalSyncedGameInstance.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedGameInstance"), xmlWriter);
+						aLocalSyncedGameInstance.serialize(syncedGameInstanceQName, xmlWriter);
 					} else {
 						Util.writeStartElement(null, "http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedGameInstance", xmlWriter);
 
@@ -275,7 +276,7 @@ public class ArrayOfSyncedGameInstance implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedGameInstance").equals(reader.getName())) {
+				if (reader.isStartElement() && syncedGameInstanceQName.equals(reader.getName())) {
 					// Process the array and step past its final element's end.
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
@@ -303,7 +304,7 @@ public class ArrayOfSyncedGameInstance implements ADBBean {
 							//two continuous end elements means we are exiting the xml structure
 							loopDone1 = true;
 						} else {
-							if (new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "SyncedGameInstance").equals(reader.getName())) {
+							if (syncedGameInstanceQName.equals(reader.getName())) {
 								nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 								if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

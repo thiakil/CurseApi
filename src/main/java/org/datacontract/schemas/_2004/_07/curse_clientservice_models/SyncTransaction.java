@@ -62,6 +62,9 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class SyncTransaction implements ADBBean {
+	private static final QName addonIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "AddonID");
+	private static final QName fileIDQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "FileID");
+	private static final QName typeQName = new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Type");
     /* This type was generated from the piece of schema that had
        name = SyncTransaction
        Namespace URI = http://schemas.datacontract.org/2004/07/Curse.ClientService.Models
@@ -100,7 +103,7 @@ public class SyncTransaction implements ADBBean {
 	 *   in the serialized XML
 	 */
 	protected boolean localTypeTracker = false;
-	
+
 	public SyncTransaction() {
 	}
 	
@@ -246,7 +249,7 @@ public class SyncTransaction implements ADBBean {
 				throw new ADBException("Type cannot be null!!");
 			}
 
-			localType.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Type"), xmlWriter);
+			localType.serialize(typeQName, xmlWriter);
 		}
 
 		xmlWriter.writeEndElement();
@@ -328,7 +331,7 @@ public class SyncTransaction implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "AddonID").equals(reader.getName())) {
+				if (reader.isStartElement() && addonIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -348,7 +351,7 @@ public class SyncTransaction implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "FileID").equals(reader.getName())) {
+				if (reader.isStartElement() && fileIDQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -368,7 +371,7 @@ public class SyncTransaction implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.datacontract.org/2004/07/Curse.ClientService.Models", "Type").equals(reader.getName())) {
+				if (reader.isStartElement() && typeQName.equals(reader.getName())) {
 					object.setType(SyncTransactionType.Factory.parse(reader));
 
 					reader.next();

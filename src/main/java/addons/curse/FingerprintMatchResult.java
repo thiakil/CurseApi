@@ -63,6 +63,9 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class FingerprintMatchResult implements ADBBean {
+	private static final QName exactMatchesQName = new QName("Curse.AddOns", "ExactMatches");
+	private static final QName isCacheBuiltQName = new QName("Curse.AddOns", "IsCacheBuilt");
+	private static final QName partialMatchesQName = new QName("Curse.AddOns", "PartialMatches");
     /* This type was generated from the piece of schema that had
        name = FingerprintMatchResult
        Namespace URI = Curse.AddOns
@@ -223,7 +226,7 @@ public class FingerprintMatchResult implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfFingerprintMatch.serialize(new QName("Curse.AddOns", "ExactMatches"), xmlWriter, localExactMatches);
+				ArrayOfFingerprintMatch.serialize(exactMatchesQName, xmlWriter, localExactMatches);
 			}
 		}
 
@@ -244,7 +247,7 @@ public class FingerprintMatchResult implements ADBBean {
 				Util.writeNil(xmlWriter);
 				xmlWriter.writeEndElement();
 			} else {
-				ArrayOfFingerprintMatch.serialize(new QName("Curse.AddOns", "PartialMatches"), xmlWriter, localPartialMatches);
+				ArrayOfFingerprintMatch.serialize(partialMatchesQName, xmlWriter, localPartialMatches);
 			}
 		}
 
@@ -327,7 +330,7 @@ public class FingerprintMatchResult implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "ExactMatches").equals(reader.getName())) {
+				if (reader.isStartElement() && exactMatchesQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -347,7 +350,7 @@ public class FingerprintMatchResult implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "IsCacheBuilt").equals(reader.getName())) {
+				if (reader.isStartElement() && isCacheBuiltQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -366,7 +369,7 @@ public class FingerprintMatchResult implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("Curse.AddOns", "PartialMatches").equals(reader.getName())) {
+				if (reader.isStartElement() && partialMatchesQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {

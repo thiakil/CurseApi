@@ -67,6 +67,8 @@ import java.util.Vector;
  */
 @SuppressWarnings({"unchecked", "unused"})
 public class KeyValuePair_int_AddonFileList implements ADBBean {
+	private static final QName keyQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Key");
+	private static final QName valueQName = new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value");
     /* This type was generated from the piece of schema that had
        name = KeyValuePair_int_AddonFileList
        Namespace URI = http://schemas.microsoft.com/2003/10/Serialization/Arrays
@@ -166,7 +168,7 @@ public class KeyValuePair_int_AddonFileList implements ADBBean {
 			Util.writeNil(xmlWriter);
 			xmlWriter.writeEndElement();
 		} else {
-			ArrayOfAddOnFile.Factory.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value"), xmlWriter, entry.getValue());
+			ArrayOfAddOnFile.Factory.serialize(valueQName, xmlWriter, entry.getValue());
 		}
 
 		xmlWriter.writeEndElement();
@@ -208,7 +210,7 @@ public class KeyValuePair_int_AddonFileList implements ADBBean {
 			Util.writeNil(xmlWriter);
 			xmlWriter.writeEndElement();
 		} else {
-			ArrayOfAddOnFile.Factory.serialize(new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value"), xmlWriter, localValue);
+			ArrayOfAddOnFile.Factory.serialize(valueQName, xmlWriter, localValue);
 		}
 
 		xmlWriter.writeEndElement();
@@ -290,7 +292,7 @@ public class KeyValuePair_int_AddonFileList implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Key").equals(reader.getName())) {
+				if (reader.isStartElement() && keyQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
@@ -311,7 +313,7 @@ public class KeyValuePair_int_AddonFileList implements ADBBean {
 
 				while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
 
-				if (reader.isStartElement() && new QName("http://schemas.microsoft.com/2003/10/Serialization/Arrays", "Value").equals(reader.getName())) {
+				if (reader.isStartElement() && valueQName.equals(reader.getName())) {
 					nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance", "nil");
 
 					if ("true".equals(nillableValue) || "1".equals(nillableValue)) {
