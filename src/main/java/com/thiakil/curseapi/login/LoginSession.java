@@ -31,8 +31,11 @@
 
 package com.thiakil.curseapi.login;
 
+import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -127,6 +130,21 @@ public class LoginSession {
 	 */
 	public void autoRenew(){
 		scheduleRenew(this);
+	}
+
+	public void saveToFile(File file) throws IOException {
+		FileOutputStream fos = new FileOutputStream(file);
+		Writer writer = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+		new Gson().toJson(this, LoginSession.class, writer);
+		writer.flush();
+		writer.close();
+	}
+
+	public static LoginSession fromFile(File file) throws IOException {
+		FileInputStream fis = new FileInputStream(file);
+		LoginSession session = new Gson().fromJson(new InputStreamReader(fis, StandardCharsets.UTF_8), LoginSession.class);
+		fis.close();
+		return session;
 	}
 
 	private static ScheduledExecutorService scheduler;

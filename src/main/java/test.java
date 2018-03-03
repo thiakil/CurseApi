@@ -33,16 +33,15 @@ import addons.curse.AddOnFile;
 import addons.curse.FingerprintMatchResult;
 import com.curse.addonservice.GetAllFilesForAddOn;
 import com.curse.addonservice.GetAllFilesForAddOnResponse;
-import com.thiakil.curseapi.login.RenewTokenResponse;
+import com.thiakil.curseapi.login.*;
 import com.thiakil.curseapi.soap.AddOnService;
 import com.thiakil.curseapi.soap.AddOnServiceStub;
-import com.thiakil.curseapi.login.CurseAuth;
-import com.thiakil.curseapi.login.CurseAuthException;
-import com.thiakil.curseapi.login.CurseToken;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axis2.AxisFault;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
+import java.io.File;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.List;
 
@@ -55,9 +54,36 @@ public class test {
 			throw new RuntimeException("need user and pass on command line");
 		}
 		try {
-			CurseToken token = CurseAuth.getTokenFromCurseAccount(args[0], args[1]);
+			LoginSession session = null;
+			File sessionStore = new File("curse_session.json");
+			if (sessionStore.exists()){
+				try {
+					LoginSession tmp = LoginSession.fromFile(sessionStore);
+					if (tmp != null && tmp.isValid()){
+						session = tmp;
+						if (session.shouldRenew()){
+							session.renew();
+							session.saveToFile(sessionStore);
+						}
+						System.out.println("session loaded from file");
+					}
+				} catch (IOException e){
+					//new token it is
+				}
+			}
+			if (session == null) {
+				LoginSessionProvider sessionProvider = CurseAuth.getResponseFromCurseAccount(args[0], args[1]);
+				session = sessionProvider.getLoginSession();
+				try {
+					session.saveToFile(sessionStore);
+				} catch (IOException e) {
+					System.err.println(e.getMessage());
+					e.printStackTrace(System.err);
+				}
+			}
+			System.out.printf("Expiry: %d\n", session.expires);
 			//RenewTokenResponse res1 = CurseAuth.renewAccessToken(token.token);
-			AddOnService svc = AddOnService.initialise(token);
+			AddOnService svc = AddOnService.initialise(session.createCurseToken());
 			/*List<AddOnFile> res = svc.getAllFilesForAddOn(269708);
 			for (AddOnFile f : res) {
 				System.out.print(f.getFileName());
