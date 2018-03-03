@@ -52,7 +52,6 @@ import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import javax.xml.namespace.NamespaceContext;
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
@@ -88,13 +87,13 @@ public class GameVersionLatestFile implements ADBBean {
 	 */
 	@SerializedName("GameVersion")
 	@Expose
-	protected String localGameVesion;
+	protected String localGameVersion;
 
 	/*  This tracker boolean wil be used to detect whether the user called the set method
 	 *   for this attribute. It will be used to determine whether to include this field
 	 *   in the serialized XML
 	 */
-	protected boolean localGameVesionTracker = false;
+	protected boolean localGameVersionTracker = false;
 
 	/**
 	 * field for ProjectFileID
@@ -127,7 +126,7 @@ public class GameVersionLatestFile implements ADBBean {
 	
 	public GameVersionLatestFile(FileType fileType, String gameVesion, int projectFileID, String projectFileName) {
 		this.setFileType(fileType);
-		this.setGameVesion(gameVesion);
+		this.setGameVersion(gameVesion);
 		this.setProjectFileID(projectFileID);
 		this.setProjectFileName(projectFileName);
 	}
@@ -156,8 +155,8 @@ public class GameVersionLatestFile implements ADBBean {
 		this.localFileType = param;
 	}
 
-	public boolean isGameVesionSpecified() {
-		return localGameVesionTracker;
+	public boolean isGameVersionSpecified() {
+		return localGameVersionTracker;
 	}
 
 	/**
@@ -165,8 +164,8 @@ public class GameVersionLatestFile implements ADBBean {
 	 *
 	 * @return java.lang.String
 	 */
-	public String getGameVesion() {
-		return localGameVesion;
+	public String getGameVersion() {
+		return localGameVersion;
 	}
 
 	/**
@@ -174,10 +173,10 @@ public class GameVersionLatestFile implements ADBBean {
 	 *
 	 * @param param GameVesion
 	 */
-	public void setGameVesion(String param) {
-		localGameVesionTracker = true;
+	public void setGameVersion(String param) {
+		localGameVersionTracker = true;
 
-		this.localGameVesion = param;
+		this.localGameVersion = param;
 	}
 
 	public boolean isProjectFileIDSpecified() {
@@ -268,15 +267,15 @@ public class GameVersionLatestFile implements ADBBean {
 			localFileType.serialize(new QName("http://schemas.datacontract.org/2004/07/Curse.AddOns", "FileType"), xmlWriter);
 		}
 
-		if (localGameVesionTracker) {
+		if (localGameVersionTracker) {
 			namespace = "http://schemas.datacontract.org/2004/07/Curse.AddOns";
 			Util.writeStartElement(null, namespace, "GameVesion", xmlWriter);
 
-			if (localGameVesion == null) {
+			if (localGameVersion == null) {
 				// write the nil attribute
 				Util.writeNil(xmlWriter);
 			} else {
-				xmlWriter.writeCharacters(localGameVesion);
+				xmlWriter.writeCharacters(localGameVersion);
 			}
 
 			xmlWriter.writeEndElement();
@@ -405,7 +404,7 @@ public class GameVersionLatestFile implements ADBBean {
 					if (!"true".equals(nillableValue) && !"1".equals(nillableValue)) {
 						String content = reader.getElementText();
 
-						object.setGameVesion(ConverterUtil.convertToString(content));
+						object.setGameVersion(ConverterUtil.convertToString(content));
 					} else {
 						reader.getElementText(); // throw away text nodes if any.
 					}
