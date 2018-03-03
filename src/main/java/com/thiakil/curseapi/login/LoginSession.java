@@ -142,7 +142,7 @@ public class LoginSession {
 		if (scheduler == null){
 			scheduler = Executors.newScheduledThreadPool(1);
 		}
-		scheduler.schedule(renewer, renewer.loginSession.millisUntilExpiry(), TimeUnit.MILLISECONDS);
+		scheduler.schedule(renewer, renewer.loginSession.renewAfter-System.currentTimeMillis(), TimeUnit.MILLISECONDS);
 	}
 
 	private static class SessionRenewer implements Runnable{
