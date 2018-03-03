@@ -63,6 +63,16 @@ public class LoginSession {
 	@SerializedName("Bans")
 	public UserBanType bans;
 
+	public CurseToken createCurseToken(){
+		return new CurseToken(userID, token);
+	}
+
+	public void renew() throws CurseAuthException{
+		RenewTokenResponse response = CurseAuth.renewAccessToken(token);
+		expires = response.expires;
+		renewAfter = response.renewAfter;
+	}
+
 	public enum UserBanType
 	{
 		@SerializedName("-1")

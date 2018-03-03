@@ -31,11 +31,16 @@
 
 package com.thiakil.curseapi.login;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Thiakil on 25/02/2018.
  */
 public class RenewTokenResponse {
-	public String Token;
-	public long Expires;
-	public long RenewAfter;
+	@SerializedName("Token")
+	public String token;
+	@SerializedName("Expires")
+	public long expires;
+	@SerializedName("RenewAfter")
+	public long renewAfter;
 }
