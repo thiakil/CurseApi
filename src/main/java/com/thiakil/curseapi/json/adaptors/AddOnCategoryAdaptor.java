@@ -73,6 +73,9 @@ public class AddOnCategoryAdaptor extends TypeAdapter<AddOnCategory> {
 				case "URL":
 					out.setURL(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

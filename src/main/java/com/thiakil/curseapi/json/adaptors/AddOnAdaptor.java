@@ -306,7 +306,8 @@ public class AddOnAdaptor extends TypeAdapter<AddOn> {
 					break;
 				}
 				default:
-					throw new JsonParseException("Unknown property '"+prop+"'");
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

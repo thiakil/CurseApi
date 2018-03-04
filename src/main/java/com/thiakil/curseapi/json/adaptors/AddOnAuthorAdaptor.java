@@ -67,6 +67,9 @@ public class AddOnAuthorAdaptor extends TypeAdapter<AddOnAuthor> {
 				case "Url":
 					out.setUrl(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

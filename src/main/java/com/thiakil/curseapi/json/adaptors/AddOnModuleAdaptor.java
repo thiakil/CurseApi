@@ -67,6 +67,9 @@ public class AddOnModuleAdaptor extends TypeAdapter<AddOnModule> {
 				case "Foldername":
 					out.setFoldername(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

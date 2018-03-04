@@ -71,6 +71,9 @@ public class ModloaderAdaptor extends TypeAdapter<Modloader> {
 				case "primary":
 					obj.primary = in.nextBoolean();
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 

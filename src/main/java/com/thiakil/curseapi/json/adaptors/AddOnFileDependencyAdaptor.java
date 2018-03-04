@@ -74,6 +74,9 @@ public class AddOnFileDependencyAdaptor extends TypeAdapter<AddOnFileDependency>
 				case "Type":
 					out.setType(dependencyTypeTypeAdapter.read(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

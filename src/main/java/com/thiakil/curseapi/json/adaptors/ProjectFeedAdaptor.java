@@ -78,7 +78,7 @@ public class ProjectFeedAdaptor extends TypeAdapter<ProjectFeed> {
 			} else if (prop.equals("data")){
 				out.setData(readListOfObjects(in, addOnTypeAdapter));
 			} else {
-				throw new JsonParseException("Unknown property '"+prop+"'");
+				in.skipValue();
 			}
 		}
 		in.endObject();

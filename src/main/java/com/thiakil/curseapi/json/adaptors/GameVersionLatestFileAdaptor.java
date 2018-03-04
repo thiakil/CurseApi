@@ -88,6 +88,9 @@ public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestF
 				case "ProjectFileName":
 					out.setProjectFileName(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

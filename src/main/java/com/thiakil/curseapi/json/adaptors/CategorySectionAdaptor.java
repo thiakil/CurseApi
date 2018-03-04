@@ -104,6 +104,9 @@ public class CategorySectionAdaptor extends TypeAdapter<CategorySection> {
 				case "Path":
 					out.setPath(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

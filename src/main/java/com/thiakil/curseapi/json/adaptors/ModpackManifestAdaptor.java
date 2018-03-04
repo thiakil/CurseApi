@@ -145,6 +145,9 @@ public class ModpackManifestAdaptor extends TypeAdapter<ModpackManifest> {
 			case "overrides":
 				obj.overrides = in.nextString();
 				break;
+			default:
+				in.skipValue();
+				break;
 		}
 	}
 }

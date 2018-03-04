@@ -158,6 +158,9 @@ public class AddOnFileAdaptor extends TypeAdapter<AddOnFile> {
 				case "ReleaseType":
 					out.setReleaseType(fileTypeTypeAdapter.read(in));
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 		in.endObject();

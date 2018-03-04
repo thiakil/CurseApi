@@ -79,6 +79,9 @@ public class ManifestResourceAdaptor extends TypeAdapter<ManifestResource> {
 				case "required":
 					obj.required = in.nextBoolean();
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 

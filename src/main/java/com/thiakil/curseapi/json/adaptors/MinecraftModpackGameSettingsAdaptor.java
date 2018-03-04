@@ -99,6 +99,9 @@ public class MinecraftModpackGameSettingsAdaptor extends TypeAdapter<MinecraftMo
 				case "libraries":
 					obj.libraries = in.nextString();
 					break;
+				default:
+					in.skipValue();
+					break;
 			}
 		}
 
