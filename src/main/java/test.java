@@ -38,12 +38,15 @@ import com.thiakil.curseapi.soap.AddOnService;
 import com.thiakil.curseapi.soap.AddOnServiceStub;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import org.apache.axis2.AxisFault;
+import org.apache.axis2.databinding.utils.ConverterUtil;
 import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 import java.io.File;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 /**
  * Created by Thiakil on 19/02/2018.
@@ -81,7 +84,16 @@ public class test {
 					e.printStackTrace(System.err);
 				}
 			}
-			System.out.printf("Expiry: %d\n", session.expires);
+			Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+			calendar.clear();
+			calendar.setTimeInMillis(session.expires);
+			StringBuffer sb = new StringBuffer(20);
+			ConverterUtil.appendTime(calendar, sb);
+			sb.append(" ");
+			ConverterUtil.appendDate(sb, calendar);
+			sb.append(" ");
+			ConverterUtil.appendTimeZone(calendar, sb);
+			System.out.printf("Expiry: %s\n", sb.toString());
 			//RenewTokenResponse res1 = CurseAuth.renewAccessToken(token.token);
 			AddOnService svc = AddOnService.initialise(session.createCurseToken());
 			/*List<AddOnFile> res = svc.getAllFilesForAddOn(269708);
