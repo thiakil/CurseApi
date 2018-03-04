@@ -55,7 +55,7 @@ public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestF
 		out.name("FileType");
 		fileTypeTypeAdapter.write(out, value.getFileType());
 
-		out.name("GameVesion");
+		out.name("GameVersion");
 		out.value(value.getGameVersion());
 
 		out.name("ProjectFileID");
@@ -78,6 +78,7 @@ public class GameVersionLatestFileAdaptor extends TypeAdapter<GameVersionLatestF
 				case "FileType":
 					out.setFileType(fileTypeTypeAdapter.read(in));
 					break;
+				case "GameVersion":
 				case "GameVesion":
 					out.setGameVersion(ProjectFeedAdaptor.readStringOrNull(in));
 					break;
