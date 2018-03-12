@@ -71,11 +71,21 @@ public class CategorySection implements ADBBean {
        Namespace Prefix = ns4
      */
 	
-    /* Valid IDs for Minecraft */
-	public static final int ID_MODS = 6;
-	public static final int ID_WORLDS = 17;
-	public static final int ID_MODPACKS = 4471;
-	public static final int ID_TEXTURE_PACKS = 12;
+	public static final int WORLD_OF_WARCRAFT_ADDONS = 1;
+	public static final int THE_SECRET_WORLD_MODS = 14;
+	public static final int RUNES_OF_MAGIC_ADDONS = 4571;
+	public static final int WORLD_OF_TANKS_MODS = 8;
+	public static final int WORLD_OF_TANKS_SKINS = 9;
+	public static final int RIFT_ADDONS = 4564;
+	public static final int MINECRAFT_MODS = 6;
+	public static final int MINECRAFT_TEXTURE_PACKS = 12;
+	public static final int MINECRAFT_WORLDS = 17;
+	public static final int MINECRAFT_MODPACKS = 4471;
+	public static final int WILDSTAR_ADDONS = 18;
+	public static final int THE_ELDER_SCROLLS_ONLINE_ADDONS = 19;
+	public static final int DARKEST_DUNGEON_MODS = 4613;
+	public static final int KERBAL_SPACE_PROGRAM_MODS = 4470;
+	public static final int SECRET_WORLD_LEGENDS_MODS = 4592;
 
 	private static final QName extraIncludePatternQName = new QName("Curse.AddOns", "ExtraIncludePattern");
 	private static final QName gameIDQName = new QName("Curse.AddOns", "GameID");

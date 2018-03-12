@@ -341,11 +341,11 @@ public class ProjectFeedDownloader {
 	}
 	
 	public Set<AddOn> getMods(){
-		return getAddonsByCategorySection(CategorySection.ID_MODS);
+		return getAddonsByCategorySection(CategorySection.MINECRAFT_MODS);
 	}
 	
 	public Set<AddOn> getModPacks(){
-		return getAddonsByCategorySection(CategorySection.ID_MODPACKS);
+		return getAddonsByCategorySection(CategorySection.MINECRAFT_MODPACKS);
 	}
 	
 	/**
