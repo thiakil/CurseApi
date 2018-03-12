@@ -1,0 +1,137 @@
+[
+  {
+    "ID": 1,
+    "GameID": 1,
+    "Name": "Addons",
+    "PackageType": 1,
+    "Path": "interface\\addons",
+    "InitialInclusionPattern": "(?i)^([^/]+)[\\\\/]\\1\\.toc$",
+    "ExtraIncludePattern": "(?i)^[^/\\\\]+[/\\\\]Bindings\\.xml$"
+  },
+  {
+    "ID": 14,
+    "GameID": 64,
+    "Name": "Mods",
+    "PackageType": 4,
+    "Path": "Data\\Gui\\Customized",
+    "InitialInclusionPattern": "([^\\/\\\\]+\\.ctoc)$",
+    "ExtraIncludePattern": "([^\\/\\\\]+\\.ctoc)$"
+  },
+  {
+    "ID": 4571,
+    "GameID": 335,
+    "Name": "Addons",
+    "PackageType": 1,
+    "Path": "interface\\addons",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 8,
+    "GameID": 423,
+    "Name": "Mods",
+    "PackageType": 4,
+    "Path": "res_mods\\0.9.16.0.0",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 9,
+    "GameID": 423,
+    "Name": "Skins",
+    "PackageType": 4,
+    "Path": "res_mods\\0.9.16.0.0",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 4564,
+    "GameID": 424,
+    "Name": "Addons",
+    "PackageType": 1,
+    "Path": "%PERSONAL%\\RIFT\\Interface\\AddOns",
+    "InitialInclusionPattern": "(?i)^([^/]+)[\\\\/]RiftAddon\\.toc$",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 6,
+    "GameID": 432,
+    "Name": "Mods",
+    "PackageType": 6,
+    "Path": "mods",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 12,
+    "GameID": 432,
+    "Name": "Texture Packs",
+    "PackageType": 3,
+    "Path": "resourcepacks",
+    "InitialInclusionPattern": "([^\\/\\\\]+\\.zip)$",
+    "ExtraIncludePattern": "([^\\/\\\\]+\\.zip)$"
+  },
+  {
+    "ID": 17,
+    "GameID": 432,
+    "Name": "Worlds",
+    "PackageType": 1,
+    "Path": "saves",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 4471,
+    "GameID": 432,
+    "Name": "Modpacks",
+    "PackageType": 5,
+    "Path": "downloads",
+    "InitialInclusionPattern": "$^",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 18,
+    "GameID": 454,
+    "Name": "Addons",
+    "PackageType": 1,
+    "Path": "%APPDATA%\\NCSoft\\Wildstar\\addons",
+    "InitialInclusionPattern": "(?i)^[^/\\\\]+[/\\\\]toc\\.xml$",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 19,
+    "GameID": 455,
+    "Name": "Addons",
+    "PackageType": 1,
+    "Path": "%MYDOCUMENTS%\\Elder Scrolls Online\\live\\AddOns",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 4613,
+    "GameID": 608,
+    "Name": "Mods",
+    "PackageType": 1,
+    "Path": "../mods",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": "."
+  },
+  {
+    "ID": 4470,
+    "GameID": 4401,
+    "Name": "Mods",
+    "PackageType": 1,
+    "Path": "GameData",
+    "InitialInclusionPattern": ".",
+    "ExtraIncludePattern": null
+  },
+  {
+    "ID": 4592,
+    "GameID": 4455,
+    "Name": "Mods",
+    "PackageType": 1,
+    "Path": "Data\\Gui\\Custom",
+    "InitialInclusionPattern": "([^\\/\\\\]+\\.ctoc)$",
+    "ExtraIncludePattern": "([^\\/\\\\]+\\.ctoc)$"
+  }
+]
