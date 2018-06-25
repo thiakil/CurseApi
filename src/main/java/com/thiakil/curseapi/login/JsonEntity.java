@@ -32,6 +32,7 @@
 package com.thiakil.curseapi.login;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
@@ -48,7 +49,7 @@ public class JsonEntity extends StringEntity {
 		super(GSON.toJson(keys), ContentType.APPLICATION_JSON);
 	}
 
-	public JsonEntity(JsonObject obj){
+	public JsonEntity(JsonElement obj){
 		super(GSON.toJson(obj), ContentType.APPLICATION_JSON);
 	}
 }
