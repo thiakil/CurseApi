@@ -29,20 +29,20 @@
  * You may NOT use this library in a closed source project under any circumstance.
  */
 
-import addons.curse.AddOn;
-import addons.curse.AddOnFile;
+import addons.curse.Addon;
+import addons.curse.AddonFile;
 import addons.curse.FingerprintMatchResult;
 import com.thiakil.curseapi.json.AddonServiceJson;
 import com.thiakil.curseapi.login.*;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-
 import org.apache.axis2.databinding.utils.ConverterUtil;
 
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 /**
@@ -95,7 +95,14 @@ public class test {
 		AddonServiceJson svc = new AddonServiceJson(session.createCurseToken());
 		//AddOn addon = svc.GetAddOn(268560);
 		//System.out.println(addon);
-		System.out.println(svc.GetRepositoryMatchFromSlug("mc", "jei"));
+		//System.out.println(svc.GetRepositoryMatchFromSlug("mc", "jei"));
+		//System.out.println(svc.getString("api/addon/269708/files"));
+		List<AddonFile> res = svc.GetAddonFiles(269708);
+		for (AddonFile f : res) {
+			System.out.print(f.fileName);
+			System.out.print(" : ");
+			System.out.println(f.packageFingerprint);
+		}
 			//RenewTokenResponse res1 = CurseAuth.renewAccessToken(token.token);
 			//AddOnService svc = AddOnService.initialise(session.createCurseToken());
 			/*List<AddOnFile> res = svc.getAllFilesForAddOn(269708);

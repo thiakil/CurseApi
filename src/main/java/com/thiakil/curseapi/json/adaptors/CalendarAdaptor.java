@@ -29,43 +29,43 @@
  * You may NOT use this library in a closed source project under any circumstance.
  */
 
-import addons.curse.AddOn;
-import addons.curse.AddOnFile;
-import addons.curse.CategorySection;
-import com.thiakil.curseapi.json.ProjectFeed;
-import com.thiakil.curseapi.json.ProjectFeedDownloader;
+package com.thiakil.curseapi.json.adaptors;
 
-import java.io.File;
-import java.io.FileReader;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonToken;
+import com.google.gson.stream.JsonWriter;
+import org.apache.axis2.databinding.utils.ConverterUtil;
+
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Calendar;
+import java.util.regex.Pattern;
 
-/**
- * Created by Thiakil on 22/02/2018.
- */
-public class gsontest {
-	public static void main(String[] args) throws IOException {
-		ProjectFeedDownloader db = new ProjectFeedDownloader();
-		File dbStorage = new File(ProjectFeedDownloader.DEFAULT_CACHE_DIR, "db.json");
-		db.load(dbStorage);
-		db.sync();
-		db.save(dbStorage);
-		System.out.printf("Loaded %d addons\n", db.getAddOns().size());
-		db.getAddonById(268560).ifPresent(addOn -> {
-			for (AddOnFile f : addOn.getLatestFiles()) {
-				System.out.print(f.getFileName());
-				System.out.print(" : ");
-				System.out.println(f.getPackageFingerprint());
-			}
-		});
-		Set<AddOn> addons = db.getAddonsForAuthor("Thiakil");
-		if (addons != null){
-			addons.forEach(addOn -> System.out.println(addOn.getName()));
-		} else {
-			System.out.println("Author not found");
+public class CalendarAdaptor extends TypeAdapter<Calendar> {
+	public static final CalendarAdaptor INSTANCE = new CalendarAdaptor();
+	private static final Pattern tzPattern = Pattern.compile("[-+]\\d+(:\\d+)?$");
+	
+	@Override
+	public void write(JsonWriter out, Calendar value) throws IOException {
+		out.value(ConverterUtil.convertToString(value));
+	}
+	
+	@Override
+	public Calendar read(JsonReader in) throws IOException {
+		String timeStr = readStringOrNull(in);
+		if (timeStr.equals("")){
+			return null;
+		} else if (!timeStr.endsWith("Z") && !tzPattern.matcher(timeStr).find()){
+			timeStr += "Z";
 		}
+		return ConverterUtil.convertToDateTime(timeStr);
 	}
 
+	static String readStringOrNull(JsonReader in) throws IOException {
+		if (in.peek() == JsonToken.NULL){
+			in.nextNull();
+			return "";
+		}
+		return in.nextString();
+	}
 }

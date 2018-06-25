@@ -31,13 +31,13 @@
 
 package com.thiakil.curseapi.json.adaptors;
 
+import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import com.thiakil.curseapi.json.manifests.MinecraftModpackGameSettings;
 import com.thiakil.curseapi.json.manifests.Modloader;
-import com.thiakil.curseapi.json.ProjectFeed;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -49,7 +49,7 @@ import java.util.Map;
 public class MinecraftModpackGameSettingsAdaptor extends TypeAdapter<MinecraftModpackGameSettings> {
 	public static final MinecraftModpackGameSettingsAdaptor INSTANCE = new MinecraftModpackGameSettingsAdaptor();
 
-	private static final TypeAdapter<Map<String,String>> STRING_MAP_ADAPTOR = ProjectFeed.GSON.getAdapter(new TypeToken<Map<String, String>>(){});
+	private static final TypeAdapter<Map<String,String>> STRING_MAP_ADAPTOR = new Gson().getAdapter(new TypeToken<Map<String, String>>(){});
 
 	@Override
 	public void write(JsonWriter out, MinecraftModpackGameSettings value) throws IOException {

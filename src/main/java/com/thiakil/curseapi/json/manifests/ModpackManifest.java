@@ -31,9 +31,9 @@
 
 package com.thiakil.curseapi.json.manifests;
 
+import addons.curse.AddOnFileKey;
 import com.google.gson.annotations.JsonAdapter;
 import com.thiakil.curseapi.json.adaptors.ModpackManifestAdaptor;
-import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
 
 import java.util.List;
 import java.util.stream.Collectors;

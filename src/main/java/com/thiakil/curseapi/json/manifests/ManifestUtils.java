@@ -1,7 +1,6 @@
 package com.thiakil.curseapi.json.manifests;
 
 import com.google.gson.Gson;
-import com.thiakil.curseapi.soap.AddOnService;
 
 import java.io.FileInputStream;
 import java.io.IOException;

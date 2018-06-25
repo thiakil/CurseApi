@@ -16,12 +16,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.HttpRequestBase;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.datacontract.schemas._2004._07.curse_addons.FolderFingerprint;
-import org.datacontract.schemas._2004._07.curse_addons.RepositoryMatch;
-import org.datacontract.schemas._2004._07.curse_addonservice_requests.AddOnFileKey;
-import org.datacontract.schemas._2004._07.curse_clientservice_models.SyncTransaction;
-import org.datacontract.schemas._2004._07.curse_clientservice_models.SyncedAddon;
-import org.datacontract.schemas._2004._07.curse_clientservice_models.SyncedGameInstance;
 
 import java.io.*;
 import java.util.Calendar;
@@ -37,7 +31,7 @@ import java.util.stream.Collectors;
 public class AddonServiceJson {
 	private static final String baseURL = "https://addons-v2.forgesvc.net/";
 	private static final CloseableHttpClient httpclient = HttpClients.createDefault();
-	private static final Gson GSON = ProjectFeed.GSON;
+	private static final Gson GSON = new Gson();
 
 	private CurseToken authToken;
 
@@ -96,11 +90,11 @@ public class AddonServiceJson {
 		return get(in-> CalendarAdaptor.INSTANCE.read(new JsonReader(new InputStreamReader(in, "utf8"))), path);
 	}
 
-	private <T> List<T> getList(TypeToken<T> jsonDecodeClass, String path) throws CurseAuthException {
+	private <T> List<T> getList(TypeToken<List<T>> jsonDecodeClass, String path) throws CurseAuthException {
 		return get(in->GSON.fromJson(new InputStreamReader(in, "utf8"), jsonDecodeClass.getType()), path);
 	}
 
-	private String getString(String path) throws CurseAuthException {
+	public String getString(String path) throws CurseAuthException {
 		return get(in->{
 			BufferedReader reader = new BufferedReader(new InputStreamReader(in, "utf8"));
 			return reader.lines().collect(Collectors.joining("\n"));
@@ -119,49 +113,49 @@ public class AddonServiceJson {
 		return post(in->GSON.fromJson(new InputStreamReader(in, "utf8"), jsonDecodeClass.getType()), path, body);
 	}
 
-	public AddOn GetAddOn(int addonId) throws CurseAuthException
+	public Addon GetAddon(int addonId) throws CurseAuthException
 	{
-		return this.getJson(AddOn.class, String.format("api/addon/%d", addonId));
+		return this.getJson(Addon.class, String.format("api/addon/%d", addonId));
 	}
 
-	public List<AddOn> GetAddOns(int[] addonIds) throws CurseAuthException
+	public List<Addon> GetAddons(int[] addonIds) throws CurseAuthException
 	{
-		return this.postList(new TypeToken<AddOn>(){}, "api/addon", addonIds);
+		return this.postList(new TypeToken<Addon>(){}, "api/addon", addonIds);
 	}
 
-	public List<AddOn> GetAddOnsByCriteria(int gameId)  throws CurseAuthException
+	public List<Addon> GetAddonsByCriteria(int gameId)  throws CurseAuthException
 	{
-		return this.GetAddOnsByCriteria(gameId, -1, -1, AddonSortMethod.Featured, true, null, 0, 1000, null);
+		return this.GetAddonsByCriteria(gameId, -1, -1, AddonSortMethod.Featured, true, null, 0, 1000, null);
 	}
 
-	public List<AddOn> GetAddOnsByCriteria(int gameId, int sectionId, int categoryId, AddonSortMethod sort, boolean isSortDescending, String gameVersion, int index, int pageSize, String searchFilter)  throws CurseAuthException
+	public List<Addon> GetAddonsByCriteria(int gameId, int sectionId, int categoryId, AddonSortMethod sort, boolean isSortDescending, String gameVersion, int index, int pageSize, String searchFilter)  throws CurseAuthException
 	{
-		return this.getList(new TypeToken<AddOn>(){}, String.format("api/addon/search?gameId=%d&sectionId=%d&categoryId=%d&gameVersion=%s&index=%d&pageSize=%d&searchFilter=%s&sort=%s&sortDescending=%b", gameId, sectionId, categoryId, gameVersion, index, pageSize, searchFilter, sort.toString(), isSortDescending));
+		return this.getList(new TypeToken<List<Addon>>(){}, String.format("api/addon/search?gameId=%d&sectionId=%d&categoryId=%d&gameVersion=%s&index=%d&pageSize=%d&searchFilter=%s&sort=%s&sortDescending=%b", gameId, sectionId, categoryId, gameVersion, index, pageSize, searchFilter, sort.toString(), isSortDescending));
 	}
 
-	public String GetAddOnDescription(int addonId)  throws CurseAuthException
+	public String GetAddonDescription(int addonId)  throws CurseAuthException
 	{
 		return this.getString(String.format("api/addon/%d/description", addonId));
 	}
 
-	public String GetAddOnChangelog(int addonId, int fileId) throws CurseAuthException
+	public String GetAddonChangelog(int addonId, int fileId) throws CurseAuthException
 	{
 		return this.getString(String.format("api/addon/%d/file/%d/changelog", addonId, fileId));
 	}
 
-	public AddOnFile GetAddOnFile(int addonId, int fileId) throws CurseAuthException
+	public AddonFile GetAddonFile(int addonId, int fileId) throws CurseAuthException
 	{
-		return this.getJson(AddOnFile.class, String.format("api/addon/%d/file/%d", addonId, fileId));
+		return this.getJson(AddonFile.class, String.format("api/addon/%d/file/%d", addonId, fileId));
 	}
 
-	public List<AddOnFile> GetAddOnFiles(int addonId) throws CurseAuthException
+	public List<AddonFile> GetAddonFiles(int addonId) throws CurseAuthException
 	{
-		return this.getList(new TypeToken<AddOnFile>(){}, String.format("api/addon/%d/files", addonId));
+		return this.getList(new TypeToken<List<AddonFile>>(){}, String.format("api/addon/%d/files", addonId));
 	}
 
-	public Map<Integer, List<AddOnFile>> GetAddOnFiles(AddOnFileKey[] keys) throws CurseAuthException
+	public Map<Integer, List<AddonFile>> GetAddonFiles(AddOnFileKey[] keys) throws CurseAuthException
 	{
-		return this.postJson(new TypeToken<Map<Integer, List<AddOnFile>>>(){}, "api/addon/files", keys);
+		return this.postJson(new TypeToken<Map<Integer, List<AddonFile>>>(){}, "api/addon/files", keys);
 	}
 
 	public RepositoryMatch GetRepositoryMatchFromSlug(String gameSlug, String addonSlug) throws CurseAuthException
@@ -169,11 +163,11 @@ public class AddonServiceJson {
 		return this.getJson(RepositoryMatch.class, String.format("api/addon/slug?gameSlug=%s&addonSlug=%s", gameSlug, addonSlug));
 	}
 
-	public Map<FeaturedAddonType, List<AddOn>> GetFeaturedAddOns(int gameId) throws CurseAuthException{
-		return GetFeaturedAddOns(gameId, 6, 14, 14, null);
+	public Map<FeaturedAddonType, List<Addon>> GetFeaturedAddons(int gameId) throws CurseAuthException{
+		return GetFeaturedAddons(gameId, 6, 14, 14, null);
 	}
 
-	public Map<FeaturedAddonType, List<AddOn>> GetFeaturedAddOns(int gameId, int featuredCount, int popularCount, int updatedCount, int[] addonIds) throws CurseAuthException
+	public Map<FeaturedAddonType, List<Addon>> GetFeaturedAddons(int gameId, int featuredCount, int popularCount, int updatedCount, int[] addonIds) throws CurseAuthException
 	{
 		Map<String, Object> data = new HashMap<>();
 		data.put("gameId", gameId);
@@ -181,18 +175,18 @@ public class AddonServiceJson {
 		data.put("popularCount", popularCount);
 		data.put("updatedCount", updatedCount);
 		if (addonIds != null)
-			data.put("excludedAddOns", addonIds);
-		return this.postJson(new TypeToken<Map<FeaturedAddonType, List<AddOn>>>(){}, "api/addon/featured", data);
+			data.put("excludedAddons", addonIds);
+		return this.postJson(new TypeToken<Map<FeaturedAddonType, List<Addon>>>(){}, "api/addon/featured", data);
 	}
 
-	public Calendar GetAddOnsDatabaseTimestamp() throws CurseAuthException
+	public Calendar GetAddonsDatabaseTimestamp() throws CurseAuthException
 	{
 		return this.getCalendar("api/addon/timestamp");
 	}
 
 	public List<SyncedGameInstance> GetSyncProfile() throws CurseAuthException
 	{
-		return this.getList(new TypeToken<SyncedGameInstance>(){}, "api/addonsync");
+		return this.getList(new TypeToken<List<SyncedGameInstance>>(){}, "api/addonsync");
 	}
 
 	public JoinSyncGroupStatus JoinSyncGroup(int instanceId, String computerName, String instanceGuid, String instanceLabel) throws CurseAuthException
@@ -272,12 +266,12 @@ public class AddonServiceJson {
 
 	public List<MinecraftModLoaderIndex> GetModloaders() throws CurseAuthException
 	{
-		return this.getList(new TypeToken<MinecraftModLoaderIndex>(){}, "/api/minecraft/modloader");
+		return this.getList(new TypeToken<List<MinecraftModLoaderIndex>>(){}, "/api/minecraft/modloader");
 	}
 
 	public List<MinecraftModLoaderIndex> GetModloadersForGameVersion(String gameVersion) throws CurseAuthException
 	{
-		return this.getList(new TypeToken<MinecraftModLoaderIndex>(){}, String.format("/api/minecraft/modloader/%s", gameVersion));
+		return this.getList(new TypeToken<List<MinecraftModLoaderIndex>>(){}, String.format("/api/minecraft/modloader/%s", gameVersion));
 	}
 
 	public Calendar GetModloadersDatabaseTimestamp() throws CurseAuthException
@@ -287,12 +281,12 @@ public class AddonServiceJson {
 
 	public List<MinecraftGameVersion> GetMinecraftVersions() throws CurseAuthException
 	{
-		return this.getList(new TypeToken<MinecraftGameVersion>(){}, "/api/minecraft/version");
+		return this.getList(new TypeToken<List<MinecraftGameVersion>>(){}, "/api/minecraft/version");
 	}
 
 	public List<MinecraftGameVersion> GetMinecraftVersion(String gameVersion) throws CurseAuthException
 	{
-		return this.getList(new TypeToken<MinecraftGameVersion>(){}, String.format("/api/minecraft/version/%s", gameVersion));
+		return this.getList(new TypeToken<List<MinecraftGameVersion>>(){}, String.format("/api/minecraft/version/%s", gameVersion));
 	}
 
 	public Calendar GetMinecraftVersionsDatabaseTimestamp() throws CurseAuthException
@@ -305,9 +299,9 @@ public class AddonServiceJson {
 		return this.getJson(Game.class, String.format("api/game/%d", gameId));
 	}
 
-	public List<Game> GetGames(boolean supportsAddOns) throws CurseAuthException
+	public List<Game> GetGames(boolean supportsAddons) throws CurseAuthException
 	{
-		return this.getList(new TypeToken<Game>(){}, String.format("api/game%s", supportsAddOns ? "?supportsAddOns=true" : ""));
+		return this.getList(new TypeToken<List<Game>>(){}, String.format("api/game%s", supportsAddons ? "?supportsAddons=true" : ""));
 	}
 
 	public Calendar GetGameDatabaseTimestamp() throws CurseAuthException
@@ -315,19 +309,19 @@ public class AddonServiceJson {
 		return this.getCalendar("api/game/timestamp");
 	}
 
-	public AddonServiceCategory GetCategoryByID(int categoryId) throws CurseAuthException
+	public Category GetCategoryByID(int categoryId) throws CurseAuthException
 	{
-		return this.getJson(AddonServiceCategory.class, String.format("api/category/%d", categoryId));
+		return this.getJson(Category.class, String.format("api/category/%d", categoryId));
 	}
 
-	public AddonServiceCategory GetCategoryBySlug(String slug) throws CurseAuthException
+	public Category GetCategoryBySlug(String slug) throws CurseAuthException
 	{
-		return this.getJson(AddonServiceCategory.class, String.format("api/category?slug=%s", slug));
+		return this.getJson(Category.class, String.format("api/category?slug=%s", slug));
 	}
 
-	public List<AddonServiceCategory> GetCategories() throws CurseAuthException
+	public List<Category> GetCategories() throws CurseAuthException
 	{
-		return this.getList(new TypeToken<AddonServiceCategory>(){}, "api/category");
+		return this.getList(new TypeToken<List<Category>>(){}, "api/category");
 	}
 
 	public Calendar GetCategoryDatabaseTimestamp() throws CurseAuthException
@@ -335,9 +329,9 @@ public class AddonServiceJson {
 		return this.getCalendar("api/category/timestamp");
 	}
 
-	public List<AddonServiceCategory> GetCategoriesBySection(int sectionId) throws CurseAuthException
+	public List<Category> GetCategoriesBySection(int sectionId) throws CurseAuthException
 	{
-		return this.getList(new TypeToken<AddonServiceCategory>(){}, String.format("api/category/section/%d", sectionId));
+		return this.getList(new TypeToken<List<Category>>(){}, String.format("api/category/section/%d", sectionId));
 	}
 
 	@FunctionalInterface
