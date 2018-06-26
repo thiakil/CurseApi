@@ -97,7 +97,7 @@ public class test {
 		//System.out.println(addon);
 		//System.out.println(svc.GetRepositoryMatchFromSlug("mc", "jei"));
 		//System.out.println(svc.getString("api/addon/269708/files"));
-		List<AddonFile> res = svc.GetAddonFiles(269708);
+		List<AddonFile> res = svc.getAddonFiles(269708);
 		for (AddonFile f : res) {
 			System.out.print(f.fileName);
 			System.out.print(" : ");
